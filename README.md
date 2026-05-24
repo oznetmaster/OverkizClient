@@ -1,0 +1,123 @@
+# OverkizClient
+
+A .NET client library for the **Overkiz** cloud and local REST API, enabling control and monitoring of smart-home gateways and devices from Somfy, Atlantic Cozytouch, Hitachi Hi Kumo, and other Overkiz-compatible ecosystems.
+
+[![NuGet](https://img.shields.io/nuget/v/OverkizClient.svg)](https://www.nuget.org/packages/OverkizClient)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+---
+
+## Supported Platforms
+
+| Target Framework | Supported |
+|---|---|
+| .NET 10 | ✅ |
+| .NET Framework 4.7.2 | ✅ |
+
+---
+
+## Supported Gateways / Cloud Servers
+
+| Brand / Server | Auth Method |
+|---|---|
+| Somfy TaHoma (Europe, America, Oceania) | Somfy OAuth 2.0 |
+| Atlantic Cozytouch | CozyTouch JWT |
+| Sauter Cozytouch | CozyTouch JWT |
+| Thermor Cozytouch | CozyTouch JWT |
+| Hitachi Hi Kumo (Asia, Europe, Oceania) | Username / Password |
+| Nexity Eugénie | AWS Cognito SRP |
+| Flexom by Bouygues | Username / Password |
+| Brandt Smart Control | Username / Password |
+| Rexel Energeasy Connect | Username / Password |
+| SIMU LiveIn2 | Username / Password |
+| Hexaom HexaConnect | Username / Password |
+| Ubiwizz by Decelect | Username / Password |
+| Somfy Developer Mode (local gateway) | Bearer Token |
+
+Local API (LAN) is supported for Somfy TaHoma and compatible gateways when a developer-mode bearer token is available.
+
+---
+
+## Installation
+
+```
+dotnet add package OverkizClient
+```
+
+---
+
+## Quick Start
+
+### Cloud Connection (Somfy)
+
+```csharp
+using OverKizApi;
+using OverKizApi.Enums;
+
+var client = new OverkizClient(Server.SomfyEurope);
+await client.Login("your@email.com", "your-password");
+
+var devices = await client.GetDevices();
+foreach (var device in devices)
+	Console.WriteLine($"{device.Label} — {device.DeviceURL}");
+```
+
+### Local Connection (LAN)
+
+```csharp
+var client = new OverkizClient("192.168.1.xxx", token: "your-local-bearer-token");
+await client.Login();
+
+var devices = await client.GetDevices();
+```
+
+### Sending a Command
+
+```csharp
+string execId = await client.ExecuteDeviceAction(
+	deviceUrl: "io://xxxx-xxxx-xxxx/12345678",
+	command:   new Command("open"));
+```
+
+### Live Event Streaming
+
+```csharp
+await client.RegisterEventListener();
+
+while (true)
+{
+	var events = await client.FetchEvents();
+	foreach (var ev in events)
+		Console.WriteLine($"{ev.Name}: {ev.DeviceURL}");
+
+	await Task.Delay(2000);
+}
+
+await client.UnregisterEventListener();
+```
+
+---
+
+## Test Console
+
+The solution includes `OverKizApi.TestConsole`, an interactive command-line tool for testing API operations — device listing, command execution, and live event watching — against both cloud and local connections.
+
+---
+
+## Documentation
+
+Full API documentation is available as a PDF in the [Releases](../../releases) section.
+
+---
+
+## Acknowledgements
+
+Protocol details and server endpoint information derived from
+[python-overkiz-api](https://github.com/iMicknl/python-overkiz-api)
+by Mick Vleeshouwer — MIT License.
+
+---
+
+## License
+
+MIT © 2026 Neil Colvin — see [LICENSE](LICENSE).

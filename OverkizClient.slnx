@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="OverKizApi.TestConsole/OverKizApi.TestConsole.csproj" />
+  <Project Path="OverKizApi/OverKizApi.csproj" />
+</Solution>
