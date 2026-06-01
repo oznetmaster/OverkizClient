@@ -36,6 +36,8 @@ A .NET client library for the **Overkiz** cloud and local REST API, enabling con
 
 Local API (LAN) is supported for Somfy TaHoma and compatible gateways when a developer-mode bearer token is available.
 
+Compatibility note: this .NET library is intended to work across the broader family of Overkiz-compatible gateways, following the design and gateway coverage of the original `python-overkiz-api` project. The current .NET implementation has been validated by the author with a Somfy TaHoma gateway; other Overkiz-compatible gateways and cloud ecosystems are expected to work but have not yet been directly tested here.
+
 ---
 
 ## Installation
