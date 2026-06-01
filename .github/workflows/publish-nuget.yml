@@ -4,9 +4,6 @@ on:
   push:
     tags:
       - 'v*'
-  release:
-    types:
-      - published
   workflow_dispatch:
     inputs:
       version:
@@ -42,7 +39,6 @@ jobs:
         run: |
           $rawVersion = switch ('${{ github.event_name }}') {
               'workflow_dispatch' { '${{ inputs.version }}'; break }
-              'release' { '${{ github.event.release.tag_name }}'; break }
               'push' { '${{ github.ref_name }}'; break }
               default { '' }
           }
@@ -94,10 +90,4 @@ jobs:
           name: ${{ steps.version.outputs.raw_version }}
           generate_release_notes: true
           prerelease: ${{ contains(steps.version.outputs.package_version, '-') }}
-          files: ${{ env.ARTIFACT_DIR }}/*.nupkg
-
-      - name: Attach package to GitHub release
-        if: github.event_name == 'release'
-        uses: softprops/action-gh-release@v2
-        with:
           files: ${{ env.ARTIFACT_DIR }}/*.nupkg
