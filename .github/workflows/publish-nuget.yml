@@ -1,6 +1,9 @@
 name: Publish NuGet package
 
 on:
+  push:
+    tags:
+      - 'v*'
   release:
     types:
       - published
@@ -37,7 +40,12 @@ jobs:
         id: version
         shell: pwsh
         run: |
-          $rawVersion = if ('${{ github.event_name }}' -eq 'workflow_dispatch') { '${{ inputs.version }}' } else { '${{ github.event.release.tag_name }}' }
+          $rawVersion = switch ('${{ github.event_name }}') {
+              'workflow_dispatch' { '${{ inputs.version }}'; break }
+              'release' { '${{ github.event.release.tag_name }}'; break }
+              'push' { '${{ github.ref_name }}'; break }
+              default { '' }
+          }
           if ([string]::IsNullOrWhiteSpace($rawVersion)) {
               throw 'No release tag or manual version was provided.'
           }
@@ -77,6 +85,16 @@ jobs:
           foreach ($package in $packages) {
               dotnet nuget push $package.FullName --api-key "${{ secrets.NUGET_API_KEY }}" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
           }
+
+      - name: Create GitHub release from tag
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.raw_version }}
+          name: ${{ steps.version.outputs.raw_version }}
+          generate_release_notes: true
+          prerelease: ${{ contains(steps.version.outputs.package_version, '-') }}
+          files: ${{ env.ARTIFACT_DIR }}/*.nupkg
 
       - name: Attach package to GitHub release
         if: github.event_name == 'release'
