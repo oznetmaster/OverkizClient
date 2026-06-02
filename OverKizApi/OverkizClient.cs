@@ -84,6 +84,9 @@ public sealed class OverkizClient : IAsyncDisposable
 		get; private set;
 		}
 
+	/// <summary>The currently selected Rexel gateway ID, or <see langword="null"/> if none has been selected.</summary>
+	public string? SelectedGatewayId { get; private set; }
+
 	// ── Private fields ─────────────────────────────────────────────────────
 	private readonly HttpClient _http;
 	private readonly bool _ownsHttpClient;
@@ -199,8 +202,26 @@ public sealed class OverkizClient : IAsyncDisposable
 			return true;
 			}
 
+		// Rexel uses externally-managed bearer tokens and gateway selection.
+		if (Server == OverkizConst.SupportedServers [Enums.Server.Rexel])
+			{
+			if (string.IsNullOrWhiteSpace (_accessToken))
+				throw new InvalidOperationException ("Rexel requires an externally managed bearer token. Supply it via the constructor token parameter.");
+
+			IReadOnlyList<GatewayCandidate> gateways = await DiscoverRexelGateways ();
+			if (gateways.Count == 1)
+				SelectRexelGateway (gateways [0].GatewayId);
+
+			if (registerEventListener)
+				await RegisterEventListener ();
+			else
+				_ = await GetGateways ();
+
+			return true;
+			}
+
 		// Somfy TaHoma (Europe) uses OAuth
-		if (Server == OverkizConst.SupportedServers[Enums.Server.SomfyEurope])
+		if (Server == OverkizConst.SupportedServers [Enums.Server.SomfyEurope])
 			{
 			_ = await SomfyTahomaGetAccessToken ();
 			if (registerEventListener)
@@ -209,9 +230,9 @@ public sealed class OverkizClient : IAsyncDisposable
 			}
 
 		// CozyTouch servers use a JWT
-		if (Server == OverkizConst.SupportedServers[Enums.Server.AtlanticCozytouch] ||
-			Server == OverkizConst.SupportedServers[Enums.Server.ThermorCozytouch] ||
-			Server == OverkizConst.SupportedServers[Enums.Server.SauterCozytouch])
+		if (Server == OverkizConst.SupportedServers [Enums.Server.AtlanticCozytouch] ||
+			Server == OverkizConst.SupportedServers [Enums.Server.ThermorCozytouch] ||
+			Server == OverkizConst.SupportedServers [Enums.Server.SauterCozytouch])
 			{
 			var jwt = await CozytouchLogin ();
 			Dictionary<string, object?> response = await PostAsync ("login", new Dictionary<string, string> { ["jwt"] = jwt });
@@ -222,7 +243,7 @@ public sealed class OverkizClient : IAsyncDisposable
 			}
 
 		// Nexity uses SSO token
-		if (Server == OverkizConst.SupportedServers[Enums.Server.Nexity])
+		if (Server == OverkizConst.SupportedServers [Enums.Server.Nexity])
 			{
 			var ssoToken = await NexityLogin ();
 			var userId = Username.Replace ("@", "_-_");
@@ -416,7 +437,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <exception cref="NoRegisteredEventListenerException">Thrown when no event listener is registered. Call <see cref="RegisterEventListener"/> first.</exception>
 	public async Task<IReadOnlyList<EventObject>> FetchEvents ()
 		{
-		var (events, _) = await FetchEventsRaw ();
+		(IReadOnlyList<EventObject>? events, string _) = await FetchEventsRaw ();
 		return events;
 		}
 
@@ -429,7 +450,7 @@ public sealed class OverkizClient : IAsyncDisposable
 			throw new NoRegisteredEventListenerException ("No event listener registered. Call RegisterEventListener first.");
 
 		var response = await PostRawAsync ($"events/{EventListenerId}/fetch");
-		var events = JsonSerializer.Deserialize<List<EventObject>> (response, _jsonOptions) ?? [];
+		List<EventObject> events = JsonSerializer.Deserialize<List<EventObject>> (response, _jsonOptions) ?? [];
 
 		// Local-only: synthesize DeviceUpdatedEvent for renames not signalled by the gateway.
 		if (ApiType == APIType.Local && DateTime.UtcNow - _lastLabelCheck >= _labelPollInterval)
@@ -437,7 +458,7 @@ public sealed class OverkizClient : IAsyncDisposable
 			_lastLabelCheck = DateTime.UtcNow;
 			try
 				{
-				var devices = await GetDevices ();
+				IReadOnlyList<Device> devices = await GetDevices ();
 				bool snapshotWasEmpty = _labelSnapshot.Count == 0;
 
 				foreach (Device d in devices)
@@ -454,6 +475,7 @@ public sealed class OverkizClient : IAsyncDisposable
 							_labelSnapshot[d.DeviceUrl] = newLabel;
 							// Only emit the event once we had a prior snapshot to compare against.
 							if (!snapshotWasEmpty)
+								{
 								events.Add (new EventObject
 									{
 									Name      = "DeviceUpdatedEvent",
@@ -461,6 +483,7 @@ public sealed class OverkizClient : IAsyncDisposable
 									Label     = newLabel,
 									Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds (),
 									});
+								}
 							}
 						}
 					else
@@ -525,6 +548,53 @@ public sealed class OverkizClient : IAsyncDisposable
 		await RefreshTokenIfExpired ();
 		var raw = await GetRawAsync ("setup/gateways");
 		return JsonSerializer.Deserialize<List<Gateway>> (raw, _jsonOptions) ?? [];
+		}
+
+	/// <summary>Discovers Rexel homes and gateways available to the current bearer token.</summary>
+	/// <returns>A read-only list of gateway candidates.</returns>
+	/// <exception cref="InvalidOperationException">Thrown when the current server is not Rexel or no bearer token is available.</exception>
+	public async Task<IReadOnlyList<GatewayCandidate>> DiscoverRexelGateways ()
+		{
+		if (Server != OverkizConst.SupportedServers[Enums.Server.Rexel])
+			throw new InvalidOperationException ("Gateway discovery is only available for the Rexel server.");
+		if (string.IsNullOrWhiteSpace (_accessToken))
+			throw new InvalidOperationException ("Rexel gateway discovery requires a bearer token.");
+
+		var homesJson = await GetAbsoluteRawAsync ($"{OverkizConst.REXEL_ENDUSER_API}/homes", includeGatewayHeader: false);
+		List<RexelHomeDirectoryEntry> homes = JsonSerializer.Deserialize<List<RexelHomeDirectoryEntry>> (homesJson, _jsonOptions) ?? [];
+		var candidates = new List<GatewayCandidate> ();
+
+		foreach (RexelHomeDirectoryEntry home in homes)
+			{
+			string gatewaysJson = await GetAbsoluteRawAsync ($"{OverkizConst.REXEL_ENDUSER_API}/overkizgateways?homeId={Uri.EscapeDataString (home.Id)}", includeGatewayHeader: false);
+			List<RexelGatewayDirectoryEntry> gateways = JsonSerializer.Deserialize<List<RexelGatewayDirectoryEntry>> (gatewaysJson, _jsonOptions) ?? [];
+
+			foreach (RexelGatewayDirectoryEntry gateway in gateways)
+				{
+				candidates.Add (new GatewayCandidate
+					{
+					GatewayId = gateway.GatewayId,
+					HomeId = home.Id,
+					Label = home.Label,
+					ExternalId = gateway.ExternalId,
+					});
+				}
+			}
+
+		return candidates;
+		}
+
+	/// <summary>Selects the Rexel gateway to scope subsequent requests to.</summary>
+	/// <param name="gatewayId">Gateway identifier returned by <see cref="DiscoverRexelGateways"/>.</param>
+	/// <exception cref="InvalidOperationException">Thrown when the current server is not Rexel.</exception>
+	public void SelectRexelGateway (string gatewayId)
+		{
+		if (Server != OverkizConst.SupportedServers[Enums.Server.Rexel])
+			throw new InvalidOperationException ("Gateway selection is only available for the Rexel server.");
+
+		SelectedGatewayId = string.IsNullOrWhiteSpace (gatewayId)
+			? throw new ArgumentException ("Gateway ID is required.", nameof (gatewayId))
+			: gatewayId;
 		}
 
 	/// <summary>Returns all devices registered across all gateways in the setup.</summary>
@@ -778,15 +848,37 @@ public sealed class OverkizClient : IAsyncDisposable
 
 	// ── HTTP helpers ───────────────────────────────────────────────────────
 
-	private void ApplyAuthHeader () => _http.DefaultRequestHeaders.Authorization = _accessToken is not null
+	private void ApplyRequestHeaders (bool includeGatewayHeader = true)
+		{
+		_http.DefaultRequestHeaders.Authorization = _accessToken is not null
 			? new AuthenticationHeaderValue ("Bearer", _accessToken)
 			: null;
+
+		_ = _http.DefaultRequestHeaders.Remove (OverkizConst.REXEL_GATEWAY_HEADER);
+		if (includeGatewayHeader && Server.RequiresGatewaySelection)
+			{
+			if (string.IsNullOrWhiteSpace (SelectedGatewayId))
+				throw new NoGatewaySelectedException ("Multiple Rexel gateways available; call DiscoverRexelGateways and SelectRexelGateway before making requests.");
+
+			_http.DefaultRequestHeaders.Add (OverkizConst.REXEL_GATEWAY_HEADER, SelectedGatewayId);
+			}
+		}
 
 	private async Task<string> GetRawAsync (string path)
 		{
 		await RefreshTokenIfExpired ();
-		ApplyAuthHeader ();
+		ApplyRequestHeaders ();
 		using HttpResponseMessage resp = await _http.GetAsync (path);
+		var body = await resp.Content.ReadAsStringAsync ();
+		await ThrowIfOverkizError (resp, body);
+		return body;
+		}
+
+	private async Task<string> GetAbsoluteRawAsync (string absoluteUri, bool includeGatewayHeader)
+		{
+		await RefreshTokenIfExpired ();
+		ApplyRequestHeaders (includeGatewayHeader);
+		using HttpResponseMessage resp = await _http.GetAsync (new Uri (absoluteUri));
 		var body = await resp.Content.ReadAsStringAsync ();
 		await ThrowIfOverkizError (resp, body);
 		return body;
@@ -801,7 +893,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	private async Task<string> PostRawAsync (string path, object? payload = null)
 		{
 		await RefreshTokenIfExpired ();
-		ApplyAuthHeader ();
+		ApplyRequestHeaders ();
 		HttpContent content = payload is null
 			? new ByteArrayContent ([])
 			: (HttpContent)JsonContent.Create (payload, options: _jsonOptions);
@@ -822,7 +914,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	private async Task DeleteAsync (string path)
 		{
 		await RefreshTokenIfExpired ();
-		ApplyAuthHeader ();
+		ApplyRequestHeaders ();
 		using HttpResponseMessage resp = await _http.DeleteAsync (path);
 		var body = await resp.Content.ReadAsStringAsync ();
 		await ThrowIfOverkizError (resp, body);

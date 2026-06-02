@@ -18,8 +18,8 @@
     <Company>Neil Colvin</Company>
     <Product>OverKizApi</Product>
     <Copyright>Copyright ©2026 Neil Colvin</Copyright>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
 
     <!-- NuGet package metadata -->
     <PackageId>OverkizClient</PackageId>
@@ -33,6 +33,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/oznetmaster/OverkizClient</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <NoWarn>NU5104</NoWarn>
     <ComVisible>false</ComVisible>
     <ImplicitUsings>disable</ImplicitUsings>
 
@@ -116,27 +117,4 @@
    <None Include="..\README.md" Pack="true" PackagePath="\" />
  </ItemGroup>
 
-  <!-- Generate DocFX documentation on Release builds (net10.0 pass only to avoid running twice) -->
-  <Target Name="GenerateDocFx"
-          AfterTargets="Build"
-          Condition="'$(Configuration)' == 'Release' AND '$(TargetFramework)' == 'net10.0'">
-    <Message Text="Running DocFX (metadata)..." Importance="high" />
-    <Exec Command="docfx metadata &quot;$(MSBuildThisFileDirectory)..\docs\docfx.json&quot;"
-          WorkingDirectory="$(MSBuildThisFileDirectory)..\docs"
-          ContinueOnError="true" />
-    <Message Text="Injecting cover page into api/toc.yml..." Importance="high" />
-    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildThisFileDirectory)..\docs\inject-cover.ps1&quot; -TocPath &quot;$(MSBuildThisFileDirectory)..\docs\api\toc.yml&quot;"
-          ContinueOnError="true" />
-    <Message Text="Running DocFX (site)..." Importance="high" />
-    <Exec Command="docfx build &quot;$(MSBuildThisFileDirectory)..\docs\docfx.json&quot;"
-          WorkingDirectory="$(MSBuildThisFileDirectory)..\docs"
-          ContinueOnError="true" />
-    <Message Text="Running DocFX (pdf)..." Importance="high" />
-    <Exec Command="docfx pdf &quot;$(MSBuildThisFileDirectory)..\docs\docfx.json&quot;"
-          WorkingDirectory="$(MSBuildThisFileDirectory)..\docs"
-          ContinueOnError="true" />
-    <Exec Command="move /Y &quot;$(MSBuildThisFileDirectory)..\docs\_pdf\OverKizApi_api.pdf&quot; &quot;$(MSBuildThisFileDirectory)..\docs\_pdf\OverKizApi.pdf&quot;"
-          ContinueOnError="true" />
-  </Target>
-
-</Project>
+  </Project>

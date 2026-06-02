@@ -28,7 +28,7 @@ A .NET client library for the **Overkiz** cloud and local REST API, enabling con
 | Nexity Eugénie | AWS Cognito SRP |
 | Flexom by Bouygues | Username / Password |
 | Brandt Smart Control | Username / Password |
-| Rexel Energeasy Connect | Username / Password |
+| Rexel Energeasy Connect | External Bearer Token + Gateway Selection |
 | SIMU LiveIn2 | Username / Password |
 | Hexaom HexaConnect | Username / Password |
 | Ubiwizz by Decelect | Username / Password |
@@ -36,7 +36,7 @@ A .NET client library for the **Overkiz** cloud and local REST API, enabling con
 
 Local API (LAN) is supported for Somfy TaHoma and compatible gateways when a developer-mode bearer token is available.
 
-Compatibility note: this .NET library is intended to work across the broader family of Overkiz-compatible gateways, following the design and gateway coverage of the original `python-overkiz-api` project. The current .NET implementation has been validated by the author with a Somfy TaHoma gateway; other Overkiz-compatible gateways and cloud ecosystems are expected to work but have not yet been directly tested here.
+Compatibility note: this .NET library is intended to work across the broader family of Overkiz-compatible gateways, following the design and gateway coverage of the original `python-overkiz-api` project. The current .NET implementation has been validated by the author with a Somfy TaHoma gateway; other Overkiz-compatible gateways and cloud ecosystems are expected to work but have not yet been directly tested here. Recent upstream parity updates include the modern Rexel backend flow and newer Hitachi Hi Kumo `hlrrwifi://` device URL handling.
 
 ---
 
@@ -56,18 +56,52 @@ dotnet add package OverkizClient
 using OverKizApi;
 using OverKizApi.Enums;
 
-var client = new OverkizClient(Server.SomfyEurope);
-await client.Login("your@email.com", "your-password");
+await using var client = new OverkizClient(
+	username: "your@email.com",
+	password: "your-password",
+	server: OverkizConst.SupportedServers[Server.SomfyEurope]);
+
+await client.Login();
 
 var devices = await client.GetDevices();
 foreach (var device in devices)
-	Console.WriteLine($"{device.Label} — {device.DeviceURL}");
+	Console.WriteLine($"{device.Label} — {device.DeviceUrl}");
+```
+
+### Cloud Connection (Rexel)
+
+Rexel now uses an externally managed bearer token plus explicit gateway selection. Supply the token to the constructor, log in, then discover and select the target gateway before making normal setup/device calls.
+
+```csharp
+using OverKizApi;
+using OverKizApi.Enums;
+
+await using var client = new OverkizClient(
+	username: string.Empty,
+	password: string.Empty,
+	server: OverkizConst.SupportedServers[Server.Rexel],
+	token: "your-rexel-bearer-token");
+
+await client.Login();
+
+var gateways = await client.DiscoverRexelGateways();
+client.SelectRexelGateway(gateways[0].GatewayId);
+
+var devices = await client.GetDevices();
 ```
 
 ### Local Connection (LAN)
 
 ```csharp
-var client = new OverkizClient("192.168.1.xxx", token: "your-local-bearer-token");
+using var httpClient = new HttpClient(OverkizConst.CreateLocalHttpClientHandler());
+
+await using var client = new OverkizClient(
+	username: string.Empty,
+	password: string.Empty,
+	server: OverkizConst.LocalServer("192.168.1.xxx"),
+	token: "your-local-bearer-token",
+	httpClient: httpClient);
+
 await client.Login();
 
 var devices = await client.GetDevices();
@@ -78,7 +112,10 @@ var devices = await client.GetDevices();
 ```csharp
 string execId = await client.ExecuteDeviceAction(
 	deviceUrl: "io://xxxx-xxxx-xxxx/12345678",
-	command:   new Command("open"));
+	commands: new[]
+	{
+		new Command { Name = "open" }
+	});
 ```
 
 ### Live Event Streaming
@@ -102,7 +139,7 @@ await client.UnregisterEventListener();
 
 ## Test Console
 
-The solution includes `OverKizApi.TestConsole`, an interactive command-line tool for testing API operations — device listing, command execution, and live event watching — against both cloud and local connections.
+The solution includes `OverKizApi.TestConsole`, an interactive command-line tool for testing API operations — device listing, command execution, live event watching, and Rexel gateway discovery/selection — against both cloud and local connections.
 
 ---
 

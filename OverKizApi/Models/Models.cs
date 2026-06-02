@@ -24,6 +24,39 @@ public sealed class OverkizServer
 	public required string Manufacturer { get; init; }
 	/// <summary>Optional URL of the end-user configuration portal for this server.</summary>
 	public string? ConfigurationUrl { get; init; }
+	/// <summary>Whether requests to this server must be scoped to a selected gateway via a custom header.</summary>
+	public bool RequiresGatewaySelection { get; init; }
+	}
+
+/// <summary>Represents a Rexel gateway candidate discovered from the end-user directory API.</summary>
+public sealed class GatewayCandidate
+	{
+	/// <summary>Rexel gateway identifier required in the <c>gatewayId</c> header.</summary>
+	public required string GatewayId { get; init; }
+	/// <summary>Rexel home identifier that owns the gateway.</summary>
+	public required string HomeId { get; init; }
+	/// <summary>Optional human-readable home label.</summary>
+	public string? Label { get; init; }
+	/// <summary>Optional external identifier associated with the gateway.</summary>
+	public string? ExternalId { get; init; }
+	}
+
+internal sealed class RexelHomeDirectoryEntry
+	{
+	[JsonPropertyName ("id")]
+	public required string Id { get; init; }
+
+	[JsonPropertyName ("label")]
+	public string? Label { get; init; }
+	}
+
+internal sealed class RexelGatewayDirectoryEntry
+	{
+	[JsonPropertyName ("gatewayId")]
+	public required string GatewayId { get; init; }
+
+	[JsonPropertyName ("externalId")]
+	public string? ExternalId { get; init; }
 	}
 
 /// <summary>
@@ -248,6 +281,8 @@ public sealed class Definition
 /// </summary>
 public sealed class Device
 	{
+	private const string HITACHI_HLRR_WIFI_PREFIX = "hlrrwifi";
+
 	/// <summary>
 	/// Unique device URL in the format <c>protocol://gatewayId/deviceAddress[#subsystemId]</c>
 	/// (e.g. <c>io://1234-5678-9012/12345678</c>).
@@ -279,20 +314,83 @@ public sealed class Device
 
 	// Parsed from device URL
 	/// <summary>Communication protocol parsed from the device URL prefix (e.g. <see cref="Enums.Protocol.Io"/>).</summary>
-	public Protocol? Protocol { get; init; }
+	public Protocol? Protocol => TryParseDeviceUrl (DeviceUrl, out ParsedDeviceUrl? parsed) && parsed is not null
+				? parsed.Protocol
+				: null;
 	/// <summary>Gateway serial number parsed from the device URL.</summary>
-	public string? GatewayId { get; init; }
+	public string? GatewayId => TryParseDeviceUrl (DeviceUrl, out ParsedDeviceUrl? parsed) && parsed is not null
+				? parsed.GatewayId
+				: null;
 	/// <summary>Device address portion parsed from the device URL.</summary>
-	public string? DeviceAddress { get; init; }
+	public string? DeviceAddress => TryParseDeviceUrl (DeviceUrl, out ParsedDeviceUrl? parsed) && parsed is not null
+				? parsed.DeviceAddress
+				: null;
 	/// <summary>Sub-system index parsed from the device URL fragment, or <see langword="null"/> for top-level devices.</summary>
-	public int? SubsystemId { get; init; }
+	public int? SubsystemId => TryParseDeviceUrl (DeviceUrl, out ParsedDeviceUrl? parsed) && parsed is not null
+				? parsed.SubsystemId
+				: null;
 	/// <summary><see langword="true"/> if this device is a sub-device (has a <see cref="SubsystemId"/>).</summary>
-	public bool IsSubDevice { get; init; }
+	public bool IsSubDevice => SubsystemId.HasValue;
 
 	/// <summary>UI class parsed from <see cref="Definition.UiClass"/>.</summary>
-	public UIClass? UiClass { get; init; }
+	public UIClass? UiClass => Enum.TryParse<UIClass> (Definition?.UiClass, ignoreCase: true, out UIClass value) ? value : null;
 	/// <summary>UI widget parsed from <see cref="Definition.WidgetName"/>.</summary>
-	public UIWidget? Widget { get; init; }
+	public UIWidget? Widget => Enum.TryParse<UIWidget> (Definition?.WidgetName, ignoreCase: true, out UIWidget value) ? value : null;
+
+	private static bool TryParseDeviceUrl (string? deviceUrl, out ParsedDeviceUrl? parsed)
+		{
+		parsed = null;
+		if (deviceUrl is not string normalizedDeviceUrl || string.IsNullOrWhiteSpace (normalizedDeviceUrl))
+			return false;
+
+		int schemeIndex = normalizedDeviceUrl.IndexOf ("://", StringComparison.Ordinal);
+		if (schemeIndex <= 0)
+			return false;
+
+		string protocolSegment = normalizedDeviceUrl[..schemeIndex];
+		string remainder = normalizedDeviceUrl[(schemeIndex + 3)..];
+		int slashIndex = remainder.IndexOf ('/');
+		if (slashIndex <= 0 || slashIndex == remainder.Length - 1)
+			return false;
+
+		string gatewayId = remainder[..slashIndex];
+		string deviceAddressSegment = remainder[(slashIndex + 1)..];
+		string? deviceAddress = deviceAddressSegment;
+		int? subsystemId = null;
+
+		int hashIndex = deviceAddressSegment.IndexOf ('#');
+		if (hashIndex >= 0)
+			{
+				deviceAddress = deviceAddressSegment[..hashIndex];
+				string subsystemSegment = deviceAddressSegment[(hashIndex + 1)..];
+				subsystemId = int.TryParse (subsystemSegment, NumberStyles.Integer, CultureInfo.InvariantCulture, out int parsedSubsystemId)
+					? parsedSubsystemId
+					: null;
+			}
+
+		Protocol protocol = protocolSegment.Equals (HITACHI_HLRR_WIFI_PREFIX, StringComparison.OrdinalIgnoreCase)
+			? Enums.Protocol.HlrrWifi
+			: Enum.TryParse<Protocol> (protocolSegment, ignoreCase: true, out Protocol parsedProtocol)
+				? parsedProtocol
+				: Enums.Protocol.Unknown;
+
+		parsed = new ParsedDeviceUrl
+			{
+			Protocol = protocol,
+			GatewayId = gatewayId,
+			DeviceAddress = deviceAddress,
+			SubsystemId = subsystemId,
+			};
+		return parsed is not null;
+		}
+
+	private sealed class ParsedDeviceUrl
+		{
+		public required Protocol Protocol { get; init; }
+		public required string GatewayId { get; init; }
+		public string? DeviceAddress { get; init; }
+		public int? SubsystemId { get; init; }
+		}
 	}
 
 /// <summary>Real-time connectivity information for a <see cref="Gateway"/>.</summary>

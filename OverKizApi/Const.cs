@@ -60,6 +60,17 @@ public static class OverkizConst
 	/// </summary>
 	public const string SOMFY_CLIENT_SECRET = "12k73w1n540g8o4cokg0cw84cog840k84cwggscwg884004kgk";
 
+	// --- Rexel ---
+
+	/// <summary>Base URL of the Rexel end-user directory API used to enumerate homes and gateways.</summary>
+	public const string REXEL_ENDUSER_API = "https://econnect-api.rexelservices.fr/api/enduser";
+
+	/// <summary>Base URL of the Rexel Overkiz-proxy backend used for gateway-scoped device requests.</summary>
+	public const string REXEL_BACKEND_API = REXEL_ENDUSER_API + "/overkiz/";
+
+	/// <summary>Name of the HTTP header required by Rexel to scope requests to a selected gateway.</summary>
+	public const string REXEL_GATEWAY_HEADER = "gatewayId";
+
 	// --- Local API ---
 
 	/// <summary>
@@ -76,22 +87,22 @@ public static class OverkizConst
 	/// <summary>
 	/// Builds the full local API endpoint URL for the given gateway IP or hostname.
 	/// </summary>
-	public static string LocalEndpoint(string gatewayIp)
+	public static string LocalEndpoint (string gatewayIp)
 		=> $"https://{gatewayIp}:{LOCAL_API_PORT}{LOCAL_API_PATH}";
 
 	/// <summary>
 	/// Creates an <see cref="OverkizServer"/> descriptor for a local gateway connection.
 	/// </summary>
-	public static OverkizServer LocalServer(string gatewayIp)
+	public static OverkizServer LocalServer (string gatewayIp)
 		=> new ()
-			{ Name = $"Local gateway ({gatewayIp})", Endpoint = LocalEndpoint(gatewayIp), Manufacturer = "Local" };
+			{ Name = $"Local gateway ({gatewayIp})", Endpoint = LocalEndpoint (gatewayIp), Manufacturer = "Local" };
 
 	/// <summary>
 	/// Creates an <see cref="HttpClientHandler"/> suitable for connecting to a local Overkiz gateway.
 	/// The handler bypasses TLS certificate validation because local gateways use a self-signed certificate.
 	/// The caller is responsible for disposing both the handler and the <see cref="HttpClient"/> built from it.
 	/// </summary>
-	public static HttpClientHandler CreateLocalHttpClientHandler()
+	public static HttpClientHandler CreateLocalHttpClientHandler ()
 		=> new ()
 			{ ServerCertificateCustomValidationCallback = (_, _, _, _) => true };
 
@@ -161,9 +172,10 @@ public static class OverkizConst
 			[Server.Rexel] = new OverkizServer
 				{
 				Name = "Rexel Energeasy Connect",
-				Endpoint = "https://ha112-1.overkiz.com/enduser-mobile-web/enduserAPI/",
+				Endpoint = REXEL_BACKEND_API,
 				Manufacturer = "Rexel",
 				ConfigurationUrl = "https://utilisateur.energeasyconnect.com/user/#/zone/equipements",
+				RequiresGatewaySelection = true,
 				},
 			[Server.SauterCozytouch] = new OverkizServer
 				{

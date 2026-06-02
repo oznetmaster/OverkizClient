@@ -231,6 +231,13 @@ public class InvalidTokenException (string message) : BaseOverkizException (mess
 	{
 	}
 
+/// <summary>Raised when a Rexel request requires a selected gateway but no gateway has been chosen.</summary>
+/// <remarks>Initialises a new instance with the specified error <paramref name="message"/>.</remarks>
+/// <param name="message">The API error message.</param>
+public class NoGatewaySelectedException (string message) : BaseOverkizException (message)
+	{
+	}
+
 /// <summary>Raised when no local token exists for the specified UUID.</summary>
 /// <remarks>Initialises a new instance with the specified error <paramref name="message"/>.</remarks>
 /// <param name="message">The API error message, which typically includes the UUID.</param>
