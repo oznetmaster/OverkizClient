@@ -145,7 +145,7 @@ The solution includes `OverKizApi.TestConsole`, an interactive command-line tool
 
 ## Documentation
 
-Full API documentation is available as a PDF in the [Releases](../../releases) section.
+Full API documentation is published at **[oznetmaster.github.io/OverkizClient](https://oznetmaster.github.io/OverkizClient/)**.
 
 ---
 
