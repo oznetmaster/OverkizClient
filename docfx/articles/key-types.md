@@ -4,8 +4,7 @@ The generated API reference includes the most useful entry points for consumers 
 
 ## Main Entry Points
 
-- [OverkizClient](xref:OverKizApi.OverkizClient)
-  - the primary client class for cloud and local API communication
+- `OverkizClient` — the primary client class for cloud and local API communication
 
 ## Common Supporting Types
 
@@ -16,4 +15,4 @@ The generated API reference includes the most useful entry points for consumers 
 
 ## Full Reference
 
-For the full type list, use the generated [API Reference](xref:OverKizApi).
+For the full type list, use the generated [API Reference](../api/toc.yml).
