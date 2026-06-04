@@ -2,10 +2,11 @@
   "metadata": [
     {
       "src": [
-        {
-          "files": [ "../OverKizApi/OverKizApi.csproj" ]
-        }
-      ],
+          {
+            "files": [ "OverKizApi/OverKizApi.csproj" ],
+            "cwd": ".."
+          }
+        ],
       "dest": "api",
       "disableGitFeatures": false
     }
