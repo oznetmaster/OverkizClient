@@ -3,8 +3,7 @@
     {
       "src": [
         {
-          "files": [ "OverKizApi/OverKizApi.csproj" ],
-          "cwd": ".."
+          "files": [ "../OverKizApi/OverKizApi.csproj" ]
         }
       ],
       "dest": "api",
