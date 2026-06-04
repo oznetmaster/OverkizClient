@@ -13,12 +13,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   publish:
@@ -26,7 +20,6 @@ jobs:
     env:
       PROJECT_PATH: OverKizApi/OverKizApi.csproj
       ARTIFACT_DIR: ${{ github.workspace }}/artifacts
-      DOCFX_CONFIG: .\docfx\docfx.json
 
     steps:
       - name: Check out repository
@@ -98,29 +91,3 @@ jobs:
           generate_release_notes: true
           prerelease: ${{ contains(steps.version.outputs.package_version, '-') }}
           files: ${{ env.ARTIFACT_DIR }}/*.nupkg
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Restore local tools
-        run: dotnet tool restore
-
-      - name: Build DocFX site
-        run: dotnet tool run docfx "${{ env.DOCFX_CONFIG }}" --output .\docfx-site --property "TargetFramework=net10.0;Configuration=Release"
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .\docfx-site
-
-  deploy-docs:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: publish
-
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
