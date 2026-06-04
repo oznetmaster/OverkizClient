@@ -1,0 +1,34 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [ "OverKizApi/OverKizApi.csproj" ],
+          "cwd": ".."
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false
+    }
+  ],
+  "build": {
+    "content": [
+      { "files": [ "api/**.yml" ] },
+      { "files": [ "articles/**.md" ] },
+      { "files": [ "references/**.md" ] },
+      { "files": [ "index.md" ] },
+      { "files": [ "toc.yml" ] }
+    ],
+    "resource": [
+      { "files": [ "images/**" ] },
+      { "files": [ "styles/**" ] }
+    ],
+    "globalMetadata": {
+      "_appTitle": "OverkizClient API"
+    },
+    "template": [
+      "default",
+      "modern"
+    ]
+  }
+}

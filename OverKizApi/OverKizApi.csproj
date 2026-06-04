@@ -12,6 +12,7 @@
 	  <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 	  <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
 	  <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <!-- Migrated from AssemblyInfo.cs -->
     <AssemblyTitle>OverKizApi</AssemblyTitle>
