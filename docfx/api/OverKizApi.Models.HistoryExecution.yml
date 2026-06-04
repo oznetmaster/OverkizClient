@@ -1,0 +1,1033 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.HistoryExecution
+  commentId: T:OverKizApi.Models.HistoryExecution
+  id: HistoryExecution
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.HistoryExecution.Commands
+  - OverKizApi.Models.HistoryExecution.Duration
+  - OverKizApi.Models.HistoryExecution.EffectiveStartTime
+  - OverKizApi.Models.HistoryExecution.EndTime
+  - OverKizApi.Models.HistoryExecution.EventTime
+  - OverKizApi.Models.HistoryExecution.ExecutionSubType
+  - OverKizApi.Models.HistoryExecution.ExecutionType
+  - OverKizApi.Models.HistoryExecution.FailureType
+  - OverKizApi.Models.HistoryExecution.Id
+  - OverKizApi.Models.HistoryExecution.Label
+  - OverKizApi.Models.HistoryExecution.Owner
+  - OverKizApi.Models.HistoryExecution.Source
+  - OverKizApi.Models.HistoryExecution.State
+  - OverKizApi.Models.HistoryExecution.Type
+  langs:
+  - csharp
+  - vb
+  name: HistoryExecution
+  nameWithType: HistoryExecution
+  fullName: OverKizApi.Models.HistoryExecution
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: HistoryExecution
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 695
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: A completed execution record as stored in the gateway history log.
+  example: []
+  syntax:
+    content: public sealed class HistoryExecution
+    content.vb: Public NotInheritable Class HistoryExecution
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.Models.HistoryExecution.Id
+  commentId: P:OverKizApi.Models.HistoryExecution.Id
+  id: Id
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: HistoryExecution.Id
+  fullName: OverKizApi.Models.HistoryExecution.Id
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Id
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 698
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unique execution ID.
+  example: []
+  syntax:
+    content: public string? Id { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Id As String
+  overload: OverKizApi.Models.HistoryExecution.Id*
+- uid: OverKizApi.Models.HistoryExecution.EventTime
+  commentId: P:OverKizApi.Models.HistoryExecution.EventTime
+  id: EventTime
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: EventTime
+  nameWithType: HistoryExecution.EventTime
+  fullName: OverKizApi.Models.HistoryExecution.EventTime
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: EventTime
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 700
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unix epoch millisecond timestamp of when the execution was registered.
+  example: []
+  syntax:
+    content: public long EventTime { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property EventTime As Long
+  overload: OverKizApi.Models.HistoryExecution.EventTime*
+- uid: OverKizApi.Models.HistoryExecution.Owner
+  commentId: P:OverKizApi.Models.HistoryExecution.Owner
+  id: Owner
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: HistoryExecution.Owner
+  fullName: OverKizApi.Models.HistoryExecution.Owner
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Owner
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 702
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Owner key identifying who triggered the execution.
+  example: []
+  syntax:
+    content: public string? Owner { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Owner As String
+  overload: OverKizApi.Models.HistoryExecution.Owner*
+- uid: OverKizApi.Models.HistoryExecution.Source
+  commentId: P:OverKizApi.Models.HistoryExecution.Source
+  id: Source
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: HistoryExecution.Source
+  fullName: OverKizApi.Models.HistoryExecution.Source
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Source
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 704
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Source that submitted the execution (e.g. <code>"APP"</code>, <code>"SCENARIO"</code>).
+  example: []
+  syntax:
+    content: public string? Source { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Source As String
+  overload: OverKizApi.Models.HistoryExecution.Source*
+- uid: OverKizApi.Models.HistoryExecution.EndTime
+  commentId: P:OverKizApi.Models.HistoryExecution.EndTime
+  id: EndTime
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: EndTime
+  nameWithType: HistoryExecution.EndTime
+  fullName: OverKizApi.Models.HistoryExecution.EndTime
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: EndTime
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 706
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unix epoch millisecond timestamp when the execution completed, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if still active.
+  example: []
+  syntax:
+    content: public long? EndTime { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int64}
+    content.vb: Public Property EndTime As Long?
+  overload: OverKizApi.Models.HistoryExecution.EndTime*
+- uid: OverKizApi.Models.HistoryExecution.EffectiveStartTime
+  commentId: P:OverKizApi.Models.HistoryExecution.EffectiveStartTime
+  id: EffectiveStartTime
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: EffectiveStartTime
+  nameWithType: HistoryExecution.EffectiveStartTime
+  fullName: OverKizApi.Models.HistoryExecution.EffectiveStartTime
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: EffectiveStartTime
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 708
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unix epoch millisecond timestamp when the gateway actually started executing, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if it was queued.
+  example: []
+  syntax:
+    content: public long? EffectiveStartTime { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int64}
+    content.vb: Public Property EffectiveStartTime As Long?
+  overload: OverKizApi.Models.HistoryExecution.EffectiveStartTime*
+- uid: OverKizApi.Models.HistoryExecution.Duration
+  commentId: P:OverKizApi.Models.HistoryExecution.Duration
+  id: Duration
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: HistoryExecution.Duration
+  fullName: OverKizApi.Models.HistoryExecution.Duration
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Duration
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 710
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Total duration of the execution in milliseconds.
+  example: []
+  syntax:
+    content: public long Duration { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property Duration As Long
+  overload: OverKizApi.Models.HistoryExecution.Duration*
+- uid: OverKizApi.Models.HistoryExecution.Label
+  commentId: P:OverKizApi.Models.HistoryExecution.Label
+  id: Label
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: HistoryExecution.Label
+  fullName: OverKizApi.Models.HistoryExecution.Label
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Label
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 712
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Optional user-visible label (e.g. the scenario name that triggered the execution).
+  example: []
+  syntax:
+    content: public string? Label { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: OverKizApi.Models.HistoryExecution.Label*
+- uid: OverKizApi.Models.HistoryExecution.Type
+  commentId: P:OverKizApi.Models.HistoryExecution.Type
+  id: Type
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: HistoryExecution.Type
+  fullName: OverKizApi.Models.HistoryExecution.Type
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Type
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 714
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Execution type string (see <xref href="OverKizApi.Models.HistoryExecution.ExecutionType" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public string? Type { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Type As String
+  overload: OverKizApi.Models.HistoryExecution.Type*
+- uid: OverKizApi.Models.HistoryExecution.State
+  commentId: P:OverKizApi.Models.HistoryExecution.State
+  id: State
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: HistoryExecution.State
+  fullName: OverKizApi.Models.HistoryExecution.State
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: State
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 716
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Terminal state of the execution.
+  example: []
+  syntax:
+    content: public ExecutionState State { get; init; }
+    parameters: []
+    return:
+      type: OverKizApi.Enums.ExecutionState
+    content.vb: Public Property State As ExecutionState
+  overload: OverKizApi.Models.HistoryExecution.State*
+- uid: OverKizApi.Models.HistoryExecution.FailureType
+  commentId: P:OverKizApi.Models.HistoryExecution.FailureType
+  id: FailureType
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: FailureType
+  nameWithType: HistoryExecution.FailureType
+  fullName: OverKizApi.Models.HistoryExecution.FailureType
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FailureType
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 718
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Overall failure type string for the execution (see <xref href="OverKizApi.Models.HistoryExecution.FailureType" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public string? FailureType { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FailureType As String
+  overload: OverKizApi.Models.HistoryExecution.FailureType*
+- uid: OverKizApi.Models.HistoryExecution.Commands
+  commentId: P:OverKizApi.Models.HistoryExecution.Commands
+  id: Commands
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: Commands
+  nameWithType: HistoryExecution.Commands
+  fullName: OverKizApi.Models.HistoryExecution.Commands
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Commands
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 720
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Per-command outcome records for this execution.
+  example: []
+  syntax:
+    content: public IReadOnlyList<HistoryExecutionCommand> Commands { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.HistoryExecutionCommand}
+    content.vb: Public Property Commands As IReadOnlyList(Of HistoryExecutionCommand)
+  overload: OverKizApi.Models.HistoryExecution.Commands*
+- uid: OverKizApi.Models.HistoryExecution.ExecutionType
+  commentId: P:OverKizApi.Models.HistoryExecution.ExecutionType
+  id: ExecutionType
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: ExecutionType
+  nameWithType: HistoryExecution.ExecutionType
+  fullName: OverKizApi.Models.HistoryExecution.ExecutionType
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecutionType
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 722
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: How the execution was triggered (immediate, delayed, sunrise, or sunset).
+  example: []
+  syntax:
+    content: public ExecutionType ExecutionType { get; init; }
+    parameters: []
+    return:
+      type: OverKizApi.Enums.ExecutionType
+    content.vb: Public Property ExecutionType As ExecutionType
+  overload: OverKizApi.Models.HistoryExecution.ExecutionType*
+- uid: OverKizApi.Models.HistoryExecution.ExecutionSubType
+  commentId: P:OverKizApi.Models.HistoryExecution.ExecutionSubType
+  id: ExecutionSubType
+  parent: OverKizApi.Models.HistoryExecution
+  langs:
+  - csharp
+  - vb
+  name: ExecutionSubType
+  nameWithType: HistoryExecution.ExecutionSubType
+  fullName: OverKizApi.Models.HistoryExecution.ExecutionSubType
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecutionSubType
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 724
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Further classification of the execution origin (internal, external, or scenario).
+  example: []
+  syntax:
+    content: public ExecutionSubType ExecutionSubType { get; init; }
+    parameters: []
+    return:
+      type: OverKizApi.Enums.ExecutionSubType
+    content.vb: Public Property ExecutionSubType As ExecutionSubType
+  overload: OverKizApi.Models.HistoryExecution.ExecutionSubType*
+references:
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OverKizApi.Models.HistoryExecution.Id*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.Id
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_Id
+  name: Id
+  nameWithType: HistoryExecution.Id
+  fullName: OverKizApi.Models.HistoryExecution.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.Models.HistoryExecution.EventTime*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.EventTime
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_EventTime
+  name: EventTime
+  nameWithType: HistoryExecution.EventTime
+  fullName: OverKizApi.Models.HistoryExecution.EventTime
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: OverKizApi.Models.HistoryExecution.Owner*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.Owner
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_Owner
+  name: Owner
+  nameWithType: HistoryExecution.Owner
+  fullName: OverKizApi.Models.HistoryExecution.Owner
+- uid: OverKizApi.Models.HistoryExecution.Source*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.Source
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_Source
+  name: Source
+  nameWithType: HistoryExecution.Source
+  fullName: OverKizApi.Models.HistoryExecution.Source
+- uid: OverKizApi.Models.HistoryExecution.EndTime*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.EndTime
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_EndTime
+  name: EndTime
+  nameWithType: HistoryExecution.EndTime
+  fullName: OverKizApi.Models.HistoryExecution.EndTime
+- uid: System.Nullable{System.Int64}
+  commentId: T:System.Nullable{System.Int64}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long?
+  nameWithType: long?
+  fullName: long?
+  nameWithType.vb: Long?
+  fullName.vb: Long?
+  name.vb: Long?
+  spec.csharp:
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  spec.vb:
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OverKizApi.Models.HistoryExecution.EffectiveStartTime*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.EffectiveStartTime
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_EffectiveStartTime
+  name: EffectiveStartTime
+  nameWithType: HistoryExecution.EffectiveStartTime
+  fullName: OverKizApi.Models.HistoryExecution.EffectiveStartTime
+- uid: OverKizApi.Models.HistoryExecution.Duration*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.Duration
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_Duration
+  name: Duration
+  nameWithType: HistoryExecution.Duration
+  fullName: OverKizApi.Models.HistoryExecution.Duration
+- uid: OverKizApi.Models.HistoryExecution.Label*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.Label
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_Label
+  name: Label
+  nameWithType: HistoryExecution.Label
+  fullName: OverKizApi.Models.HistoryExecution.Label
+- uid: OverKizApi.Models.HistoryExecution.ExecutionType
+  commentId: P:OverKizApi.Models.HistoryExecution.ExecutionType
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_ExecutionType
+  name: ExecutionType
+  nameWithType: HistoryExecution.ExecutionType
+  fullName: OverKizApi.Models.HistoryExecution.ExecutionType
+- uid: OverKizApi.Models.HistoryExecution.Type*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.Type
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_Type
+  name: Type
+  nameWithType: HistoryExecution.Type
+  fullName: OverKizApi.Models.HistoryExecution.Type
+- uid: OverKizApi.Models.HistoryExecution.State*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.State
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_State
+  name: State
+  nameWithType: HistoryExecution.State
+  fullName: OverKizApi.Models.HistoryExecution.State
+- uid: OverKizApi.Enums.ExecutionState
+  commentId: T:OverKizApi.Enums.ExecutionState
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.ExecutionState.html
+  name: ExecutionState
+  nameWithType: ExecutionState
+  fullName: OverKizApi.Enums.ExecutionState
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Models.HistoryExecution.FailureType
+  commentId: P:OverKizApi.Models.HistoryExecution.FailureType
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_FailureType
+  name: FailureType
+  nameWithType: HistoryExecution.FailureType
+  fullName: OverKizApi.Models.HistoryExecution.FailureType
+- uid: OverKizApi.Models.HistoryExecution.FailureType*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.FailureType
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_FailureType
+  name: FailureType
+  nameWithType: HistoryExecution.FailureType
+  fullName: OverKizApi.Models.HistoryExecution.FailureType
+- uid: OverKizApi.Models.HistoryExecution.Commands*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.Commands
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_Commands
+  name: Commands
+  nameWithType: HistoryExecution.Commands
+  fullName: OverKizApi.Models.HistoryExecution.Commands
+- uid: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.HistoryExecutionCommand}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OverKizApi.Models.HistoryExecutionCommand}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<HistoryExecutionCommand>
+  nameWithType: IReadOnlyList<HistoryExecutionCommand>
+  fullName: System.Collections.Generic.IReadOnlyList<OverKizApi.Models.HistoryExecutionCommand>
+  nameWithType.vb: IReadOnlyList(Of HistoryExecutionCommand)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.HistoryExecutionCommand)
+  name.vb: IReadOnlyList(Of HistoryExecutionCommand)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.HistoryExecutionCommand
+    name: HistoryExecutionCommand
+    href: OverKizApi.Models.HistoryExecutionCommand.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.HistoryExecutionCommand
+    name: HistoryExecutionCommand
+    href: OverKizApi.Models.HistoryExecutionCommand.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OverKizApi.Models.HistoryExecution.ExecutionType*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.ExecutionType
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_ExecutionType
+  name: ExecutionType
+  nameWithType: HistoryExecution.ExecutionType
+  fullName: OverKizApi.Models.HistoryExecution.ExecutionType
+- uid: OverKizApi.Enums.ExecutionType
+  commentId: T:OverKizApi.Enums.ExecutionType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.ExecutionType.html
+  name: ExecutionType
+  nameWithType: ExecutionType
+  fullName: OverKizApi.Enums.ExecutionType
+- uid: OverKizApi.Models.HistoryExecution.ExecutionSubType*
+  commentId: Overload:OverKizApi.Models.HistoryExecution.ExecutionSubType
+  href: OverKizApi.Models.HistoryExecution.html#OverKizApi_Models_HistoryExecution_ExecutionSubType
+  name: ExecutionSubType
+  nameWithType: HistoryExecution.ExecutionSubType
+  fullName: OverKizApi.Models.HistoryExecution.ExecutionSubType
+- uid: OverKizApi.Enums.ExecutionSubType
+  commentId: T:OverKizApi.Enums.ExecutionSubType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.ExecutionSubType.html
+  name: ExecutionSubType
+  nameWithType: ExecutionSubType
+  fullName: OverKizApi.Enums.ExecutionSubType

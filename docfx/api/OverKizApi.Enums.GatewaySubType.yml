@@ -1,0 +1,408 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.GatewaySubType
+  commentId: T:OverKizApi.Enums.GatewaySubType
+  id: GatewaySubType
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.GatewaySubType.Cozytouch
+  - OverKizApi.Enums.GatewaySubType.CozytouchV2
+  - OverKizApi.Enums.GatewaySubType.HiKumo
+  - OverKizApi.Enums.GatewaySubType.Nexity
+  - OverKizApi.Enums.GatewaySubType.Other
+  - OverKizApi.Enums.GatewaySubType.Rexel
+  - OverKizApi.Enums.GatewaySubType.Somfy
+  - OverKizApi.Enums.GatewaySubType.TahomaBeecon
+  - OverKizApi.Enums.GatewaySubType.TahomaBoxV1
+  - OverKizApi.Enums.GatewaySubType.TahomaClassicV2
+  - OverKizApi.Enums.GatewaySubType.TahomaSwitch
+  - OverKizApi.Enums.GatewaySubType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: GatewaySubType
+  nameWithType: GatewaySubType
+  fullName: OverKizApi.Enums.GatewaySubType
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewaySubType
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 20
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Identifies the hardware model / product family of a gateway.
+  example: []
+  syntax:
+    content: public enum GatewaySubType
+    content.vb: Public Enum GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.Unknown
+  commentId: F:OverKizApi.Enums.GatewaySubType.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: GatewaySubType.Unknown
+  fullName: OverKizApi.Enums.GatewaySubType.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 23
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Hardware model is not known.
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.TahomaSwitch
+  commentId: F:OverKizApi.Enums.GatewaySubType.TahomaSwitch
+  id: TahomaSwitch
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: TahomaSwitch
+  nameWithType: GatewaySubType.TahomaSwitch
+  fullName: OverKizApi.Enums.GatewaySubType.TahomaSwitch
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TahomaSwitch
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 25
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: TaHoma Switch (first generation).
+  example: []
+  syntax:
+    content: TahomaSwitch = 1
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.TahomaBoxV1
+  commentId: F:OverKizApi.Enums.GatewaySubType.TahomaBoxV1
+  id: TahomaBoxV1
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: TahomaBoxV1
+  nameWithType: GatewaySubType.TahomaBoxV1
+  fullName: OverKizApi.Enums.GatewaySubType.TahomaBoxV1
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TahomaBoxV1
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 27
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: TaHoma Box v1.
+  example: []
+  syntax:
+    content: TahomaBoxV1 = 2
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.TahomaClassicV2
+  commentId: F:OverKizApi.Enums.GatewaySubType.TahomaClassicV2
+  id: TahomaClassicV2
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: TahomaClassicV2
+  nameWithType: GatewaySubType.TahomaClassicV2
+  fullName: OverKizApi.Enums.GatewaySubType.TahomaClassicV2
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TahomaClassicV2
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 29
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: TaHoma Classic v2.
+  example: []
+  syntax:
+    content: TahomaClassicV2 = 3
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.TahomaBeecon
+  commentId: F:OverKizApi.Enums.GatewaySubType.TahomaBeecon
+  id: TahomaBeecon
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: TahomaBeecon
+  nameWithType: GatewaySubType.TahomaBeecon
+  fullName: OverKizApi.Enums.GatewaySubType.TahomaBeecon
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TahomaBeecon
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 31
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: TaHoma Beecon.
+  example: []
+  syntax:
+    content: TahomaBeecon = 4
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.Cozytouch
+  commentId: F:OverKizApi.Enums.GatewaySubType.Cozytouch
+  id: Cozytouch
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: Cozytouch
+  nameWithType: GatewaySubType.Cozytouch
+  fullName: OverKizApi.Enums.GatewaySubType.Cozytouch
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Cozytouch
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 33
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Cozytouch first-generation gateway.
+  example: []
+  syntax:
+    content: Cozytouch = 5
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.CozytouchV2
+  commentId: F:OverKizApi.Enums.GatewaySubType.CozytouchV2
+  id: CozytouchV2
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: CozytouchV2
+  nameWithType: GatewaySubType.CozytouchV2
+  fullName: OverKizApi.Enums.GatewaySubType.CozytouchV2
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CozytouchV2
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 35
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Cozytouch v2 gateway.
+  example: []
+  syntax:
+    content: CozytouchV2 = 6
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.HiKumo
+  commentId: F:OverKizApi.Enums.GatewaySubType.HiKumo
+  id: HiKumo
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: HiKumo
+  nameWithType: GatewaySubType.HiKumo
+  fullName: OverKizApi.Enums.GatewaySubType.HiKumo
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: HiKumo
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 37
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Hitachi Hi Kumo gateway.
+  example: []
+  syntax:
+    content: HiKumo = 7
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.Nexity
+  commentId: F:OverKizApi.Enums.GatewaySubType.Nexity
+  id: Nexity
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: Nexity
+  nameWithType: GatewaySubType.Nexity
+  fullName: OverKizApi.Enums.GatewaySubType.Nexity
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Nexity
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 39
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Nexity Eugénie gateway.
+  example: []
+  syntax:
+    content: Nexity = 8
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.Rexel
+  commentId: F:OverKizApi.Enums.GatewaySubType.Rexel
+  id: Rexel
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: Rexel
+  nameWithType: GatewaySubType.Rexel
+  fullName: OverKizApi.Enums.GatewaySubType.Rexel
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Rexel
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 41
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Rexel Energeasy Connect gateway.
+  example: []
+  syntax:
+    content: Rexel = 9
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.Somfy
+  commentId: F:OverKizApi.Enums.GatewaySubType.Somfy
+  id: Somfy
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: Somfy
+  nameWithType: GatewaySubType.Somfy
+  fullName: OverKizApi.Enums.GatewaySubType.Somfy
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Somfy
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 43
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Somfy gateway (generic).
+  example: []
+  syntax:
+    content: Somfy = 10
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+- uid: OverKizApi.Enums.GatewaySubType.Other
+  commentId: F:OverKizApi.Enums.GatewaySubType.Other
+  id: Other
+  parent: OverKizApi.Enums.GatewaySubType
+  langs:
+  - csharp
+  - vb
+  name: Other
+  nameWithType: GatewaySubType.Other
+  fullName: OverKizApi.Enums.GatewaySubType.Other
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Other
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 45
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Any other unclassified hardware model.
+  example: []
+  syntax:
+    content: Other = 11
+    return:
+      type: OverKizApi.Enums.GatewaySubType
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.GatewaySubType
+  commentId: T:OverKizApi.Enums.GatewaySubType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.GatewaySubType.html
+  name: GatewaySubType
+  nameWithType: GatewaySubType
+  fullName: OverKizApi.Enums.GatewaySubType

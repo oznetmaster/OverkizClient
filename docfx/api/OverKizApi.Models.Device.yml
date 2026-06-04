@@ -1,0 +1,1315 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.Device
+  commentId: T:OverKizApi.Models.Device
+  id: Device
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.Device.Attributes
+  - OverKizApi.Models.Device.Available
+  - OverKizApi.Models.Device.ControllableName
+  - OverKizApi.Models.Device.DataProperties
+  - OverKizApi.Models.Device.Definition
+  - OverKizApi.Models.Device.DeviceAddress
+  - OverKizApi.Models.Device.DeviceUrl
+  - OverKizApi.Models.Device.Enabled
+  - OverKizApi.Models.Device.GatewayId
+  - OverKizApi.Models.Device.Id
+  - OverKizApi.Models.Device.IsSubDevice
+  - OverKizApi.Models.Device.Label
+  - OverKizApi.Models.Device.PlaceOid
+  - OverKizApi.Models.Device.Protocol
+  - OverKizApi.Models.Device.States
+  - OverKizApi.Models.Device.SubsystemId
+  - OverKizApi.Models.Device.Type
+  - OverKizApi.Models.Device.UiClass
+  - OverKizApi.Models.Device.Widget
+  langs:
+  - csharp
+  - vb
+  name: Device
+  nameWithType: Device
+  fullName: OverKizApi.Models.Device
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Device
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 281
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    Represents a physical or virtual device registered in a setup.
+
+    The <xref href="OverKizApi.Models.Device.DeviceUrl" data-throw-if-not-resolved="false"></xref> uniquely identifies the device across the entire API.
+  example: []
+  syntax:
+    content: public sealed class Device
+    content.vb: Public NotInheritable Class Device
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.Models.Device.DeviceUrl
+  commentId: P:OverKizApi.Models.Device.DeviceUrl
+  id: DeviceUrl
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: DeviceUrl
+  nameWithType: Device.DeviceUrl
+  fullName: OverKizApi.Models.Device.DeviceUrl
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeviceUrl
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 289
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    Unique device URL in the format <code>protocol://gatewayId/deviceAddress[#subsystemId]</code>
+
+    (e.g. <code>io://1234-5678-9012/12345678</code>).
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("deviceURL")]
+
+      public string? DeviceUrl { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("deviceURL")>
+
+      Public Property DeviceUrl As String
+  overload: OverKizApi.Models.Device.DeviceUrl*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deviceURL
+- uid: OverKizApi.Models.Device.Id
+  commentId: P:OverKizApi.Models.Device.Id
+  id: Id
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Device.Id
+  fullName: OverKizApi.Models.Device.Id
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Id
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 292
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Alias for <xref href="OverKizApi.Models.Device.DeviceUrl" data-throw-if-not-resolved="false"></xref>; provided for convenience.
+  example: []
+  syntax:
+    content: public string? Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Id As String
+  overload: OverKizApi.Models.Device.Id*
+- uid: OverKizApi.Models.Device.Attributes
+  commentId: P:OverKizApi.Models.Device.Attributes
+  id: Attributes
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: Attributes
+  nameWithType: Device.Attributes
+  fullName: OverKizApi.Models.Device.Attributes
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Attributes
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 294
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Device attributes (manufacturer-specific, immutable metadata states).
+  example: []
+  syntax:
+    content: public States Attributes { get; init; }
+    parameters: []
+    return:
+      type: OverKizApi.Models.States
+    content.vb: Public Property Attributes As States
+  overload: OverKizApi.Models.Device.Attributes*
+- uid: OverKizApi.Models.Device.Available
+  commentId: P:OverKizApi.Models.Device.Available
+  id: Available
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: Available
+  nameWithType: Device.Available
+  fullName: OverKizApi.Models.Device.Available
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Available
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 296
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Whether the device is currently reachable by the gateway.
+  example: []
+  syntax:
+    content: public bool Available { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Available As Boolean
+  overload: OverKizApi.Models.Device.Available*
+- uid: OverKizApi.Models.Device.Definition
+  commentId: P:OverKizApi.Models.Device.Definition
+  id: Definition
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: Definition
+  nameWithType: Device.Definition
+  fullName: OverKizApi.Models.Device.Definition
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Definition
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 298
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Full capability definition (commands and states) for this device.
+  example: []
+  syntax:
+    content: public Definition? Definition { get; init; }
+    parameters: []
+    return:
+      type: OverKizApi.Models.Definition
+    content.vb: Public Property Definition As Definition
+  overload: OverKizApi.Models.Device.Definition*
+- uid: OverKizApi.Models.Device.Enabled
+  commentId: P:OverKizApi.Models.Device.Enabled
+  id: Enabled
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: Enabled
+  nameWithType: Device.Enabled
+  fullName: OverKizApi.Models.Device.Enabled
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Enabled
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 300
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Whether the device is enabled in the user's setup.
+  example: []
+  syntax:
+    content: public bool Enabled { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Enabled As Boolean
+  overload: OverKizApi.Models.Device.Enabled*
+- uid: OverKizApi.Models.Device.Label
+  commentId: P:OverKizApi.Models.Device.Label
+  id: Label
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: Device.Label
+  fullName: OverKizApi.Models.Device.Label
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Label
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 302
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: User-visible label for the device.
+  example: []
+  syntax:
+    content: public string? Label { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: OverKizApi.Models.Device.Label*
+- uid: OverKizApi.Models.Device.ControllableName
+  commentId: P:OverKizApi.Models.Device.ControllableName
+  id: ControllableName
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: ControllableName
+  nameWithType: Device.ControllableName
+  fullName: OverKizApi.Models.Device.ControllableName
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ControllableName
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 304
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Controllable type name (e.g. <code>"io:RollerShutterGenericIOComponent"</code>).
+  example: []
+  syntax:
+    content: public string? ControllableName { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ControllableName As String
+  overload: OverKizApi.Models.Device.ControllableName*
+- uid: OverKizApi.Models.Device.States
+  commentId: P:OverKizApi.Models.Device.States
+  id: States
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: States
+  nameWithType: Device.States
+  fullName: OverKizApi.Models.Device.States
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: States
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 306
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Current live states reported by the device.
+  example: []
+  syntax:
+    content: public States States { get; init; }
+    parameters: []
+    return:
+      type: OverKizApi.Models.States
+    content.vb: Public Property States As States
+  overload: OverKizApi.Models.Device.States*
+- uid: OverKizApi.Models.Device.DataProperties
+  commentId: P:OverKizApi.Models.Device.DataProperties
+  id: DataProperties
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: DataProperties
+  nameWithType: Device.DataProperties
+  fullName: OverKizApi.Models.Device.DataProperties
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DataProperties
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 308
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Manufacturer-defined data properties (opaque).
+  example: []
+  syntax:
+    content: public IReadOnlyList<object?>? DataProperties { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.Object}
+    content.vb: Public Property DataProperties As IReadOnlyList(Of Object)
+  overload: OverKizApi.Models.Device.DataProperties*
+- uid: OverKizApi.Models.Device.Type
+  commentId: P:OverKizApi.Models.Device.Type
+  id: Type
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: Device.Type
+  fullName: OverKizApi.Models.Device.Type
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Type
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 310
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Whether the device is an actuator, a sensor, or unknown.
+  example: []
+  syntax:
+    content: public ProductType Type { get; init; }
+    parameters: []
+    return:
+      type: OverKizApi.Enums.ProductType
+    content.vb: Public Property Type As ProductType
+  overload: OverKizApi.Models.Device.Type*
+- uid: OverKizApi.Models.Device.PlaceOid
+  commentId: P:OverKizApi.Models.Device.PlaceOid
+  id: PlaceOid
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: PlaceOid
+  nameWithType: Device.PlaceOid
+  fullName: OverKizApi.Models.Device.PlaceOid
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PlaceOid
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 312
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: OID of the place (room/floor) the device is assigned to.
+  example: []
+  syntax:
+    content: public string? PlaceOid { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PlaceOid As String
+  overload: OverKizApi.Models.Device.PlaceOid*
+- uid: OverKizApi.Models.Device.Protocol
+  commentId: P:OverKizApi.Models.Device.Protocol
+  id: Protocol
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: Protocol
+  nameWithType: Device.Protocol
+  fullName: OverKizApi.Models.Device.Protocol
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Protocol
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 316
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Communication protocol parsed from the device URL prefix (e.g. <xref href="OverKizApi.Enums.Protocol.Io" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public Protocol? Protocol { get; }
+    parameters: []
+    return:
+      type: System.Nullable{OverKizApi.Enums.Protocol}
+    content.vb: Public ReadOnly Property Protocol As Protocol?
+  overload: OverKizApi.Models.Device.Protocol*
+- uid: OverKizApi.Models.Device.GatewayId
+  commentId: P:OverKizApi.Models.Device.GatewayId
+  id: GatewayId
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: GatewayId
+  nameWithType: Device.GatewayId
+  fullName: OverKizApi.Models.Device.GatewayId
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayId
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 320
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Gateway serial number parsed from the device URL.
+  example: []
+  syntax:
+    content: public string? GatewayId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property GatewayId As String
+  overload: OverKizApi.Models.Device.GatewayId*
+- uid: OverKizApi.Models.Device.DeviceAddress
+  commentId: P:OverKizApi.Models.Device.DeviceAddress
+  id: DeviceAddress
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: DeviceAddress
+  nameWithType: Device.DeviceAddress
+  fullName: OverKizApi.Models.Device.DeviceAddress
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeviceAddress
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 324
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Device address portion parsed from the device URL.
+  example: []
+  syntax:
+    content: public string? DeviceAddress { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DeviceAddress As String
+  overload: OverKizApi.Models.Device.DeviceAddress*
+- uid: OverKizApi.Models.Device.SubsystemId
+  commentId: P:OverKizApi.Models.Device.SubsystemId
+  id: SubsystemId
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: SubsystemId
+  nameWithType: Device.SubsystemId
+  fullName: OverKizApi.Models.Device.SubsystemId
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SubsystemId
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 328
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Sub-system index parsed from the device URL fragment, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for top-level devices.
+  example: []
+  syntax:
+    content: public int? SubsystemId { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public ReadOnly Property SubsystemId As Integer?
+  overload: OverKizApi.Models.Device.SubsystemId*
+- uid: OverKizApi.Models.Device.IsSubDevice
+  commentId: P:OverKizApi.Models.Device.IsSubDevice
+  id: IsSubDevice
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: IsSubDevice
+  nameWithType: Device.IsSubDevice
+  fullName: OverKizApi.Models.Device.IsSubDevice
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: IsSubDevice
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 332
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this device is a sub-device (has a <xref href="OverKizApi.Models.Device.SubsystemId" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public bool IsSubDevice { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSubDevice As Boolean
+  overload: OverKizApi.Models.Device.IsSubDevice*
+- uid: OverKizApi.Models.Device.UiClass
+  commentId: P:OverKizApi.Models.Device.UiClass
+  id: UiClass
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: UiClass
+  nameWithType: Device.UiClass
+  fullName: OverKizApi.Models.Device.UiClass
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: UiClass
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 335
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: UI class parsed from <xref href="OverKizApi.Models.Definition.UiClass" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public UIClass? UiClass { get; }
+    parameters: []
+    return:
+      type: System.Nullable{OverKizApi.Enums.UIClass}
+    content.vb: Public ReadOnly Property UiClass As UIClass?
+  overload: OverKizApi.Models.Device.UiClass*
+- uid: OverKizApi.Models.Device.Widget
+  commentId: P:OverKizApi.Models.Device.Widget
+  id: Widget
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: Widget
+  nameWithType: Device.Widget
+  fullName: OverKizApi.Models.Device.Widget
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Widget
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 337
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: UI widget parsed from <xref href="OverKizApi.Models.Definition.WidgetName" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public UIWidget? Widget { get; }
+    parameters: []
+    return:
+      type: System.Nullable{OverKizApi.Enums.UIWidget}
+    content.vb: Public ReadOnly Property Widget As UIWidget?
+  overload: OverKizApi.Models.Device.Widget*
+references:
+- uid: OverKizApi.Models.Device.DeviceUrl
+  commentId: P:OverKizApi.Models.Device.DeviceUrl
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_DeviceUrl
+  name: DeviceUrl
+  nameWithType: Device.DeviceUrl
+  fullName: OverKizApi.Models.Device.DeviceUrl
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OverKizApi.Models.Device.DeviceUrl*
+  commentId: Overload:OverKizApi.Models.Device.DeviceUrl
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_DeviceUrl
+  name: DeviceUrl
+  nameWithType: Device.DeviceUrl
+  fullName: OverKizApi.Models.Device.DeviceUrl
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.Models.Device.Id*
+  commentId: Overload:OverKizApi.Models.Device.Id
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_Id
+  name: Id
+  nameWithType: Device.Id
+  fullName: OverKizApi.Models.Device.Id
+- uid: OverKizApi.Models.Device.Attributes*
+  commentId: Overload:OverKizApi.Models.Device.Attributes
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_Attributes
+  name: Attributes
+  nameWithType: Device.Attributes
+  fullName: OverKizApi.Models.Device.Attributes
+- uid: OverKizApi.Models.States
+  commentId: T:OverKizApi.Models.States
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.States.html
+  name: States
+  nameWithType: States
+  fullName: OverKizApi.Models.States
+- uid: OverKizApi.Models.Device.Available*
+  commentId: Overload:OverKizApi.Models.Device.Available
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_Available
+  name: Available
+  nameWithType: Device.Available
+  fullName: OverKizApi.Models.Device.Available
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OverKizApi.Models.Device.Definition*
+  commentId: Overload:OverKizApi.Models.Device.Definition
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_Definition
+  name: Definition
+  nameWithType: Device.Definition
+  fullName: OverKizApi.Models.Device.Definition
+- uid: OverKizApi.Models.Definition
+  commentId: T:OverKizApi.Models.Definition
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.Definition.html
+  name: Definition
+  nameWithType: Definition
+  fullName: OverKizApi.Models.Definition
+- uid: OverKizApi.Models.Device.Enabled*
+  commentId: Overload:OverKizApi.Models.Device.Enabled
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_Enabled
+  name: Enabled
+  nameWithType: Device.Enabled
+  fullName: OverKizApi.Models.Device.Enabled
+- uid: OverKizApi.Models.Device.Label*
+  commentId: Overload:OverKizApi.Models.Device.Label
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_Label
+  name: Label
+  nameWithType: Device.Label
+  fullName: OverKizApi.Models.Device.Label
+- uid: OverKizApi.Models.Device.ControllableName*
+  commentId: Overload:OverKizApi.Models.Device.ControllableName
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_ControllableName
+  name: ControllableName
+  nameWithType: Device.ControllableName
+  fullName: OverKizApi.Models.Device.ControllableName
+- uid: OverKizApi.Models.Device.States*
+  commentId: Overload:OverKizApi.Models.Device.States
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_States
+  name: States
+  nameWithType: Device.States
+  fullName: OverKizApi.Models.Device.States
+- uid: OverKizApi.Models.Device.DataProperties*
+  commentId: Overload:OverKizApi.Models.Device.DataProperties
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_DataProperties
+  name: DataProperties
+  nameWithType: Device.DataProperties
+  fullName: OverKizApi.Models.Device.DataProperties
+- uid: System.Collections.Generic.IReadOnlyList{System.Object}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<object>
+  nameWithType: IReadOnlyList<object>
+  fullName: System.Collections.Generic.IReadOnlyList<object>
+  nameWithType.vb: IReadOnlyList(Of Object)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Object)
+  name.vb: IReadOnlyList(Of Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OverKizApi.Models.Device.Type*
+  commentId: Overload:OverKizApi.Models.Device.Type
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_Type
+  name: Type
+  nameWithType: Device.Type
+  fullName: OverKizApi.Models.Device.Type
+- uid: OverKizApi.Enums.ProductType
+  commentId: T:OverKizApi.Enums.ProductType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.ProductType.html
+  name: ProductType
+  nameWithType: ProductType
+  fullName: OverKizApi.Enums.ProductType
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Models.Device.PlaceOid*
+  commentId: Overload:OverKizApi.Models.Device.PlaceOid
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_PlaceOid
+  name: PlaceOid
+  nameWithType: Device.PlaceOid
+  fullName: OverKizApi.Models.Device.PlaceOid
+- uid: OverKizApi.Enums.Protocol.Io
+  commentId: F:OverKizApi.Enums.Protocol.Io
+  href: OverKizApi.Enums.Protocol.html#OverKizApi_Enums_Protocol_Io
+  name: Io
+  nameWithType: Protocol.Io
+  fullName: OverKizApi.Enums.Protocol.Io
+- uid: OverKizApi.Models.Device.Protocol*
+  commentId: Overload:OverKizApi.Models.Device.Protocol
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_Protocol
+  name: Protocol
+  nameWithType: Device.Protocol
+  fullName: OverKizApi.Models.Device.Protocol
+- uid: System.Nullable{OverKizApi.Enums.Protocol}
+  commentId: T:System.Nullable{OverKizApi.Enums.Protocol}
+  parent: System
+  definition: System.Nullable`1
+  href: OverKizApi.Enums.Protocol.html
+  name: Protocol?
+  nameWithType: Protocol?
+  fullName: OverKizApi.Enums.Protocol?
+  spec.csharp:
+  - uid: OverKizApi.Enums.Protocol
+    name: Protocol
+    href: OverKizApi.Enums.Protocol.html
+  - name: '?'
+  spec.vb:
+  - uid: OverKizApi.Enums.Protocol
+    name: Protocol
+    href: OverKizApi.Enums.Protocol.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OverKizApi.Models.Device.GatewayId*
+  commentId: Overload:OverKizApi.Models.Device.GatewayId
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_GatewayId
+  name: GatewayId
+  nameWithType: Device.GatewayId
+  fullName: OverKizApi.Models.Device.GatewayId
+- uid: OverKizApi.Models.Device.DeviceAddress*
+  commentId: Overload:OverKizApi.Models.Device.DeviceAddress
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_DeviceAddress
+  name: DeviceAddress
+  nameWithType: Device.DeviceAddress
+  fullName: OverKizApi.Models.Device.DeviceAddress
+- uid: OverKizApi.Models.Device.SubsystemId*
+  commentId: Overload:OverKizApi.Models.Device.SubsystemId
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_SubsystemId
+  name: SubsystemId
+  nameWithType: Device.SubsystemId
+  fullName: OverKizApi.Models.Device.SubsystemId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: OverKizApi.Models.Device.SubsystemId
+  commentId: P:OverKizApi.Models.Device.SubsystemId
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_SubsystemId
+  name: SubsystemId
+  nameWithType: Device.SubsystemId
+  fullName: OverKizApi.Models.Device.SubsystemId
+- uid: OverKizApi.Models.Device.IsSubDevice*
+  commentId: Overload:OverKizApi.Models.Device.IsSubDevice
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_IsSubDevice
+  name: IsSubDevice
+  nameWithType: Device.IsSubDevice
+  fullName: OverKizApi.Models.Device.IsSubDevice
+- uid: OverKizApi.Models.Definition.UiClass
+  commentId: P:OverKizApi.Models.Definition.UiClass
+  href: OverKizApi.Models.Definition.html#OverKizApi_Models_Definition_UiClass
+  name: UiClass
+  nameWithType: Definition.UiClass
+  fullName: OverKizApi.Models.Definition.UiClass
+- uid: OverKizApi.Models.Device.UiClass*
+  commentId: Overload:OverKizApi.Models.Device.UiClass
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_UiClass
+  name: UiClass
+  nameWithType: Device.UiClass
+  fullName: OverKizApi.Models.Device.UiClass
+- uid: System.Nullable{OverKizApi.Enums.UIClass}
+  commentId: T:System.Nullable{OverKizApi.Enums.UIClass}
+  parent: System
+  definition: System.Nullable`1
+  href: OverKizApi.Enums.UIClass.html
+  name: UIClass?
+  nameWithType: UIClass?
+  fullName: OverKizApi.Enums.UIClass?
+  spec.csharp:
+  - uid: OverKizApi.Enums.UIClass
+    name: UIClass
+    href: OverKizApi.Enums.UIClass.html
+  - name: '?'
+  spec.vb:
+  - uid: OverKizApi.Enums.UIClass
+    name: UIClass
+    href: OverKizApi.Enums.UIClass.html
+  - name: '?'
+- uid: OverKizApi.Models.Definition.WidgetName
+  commentId: P:OverKizApi.Models.Definition.WidgetName
+  href: OverKizApi.Models.Definition.html#OverKizApi_Models_Definition_WidgetName
+  name: WidgetName
+  nameWithType: Definition.WidgetName
+  fullName: OverKizApi.Models.Definition.WidgetName
+- uid: OverKizApi.Models.Device.Widget*
+  commentId: Overload:OverKizApi.Models.Device.Widget
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_Widget
+  name: Widget
+  nameWithType: Device.Widget
+  fullName: OverKizApi.Models.Device.Widget
+- uid: System.Nullable{OverKizApi.Enums.UIWidget}
+  commentId: T:System.Nullable{OverKizApi.Enums.UIWidget}
+  parent: System
+  definition: System.Nullable`1
+  href: OverKizApi.Enums.UIWidget.html
+  name: UIWidget?
+  nameWithType: UIWidget?
+  fullName: OverKizApi.Enums.UIWidget?
+  spec.csharp:
+  - uid: OverKizApi.Enums.UIWidget
+    name: UIWidget
+    href: OverKizApi.Enums.UIWidget.html
+  - name: '?'
+  spec.vb:
+  - uid: OverKizApi.Enums.UIWidget
+    name: UIWidget
+    href: OverKizApi.Enums.UIWidget.html
+  - name: '?'

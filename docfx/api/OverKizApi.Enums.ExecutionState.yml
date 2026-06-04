@@ -1,0 +1,263 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.ExecutionState
+  commentId: T:OverKizApi.Enums.ExecutionState
+  id: ExecutionState
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.ExecutionState.Cancelled
+  - OverKizApi.Enums.ExecutionState.Completed
+  - OverKizApi.Enums.ExecutionState.Failed
+  - OverKizApi.Enums.ExecutionState.InProgress
+  - OverKizApi.Enums.ExecutionState.NotStarted
+  - OverKizApi.Enums.ExecutionState.Queued
+  - OverKizApi.Enums.ExecutionState.Unknown
+  langs:
+  - csharp
+  - vb
+  name: ExecutionState
+  nameWithType: ExecutionState
+  fullName: OverKizApi.Enums.ExecutionState
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecutionState
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 7
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Lifecycle states of an execution as reported by the Overkiz API.
+  example: []
+  syntax:
+    content: public enum ExecutionState
+    content.vb: Public Enum ExecutionState
+- uid: OverKizApi.Enums.ExecutionState.NotStarted
+  commentId: F:OverKizApi.Enums.ExecutionState.NotStarted
+  id: NotStarted
+  parent: OverKizApi.Enums.ExecutionState
+  langs:
+  - csharp
+  - vb
+  name: NotStarted
+  nameWithType: ExecutionState.NotStarted
+  fullName: OverKizApi.Enums.ExecutionState.NotStarted
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NotStarted
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 10
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The execution has been accepted but has not yet started.
+  example: []
+  syntax:
+    content: NotStarted = 0
+    return:
+      type: OverKizApi.Enums.ExecutionState
+- uid: OverKizApi.Enums.ExecutionState.InProgress
+  commentId: F:OverKizApi.Enums.ExecutionState.InProgress
+  id: InProgress
+  parent: OverKizApi.Enums.ExecutionState
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: ExecutionState.InProgress
+  fullName: OverKizApi.Enums.ExecutionState.InProgress
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: InProgress
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 12
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The execution is currently being processed by the gateway.
+  example: []
+  syntax:
+    content: InProgress = 1
+    return:
+      type: OverKizApi.Enums.ExecutionState
+- uid: OverKizApi.Enums.ExecutionState.Completed
+  commentId: F:OverKizApi.Enums.ExecutionState.Completed
+  id: Completed
+  parent: OverKizApi.Enums.ExecutionState
+  langs:
+  - csharp
+  - vb
+  name: Completed
+  nameWithType: ExecutionState.Completed
+  fullName: OverKizApi.Enums.ExecutionState.Completed
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Completed
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 14
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The execution completed successfully.
+  example: []
+  syntax:
+    content: Completed = 2
+    return:
+      type: OverKizApi.Enums.ExecutionState
+- uid: OverKizApi.Enums.ExecutionState.Failed
+  commentId: F:OverKizApi.Enums.ExecutionState.Failed
+  id: Failed
+  parent: OverKizApi.Enums.ExecutionState
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: ExecutionState.Failed
+  fullName: OverKizApi.Enums.ExecutionState.Failed
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Failed
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 16
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The execution terminated with an error.
+  example: []
+  syntax:
+    content: Failed = 3
+    return:
+      type: OverKizApi.Enums.ExecutionState
+- uid: OverKizApi.Enums.ExecutionState.Cancelled
+  commentId: F:OverKizApi.Enums.ExecutionState.Cancelled
+  id: Cancelled
+  parent: OverKizApi.Enums.ExecutionState
+  langs:
+  - csharp
+  - vb
+  name: Cancelled
+  nameWithType: ExecutionState.Cancelled
+  fullName: OverKizApi.Enums.ExecutionState.Cancelled
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Cancelled
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 18
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The execution was explicitly cancelled by the user or the API.
+  example: []
+  syntax:
+    content: Cancelled = 4
+    return:
+      type: OverKizApi.Enums.ExecutionState
+- uid: OverKizApi.Enums.ExecutionState.Queued
+  commentId: F:OverKizApi.Enums.ExecutionState.Queued
+  id: Queued
+  parent: OverKizApi.Enums.ExecutionState
+  langs:
+  - csharp
+  - vb
+  name: Queued
+  nameWithType: ExecutionState.Queued
+  fullName: OverKizApi.Enums.ExecutionState.Queued
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Queued
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 20
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The execution is waiting in the gateway queue.
+  example: []
+  syntax:
+    content: Queued = 5
+    return:
+      type: OverKizApi.Enums.ExecutionState
+- uid: OverKizApi.Enums.ExecutionState.Unknown
+  commentId: F:OverKizApi.Enums.ExecutionState.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.ExecutionState
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ExecutionState.Unknown
+  fullName: OverKizApi.Enums.ExecutionState.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 22
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The execution state could not be determined.
+  example: []
+  syntax:
+    content: Unknown = 6
+    return:
+      type: OverKizApi.Enums.ExecutionState
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.ExecutionState
+  commentId: T:OverKizApi.Enums.ExecutionState
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.ExecutionState.html
+  name: ExecutionState
+  nameWithType: ExecutionState
+  fullName: OverKizApi.Enums.ExecutionState

@@ -1,0 +1,379 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.FailureType
+  commentId: T:OverKizApi.Enums.FailureType
+  id: FailureType
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.FailureType.CommandNotAllowed
+  - OverKizApi.Enums.FailureType.CommandNotFound
+  - OverKizApi.Enums.FailureType.CommandSyntaxError
+  - OverKizApi.Enums.FailureType.DisabledCommand
+  - OverKizApi.Enums.FailureType.MethodNotAllowed
+  - OverKizApi.Enums.FailureType.MissingCommandName
+  - OverKizApi.Enums.FailureType.MissingSsmToken
+  - OverKizApi.Enums.FailureType.NoFailure
+  - OverKizApi.Enums.FailureType.Unknown
+  - OverKizApi.Enums.FailureType.UnknownObject
+  - OverKizApi.Enums.FailureType.UnsupportedOperation
+  langs:
+  - csharp
+  - vb
+  name: FailureType
+  nameWithType: FailureType
+  fullName: OverKizApi.Enums.FailureType
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FailureType
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 54
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Failure reason codes reported on a failed execution.
+  example: []
+  syntax:
+    content: public enum FailureType
+    content.vb: Public Enum FailureType
+- uid: OverKizApi.Enums.FailureType.NoFailure
+  commentId: F:OverKizApi.Enums.FailureType.NoFailure
+  id: NoFailure
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: NoFailure
+  nameWithType: FailureType.NoFailure
+  fullName: OverKizApi.Enums.FailureType.NoFailure
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NoFailure
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 57
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: No failure occurred.
+  example: []
+  syntax:
+    content: NoFailure = 0
+    return:
+      type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.UnknownObject
+  commentId: F:OverKizApi.Enums.FailureType.UnknownObject
+  id: UnknownObject
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: UnknownObject
+  nameWithType: FailureType.UnknownObject
+  fullName: OverKizApi.Enums.FailureType.UnknownObject
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: UnknownObject
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 59
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The target device or object does not exist.
+  example: []
+  syntax:
+    content: UnknownObject = 1
+    return:
+      type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.CommandSyntaxError
+  commentId: F:OverKizApi.Enums.FailureType.CommandSyntaxError
+  id: CommandSyntaxError
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: CommandSyntaxError
+  nameWithType: FailureType.CommandSyntaxError
+  fullName: OverKizApi.Enums.FailureType.CommandSyntaxError
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CommandSyntaxError
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 61
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The command contained a syntax error.
+  example: []
+  syntax:
+    content: CommandSyntaxError = 2
+    return:
+      type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.MethodNotAllowed
+  commentId: F:OverKizApi.Enums.FailureType.MethodNotAllowed
+  id: MethodNotAllowed
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: MethodNotAllowed
+  nameWithType: FailureType.MethodNotAllowed
+  fullName: OverKizApi.Enums.FailureType.MethodNotAllowed
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: MethodNotAllowed
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 63
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The HTTP method used is not allowed for this endpoint.
+  example: []
+  syntax:
+    content: MethodNotAllowed = 3
+    return:
+      type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.CommandNotAllowed
+  commentId: F:OverKizApi.Enums.FailureType.CommandNotAllowed
+  id: CommandNotAllowed
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: CommandNotAllowed
+  nameWithType: FailureType.CommandNotAllowed
+  fullName: OverKizApi.Enums.FailureType.CommandNotAllowed
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CommandNotAllowed
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 65
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The command is not allowed on this device in its current state.
+  example: []
+  syntax:
+    content: CommandNotAllowed = 4
+    return:
+      type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.MissingCommandName
+  commentId: F:OverKizApi.Enums.FailureType.MissingCommandName
+  id: MissingCommandName
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: MissingCommandName
+  nameWithType: FailureType.MissingCommandName
+  fullName: OverKizApi.Enums.FailureType.MissingCommandName
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: MissingCommandName
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 67
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The command name was not included in the request.
+  example: []
+  syntax:
+    content: MissingCommandName = 5
+    return:
+      type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.CommandNotFound
+  commentId: F:OverKizApi.Enums.FailureType.CommandNotFound
+  id: CommandNotFound
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: CommandNotFound
+  nameWithType: FailureType.CommandNotFound
+  fullName: OverKizApi.Enums.FailureType.CommandNotFound
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CommandNotFound
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 69
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The command was not found on the target device.
+  example: []
+  syntax:
+    content: CommandNotFound = 6
+    return:
+      type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.UnsupportedOperation
+  commentId: F:OverKizApi.Enums.FailureType.UnsupportedOperation
+  id: UnsupportedOperation
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: UnsupportedOperation
+  nameWithType: FailureType.UnsupportedOperation
+  fullName: OverKizApi.Enums.FailureType.UnsupportedOperation
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: UnsupportedOperation
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 71
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The requested operation is not supported by the gateway or device.
+  example: []
+  syntax:
+    content: UnsupportedOperation = 7
+    return:
+      type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.DisabledCommand
+  commentId: F:OverKizApi.Enums.FailureType.DisabledCommand
+  id: DisabledCommand
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: DisabledCommand
+  nameWithType: FailureType.DisabledCommand
+  fullName: OverKizApi.Enums.FailureType.DisabledCommand
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DisabledCommand
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 73
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The command has been disabled.
+  example: []
+  syntax:
+    content: DisabledCommand = 8
+    return:
+      type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.MissingSsmToken
+  commentId: F:OverKizApi.Enums.FailureType.MissingSsmToken
+  id: MissingSsmToken
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: MissingSsmToken
+  nameWithType: FailureType.MissingSsmToken
+  fullName: OverKizApi.Enums.FailureType.MissingSsmToken
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: MissingSsmToken
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 75
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The SSM (Scenario State Machine) token required for this command is missing.
+  example: []
+  syntax:
+    content: MissingSsmToken = 9
+    return:
+      type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.Unknown
+  commentId: F:OverKizApi.Enums.FailureType.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: FailureType.Unknown
+  fullName: OverKizApi.Enums.FailureType.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 77
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Failure reason could not be determined.
+  example: []
+  syntax:
+    content: Unknown = 10
+    return:
+      type: OverKizApi.Enums.FailureType
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.FailureType
+  commentId: T:OverKizApi.Enums.FailureType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.FailureType.html
+  name: FailureType
+  nameWithType: FailureType
+  fullName: OverKizApi.Enums.FailureType

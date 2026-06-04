@@ -1,0 +1,957 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.Scenario
+  commentId: T:OverKizApi.Models.Scenario
+  id: Scenario
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.Scenario.Actions
+  - OverKizApi.Models.Scenario.CreationTime
+  - OverKizApi.Models.Scenario.Id
+  - OverKizApi.Models.Scenario.Label
+  - OverKizApi.Models.Scenario.LastUpdateTime
+  - OverKizApi.Models.Scenario.Metadata
+  - OverKizApi.Models.Scenario.NotificationCondition
+  - OverKizApi.Models.Scenario.NotificationText
+  - OverKizApi.Models.Scenario.NotificationTitle
+  - OverKizApi.Models.Scenario.NotificationTypeMask
+  - OverKizApi.Models.Scenario.Oid
+  - OverKizApi.Models.Scenario.Shortcut
+  langs:
+  - csharp
+  - vb
+  name: Scenario
+  nameWithType: Scenario
+  fullName: OverKizApi.Models.Scenario
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Scenario
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 559
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    A named scenario (action group) stored in the setup that can be triggered by name or OID.
+
+    Scenarios can include optional notification settings and scheduled triggers.
+  example: []
+  syntax:
+    content: public sealed class Scenario
+    content.vb: Public NotInheritable Class Scenario
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.Models.Scenario.Oid
+  commentId: P:OverKizApi.Models.Scenario.Oid
+  id: Oid
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: Oid
+  nameWithType: Scenario.Oid
+  fullName: OverKizApi.Models.Scenario.Oid
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Oid
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 562
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unique OID of this scenario.
+  example: []
+  syntax:
+    content: public string? Oid { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Oid As String
+  overload: OverKizApi.Models.Scenario.Oid*
+- uid: OverKizApi.Models.Scenario.Id
+  commentId: P:OverKizApi.Models.Scenario.Id
+  id: Id
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Scenario.Id
+  fullName: OverKizApi.Models.Scenario.Id
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Id
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 564
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Alias for <xref href="OverKizApi.Models.Scenario.Oid" data-throw-if-not-resolved="false"></xref>; provided for convenience.
+  example: []
+  syntax:
+    content: public string? Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Id As String
+  overload: OverKizApi.Models.Scenario.Id*
+- uid: OverKizApi.Models.Scenario.CreationTime
+  commentId: P:OverKizApi.Models.Scenario.CreationTime
+  id: CreationTime
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: CreationTime
+  nameWithType: Scenario.CreationTime
+  fullName: OverKizApi.Models.Scenario.CreationTime
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CreationTime
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 566
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unix epoch millisecond timestamp when the scenario was created.
+  example: []
+  syntax:
+    content: public long CreationTime { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property CreationTime As Long
+  overload: OverKizApi.Models.Scenario.CreationTime*
+- uid: OverKizApi.Models.Scenario.LastUpdateTime
+  commentId: P:OverKizApi.Models.Scenario.LastUpdateTime
+  id: LastUpdateTime
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: LastUpdateTime
+  nameWithType: Scenario.LastUpdateTime
+  fullName: OverKizApi.Models.Scenario.LastUpdateTime
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: LastUpdateTime
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 568
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unix epoch millisecond timestamp of the most recent update, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if never updated.
+  example: []
+  syntax:
+    content: public long? LastUpdateTime { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int64}
+    content.vb: Public Property LastUpdateTime As Long?
+  overload: OverKizApi.Models.Scenario.LastUpdateTime*
+- uid: OverKizApi.Models.Scenario.Label
+  commentId: P:OverKizApi.Models.Scenario.Label
+  id: Label
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: Scenario.Label
+  fullName: OverKizApi.Models.Scenario.Label
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Label
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 570
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: User-visible label for the scenario.
+  example: []
+  syntax:
+    content: public string? Label { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: OverKizApi.Models.Scenario.Label*
+- uid: OverKizApi.Models.Scenario.Metadata
+  commentId: P:OverKizApi.Models.Scenario.Metadata
+  id: Metadata
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: Metadata
+  nameWithType: Scenario.Metadata
+  fullName: OverKizApi.Models.Scenario.Metadata
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Metadata
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 572
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Arbitrary metadata string attached to this scenario.
+  example: []
+  syntax:
+    content: public string? Metadata { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Metadata As String
+  overload: OverKizApi.Models.Scenario.Metadata*
+- uid: OverKizApi.Models.Scenario.Shortcut
+  commentId: P:OverKizApi.Models.Scenario.Shortcut
+  id: Shortcut
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: Shortcut
+  nameWithType: Scenario.Shortcut
+  fullName: OverKizApi.Models.Scenario.Shortcut
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Shortcut
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 574
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Whether this scenario appears as a shortcut in the Overkiz app.
+  example: []
+  syntax:
+    content: public bool? Shortcut { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property Shortcut As Boolean?
+  overload: OverKizApi.Models.Scenario.Shortcut*
+- uid: OverKizApi.Models.Scenario.NotificationTypeMask
+  commentId: P:OverKizApi.Models.Scenario.NotificationTypeMask
+  id: NotificationTypeMask
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: NotificationTypeMask
+  nameWithType: Scenario.NotificationTypeMask
+  fullName: OverKizApi.Models.Scenario.NotificationTypeMask
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NotificationTypeMask
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 576
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Bitmask controlling which notification types fire when this scenario runs.
+  example: []
+  syntax:
+    content: public int? NotificationTypeMask { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property NotificationTypeMask As Integer?
+  overload: OverKizApi.Models.Scenario.NotificationTypeMask*
+- uid: OverKizApi.Models.Scenario.NotificationCondition
+  commentId: P:OverKizApi.Models.Scenario.NotificationCondition
+  id: NotificationCondition
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: NotificationCondition
+  nameWithType: Scenario.NotificationCondition
+  fullName: OverKizApi.Models.Scenario.NotificationCondition
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NotificationCondition
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 578
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Condition expression evaluated before sending a notification.
+  example: []
+  syntax:
+    content: public string? NotificationCondition { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NotificationCondition As String
+  overload: OverKizApi.Models.Scenario.NotificationCondition*
+- uid: OverKizApi.Models.Scenario.NotificationText
+  commentId: P:OverKizApi.Models.Scenario.NotificationText
+  id: NotificationText
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: NotificationText
+  nameWithType: Scenario.NotificationText
+  fullName: OverKizApi.Models.Scenario.NotificationText
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NotificationText
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 580
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Body text of the push notification sent when this scenario executes.
+  example: []
+  syntax:
+    content: public string? NotificationText { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NotificationText As String
+  overload: OverKizApi.Models.Scenario.NotificationText*
+- uid: OverKizApi.Models.Scenario.NotificationTitle
+  commentId: P:OverKizApi.Models.Scenario.NotificationTitle
+  id: NotificationTitle
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: NotificationTitle
+  nameWithType: Scenario.NotificationTitle
+  fullName: OverKizApi.Models.Scenario.NotificationTitle
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NotificationTitle
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 582
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Title of the push notification sent when this scenario executes.
+  example: []
+  syntax:
+    content: public string? NotificationTitle { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NotificationTitle As String
+  overload: OverKizApi.Models.Scenario.NotificationTitle*
+- uid: OverKizApi.Models.Scenario.Actions
+  commentId: P:OverKizApi.Models.Scenario.Actions
+  id: Actions
+  parent: OverKizApi.Models.Scenario
+  langs:
+  - csharp
+  - vb
+  name: Actions
+  nameWithType: Scenario.Actions
+  fullName: OverKizApi.Models.Scenario.Actions
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Actions
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 584
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: The actions (device command sets) that make up this scenario.
+  example: []
+  syntax:
+    content: public IReadOnlyList<Action> Actions { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Action}
+    content.vb: Public Property Actions As IReadOnlyList(Of Action)
+  overload: OverKizApi.Models.Scenario.Actions*
+references:
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OverKizApi.Models.Scenario.Oid*
+  commentId: Overload:OverKizApi.Models.Scenario.Oid
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_Oid
+  name: Oid
+  nameWithType: Scenario.Oid
+  fullName: OverKizApi.Models.Scenario.Oid
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.Models.Scenario.Oid
+  commentId: P:OverKizApi.Models.Scenario.Oid
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_Oid
+  name: Oid
+  nameWithType: Scenario.Oid
+  fullName: OverKizApi.Models.Scenario.Oid
+- uid: OverKizApi.Models.Scenario.Id*
+  commentId: Overload:OverKizApi.Models.Scenario.Id
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_Id
+  name: Id
+  nameWithType: Scenario.Id
+  fullName: OverKizApi.Models.Scenario.Id
+- uid: OverKizApi.Models.Scenario.CreationTime*
+  commentId: Overload:OverKizApi.Models.Scenario.CreationTime
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_CreationTime
+  name: CreationTime
+  nameWithType: Scenario.CreationTime
+  fullName: OverKizApi.Models.Scenario.CreationTime
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: OverKizApi.Models.Scenario.LastUpdateTime*
+  commentId: Overload:OverKizApi.Models.Scenario.LastUpdateTime
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_LastUpdateTime
+  name: LastUpdateTime
+  nameWithType: Scenario.LastUpdateTime
+  fullName: OverKizApi.Models.Scenario.LastUpdateTime
+- uid: System.Nullable{System.Int64}
+  commentId: T:System.Nullable{System.Int64}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long?
+  nameWithType: long?
+  fullName: long?
+  nameWithType.vb: Long?
+  fullName.vb: Long?
+  name.vb: Long?
+  spec.csharp:
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  spec.vb:
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OverKizApi.Models.Scenario.Label*
+  commentId: Overload:OverKizApi.Models.Scenario.Label
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_Label
+  name: Label
+  nameWithType: Scenario.Label
+  fullName: OverKizApi.Models.Scenario.Label
+- uid: OverKizApi.Models.Scenario.Metadata*
+  commentId: Overload:OverKizApi.Models.Scenario.Metadata
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_Metadata
+  name: Metadata
+  nameWithType: Scenario.Metadata
+  fullName: OverKizApi.Models.Scenario.Metadata
+- uid: OverKizApi.Models.Scenario.Shortcut*
+  commentId: Overload:OverKizApi.Models.Scenario.Shortcut
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_Shortcut
+  name: Shortcut
+  nameWithType: Scenario.Shortcut
+  fullName: OverKizApi.Models.Scenario.Shortcut
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: OverKizApi.Models.Scenario.NotificationTypeMask*
+  commentId: Overload:OverKizApi.Models.Scenario.NotificationTypeMask
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_NotificationTypeMask
+  name: NotificationTypeMask
+  nameWithType: Scenario.NotificationTypeMask
+  fullName: OverKizApi.Models.Scenario.NotificationTypeMask
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: OverKizApi.Models.Scenario.NotificationCondition*
+  commentId: Overload:OverKizApi.Models.Scenario.NotificationCondition
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_NotificationCondition
+  name: NotificationCondition
+  nameWithType: Scenario.NotificationCondition
+  fullName: OverKizApi.Models.Scenario.NotificationCondition
+- uid: OverKizApi.Models.Scenario.NotificationText*
+  commentId: Overload:OverKizApi.Models.Scenario.NotificationText
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_NotificationText
+  name: NotificationText
+  nameWithType: Scenario.NotificationText
+  fullName: OverKizApi.Models.Scenario.NotificationText
+- uid: OverKizApi.Models.Scenario.NotificationTitle*
+  commentId: Overload:OverKizApi.Models.Scenario.NotificationTitle
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_NotificationTitle
+  name: NotificationTitle
+  nameWithType: Scenario.NotificationTitle
+  fullName: OverKizApi.Models.Scenario.NotificationTitle
+- uid: OverKizApi.Models.Scenario.Actions*
+  commentId: Overload:OverKizApi.Models.Scenario.Actions
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_Actions
+  name: Actions
+  nameWithType: Scenario.Actions
+  fullName: OverKizApi.Models.Scenario.Actions
+- uid: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Action}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Action}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<Action>
+  nameWithType: IReadOnlyList<Action>
+  fullName: System.Collections.Generic.IReadOnlyList<OverKizApi.Models.Action>
+  nameWithType.vb: IReadOnlyList(Of Action)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.Action)
+  name.vb: IReadOnlyList(Of Action)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.Action
+    name: Action
+    href: OverKizApi.Models.Action.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Action
+    name: Action
+    href: OverKizApi.Models.Action.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

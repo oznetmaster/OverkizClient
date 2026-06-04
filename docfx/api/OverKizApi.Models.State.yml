@@ -1,0 +1,795 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.State
+  commentId: T:OverKizApi.Models.State
+  id: State
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.State.Name
+  - OverKizApi.Models.State.Type
+  - OverKizApi.Models.State.Value
+  - OverKizApi.Models.State.ValueAsBool
+  - OverKizApi.Models.State.ValueAsFloat
+  - OverKizApi.Models.State.ValueAsInt
+  - OverKizApi.Models.State.ValueAsStr
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: State
+  fullName: OverKizApi.Models.State
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: State
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 110
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    A named state value reported by a device (e.g. <code>"core:ClosureState"</code> = <code>50</code>).
+
+    Use <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> to determine the appropriate typed accessor.
+  example: []
+  syntax:
+    content: public sealed class State
+    content.vb: Public NotInheritable Class State
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.Models.State.Name
+  commentId: P:OverKizApi.Models.State.Name
+  id: Name
+  parent: OverKizApi.Models.State
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: State.Name
+  fullName: OverKizApi.Models.State.Name
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Name
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 113
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Qualified state name (e.g. <code>"core:ClosureState"</code>).
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("name")]
+
+      public string? Name { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("name")>
+
+      Public Property Name As String
+  overload: OverKizApi.Models.State.Name*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: name
+- uid: OverKizApi.Models.State.Type
+  commentId: P:OverKizApi.Models.State.Type
+  id: Type
+  parent: OverKizApi.Models.State
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: State.Type
+  fullName: OverKizApi.Models.State.Type
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Type
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 117
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Discriminator that identifies the CLR type of <xref href="OverKizApi.Models.State.Value" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("type")]
+
+      public DataType Type { get; init; }
+    parameters: []
+    return:
+      type: OverKizApi.Models.DataType
+    content.vb: >-
+      <JsonPropertyName("type")>
+
+      Public Property Type As DataType
+  overload: OverKizApi.Models.State.Type*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: type
+- uid: OverKizApi.Models.State.Value
+  commentId: P:OverKizApi.Models.State.Value
+  id: Value
+  parent: OverKizApi.Models.State
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: State.Value
+  fullName: OverKizApi.Models.State.Value
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Value
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 121
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Raw value as deserialised from the JSON response. Use the typed accessors where possible.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("value")]
+
+      public object? Value { get; init; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: >-
+      <JsonPropertyName("value")>
+
+      Public Property Value As Object
+  overload: OverKizApi.Models.State.Value*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: value
+- uid: OverKizApi.Models.State.ValueAsInt
+  commentId: P:OverKizApi.Models.State.ValueAsInt
+  id: ValueAsInt
+  parent: OverKizApi.Models.State
+  langs:
+  - csharp
+  - vb
+  name: ValueAsInt
+  nameWithType: State.ValueAsInt
+  fullName: OverKizApi.Models.State.ValueAsInt
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ValueAsInt
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 128
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns the value as <xref href="System.Int32" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int? ValueAsInt { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public ReadOnly Property ValueAsInt As Integer?
+  overload: OverKizApi.Models.State.ValueAsInt*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: Thrown when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is not <xref href="OverKizApi.Models.DataType.Integer" data-throw-if-not-resolved="false"></xref>.
+- uid: OverKizApi.Models.State.ValueAsFloat
+  commentId: P:OverKizApi.Models.State.ValueAsFloat
+  id: ValueAsFloat
+  parent: OverKizApi.Models.State
+  langs:
+  - csharp
+  - vb
+  name: ValueAsFloat
+  nameWithType: State.ValueAsFloat
+  fullName: OverKizApi.Models.State.ValueAsFloat
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ValueAsFloat
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 137
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    Returns the value as <xref href="System.Double" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
+
+    Integer states are promoted to <xref href="System.Double" data-throw-if-not-resolved="false"></xref> automatically.
+  example: []
+  syntax:
+    content: public double? ValueAsFloat { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public ReadOnly Property ValueAsFloat As Double?
+  overload: OverKizApi.Models.State.ValueAsFloat*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: Thrown when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is neither <xref href="OverKizApi.Models.DataType.Float" data-throw-if-not-resolved="false"></xref> nor <xref href="OverKizApi.Models.DataType.Integer" data-throw-if-not-resolved="false"></xref>.
+- uid: OverKizApi.Models.State.ValueAsBool
+  commentId: P:OverKizApi.Models.State.ValueAsBool
+  id: ValueAsBool
+  parent: OverKizApi.Models.State
+  langs:
+  - csharp
+  - vb
+  name: ValueAsBool
+  nameWithType: State.ValueAsBool
+  fullName: OverKizApi.Models.State.ValueAsBool
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ValueAsBool
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 146
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns the value as <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool? ValueAsBool { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public ReadOnly Property ValueAsBool As Boolean?
+  overload: OverKizApi.Models.State.ValueAsBool*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: Thrown when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is not <xref href="OverKizApi.Models.DataType.Boolean" data-throw-if-not-resolved="false"></xref>.
+- uid: OverKizApi.Models.State.ValueAsStr
+  commentId: P:OverKizApi.Models.State.ValueAsStr
+  id: ValueAsStr
+  parent: OverKizApi.Models.State
+  langs:
+  - csharp
+  - vb
+  name: ValueAsStr
+  nameWithType: State.ValueAsStr
+  fullName: OverKizApi.Models.State.ValueAsStr
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ValueAsStr
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 154
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns the value as <xref href="System.String" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public string? ValueAsStr { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ValueAsStr As String
+  overload: OverKizApi.Models.State.ValueAsStr*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: Thrown when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is not <xref href="OverKizApi.Models.DataType.String" data-throw-if-not-resolved="false"></xref>.
+references:
+- uid: OverKizApi.Models.State.Type
+  commentId: P:OverKizApi.Models.State.Type
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_Type
+  name: Type
+  nameWithType: State.Type
+  fullName: OverKizApi.Models.State.Type
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OverKizApi.Models.State.Name*
+  commentId: Overload:OverKizApi.Models.State.Name
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_Name
+  name: Name
+  nameWithType: State.Name
+  fullName: OverKizApi.Models.State.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.Models.State.Value
+  commentId: P:OverKizApi.Models.State.Value
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_Value
+  name: Value
+  nameWithType: State.Value
+  fullName: OverKizApi.Models.State.Value
+- uid: OverKizApi.Models.State.Type*
+  commentId: Overload:OverKizApi.Models.State.Type
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_Type
+  name: Type
+  nameWithType: State.Type
+  fullName: OverKizApi.Models.State.Type
+- uid: OverKizApi.Models.DataType
+  commentId: T:OverKizApi.Models.DataType
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.DataType.html
+  name: DataType
+  nameWithType: DataType
+  fullName: OverKizApi.Models.DataType
+- uid: OverKizApi.Models.State.Value*
+  commentId: Overload:OverKizApi.Models.State.Value
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_Value
+  name: Value
+  nameWithType: State.Value
+  fullName: OverKizApi.Models.State.Value
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OverKizApi.Models.DataType.None
+  commentId: F:OverKizApi.Models.DataType.None
+  href: OverKizApi.Models.DataType.html#OverKizApi_Models_DataType_None
+  name: None
+  nameWithType: DataType.None
+  fullName: OverKizApi.Models.DataType.None
+- uid: OverKizApi.Models.DataType.Integer
+  commentId: F:OverKizApi.Models.DataType.Integer
+  href: OverKizApi.Models.DataType.html#OverKizApi_Models_DataType_Integer
+  name: Integer
+  nameWithType: DataType.Integer
+  fullName: OverKizApi.Models.DataType.Integer
+- uid: System.InvalidCastException
+  commentId: T:System.InvalidCastException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidcastexception
+  name: InvalidCastException
+  nameWithType: InvalidCastException
+  fullName: System.InvalidCastException
+- uid: OverKizApi.Models.State.ValueAsInt*
+  commentId: Overload:OverKizApi.Models.State.ValueAsInt
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_ValueAsInt
+  name: ValueAsInt
+  nameWithType: State.ValueAsInt
+  fullName: OverKizApi.Models.State.ValueAsInt
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Double
+  commentId: T:System.Double
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: OverKizApi.Models.DataType.Float
+  commentId: F:OverKizApi.Models.DataType.Float
+  href: OverKizApi.Models.DataType.html#OverKizApi_Models_DataType_Float
+  name: Float
+  nameWithType: DataType.Float
+  fullName: OverKizApi.Models.DataType.Float
+- uid: OverKizApi.Models.State.ValueAsFloat*
+  commentId: Overload:OverKizApi.Models.State.ValueAsFloat
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_ValueAsFloat
+  name: ValueAsFloat
+  nameWithType: State.ValueAsFloat
+  fullName: OverKizApi.Models.State.ValueAsFloat
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OverKizApi.Models.DataType.Boolean
+  commentId: F:OverKizApi.Models.DataType.Boolean
+  href: OverKizApi.Models.DataType.html#OverKizApi_Models_DataType_Boolean
+  name: Boolean
+  nameWithType: DataType.Boolean
+  fullName: OverKizApi.Models.DataType.Boolean
+- uid: OverKizApi.Models.State.ValueAsBool*
+  commentId: Overload:OverKizApi.Models.State.ValueAsBool
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_ValueAsBool
+  name: ValueAsBool
+  nameWithType: State.ValueAsBool
+  fullName: OverKizApi.Models.State.ValueAsBool
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: OverKizApi.Models.DataType.String
+  commentId: F:OverKizApi.Models.DataType.String
+  href: OverKizApi.Models.DataType.html#OverKizApi_Models_DataType_String
+  name: String
+  nameWithType: DataType.String
+  fullName: OverKizApi.Models.DataType.String
+- uid: OverKizApi.Models.State.ValueAsStr*
+  commentId: Overload:OverKizApi.Models.State.ValueAsStr
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_ValueAsStr
+  name: ValueAsStr
+  nameWithType: State.ValueAsStr
+  fullName: OverKizApi.Models.State.ValueAsStr

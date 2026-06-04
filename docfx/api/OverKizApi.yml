@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi
+  commentId: N:OverKizApi
+  id: OverKizApi
+  children:
+  - OverKizApi.DictionaryExtensions
+  - OverKizApi.HttpClientExtensions
+  - OverKizApi.KeyValuePairExtensions
+  - OverKizApi.OverkizClient
+  - OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: OverKizApi
+  nameWithType: OverKizApi
+  fullName: OverKizApi
+  type: Namespace
+  assemblies:
+  - OverKizApi
+references:
+- uid: OverKizApi.OverkizConst
+  commentId: T:OverKizApi.OverkizConst
+  href: OverKizApi.OverkizConst.html
+  name: OverkizConst
+  nameWithType: OverkizConst
+  fullName: OverKizApi.OverkizConst
+- uid: OverKizApi.DictionaryExtensions
+  commentId: T:OverKizApi.DictionaryExtensions
+  href: OverKizApi.DictionaryExtensions.html
+  name: DictionaryExtensions
+  nameWithType: DictionaryExtensions
+  fullName: OverKizApi.DictionaryExtensions
+- uid: OverKizApi.KeyValuePairExtensions
+  commentId: T:OverKizApi.KeyValuePairExtensions
+  href: OverKizApi.KeyValuePairExtensions.html
+  name: KeyValuePairExtensions
+  nameWithType: KeyValuePairExtensions
+  fullName: OverKizApi.KeyValuePairExtensions
+- uid: OverKizApi.HttpClientExtensions
+  commentId: T:OverKizApi.HttpClientExtensions
+  href: OverKizApi.HttpClientExtensions.html
+  name: HttpClientExtensions
+  nameWithType: HttpClientExtensions
+  fullName: OverKizApi.HttpClientExtensions
+- uid: OverKizApi.OverkizClient
+  commentId: T:OverKizApi.OverkizClient
+  href: OverKizApi.OverkizClient.html
+  name: OverkizClient
+  nameWithType: OverkizClient
+  fullName: OverKizApi.OverkizClient

@@ -1,0 +1,610 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.Definition
+  commentId: T:OverKizApi.Models.Definition
+  id: Definition
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.Definition.Commands
+  - OverKizApi.Models.Definition.QualifiedName
+  - OverKizApi.Models.Definition.States
+  - OverKizApi.Models.Definition.UiClass
+  - OverKizApi.Models.Definition.WidgetName
+  langs:
+  - csharp
+  - vb
+  name: Definition
+  nameWithType: Definition
+  fullName: OverKizApi.Models.Definition
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Definition
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 263
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    Full capability definition for a device, describing every command it accepts
+
+    and every state it can report.
+  example: []
+  syntax:
+    content: public sealed class Definition
+    content.vb: Public NotInheritable Class Definition
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.Models.Definition.Commands
+  commentId: P:OverKizApi.Models.Definition.Commands
+  id: Commands
+  parent: OverKizApi.Models.Definition
+  langs:
+  - csharp
+  - vb
+  name: Commands
+  nameWithType: Definition.Commands
+  fullName: OverKizApi.Models.Definition.Commands
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Commands
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 266
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: All commands supported by the device.
+  example: []
+  syntax:
+    content: public IReadOnlyList<CommandDefinition> Commands { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.CommandDefinition}
+    content.vb: Public Property Commands As IReadOnlyList(Of CommandDefinition)
+  overload: OverKizApi.Models.Definition.Commands*
+- uid: OverKizApi.Models.Definition.States
+  commentId: P:OverKizApi.Models.Definition.States
+  id: States
+  parent: OverKizApi.Models.Definition
+  langs:
+  - csharp
+  - vb
+  name: States
+  nameWithType: Definition.States
+  fullName: OverKizApi.Models.Definition.States
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: States
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 268
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: All states the device can report.
+  example: []
+  syntax:
+    content: public IReadOnlyList<StateDefinition> States { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.StateDefinition}
+    content.vb: Public Property States As IReadOnlyList(Of StateDefinition)
+  overload: OverKizApi.Models.Definition.States*
+- uid: OverKizApi.Models.Definition.WidgetName
+  commentId: P:OverKizApi.Models.Definition.WidgetName
+  id: WidgetName
+  parent: OverKizApi.Models.Definition
+  langs:
+  - csharp
+  - vb
+  name: WidgetName
+  nameWithType: Definition.WidgetName
+  fullName: OverKizApi.Models.Definition.WidgetName
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: WidgetName
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 270
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: UI widget name used by the Overkiz app to render the device.
+  example: []
+  syntax:
+    content: public string? WidgetName { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WidgetName As String
+  overload: OverKizApi.Models.Definition.WidgetName*
+- uid: OverKizApi.Models.Definition.UiClass
+  commentId: P:OverKizApi.Models.Definition.UiClass
+  id: UiClass
+  parent: OverKizApi.Models.Definition
+  langs:
+  - csharp
+  - vb
+  name: UiClass
+  nameWithType: Definition.UiClass
+  fullName: OverKizApi.Models.Definition.UiClass
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: UiClass
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 272
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: UI class name used by the Overkiz app to categorise the device.
+  example: []
+  syntax:
+    content: public string? UiClass { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UiClass As String
+  overload: OverKizApi.Models.Definition.UiClass*
+- uid: OverKizApi.Models.Definition.QualifiedName
+  commentId: P:OverKizApi.Models.Definition.QualifiedName
+  id: QualifiedName
+  parent: OverKizApi.Models.Definition
+  langs:
+  - csharp
+  - vb
+  name: QualifiedName
+  nameWithType: Definition.QualifiedName
+  fullName: OverKizApi.Models.Definition.QualifiedName
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: QualifiedName
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 274
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Qualified name of the device controllable type (e.g. <code>"io:RollerShutterGenericIOComponent"</code>).
+  example: []
+  syntax:
+    content: public string? QualifiedName { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property QualifiedName As String
+  overload: OverKizApi.Models.Definition.QualifiedName*
+references:
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OverKizApi.Models.Definition.Commands*
+  commentId: Overload:OverKizApi.Models.Definition.Commands
+  href: OverKizApi.Models.Definition.html#OverKizApi_Models_Definition_Commands
+  name: Commands
+  nameWithType: Definition.Commands
+  fullName: OverKizApi.Models.Definition.Commands
+- uid: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.CommandDefinition}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OverKizApi.Models.CommandDefinition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<CommandDefinition>
+  nameWithType: IReadOnlyList<CommandDefinition>
+  fullName: System.Collections.Generic.IReadOnlyList<OverKizApi.Models.CommandDefinition>
+  nameWithType.vb: IReadOnlyList(Of CommandDefinition)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.CommandDefinition)
+  name.vb: IReadOnlyList(Of CommandDefinition)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.CommandDefinition
+    name: CommandDefinition
+    href: OverKizApi.Models.CommandDefinition.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.CommandDefinition
+    name: CommandDefinition
+    href: OverKizApi.Models.CommandDefinition.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OverKizApi.Models.Definition.States*
+  commentId: Overload:OverKizApi.Models.Definition.States
+  href: OverKizApi.Models.Definition.html#OverKizApi_Models_Definition_States
+  name: States
+  nameWithType: Definition.States
+  fullName: OverKizApi.Models.Definition.States
+- uid: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.StateDefinition}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OverKizApi.Models.StateDefinition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<StateDefinition>
+  nameWithType: IReadOnlyList<StateDefinition>
+  fullName: System.Collections.Generic.IReadOnlyList<OverKizApi.Models.StateDefinition>
+  nameWithType.vb: IReadOnlyList(Of StateDefinition)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.StateDefinition)
+  name.vb: IReadOnlyList(Of StateDefinition)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.StateDefinition
+    name: StateDefinition
+    href: OverKizApi.Models.StateDefinition.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.StateDefinition
+    name: StateDefinition
+    href: OverKizApi.Models.StateDefinition.html
+  - name: )
+- uid: OverKizApi.Models.Definition.WidgetName*
+  commentId: Overload:OverKizApi.Models.Definition.WidgetName
+  href: OverKizApi.Models.Definition.html#OverKizApi_Models_Definition_WidgetName
+  name: WidgetName
+  nameWithType: Definition.WidgetName
+  fullName: OverKizApi.Models.Definition.WidgetName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.Models.Definition.UiClass*
+  commentId: Overload:OverKizApi.Models.Definition.UiClass
+  href: OverKizApi.Models.Definition.html#OverKizApi_Models_Definition_UiClass
+  name: UiClass
+  nameWithType: Definition.UiClass
+  fullName: OverKizApi.Models.Definition.UiClass
+- uid: OverKizApi.Models.Definition.QualifiedName*
+  commentId: Overload:OverKizApi.Models.Definition.QualifiedName
+  href: OverKizApi.Models.Definition.html#OverKizApi_Models_Definition_QualifiedName
+  name: QualifiedName
+  nameWithType: Definition.QualifiedName
+  fullName: OverKizApi.Models.Definition.QualifiedName

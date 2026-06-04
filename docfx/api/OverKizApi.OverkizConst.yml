@@ -1,0 +1,1232 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.OverkizConst
+  commentId: T:OverKizApi.OverkizConst
+  id: OverkizConst
+  parent: OverKizApi
+  children:
+  - OverKizApi.OverkizConst.COZYTOUCH_ATLANTIC_API
+  - OverKizApi.OverkizConst.COZYTOUCH_CLIENT_ID
+  - OverKizApi.OverkizConst.CreateLocalHttpClientHandler
+  - OverKizApi.OverkizConst.LOCAL_API_PATH
+  - OverKizApi.OverkizConst.LOCAL_API_PORT
+  - OverKizApi.OverkizConst.LocalEndpoint(System.String)
+  - OverKizApi.OverkizConst.LocalServer(System.String)
+  - OverKizApi.OverkizConst.NEXITY_API
+  - OverKizApi.OverkizConst.NEXITY_COGNITO_CLIENT_ID
+  - OverKizApi.OverkizConst.NEXITY_COGNITO_REGION
+  - OverKizApi.OverkizConst.NEXITY_COGNITO_USER_POOL
+  - OverKizApi.OverkizConst.REXEL_BACKEND_API
+  - OverKizApi.OverkizConst.REXEL_ENDUSER_API
+  - OverKizApi.OverkizConst.REXEL_GATEWAY_HEADER
+  - OverKizApi.OverkizConst.SOMFY_API
+  - OverKizApi.OverkizConst.SOMFY_CLIENT_ID
+  - OverKizApi.OverkizConst.SOMFY_CLIENT_SECRET
+  - OverKizApi.OverkizConst.ServersWithLocalApi
+  - OverKizApi.OverkizConst.SupportedServers
+  langs:
+  - csharp
+  - vb
+  name: OverkizConst
+  nameWithType: OverkizConst
+  fullName: OverKizApi.OverkizConst
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: OverkizConst
+    path: ../OverKizApi/Const.cs
+    startLine: 18
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Compile-time constants and server-endpoint descriptors used throughout the library.
+  remarks: >-
+    OAuth client IDs and secrets for Somfy and CozyTouch are intentionally public —
+
+    they are embedded in the official mobile apps and are required for the standard
+
+    OAuth 2.0 Resource Owner Password Credentials flow.
+  example: []
+  syntax:
+    content: public static class OverkizConst
+    content.vb: Public Module OverkizConst
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: OverKizApi.OverkizConst.COZYTOUCH_ATLANTIC_API
+  commentId: F:OverKizApi.OverkizConst.COZYTOUCH_ATLANTIC_API
+  id: COZYTOUCH_ATLANTIC_API
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: COZYTOUCH_ATLANTIC_API
+  nameWithType: OverkizConst.COZYTOUCH_ATLANTIC_API
+  fullName: OverKizApi.OverkizConst.COZYTOUCH_ATLANTIC_API
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: COZYTOUCH_ATLANTIC_API
+    path: ../OverKizApi/Const.cs
+    startLine: 23
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Base URL of the Atlantic/CozyTouch identity API.
+  example: []
+  syntax:
+    content: public const string COZYTOUCH_ATLANTIC_API = "https://apis.groupe-atlantic.com"
+    return:
+      type: System.String
+    content.vb: Public Const COZYTOUCH_ATLANTIC_API As String = "https://apis.groupe-atlantic.com"
+- uid: OverKizApi.OverkizConst.COZYTOUCH_CLIENT_ID
+  commentId: F:OverKizApi.OverkizConst.COZYTOUCH_CLIENT_ID
+  id: COZYTOUCH_CLIENT_ID
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: COZYTOUCH_CLIENT_ID
+  nameWithType: OverkizConst.COZYTOUCH_CLIENT_ID
+  fullName: OverKizApi.OverkizConst.COZYTOUCH_CLIENT_ID
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: COZYTOUCH_CLIENT_ID
+    path: ../OverKizApi/Const.cs
+    startLine: 29
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Base64-encoded <code>clientId:clientSecret</code> credential used as the HTTP Basic
+
+    Authorization header when exchanging credentials for an Atlantic OAuth token.
+  example: []
+  syntax:
+    content: public const string COZYTOUCH_CLIENT_ID = "Q3RfMUpWeVRtSUxYOEllZkE3YVVOQmpGblpVYToyRWNORHpfZHkzNDJVSnFvMlo3cFNKTnZVdjBh"
+    return:
+      type: System.String
+    content.vb: Public Const COZYTOUCH_CLIENT_ID As String = "Q3RfMUpWeVRtSUxYOEllZkE3YVVOQmpGblpVYToyRWNORHpfZHkzNDJVSnFvMlo3cFNKTnZVdjBh"
+- uid: OverKizApi.OverkizConst.NEXITY_API
+  commentId: F:OverKizApi.OverkizConst.NEXITY_API
+  id: NEXITY_API
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: NEXITY_API
+  nameWithType: OverkizConst.NEXITY_API
+  fullName: OverKizApi.OverkizConst.NEXITY_API
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NEXITY_API
+    path: ../OverKizApi/Const.cs
+    startLine: 34
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Base URL of the Nexity cloud API.
+  example: []
+  syntax:
+    content: public const string NEXITY_API = "https://api.egn.prd.aws-nexity.fr"
+    return:
+      type: System.String
+    content.vb: Public Const NEXITY_API As String = "https://api.egn.prd.aws-nexity.fr"
+- uid: OverKizApi.OverkizConst.NEXITY_COGNITO_CLIENT_ID
+  commentId: F:OverKizApi.OverkizConst.NEXITY_COGNITO_CLIENT_ID
+  id: NEXITY_COGNITO_CLIENT_ID
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: NEXITY_COGNITO_CLIENT_ID
+  nameWithType: OverkizConst.NEXITY_COGNITO_CLIENT_ID
+  fullName: OverKizApi.OverkizConst.NEXITY_COGNITO_CLIENT_ID
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NEXITY_COGNITO_CLIENT_ID
+    path: ../OverKizApi/Const.cs
+    startLine: 37
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: AWS Cognito app client ID for the Nexity user pool.
+  example: []
+  syntax:
+    content: public const string NEXITY_COGNITO_CLIENT_ID = "3mca95jd5ase5lfde65rerovok"
+    return:
+      type: System.String
+    content.vb: Public Const NEXITY_COGNITO_CLIENT_ID As String = "3mca95jd5ase5lfde65rerovok"
+- uid: OverKizApi.OverkizConst.NEXITY_COGNITO_USER_POOL
+  commentId: F:OverKizApi.OverkizConst.NEXITY_COGNITO_USER_POOL
+  id: NEXITY_COGNITO_USER_POOL
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: NEXITY_COGNITO_USER_POOL
+  nameWithType: OverkizConst.NEXITY_COGNITO_USER_POOL
+  fullName: OverKizApi.OverkizConst.NEXITY_COGNITO_USER_POOL
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NEXITY_COGNITO_USER_POOL
+    path: ../OverKizApi/Const.cs
+    startLine: 40
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: AWS Cognito user pool ID used for Nexity SRP authentication.
+  example: []
+  syntax:
+    content: public const string NEXITY_COGNITO_USER_POOL = "eu-west-1_wj277ucoI"
+    return:
+      type: System.String
+    content.vb: Public Const NEXITY_COGNITO_USER_POOL As String = "eu-west-1_wj277ucoI"
+- uid: OverKizApi.OverkizConst.NEXITY_COGNITO_REGION
+  commentId: F:OverKizApi.OverkizConst.NEXITY_COGNITO_REGION
+  id: NEXITY_COGNITO_REGION
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: NEXITY_COGNITO_REGION
+  nameWithType: OverkizConst.NEXITY_COGNITO_REGION
+  fullName: OverKizApi.OverkizConst.NEXITY_COGNITO_REGION
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NEXITY_COGNITO_REGION
+    path: ../OverKizApi/Const.cs
+    startLine: 43
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: AWS region that hosts the Nexity Cognito user pool.
+  example: []
+  syntax:
+    content: public const string NEXITY_COGNITO_REGION = "eu-west-1"
+    return:
+      type: System.String
+    content.vb: Public Const NEXITY_COGNITO_REGION As String = "eu-west-1"
+- uid: OverKizApi.OverkizConst.SOMFY_API
+  commentId: F:OverKizApi.OverkizConst.SOMFY_API
+  id: SOMFY_API
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: SOMFY_API
+  nameWithType: OverkizConst.SOMFY_API
+  fullName: OverKizApi.OverkizConst.SOMFY_API
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SOMFY_API
+    path: ../OverKizApi/Const.cs
+    startLine: 48
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Base URL of the Somfy identity / OAuth 2.0 server.
+  example: []
+  syntax:
+    content: public const string SOMFY_API = "https://accounts.somfy.com"
+    return:
+      type: System.String
+    content.vb: Public Const SOMFY_API As String = "https://accounts.somfy.com"
+- uid: OverKizApi.OverkizConst.SOMFY_CLIENT_ID
+  commentId: F:OverKizApi.OverkizConst.SOMFY_CLIENT_ID
+  id: SOMFY_CLIENT_ID
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: SOMFY_CLIENT_ID
+  nameWithType: OverkizConst.SOMFY_CLIENT_ID
+  fullName: OverKizApi.OverkizConst.SOMFY_CLIENT_ID
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SOMFY_CLIENT_ID
+    path: ../OverKizApi/Const.cs
+    startLine: 54
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Somfy OAuth 2.0 client ID embedded in the official Somfy TaHoma mobile app.
+
+    This value is public by design.
+  example: []
+  syntax:
+    content: public const string SOMFY_CLIENT_ID = "0d8e920c-1478-11e7-a377-02dd59bd3041_1ewvaqmclfogo4kcsoo0c8k4kso884owg08sg8c40sk4go4ksg"
+    return:
+      type: System.String
+    content.vb: Public Const SOMFY_CLIENT_ID As String = "0d8e920c-1478-11e7-a377-02dd59bd3041_1ewvaqmclfogo4kcsoo0c8k4kso884owg08sg8c40sk4go4ksg"
+- uid: OverKizApi.OverkizConst.SOMFY_CLIENT_SECRET
+  commentId: F:OverKizApi.OverkizConst.SOMFY_CLIENT_SECRET
+  id: SOMFY_CLIENT_SECRET
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: SOMFY_CLIENT_SECRET
+  nameWithType: OverkizConst.SOMFY_CLIENT_SECRET
+  fullName: OverKizApi.OverkizConst.SOMFY_CLIENT_SECRET
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SOMFY_CLIENT_SECRET
+    path: ../OverKizApi/Const.cs
+    startLine: 60
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Somfy OAuth 2.0 client secret embedded in the official Somfy TaHoma mobile app.
+
+    This value is public by design (required for ROPC flow).
+  example: []
+  syntax:
+    content: public const string SOMFY_CLIENT_SECRET = "12k73w1n540g8o4cokg0cw84cog840k84cwggscwg884004kgk"
+    return:
+      type: System.String
+    content.vb: Public Const SOMFY_CLIENT_SECRET As String = "12k73w1n540g8o4cokg0cw84cog840k84cwggscwg884004kgk"
+- uid: OverKizApi.OverkizConst.REXEL_ENDUSER_API
+  commentId: F:OverKizApi.OverkizConst.REXEL_ENDUSER_API
+  id: REXEL_ENDUSER_API
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: REXEL_ENDUSER_API
+  nameWithType: OverkizConst.REXEL_ENDUSER_API
+  fullName: OverKizApi.OverkizConst.REXEL_ENDUSER_API
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: REXEL_ENDUSER_API
+    path: ../OverKizApi/Const.cs
+    startLine: 65
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Base URL of the Rexel end-user directory API used to enumerate homes and gateways.
+  example: []
+  syntax:
+    content: public const string REXEL_ENDUSER_API = "https://econnect-api.rexelservices.fr/api/enduser"
+    return:
+      type: System.String
+    content.vb: Public Const REXEL_ENDUSER_API As String = "https://econnect-api.rexelservices.fr/api/enduser"
+- uid: OverKizApi.OverkizConst.REXEL_BACKEND_API
+  commentId: F:OverKizApi.OverkizConst.REXEL_BACKEND_API
+  id: REXEL_BACKEND_API
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: REXEL_BACKEND_API
+  nameWithType: OverkizConst.REXEL_BACKEND_API
+  fullName: OverKizApi.OverkizConst.REXEL_BACKEND_API
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: REXEL_BACKEND_API
+    path: ../OverKizApi/Const.cs
+    startLine: 68
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Base URL of the Rexel Overkiz-proxy backend used for gateway-scoped device requests.
+  example: []
+  syntax:
+    content: public const string REXEL_BACKEND_API = "https://econnect-api.rexelservices.fr/api/enduser/overkiz/"
+    return:
+      type: System.String
+    content.vb: Public Const REXEL_BACKEND_API As String = "https://econnect-api.rexelservices.fr/api/enduser/overkiz/"
+- uid: OverKizApi.OverkizConst.REXEL_GATEWAY_HEADER
+  commentId: F:OverKizApi.OverkizConst.REXEL_GATEWAY_HEADER
+  id: REXEL_GATEWAY_HEADER
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: REXEL_GATEWAY_HEADER
+  nameWithType: OverkizConst.REXEL_GATEWAY_HEADER
+  fullName: OverKizApi.OverkizConst.REXEL_GATEWAY_HEADER
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: REXEL_GATEWAY_HEADER
+    path: ../OverKizApi/Const.cs
+    startLine: 71
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Name of the HTTP header required by Rexel to scope requests to a selected gateway.
+  example: []
+  syntax:
+    content: public const string REXEL_GATEWAY_HEADER = "gatewayId"
+    return:
+      type: System.String
+    content.vb: Public Const REXEL_GATEWAY_HEADER As String = "gatewayId"
+- uid: OverKizApi.OverkizConst.LOCAL_API_PORT
+  commentId: F:OverKizApi.OverkizConst.LOCAL_API_PORT
+  id: LOCAL_API_PORT
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: LOCAL_API_PORT
+  nameWithType: OverkizConst.LOCAL_API_PORT
+  fullName: OverKizApi.OverkizConst.LOCAL_API_PORT
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: LOCAL_API_PORT
+    path: ../OverKizApi/Const.cs
+    startLine: 78
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: HTTPS port used by the Overkiz local developer-mode API.
+  example: []
+  syntax:
+    content: public const int LOCAL_API_PORT = 8443
+    return:
+      type: System.Int32
+    content.vb: Public Const LOCAL_API_PORT As Integer = 8443
+- uid: OverKizApi.OverkizConst.LOCAL_API_PATH
+  commentId: F:OverKizApi.OverkizConst.LOCAL_API_PATH
+  id: LOCAL_API_PATH
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: LOCAL_API_PATH
+  nameWithType: OverkizConst.LOCAL_API_PATH
+  fullName: OverKizApi.OverkizConst.LOCAL_API_PATH
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: LOCAL_API_PATH
+    path: ../OverKizApi/Const.cs
+    startLine: 84
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    HTTP path prefix appended to the gateway's local IP address to reach the
+
+    developer-mode local API (e.g. <code>https://&lt;gateway-ip&gt;:8443/enduser-mobile-web/1/enduserAPI/</code>).
+  example: []
+  syntax:
+    content: public const string LOCAL_API_PATH = "/enduser-mobile-web/1/enduserAPI/"
+    return:
+      type: System.String
+    content.vb: Public Const LOCAL_API_PATH As String = "/enduser-mobile-web/1/enduserAPI/"
+- uid: OverKizApi.OverkizConst.LocalEndpoint(System.String)
+  commentId: M:OverKizApi.OverkizConst.LocalEndpoint(System.String)
+  id: LocalEndpoint(System.String)
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: LocalEndpoint(string)
+  nameWithType: OverkizConst.LocalEndpoint(string)
+  fullName: OverKizApi.OverkizConst.LocalEndpoint(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: LocalEndpoint
+    path: ../OverKizApi/Const.cs
+    startLine: 89
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Builds the full local API endpoint URL for the given gateway IP or hostname.
+  example: []
+  syntax:
+    content: public static string LocalEndpoint(string gatewayIp)
+    parameters:
+    - id: gatewayIp
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Shared Function LocalEndpoint(gatewayIp As String) As String
+  overload: OverKizApi.OverkizConst.LocalEndpoint*
+  nameWithType.vb: OverkizConst.LocalEndpoint(String)
+  fullName.vb: OverKizApi.OverkizConst.LocalEndpoint(String)
+  name.vb: LocalEndpoint(String)
+- uid: OverKizApi.OverkizConst.LocalServer(System.String)
+  commentId: M:OverKizApi.OverkizConst.LocalServer(System.String)
+  id: LocalServer(System.String)
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: LocalServer(string)
+  nameWithType: OverkizConst.LocalServer(string)
+  fullName: OverKizApi.OverkizConst.LocalServer(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: LocalServer
+    path: ../OverKizApi/Const.cs
+    startLine: 95
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Creates an <xref href="OverKizApi.Models.OverkizServer" data-throw-if-not-resolved="false"></xref> descriptor for a local gateway connection.
+  example: []
+  syntax:
+    content: public static OverkizServer LocalServer(string gatewayIp)
+    parameters:
+    - id: gatewayIp
+      type: System.String
+    return:
+      type: OverKizApi.Models.OverkizServer
+    content.vb: Public Shared Function LocalServer(gatewayIp As String) As OverkizServer
+  overload: OverKizApi.OverkizConst.LocalServer*
+  nameWithType.vb: OverkizConst.LocalServer(String)
+  fullName.vb: OverKizApi.OverkizConst.LocalServer(String)
+  name.vb: LocalServer(String)
+- uid: OverKizApi.OverkizConst.CreateLocalHttpClientHandler
+  commentId: M:OverKizApi.OverkizConst.CreateLocalHttpClientHandler
+  id: CreateLocalHttpClientHandler
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: CreateLocalHttpClientHandler()
+  nameWithType: OverkizConst.CreateLocalHttpClientHandler()
+  fullName: OverKizApi.OverkizConst.CreateLocalHttpClientHandler()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CreateLocalHttpClientHandler
+    path: ../OverKizApi/Const.cs
+    startLine: 104
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Creates an <xref href="System.Net.Http.HttpClientHandler" data-throw-if-not-resolved="false"></xref> suitable for connecting to a local Overkiz gateway.
+
+    The handler bypasses TLS certificate validation because local gateways use a self-signed certificate.
+
+    The caller is responsible for disposing both the handler and the <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> built from it.
+  example: []
+  syntax:
+    content: public static HttpClientHandler CreateLocalHttpClientHandler()
+    return:
+      type: System.Net.Http.HttpClientHandler
+    content.vb: Public Shared Function CreateLocalHttpClientHandler() As HttpClientHandler
+  overload: OverKizApi.OverkizConst.CreateLocalHttpClientHandler*
+- uid: OverKizApi.OverkizConst.ServersWithLocalApi
+  commentId: F:OverKizApi.OverkizConst.ServersWithLocalApi
+  id: ServersWithLocalApi
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: ServersWithLocalApi
+  nameWithType: OverkizConst.ServersWithLocalApi
+  fullName: OverKizApi.OverkizConst.ServersWithLocalApi
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ServersWithLocalApi
+    path: ../OverKizApi/Const.cs
+    startLine: 113
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    The subset of <xref href="OverKizApi.Enums.Server" data-throw-if-not-resolved="false"></xref> values whose gateways support the local developer-mode API.
+
+    When the selected server is in this list, a local bearer token can be used instead of
+
+    cloud credentials to communicate directly with the gateway on the LAN.
+  example: []
+  syntax:
+    content: public static readonly IReadOnlyList<Server> ServersWithLocalApi
+    return:
+      type: System.Collections.Generic.IReadOnlyList{OverKizApi.Enums.Server}
+    content.vb: Public Shared ReadOnly ServersWithLocalApi As IReadOnlyList(Of Server)
+- uid: OverKizApi.OverkizConst.SupportedServers
+  commentId: F:OverKizApi.OverkizConst.SupportedServers
+  id: SupportedServers
+  parent: OverKizApi.OverkizConst
+  langs:
+  - csharp
+  - vb
+  name: SupportedServers
+  nameWithType: OverkizConst.SupportedServers
+  fullName: OverKizApi.OverkizConst.SupportedServers
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Const.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SupportedServers
+    path: ../OverKizApi/Const.cs
+    startLine: 120
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Maps every known <xref href="OverKizApi.Enums.Server" data-throw-if-not-resolved="false"></xref> key to its <xref href="OverKizApi.Models.OverkizServer" data-throw-if-not-resolved="false"></xref> endpoint descriptor.
+
+    Pass the value obtained from this dictionary directly to the <xref href="OverKizApi.OverkizClient" data-throw-if-not-resolved="false"></xref> constructor.
+  example: []
+  syntax:
+    content: public static readonly IReadOnlyDictionary<Server, OverkizServer> SupportedServers
+    return:
+      type: System.Collections.Generic.IReadOnlyDictionary{OverKizApi.Enums.Server,OverKizApi.Models.OverkizServer}
+    content.vb: Public Shared ReadOnly SupportedServers As IReadOnlyDictionary(Of Server, OverkizServer)
+references:
+- uid: OverKizApi
+  commentId: N:OverKizApi
+  href: OverKizApi.html
+  name: OverKizApi
+  nameWithType: OverKizApi
+  fullName: OverKizApi
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OverKizApi.OverkizConst.LocalEndpoint*
+  commentId: Overload:OverKizApi.OverkizConst.LocalEndpoint
+  href: OverKizApi.OverkizConst.html#OverKizApi_OverkizConst_LocalEndpoint_System_String_
+  name: LocalEndpoint
+  nameWithType: OverkizConst.LocalEndpoint
+  fullName: OverKizApi.OverkizConst.LocalEndpoint
+- uid: OverKizApi.Models.OverkizServer
+  commentId: T:OverKizApi.Models.OverkizServer
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.OverkizServer.html
+  name: OverkizServer
+  nameWithType: OverkizServer
+  fullName: OverKizApi.Models.OverkizServer
+- uid: OverKizApi.OverkizConst.LocalServer*
+  commentId: Overload:OverKizApi.OverkizConst.LocalServer
+  href: OverKizApi.OverkizConst.html#OverKizApi_OverkizConst_LocalServer_System_String_
+  name: LocalServer
+  nameWithType: OverkizConst.LocalServer
+  fullName: OverKizApi.OverkizConst.LocalServer
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Net.Http.HttpClientHandler
+  commentId: T:System.Net.Http.HttpClientHandler
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclienthandler
+  name: HttpClientHandler
+  nameWithType: HttpClientHandler
+  fullName: System.Net.Http.HttpClientHandler
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: OverKizApi.OverkizConst.CreateLocalHttpClientHandler*
+  commentId: Overload:OverKizApi.OverkizConst.CreateLocalHttpClientHandler
+  href: OverKizApi.OverkizConst.html#OverKizApi_OverkizConst_CreateLocalHttpClientHandler
+  name: CreateLocalHttpClientHandler
+  nameWithType: OverkizConst.CreateLocalHttpClientHandler
+  fullName: OverKizApi.OverkizConst.CreateLocalHttpClientHandler
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: OverKizApi.Enums.Server
+  commentId: T:OverKizApi.Enums.Server
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.Server.html
+  name: Server
+  nameWithType: Server
+  fullName: OverKizApi.Enums.Server
+- uid: System.Collections.Generic.IReadOnlyList{OverKizApi.Enums.Server}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OverKizApi.Enums.Server}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<Server>
+  nameWithType: IReadOnlyList<Server>
+  fullName: System.Collections.Generic.IReadOnlyList<OverKizApi.Enums.Server>
+  nameWithType.vb: IReadOnlyList(Of Server)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OverKizApi.Enums.Server)
+  name.vb: IReadOnlyList(Of Server)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Enums.Server
+    name: Server
+    href: OverKizApi.Enums.Server.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Enums.Server
+    name: Server
+    href: OverKizApi.Enums.Server.html
+  - name: )
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OverKizApi.OverkizClient
+  commentId: T:OverKizApi.OverkizClient
+  href: OverKizApi.OverkizClient.html
+  name: OverkizClient
+  nameWithType: OverkizClient
+  fullName: OverKizApi.OverkizClient
+- uid: System.Collections.Generic.IReadOnlyDictionary{OverKizApi.Enums.Server,OverKizApi.Models.OverkizServer}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{OverKizApi.Enums.Server,OverKizApi.Models.OverkizServer}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<Server, OverkizServer>
+  nameWithType: IReadOnlyDictionary<Server, OverkizServer>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<OverKizApi.Enums.Server, OverKizApi.Models.OverkizServer>
+  nameWithType.vb: IReadOnlyDictionary(Of Server, OverkizServer)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of OverKizApi.Enums.Server, OverKizApi.Models.OverkizServer)
+  name.vb: IReadOnlyDictionary(Of Server, OverkizServer)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: OverKizApi.Enums.Server
+    name: Server
+    href: OverKizApi.Enums.Server.html
+  - name: ','
+  - name: " "
+  - uid: OverKizApi.Models.OverkizServer
+    name: OverkizServer
+    href: OverKizApi.Models.OverkizServer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Enums.Server
+    name: Server
+    href: OverKizApi.Enums.Server.html
+  - name: ','
+  - name: " "
+  - uid: OverKizApi.Models.OverkizServer
+    name: OverkizServer
+    href: OverKizApi.Models.OverkizServer.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )

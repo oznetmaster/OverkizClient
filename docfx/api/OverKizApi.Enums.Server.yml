@@ -1,0 +1,562 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.Server
+  commentId: T:OverKizApi.Enums.Server
+  id: Server
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.Server.AtlanticCozytouch
+  - OverKizApi.Enums.Server.Brandt
+  - OverKizApi.Enums.Server.Flexom
+  - OverKizApi.Enums.Server.HexaomHexaconnect
+  - OverKizApi.Enums.Server.HiKumoAsia
+  - OverKizApi.Enums.Server.HiKumoEurope
+  - OverKizApi.Enums.Server.HiKumoOceania
+  - OverKizApi.Enums.Server.Nexity
+  - OverKizApi.Enums.Server.Rexel
+  - OverKizApi.Enums.Server.SauterCozytouch
+  - OverKizApi.Enums.Server.SimuLivein2
+  - OverKizApi.Enums.Server.SomfyAmerica
+  - OverKizApi.Enums.Server.SomfyDeveloperMode
+  - OverKizApi.Enums.Server.SomfyEurope
+  - OverKizApi.Enums.Server.SomfyOceania
+  - OverKizApi.Enums.Server.ThermorCozytouch
+  - OverKizApi.Enums.Server.Ubiwizz
+  langs:
+  - csharp
+  - vb
+  name: Server
+  nameWithType: Server
+  fullName: OverKizApi.Enums.Server
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Server
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 10
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: >-
+    Identifies a specific named Overkiz-based cloud server.
+
+    Use these keys to look up endpoint details in <xref href="OverKizApi.OverkizConst.SupportedServers" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum Server
+    content.vb: Public Enum Server
+- uid: OverKizApi.Enums.Server.AtlanticCozytouch
+  commentId: F:OverKizApi.Enums.Server.AtlanticCozytouch
+  id: AtlanticCozytouch
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: AtlanticCozytouch
+  nameWithType: Server.AtlanticCozytouch
+  fullName: OverKizApi.Enums.Server.AtlanticCozytouch
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: AtlanticCozytouch
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 13
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Atlantic Cozytouch (France) — uses CozyTouch JWT authentication.
+  example: []
+  syntax:
+    content: AtlanticCozytouch = 0
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.Brandt
+  commentId: F:OverKizApi.Enums.Server.Brandt
+  id: Brandt
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: Brandt
+  nameWithType: Server.Brandt
+  fullName: OverKizApi.Enums.Server.Brandt
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Brandt
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 15
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Brandt Smart Control — standard username/password login.
+  example: []
+  syntax:
+    content: Brandt = 1
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.Flexom
+  commentId: F:OverKizApi.Enums.Server.Flexom
+  id: Flexom
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: Flexom
+  nameWithType: Server.Flexom
+  fullName: OverKizApi.Enums.Server.Flexom
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Flexom
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 17
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Flexom by Bouygues — standard username/password login.
+  example: []
+  syntax:
+    content: Flexom = 2
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.HexaomHexaconnect
+  commentId: F:OverKizApi.Enums.Server.HexaomHexaconnect
+  id: HexaomHexaconnect
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: HexaomHexaconnect
+  nameWithType: Server.HexaomHexaconnect
+  fullName: OverKizApi.Enums.Server.HexaomHexaconnect
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: HexaomHexaconnect
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 19
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Hexaom HexaConnect — standard username/password login.
+  example: []
+  syntax:
+    content: HexaomHexaconnect = 3
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.HiKumoAsia
+  commentId: F:OverKizApi.Enums.Server.HiKumoAsia
+  id: HiKumoAsia
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: HiKumoAsia
+  nameWithType: Server.HiKumoAsia
+  fullName: OverKizApi.Enums.Server.HiKumoAsia
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: HiKumoAsia
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 21
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Hitachi Hi Kumo (Asia region) — standard username/password login.
+  example: []
+  syntax:
+    content: HiKumoAsia = 4
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.HiKumoEurope
+  commentId: F:OverKizApi.Enums.Server.HiKumoEurope
+  id: HiKumoEurope
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: HiKumoEurope
+  nameWithType: Server.HiKumoEurope
+  fullName: OverKizApi.Enums.Server.HiKumoEurope
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: HiKumoEurope
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 23
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Hitachi Hi Kumo (Europe region) — standard username/password login.
+  example: []
+  syntax:
+    content: HiKumoEurope = 5
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.HiKumoOceania
+  commentId: F:OverKizApi.Enums.Server.HiKumoOceania
+  id: HiKumoOceania
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: HiKumoOceania
+  nameWithType: Server.HiKumoOceania
+  fullName: OverKizApi.Enums.Server.HiKumoOceania
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: HiKumoOceania
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 25
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Hitachi Hi Kumo (Oceania region) — standard username/password login.
+  example: []
+  syntax:
+    content: HiKumoOceania = 6
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.Nexity
+  commentId: F:OverKizApi.Enums.Server.Nexity
+  id: Nexity
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: Nexity
+  nameWithType: Server.Nexity
+  fullName: OverKizApi.Enums.Server.Nexity
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Nexity
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 27
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Nexity Eugénie — uses AWS Cognito SRP authentication.
+  example: []
+  syntax:
+    content: Nexity = 7
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.Rexel
+  commentId: F:OverKizApi.Enums.Server.Rexel
+  id: Rexel
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: Rexel
+  nameWithType: Server.Rexel
+  fullName: OverKizApi.Enums.Server.Rexel
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Rexel
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 29
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Rexel Energeasy Connect — standard username/password login.
+  example: []
+  syntax:
+    content: Rexel = 8
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.SauterCozytouch
+  commentId: F:OverKizApi.Enums.Server.SauterCozytouch
+  id: SauterCozytouch
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: SauterCozytouch
+  nameWithType: Server.SauterCozytouch
+  fullName: OverKizApi.Enums.Server.SauterCozytouch
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SauterCozytouch
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 31
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Sauter Cozytouch — uses CozyTouch JWT authentication.
+  example: []
+  syntax:
+    content: SauterCozytouch = 9
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.SimuLivein2
+  commentId: F:OverKizApi.Enums.Server.SimuLivein2
+  id: SimuLivein2
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: SimuLivein2
+  nameWithType: Server.SimuLivein2
+  fullName: OverKizApi.Enums.Server.SimuLivein2
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SimuLivein2
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 33
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: SIMU LiveIn2 — standard username/password login.
+  example: []
+  syntax:
+    content: SimuLivein2 = 10
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.SomfyDeveloperMode
+  commentId: F:OverKizApi.Enums.Server.SomfyDeveloperMode
+  id: SomfyDeveloperMode
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: SomfyDeveloperMode
+  nameWithType: Server.SomfyDeveloperMode
+  fullName: OverKizApi.Enums.Server.SomfyDeveloperMode
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SomfyDeveloperMode
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 35
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Somfy developer mode (local gateway) — uses local bearer token.
+  example: []
+  syntax:
+    content: SomfyDeveloperMode = 11
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.SomfyEurope
+  commentId: F:OverKizApi.Enums.Server.SomfyEurope
+  id: SomfyEurope
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: SomfyEurope
+  nameWithType: Server.SomfyEurope
+  fullName: OverKizApi.Enums.Server.SomfyEurope
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SomfyEurope
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 37
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Somfy TaHoma (Europe) — uses Somfy OAuth 2.0 authentication; supports local API.
+  example: []
+  syntax:
+    content: SomfyEurope = 12
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.SomfyAmerica
+  commentId: F:OverKizApi.Enums.Server.SomfyAmerica
+  id: SomfyAmerica
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: SomfyAmerica
+  nameWithType: Server.SomfyAmerica
+  fullName: OverKizApi.Enums.Server.SomfyAmerica
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SomfyAmerica
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 39
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Somfy TaHoma (North America) — uses Somfy OAuth 2.0 authentication; supports local API.
+  example: []
+  syntax:
+    content: SomfyAmerica = 13
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.SomfyOceania
+  commentId: F:OverKizApi.Enums.Server.SomfyOceania
+  id: SomfyOceania
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: SomfyOceania
+  nameWithType: Server.SomfyOceania
+  fullName: OverKizApi.Enums.Server.SomfyOceania
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SomfyOceania
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 41
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Somfy TaHoma (Oceania) — uses Somfy OAuth 2.0 authentication; supports local API.
+  example: []
+  syntax:
+    content: SomfyOceania = 14
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.ThermorCozytouch
+  commentId: F:OverKizApi.Enums.Server.ThermorCozytouch
+  id: ThermorCozytouch
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: ThermorCozytouch
+  nameWithType: Server.ThermorCozytouch
+  fullName: OverKizApi.Enums.Server.ThermorCozytouch
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ThermorCozytouch
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 43
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Thermor Cozytouch — uses CozyTouch JWT authentication.
+  example: []
+  syntax:
+    content: ThermorCozytouch = 15
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.Ubiwizz
+  commentId: F:OverKizApi.Enums.Server.Ubiwizz
+  id: Ubiwizz
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: Ubiwizz
+  nameWithType: Server.Ubiwizz
+  fullName: OverKizApi.Enums.Server.Ubiwizz
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Ubiwizz
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 45
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Ubiwizz by Decelect — standard username/password login.
+  example: []
+  syntax:
+    content: Ubiwizz = 16
+    return:
+      type: OverKizApi.Enums.Server
+references:
+- uid: OverKizApi.OverkizConst.SupportedServers
+  commentId: F:OverKizApi.OverkizConst.SupportedServers
+  href: OverKizApi.OverkizConst.html#OverKizApi_OverkizConst_SupportedServers
+  name: SupportedServers
+  nameWithType: OverkizConst.SupportedServers
+  fullName: OverKizApi.OverkizConst.SupportedServers
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.Server
+  commentId: T:OverKizApi.Enums.Server
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.Server.html
+  name: Server
+  nameWithType: Server
+  fullName: OverKizApi.Enums.Server

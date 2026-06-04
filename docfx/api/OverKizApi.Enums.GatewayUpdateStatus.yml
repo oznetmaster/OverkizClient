@@ -1,0 +1,263 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.GatewayUpdateStatus
+  commentId: T:OverKizApi.Enums.GatewayUpdateStatus
+  id: GatewayUpdateStatus
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.GatewayUpdateStatus.Failed
+  - OverKizApi.Enums.GatewayUpdateStatus.InProgress
+  - OverKizApi.Enums.GatewayUpdateStatus.NotUpdate
+  - OverKizApi.Enums.GatewayUpdateStatus.Pending
+  - OverKizApi.Enums.GatewayUpdateStatus.ReadyToUpdate
+  - OverKizApi.Enums.GatewayUpdateStatus.Unknown
+  - OverKizApi.Enums.GatewayUpdateStatus.Updated
+  langs:
+  - csharp
+  - vb
+  name: GatewayUpdateStatus
+  nameWithType: GatewayUpdateStatus
+  fullName: OverKizApi.Enums.GatewayUpdateStatus
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayUpdateStatus
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 49
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Tracks the firmware/software update lifecycle of a gateway.
+  example: []
+  syntax:
+    content: public enum GatewayUpdateStatus
+    content.vb: Public Enum GatewayUpdateStatus
+- uid: OverKizApi.Enums.GatewayUpdateStatus.NotUpdate
+  commentId: F:OverKizApi.Enums.GatewayUpdateStatus.NotUpdate
+  id: NotUpdate
+  parent: OverKizApi.Enums.GatewayUpdateStatus
+  langs:
+  - csharp
+  - vb
+  name: NotUpdate
+  nameWithType: GatewayUpdateStatus.NotUpdate
+  fullName: OverKizApi.Enums.GatewayUpdateStatus.NotUpdate
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NotUpdate
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 52
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: No update is pending; firmware is current.
+  example: []
+  syntax:
+    content: NotUpdate = 0
+    return:
+      type: OverKizApi.Enums.GatewayUpdateStatus
+- uid: OverKizApi.Enums.GatewayUpdateStatus.Pending
+  commentId: F:OverKizApi.Enums.GatewayUpdateStatus.Pending
+  id: Pending
+  parent: OverKizApi.Enums.GatewayUpdateStatus
+  langs:
+  - csharp
+  - vb
+  name: Pending
+  nameWithType: GatewayUpdateStatus.Pending
+  fullName: OverKizApi.Enums.GatewayUpdateStatus.Pending
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Pending
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 54
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: An update has been detected and is pending download.
+  example: []
+  syntax:
+    content: Pending = 1
+    return:
+      type: OverKizApi.Enums.GatewayUpdateStatus
+- uid: OverKizApi.Enums.GatewayUpdateStatus.ReadyToUpdate
+  commentId: F:OverKizApi.Enums.GatewayUpdateStatus.ReadyToUpdate
+  id: ReadyToUpdate
+  parent: OverKizApi.Enums.GatewayUpdateStatus
+  langs:
+  - csharp
+  - vb
+  name: ReadyToUpdate
+  nameWithType: GatewayUpdateStatus.ReadyToUpdate
+  fullName: OverKizApi.Enums.GatewayUpdateStatus.ReadyToUpdate
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ReadyToUpdate
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 56
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The update package is downloaded and ready to be applied.
+  example: []
+  syntax:
+    content: ReadyToUpdate = 2
+    return:
+      type: OverKizApi.Enums.GatewayUpdateStatus
+- uid: OverKizApi.Enums.GatewayUpdateStatus.InProgress
+  commentId: F:OverKizApi.Enums.GatewayUpdateStatus.InProgress
+  id: InProgress
+  parent: OverKizApi.Enums.GatewayUpdateStatus
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: GatewayUpdateStatus.InProgress
+  fullName: OverKizApi.Enums.GatewayUpdateStatus.InProgress
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: InProgress
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 58
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The gateway is currently applying the update.
+  example: []
+  syntax:
+    content: InProgress = 3
+    return:
+      type: OverKizApi.Enums.GatewayUpdateStatus
+- uid: OverKizApi.Enums.GatewayUpdateStatus.Updated
+  commentId: F:OverKizApi.Enums.GatewayUpdateStatus.Updated
+  id: Updated
+  parent: OverKizApi.Enums.GatewayUpdateStatus
+  langs:
+  - csharp
+  - vb
+  name: Updated
+  nameWithType: GatewayUpdateStatus.Updated
+  fullName: OverKizApi.Enums.GatewayUpdateStatus.Updated
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Updated
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 60
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The update was applied successfully.
+  example: []
+  syntax:
+    content: Updated = 4
+    return:
+      type: OverKizApi.Enums.GatewayUpdateStatus
+- uid: OverKizApi.Enums.GatewayUpdateStatus.Failed
+  commentId: F:OverKizApi.Enums.GatewayUpdateStatus.Failed
+  id: Failed
+  parent: OverKizApi.Enums.GatewayUpdateStatus
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: GatewayUpdateStatus.Failed
+  fullName: OverKizApi.Enums.GatewayUpdateStatus.Failed
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Failed
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 62
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The update attempt failed.
+  example: []
+  syntax:
+    content: Failed = 5
+    return:
+      type: OverKizApi.Enums.GatewayUpdateStatus
+- uid: OverKizApi.Enums.GatewayUpdateStatus.Unknown
+  commentId: F:OverKizApi.Enums.GatewayUpdateStatus.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.GatewayUpdateStatus
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: GatewayUpdateStatus.Unknown
+  fullName: OverKizApi.Enums.GatewayUpdateStatus.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 64
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Update status could not be determined.
+  example: []
+  syntax:
+    content: Unknown = 6
+    return:
+      type: OverKizApi.Enums.GatewayUpdateStatus
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.GatewayUpdateStatus
+  commentId: T:OverKizApi.Enums.GatewayUpdateStatus
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.GatewayUpdateStatus.html
+  name: GatewayUpdateStatus
+  nameWithType: GatewayUpdateStatus
+  fullName: OverKizApi.Enums.GatewayUpdateStatus

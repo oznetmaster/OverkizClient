@@ -1,0 +1,1010 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.Gateway
+  commentId: T:OverKizApi.Models.Gateway
+  id: Gateway
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.Gateway.Alive
+  - OverKizApi.Models.Gateway.Connectivity
+  - OverKizApi.Models.Gateway.Functions
+  - OverKizApi.Models.Gateway.GatewayId
+  - OverKizApi.Models.Gateway.Id
+  - OverKizApi.Models.Gateway.Mode
+  - OverKizApi.Models.Gateway.Partners
+  - OverKizApi.Models.Gateway.PlaceOid
+  - OverKizApi.Models.Gateway.SubType
+  - OverKizApi.Models.Gateway.SyncInProgress
+  - OverKizApi.Models.Gateway.TimeReliable
+  - OverKizApi.Models.Gateway.UpToDate
+  - OverKizApi.Models.Gateway.UpdateStatus
+  langs:
+  - csharp
+  - vb
+  name: Gateway
+  nameWithType: Gateway
+  fullName: OverKizApi.Models.Gateway
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Gateway
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 421
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    Represents a physical Overkiz-compatible gateway (hub) registered in a setup.
+
+    A setup may have more than one gateway.
+  example: []
+  syntax:
+    content: public sealed class Gateway
+    content.vb: Public NotInheritable Class Gateway
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.Models.Gateway.GatewayId
+  commentId: P:OverKizApi.Models.Gateway.GatewayId
+  id: GatewayId
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: GatewayId
+  nameWithType: Gateway.GatewayId
+  fullName: OverKizApi.Models.Gateway.GatewayId
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayId
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 424
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unique gateway serial number (e.g. <code>"1234-5678-9012"</code>).
+  example: []
+  syntax:
+    content: public string? GatewayId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property GatewayId As String
+  overload: OverKizApi.Models.Gateway.GatewayId*
+- uid: OverKizApi.Models.Gateway.Id
+  commentId: P:OverKizApi.Models.Gateway.Id
+  id: Id
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Gateway.Id
+  fullName: OverKizApi.Models.Gateway.Id
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Id
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 426
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Alias for <xref href="OverKizApi.Models.Gateway.GatewayId" data-throw-if-not-resolved="false"></xref>; provided for convenience.
+  example: []
+  syntax:
+    content: public string? Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Id As String
+  overload: OverKizApi.Models.Gateway.Id*
+- uid: OverKizApi.Models.Gateway.Functions
+  commentId: P:OverKizApi.Models.Gateway.Functions
+  id: Functions
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: Functions
+  nameWithType: Gateway.Functions
+  fullName: OverKizApi.Models.Gateway.Functions
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Functions
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 428
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Comma-separated list of functional capability flags reported by the gateway.
+  example: []
+  syntax:
+    content: public string? Functions { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Functions As String
+  overload: OverKizApi.Models.Gateway.Functions*
+- uid: OverKizApi.Models.Gateway.Alive
+  commentId: P:OverKizApi.Models.Gateway.Alive
+  id: Alive
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: Alive
+  nameWithType: Gateway.Alive
+  fullName: OverKizApi.Models.Gateway.Alive
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Alive
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 430
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Whether the gateway is currently sending heartbeat signals to the cloud.
+  example: []
+  syntax:
+    content: public bool? Alive { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property Alive As Boolean?
+  overload: OverKizApi.Models.Gateway.Alive*
+- uid: OverKizApi.Models.Gateway.Mode
+  commentId: P:OverKizApi.Models.Gateway.Mode
+  id: Mode
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: Mode
+  nameWithType: Gateway.Mode
+  fullName: OverKizApi.Models.Gateway.Mode
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Mode
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 432
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Gateway operating mode string (see <xref href="OverKizApi.Enums.GatewayMode" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public string? Mode { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Mode As String
+  overload: OverKizApi.Models.Gateway.Mode*
+- uid: OverKizApi.Models.Gateway.PlaceOid
+  commentId: P:OverKizApi.Models.Gateway.PlaceOid
+  id: PlaceOid
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: PlaceOid
+  nameWithType: Gateway.PlaceOid
+  fullName: OverKizApi.Models.Gateway.PlaceOid
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PlaceOid
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 434
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: OID of the place (room/floor) the gateway is assigned to.
+  example: []
+  syntax:
+    content: public string? PlaceOid { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PlaceOid As String
+  overload: OverKizApi.Models.Gateway.PlaceOid*
+- uid: OverKizApi.Models.Gateway.TimeReliable
+  commentId: P:OverKizApi.Models.Gateway.TimeReliable
+  id: TimeReliable
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: TimeReliable
+  nameWithType: Gateway.TimeReliable
+  fullName: OverKizApi.Models.Gateway.TimeReliable
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TimeReliable
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 436
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Whether the gateway's real-time clock is synchronised.
+  example: []
+  syntax:
+    content: public bool? TimeReliable { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property TimeReliable As Boolean?
+  overload: OverKizApi.Models.Gateway.TimeReliable*
+- uid: OverKizApi.Models.Gateway.Connectivity
+  commentId: P:OverKizApi.Models.Gateway.Connectivity
+  id: Connectivity
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: Connectivity
+  nameWithType: Gateway.Connectivity
+  fullName: OverKizApi.Models.Gateway.Connectivity
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Connectivity
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 438
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Live connectivity state of the gateway.
+  example: []
+  syntax:
+    content: public Connectivity? Connectivity { get; init; }
+    parameters: []
+    return:
+      type: OverKizApi.Models.Connectivity
+    content.vb: Public Property Connectivity As Connectivity
+  overload: OverKizApi.Models.Gateway.Connectivity*
+- uid: OverKizApi.Models.Gateway.UpToDate
+  commentId: P:OverKizApi.Models.Gateway.UpToDate
+  id: UpToDate
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: UpToDate
+  nameWithType: Gateway.UpToDate
+  fullName: OverKizApi.Models.Gateway.UpToDate
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: UpToDate
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 440
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Whether the gateway firmware is up to date.
+  example: []
+  syntax:
+    content: public bool? UpToDate { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property UpToDate As Boolean?
+  overload: OverKizApi.Models.Gateway.UpToDate*
+- uid: OverKizApi.Models.Gateway.UpdateStatus
+  commentId: P:OverKizApi.Models.Gateway.UpdateStatus
+  id: UpdateStatus
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: UpdateStatus
+  nameWithType: Gateway.UpdateStatus
+  fullName: OverKizApi.Models.Gateway.UpdateStatus
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: UpdateStatus
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 442
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Current firmware update lifecycle state.
+  example: []
+  syntax:
+    content: public GatewayUpdateStatus? UpdateStatus { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{OverKizApi.Enums.GatewayUpdateStatus}
+    content.vb: Public Property UpdateStatus As GatewayUpdateStatus?
+  overload: OverKizApi.Models.Gateway.UpdateStatus*
+- uid: OverKizApi.Models.Gateway.SyncInProgress
+  commentId: P:OverKizApi.Models.Gateway.SyncInProgress
+  id: SyncInProgress
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: SyncInProgress
+  nameWithType: Gateway.SyncInProgress
+  fullName: OverKizApi.Models.Gateway.SyncInProgress
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SyncInProgress
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 444
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Whether a device synchronisation cycle is in progress.
+  example: []
+  syntax:
+    content: public bool? SyncInProgress { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property SyncInProgress As Boolean?
+  overload: OverKizApi.Models.Gateway.SyncInProgress*
+- uid: OverKizApi.Models.Gateway.Partners
+  commentId: P:OverKizApi.Models.Gateway.Partners
+  id: Partners
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: Partners
+  nameWithType: Gateway.Partners
+  fullName: OverKizApi.Models.Gateway.Partners
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Partners
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 446
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Third-party partner integrations activated on this gateway.
+  example: []
+  syntax:
+    content: public IReadOnlyList<Partner> Partners { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Partner}
+    content.vb: Public Property Partners As IReadOnlyList(Of Partner)
+  overload: OverKizApi.Models.Gateway.Partners*
+- uid: OverKizApi.Models.Gateway.SubType
+  commentId: P:OverKizApi.Models.Gateway.SubType
+  id: SubType
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: SubType
+  nameWithType: Gateway.SubType
+  fullName: OverKizApi.Models.Gateway.SubType
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SubType
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 448
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Hardware model / product family of the gateway.
+  example: []
+  syntax:
+    content: public GatewaySubType? SubType { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{OverKizApi.Enums.GatewaySubType}
+    content.vb: Public Property SubType As GatewaySubType?
+  overload: OverKizApi.Models.Gateway.SubType*
+references:
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OverKizApi.Models.Gateway.GatewayId*
+  commentId: Overload:OverKizApi.Models.Gateway.GatewayId
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_GatewayId
+  name: GatewayId
+  nameWithType: Gateway.GatewayId
+  fullName: OverKizApi.Models.Gateway.GatewayId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.Models.Gateway.GatewayId
+  commentId: P:OverKizApi.Models.Gateway.GatewayId
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_GatewayId
+  name: GatewayId
+  nameWithType: Gateway.GatewayId
+  fullName: OverKizApi.Models.Gateway.GatewayId
+- uid: OverKizApi.Models.Gateway.Id*
+  commentId: Overload:OverKizApi.Models.Gateway.Id
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_Id
+  name: Id
+  nameWithType: Gateway.Id
+  fullName: OverKizApi.Models.Gateway.Id
+- uid: OverKizApi.Models.Gateway.Functions*
+  commentId: Overload:OverKizApi.Models.Gateway.Functions
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_Functions
+  name: Functions
+  nameWithType: Gateway.Functions
+  fullName: OverKizApi.Models.Gateway.Functions
+- uid: OverKizApi.Models.Gateway.Alive*
+  commentId: Overload:OverKizApi.Models.Gateway.Alive
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_Alive
+  name: Alive
+  nameWithType: Gateway.Alive
+  fullName: OverKizApi.Models.Gateway.Alive
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OverKizApi.Enums.GatewayMode
+  commentId: T:OverKizApi.Enums.GatewayMode
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.GatewayMode.html
+  name: GatewayMode
+  nameWithType: GatewayMode
+  fullName: OverKizApi.Enums.GatewayMode
+- uid: OverKizApi.Models.Gateway.Mode*
+  commentId: Overload:OverKizApi.Models.Gateway.Mode
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_Mode
+  name: Mode
+  nameWithType: Gateway.Mode
+  fullName: OverKizApi.Models.Gateway.Mode
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Models.Gateway.PlaceOid*
+  commentId: Overload:OverKizApi.Models.Gateway.PlaceOid
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_PlaceOid
+  name: PlaceOid
+  nameWithType: Gateway.PlaceOid
+  fullName: OverKizApi.Models.Gateway.PlaceOid
+- uid: OverKizApi.Models.Gateway.TimeReliable*
+  commentId: Overload:OverKizApi.Models.Gateway.TimeReliable
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_TimeReliable
+  name: TimeReliable
+  nameWithType: Gateway.TimeReliable
+  fullName: OverKizApi.Models.Gateway.TimeReliable
+- uid: OverKizApi.Models.Gateway.Connectivity*
+  commentId: Overload:OverKizApi.Models.Gateway.Connectivity
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_Connectivity
+  name: Connectivity
+  nameWithType: Gateway.Connectivity
+  fullName: OverKizApi.Models.Gateway.Connectivity
+- uid: OverKizApi.Models.Connectivity
+  commentId: T:OverKizApi.Models.Connectivity
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.Connectivity.html
+  name: Connectivity
+  nameWithType: Connectivity
+  fullName: OverKizApi.Models.Connectivity
+- uid: OverKizApi.Models.Gateway.UpToDate*
+  commentId: Overload:OverKizApi.Models.Gateway.UpToDate
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_UpToDate
+  name: UpToDate
+  nameWithType: Gateway.UpToDate
+  fullName: OverKizApi.Models.Gateway.UpToDate
+- uid: OverKizApi.Models.Gateway.UpdateStatus*
+  commentId: Overload:OverKizApi.Models.Gateway.UpdateStatus
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_UpdateStatus
+  name: UpdateStatus
+  nameWithType: Gateway.UpdateStatus
+  fullName: OverKizApi.Models.Gateway.UpdateStatus
+- uid: System.Nullable{OverKizApi.Enums.GatewayUpdateStatus}
+  commentId: T:System.Nullable{OverKizApi.Enums.GatewayUpdateStatus}
+  parent: System
+  definition: System.Nullable`1
+  href: OverKizApi.Enums.GatewayUpdateStatus.html
+  name: GatewayUpdateStatus?
+  nameWithType: GatewayUpdateStatus?
+  fullName: OverKizApi.Enums.GatewayUpdateStatus?
+  spec.csharp:
+  - uid: OverKizApi.Enums.GatewayUpdateStatus
+    name: GatewayUpdateStatus
+    href: OverKizApi.Enums.GatewayUpdateStatus.html
+  - name: '?'
+  spec.vb:
+  - uid: OverKizApi.Enums.GatewayUpdateStatus
+    name: GatewayUpdateStatus
+    href: OverKizApi.Enums.GatewayUpdateStatus.html
+  - name: '?'
+- uid: OverKizApi.Models.Gateway.SyncInProgress*
+  commentId: Overload:OverKizApi.Models.Gateway.SyncInProgress
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_SyncInProgress
+  name: SyncInProgress
+  nameWithType: Gateway.SyncInProgress
+  fullName: OverKizApi.Models.Gateway.SyncInProgress
+- uid: OverKizApi.Models.Gateway.Partners*
+  commentId: Overload:OverKizApi.Models.Gateway.Partners
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_Partners
+  name: Partners
+  nameWithType: Gateway.Partners
+  fullName: OverKizApi.Models.Gateway.Partners
+- uid: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Partner}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Partner}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<Partner>
+  nameWithType: IReadOnlyList<Partner>
+  fullName: System.Collections.Generic.IReadOnlyList<OverKizApi.Models.Partner>
+  nameWithType.vb: IReadOnlyList(Of Partner)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.Partner)
+  name.vb: IReadOnlyList(Of Partner)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.Partner
+    name: Partner
+    href: OverKizApi.Models.Partner.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Partner
+    name: Partner
+    href: OverKizApi.Models.Partner.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OverKizApi.Models.Gateway.SubType*
+  commentId: Overload:OverKizApi.Models.Gateway.SubType
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_SubType
+  name: SubType
+  nameWithType: Gateway.SubType
+  fullName: OverKizApi.Models.Gateway.SubType
+- uid: System.Nullable{OverKizApi.Enums.GatewaySubType}
+  commentId: T:System.Nullable{OverKizApi.Enums.GatewaySubType}
+  parent: System
+  definition: System.Nullable`1
+  href: OverKizApi.Enums.GatewaySubType.html
+  name: GatewaySubType?
+  nameWithType: GatewaySubType?
+  fullName: OverKizApi.Enums.GatewaySubType?
+  spec.csharp:
+  - uid: OverKizApi.Enums.GatewaySubType
+    name: GatewaySubType
+    href: OverKizApi.Enums.GatewaySubType.html
+  - name: '?'
+  spec.vb:
+  - uid: OverKizApi.Enums.GatewaySubType
+    name: GatewaySubType
+    href: OverKizApi.Enums.GatewaySubType.html
+  - name: '?'

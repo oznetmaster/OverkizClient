@@ -1,0 +1,3914 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.OverkizClient
+  commentId: T:OverKizApi.OverkizClient
+  id: OverkizClient
+  parent: OverKizApi
+  children:
+  - OverKizApi.OverkizClient.#ctor(System.String,System.String,OverKizApi.Models.OverkizServer,System.String,System.Net.Http.HttpClient)
+  - OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+  - OverKizApi.OverkizClient.ApiType
+  - OverKizApi.OverkizClient.CancelExecution(System.String)
+  - OverKizApi.OverkizClient.CozytouchLogin
+  - OverKizApi.OverkizClient.DeleteLocalToken(System.String,System.String)
+  - OverKizApi.OverkizClient.Devices
+  - OverKizApi.OverkizClient.DiscoverRexelGateways
+  - OverKizApi.OverkizClient.DisposeAsync
+  - OverKizApi.OverkizClient.EventListenerId
+  - OverKizApi.OverkizClient.ExecuteDeviceAction(System.String,System.Collections.Generic.IEnumerable{OverKizApi.Models.Command},System.String)
+  - OverKizApi.OverkizClient.ExecuteScenario(System.String)
+  - OverKizApi.OverkizClient.ExecuteScheduledScenario(System.String,System.Int64)
+  - OverKizApi.OverkizClient.FetchEvents
+  - OverKizApi.OverkizClient.FetchEventsRaw
+  - OverKizApi.OverkizClient.Gateways
+  - OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+  - OverKizApi.OverkizClient.GetCurrentExecutions
+  - OverKizApi.OverkizClient.GetDevice(System.String)
+  - OverKizApi.OverkizClient.GetDeviceStates(System.String)
+  - OverKizApi.OverkizClient.GetDevices
+  - OverKizApi.OverkizClient.GetExecutionHistory
+  - OverKizApi.OverkizClient.GetGateways
+  - OverKizApi.OverkizClient.GetLocalTokens(System.String,System.String)
+  - OverKizApi.OverkizClient.GetPlaces
+  - OverKizApi.OverkizClient.GetScenarios
+  - OverKizApi.OverkizClient.GetSetup(System.Boolean)
+  - OverKizApi.OverkizClient.GetSetupOption(System.String)
+  - OverKizApi.OverkizClient.GetSetupOptionParameter(System.String,System.String)
+  - OverKizApi.OverkizClient.GetSetupOptions
+  - OverKizApi.OverkizClient.Login(System.Boolean)
+  - OverKizApi.OverkizClient.NexityLogin
+  - OverKizApi.OverkizClient.Password
+  - OverKizApi.OverkizClient.RefreshAllDeviceStates
+  - OverKizApi.OverkizClient.RefreshToken
+  - OverKizApi.OverkizClient.RegisterEventListener
+  - OverKizApi.OverkizClient.SelectRexelGateway(System.String)
+  - OverKizApi.OverkizClient.SelectedGatewayId
+  - OverKizApi.OverkizClient.Server
+  - OverKizApi.OverkizClient.Setup
+  - OverKizApi.OverkizClient.SomfyTahomaGetAccessToken
+  - OverKizApi.OverkizClient.UnregisterEventListener
+  - OverKizApi.OverkizClient.Username
+  langs:
+  - csharp
+  - vb
+  name: OverkizClient
+  nameWithType: OverkizClient
+  fullName: OverKizApi.OverkizClient
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: OverkizClient
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 26
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    C# client for the Overkiz API, functionally equivalent to the Python python-overkiz-api library.
+
+    Supports cloud (standard, Somfy OAuth, CozyTouch JWT, Nexity SSO) and local API modes.
+  example: []
+  syntax:
+    content: 'public sealed class OverkizClient : IAsyncDisposable'
+    content.vb: Public NotInheritable Class OverkizClient Implements IAsyncDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IAsyncDisposable
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.OverkizClient.Username
+  commentId: P:OverKizApi.OverkizClient.Username
+  id: Username
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: Username
+  nameWithType: OverkizClient.Username
+  fullName: OverKizApi.OverkizClient.Username
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Username
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 31
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Account username or e-mail address used to authenticate with the Overkiz server.
+  example: []
+  syntax:
+    content: public string Username { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Username As String
+  overload: OverKizApi.OverkizClient.Username*
+- uid: OverKizApi.OverkizClient.Password
+  commentId: P:OverKizApi.OverkizClient.Password
+  id: Password
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: Password
+  nameWithType: OverkizClient.Password
+  fullName: OverKizApi.OverkizClient.Password
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Password
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 37
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Account password used to authenticate with the Overkiz server.
+  example: []
+  syntax:
+    content: public string Password { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Password As String
+  overload: OverKizApi.OverkizClient.Password*
+- uid: OverKizApi.OverkizClient.Server
+  commentId: P:OverKizApi.OverkizClient.Server
+  id: Server
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: Server
+  nameWithType: OverkizClient.Server
+  fullName: OverKizApi.OverkizClient.Server
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Server
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 43
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: The target server this client is connected to.
+  example: []
+  syntax:
+    content: public OverkizServer Server { get; }
+    parameters: []
+    return:
+      type: OverKizApi.Models.OverkizServer
+    content.vb: Public ReadOnly Property Server As OverkizServer
+  overload: OverKizApi.OverkizClient.Server*
+- uid: OverKizApi.OverkizClient.ApiType
+  commentId: P:OverKizApi.OverkizClient.ApiType
+  id: ApiType
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: ApiType
+  nameWithType: OverkizClient.ApiType
+  fullName: OverKizApi.OverkizClient.ApiType
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ApiType
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 49
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Whether the client is operating against the cloud API or a local gateway API.
+  example: []
+  syntax:
+    content: public APIType ApiType { get; }
+    parameters: []
+    return:
+      type: OverKizApi.Enums.APIType
+    content.vb: Public ReadOnly Property ApiType As APIType
+  overload: OverKizApi.OverkizClient.ApiType*
+- uid: OverKizApi.OverkizClient.Setup
+  commentId: P:OverKizApi.OverkizClient.Setup
+  id: Setup
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: Setup
+  nameWithType: OverkizClient.Setup
+  fullName: OverKizApi.OverkizClient.Setup
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Setup
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 60
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    The most recently retrieved <xref href="OverKizApi.Models.Setup" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if
+
+    <xref href="OverKizApi.OverkizClient.GetSetup(System.Boolean)" data-throw-if-not-resolved="false"></xref> has not yet been called.
+  example: []
+  syntax:
+    content: public Setup? Setup { get; }
+    parameters: []
+    return:
+      type: OverKizApi.Models.Setup
+    content.vb: Public Property Setup As Setup
+  overload: OverKizApi.OverkizClient.Setup*
+- uid: OverKizApi.OverkizClient.Devices
+  commentId: P:OverKizApi.OverkizClient.Devices
+  id: Devices
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: Devices
+  nameWithType: OverkizClient.Devices
+  fullName: OverKizApi.OverkizClient.Devices
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Devices
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 69
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    All devices from the most recently retrieved setup.
+
+    Populated by <xref href="OverKizApi.OverkizClient.GetSetup(System.Boolean)" data-throw-if-not-resolved="false"></xref>; empty until that method is called.
+  example: []
+  syntax:
+    content: public List<Device> Devices { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{OverKizApi.Models.Device}
+    content.vb: Public Property Devices As List(Of Device)
+  overload: OverKizApi.OverkizClient.Devices*
+- uid: OverKizApi.OverkizClient.Gateways
+  commentId: P:OverKizApi.OverkizClient.Gateways
+  id: Gateways
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: Gateways
+  nameWithType: OverkizClient.Gateways
+  fullName: OverKizApi.OverkizClient.Gateways
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Gateways
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 75
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    All gateways from the most recently retrieved setup.
+
+    Populated by <xref href="OverKizApi.OverkizClient.GetSetup(System.Boolean)" data-throw-if-not-resolved="false"></xref>; empty until that method is called.
+  example: []
+  syntax:
+    content: public List<Gateway> Gateways { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{OverKizApi.Models.Gateway}
+    content.vb: Public Property Gateways As List(Of Gateway)
+  overload: OverKizApi.OverkizClient.Gateways*
+- uid: OverKizApi.OverkizClient.EventListenerId
+  commentId: P:OverKizApi.OverkizClient.EventListenerId
+  id: EventListenerId
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: EventListenerId
+  nameWithType: OverkizClient.EventListenerId
+  fullName: OverKizApi.OverkizClient.EventListenerId
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: EventListenerId
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 81
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    The event listener ID returned by the last successful <xref href="OverKizApi.OverkizClient.RegisterEventListener" data-throw-if-not-resolved="false"></xref> call,
+
+    or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no listener is currently registered.
+  example: []
+  syntax:
+    content: public string? EventListenerId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EventListenerId As String
+  overload: OverKizApi.OverkizClient.EventListenerId*
+- uid: OverKizApi.OverkizClient.SelectedGatewayId
+  commentId: P:OverKizApi.OverkizClient.SelectedGatewayId
+  id: SelectedGatewayId
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: SelectedGatewayId
+  nameWithType: OverkizClient.SelectedGatewayId
+  fullName: OverKizApi.OverkizClient.SelectedGatewayId
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SelectedGatewayId
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 87
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: The currently selected Rexel gateway ID, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none has been selected.
+  example: []
+  syntax:
+    content: public string? SelectedGatewayId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SelectedGatewayId As String
+  overload: OverKizApi.OverkizClient.SelectedGatewayId*
+- uid: OverKizApi.OverkizClient.#ctor(System.String,System.String,OverKizApi.Models.OverkizServer,System.String,System.Net.Http.HttpClient)
+  commentId: M:OverKizApi.OverkizClient.#ctor(System.String,System.String,OverKizApi.Models.OverkizServer,System.String,System.Net.Http.HttpClient)
+  id: '#ctor(System.String,System.String,OverKizApi.Models.OverkizServer,System.String,System.Net.Http.HttpClient)'
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: OverkizClient(string, string, OverkizServer, string?, HttpClient?)
+  nameWithType: OverkizClient.OverkizClient(string, string, OverkizServer, string?, HttpClient?)
+  fullName: OverKizApi.OverkizClient.OverkizClient(string, string, OverKizApi.Models.OverkizServer, string?, System.Net.Http.HttpClient?)
+  type: Constructor
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: .ctor
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 142
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Creates a new <xref href="OverKizApi.OverkizClient" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public OverkizClient(string username, string password, OverkizServer server, string? token = null, HttpClient? httpClient = null)
+    parameters:
+    - id: username
+      type: System.String
+      description: Account username / email.
+    - id: password
+      type: System.String
+      description: Account password.
+    - id: server
+      type: OverKizApi.Models.OverkizServer
+      description: Target <xref href="OverKizApi.Models.OverkizServer" data-throw-if-not-resolved="false"></xref> (use <xref href="OverKizApi.OverkizConst.SupportedServers" data-throw-if-not-resolved="false"></xref>).
+    - id: token
+      type: System.String
+      description: Pre-existing bearer token (optional; bypasses login).
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+      description: Optional externally-managed <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref>. If null, one is created internally.
+    content.vb: Public Sub New(username As String, password As String, server As OverkizServer, token As String = Nothing, httpClient As HttpClient = Nothing)
+  overload: OverKizApi.OverkizClient.#ctor*
+  nameWithType.vb: OverkizClient.New(String, String, OverkizServer, String, HttpClient)
+  fullName.vb: OverKizApi.OverkizClient.New(String, String, OverKizApi.Models.OverkizServer, String, System.Net.Http.HttpClient)
+  name.vb: New(String, String, OverkizServer, String, HttpClient)
+- uid: OverKizApi.OverkizClient.DisposeAsync
+  commentId: M:OverKizApi.OverkizClient.DisposeAsync
+  id: DisposeAsync
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: DisposeAsync()
+  nameWithType: OverkizClient.DisposeAsync()
+  fullName: OverKizApi.OverkizClient.DisposeAsync()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DisposeAsync
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 169
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Releases resources owned by this client.
+
+    If an event listener is registered it is unregistered (best-effort) before disposal.
+
+    If the <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> was created internally it is also disposed.
+  example: []
+  syntax:
+    content: public ValueTask DisposeAsync()
+    return:
+      type: System.Threading.Tasks.ValueTask
+    content.vb: Public Function DisposeAsync() As ValueTask
+  overload: OverKizApi.OverkizClient.DisposeAsync*
+  implements:
+  - System.IAsyncDisposable.DisposeAsync
+- uid: OverKizApi.OverkizClient.Login(System.Boolean)
+  commentId: M:OverKizApi.OverkizClient.Login(System.Boolean)
+  id: Login(System.Boolean)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: Login(bool)
+  nameWithType: OverkizClient.Login(bool)
+  fullName: OverKizApi.OverkizClient.Login(bool)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Login
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 192
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Authenticate and open an API session. Must be called before other operations unless a token was supplied.
+  example: []
+  syntax:
+    content: public Task<bool> Login(bool registerEventListener = true)
+    parameters:
+    - id: registerEventListener
+      type: System.Boolean
+      description: Register an event listener after login (default true).
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Function Login(registerEventListener As Boolean = True) As Task(Of Boolean)
+  overload: OverKizApi.OverkizClient.Login*
+  nameWithType.vb: OverkizClient.Login(Boolean)
+  fullName.vb: OverKizApi.OverkizClient.Login(Boolean)
+  name.vb: Login(Boolean)
+- uid: OverKizApi.OverkizClient.SomfyTahomaGetAccessToken
+  commentId: M:OverKizApi.OverkizClient.SomfyTahomaGetAccessToken
+  id: SomfyTahomaGetAccessToken
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: SomfyTahomaGetAccessToken()
+  nameWithType: OverkizClient.SomfyTahomaGetAccessToken()
+  fullName: OverKizApi.OverkizClient.SomfyTahomaGetAccessToken()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SomfyTahomaGetAccessToken
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 281
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Authenticate via Somfy identity and acquire an access token.
+  example: []
+  syntax:
+    content: public Task<string> SomfyTahomaGetAccessToken()
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The raw access token string stored in <xref href="OverKizApi.OverkizClient._accessToken" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function SomfyTahomaGetAccessToken() As Task(Of String)
+  overload: OverKizApi.OverkizClient.SomfyTahomaGetAccessToken*
+  exceptions:
+  - type: OverKizApi.Exceptions.SomfyBadCredentialsException
+    commentId: T:OverKizApi.Exceptions.SomfyBadCredentialsException
+    description: Thrown when the supplied credentials are rejected by the Somfy OAuth server.
+  - type: OverKizApi.Exceptions.SomfyServiceException
+    commentId: T:OverKizApi.Exceptions.SomfyServiceException
+    description: Thrown when the Somfy token endpoint returns an unexpected response.
+- uid: OverKizApi.OverkizClient.RefreshToken
+  commentId: M:OverKizApi.OverkizClient.RefreshToken
+  id: RefreshToken
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: RefreshToken()
+  nameWithType: OverkizClient.RefreshToken()
+  fullName: OverKizApi.OverkizClient.RefreshToken()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: RefreshToken
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 318
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Refreshes the Somfy access token using the stored refresh token.
+
+    This is called automatically by <xref href="OverKizApi.OverkizClient.RefreshTokenIfExpired" data-throw-if-not-resolved="false"></xref> when the token is near expiry;
+
+    you do not normally need to call it manually.
+  remarks: No-op if the current server is not <xref href="OverKizApi.OverkizConst.SupportedServers" data-throw-if-not-resolved="false"></xref>[<xref href="OverKizApi.Enums.Server.SomfyEurope" data-throw-if-not-resolved="false"></xref>].
+  example: []
+  syntax:
+    content: public Task RefreshToken()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function RefreshToken() As Task
+  overload: OverKizApi.OverkizClient.RefreshToken*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown when no refresh token is available (i.e. <xref href="OverKizApi.OverkizClient.Login(System.Boolean)" data-throw-if-not-resolved="false"></xref> was not called first).
+  - type: OverKizApi.Exceptions.SomfyBadCredentialsException
+    commentId: T:OverKizApi.Exceptions.SomfyBadCredentialsException
+    description: Thrown when the refresh token has been revoked.
+  - type: OverKizApi.Exceptions.SomfyServiceException
+    commentId: T:OverKizApi.Exceptions.SomfyServiceException
+    description: Thrown when the Somfy token endpoint returns an unexpected response.
+- uid: OverKizApi.OverkizClient.CozytouchLogin
+  commentId: M:OverKizApi.OverkizClient.CozytouchLogin
+  id: CozytouchLogin
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: CozytouchLogin()
+  nameWithType: OverkizClient.CozytouchLogin()
+  fullName: OverKizApi.OverkizClient.CozytouchLogin()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CozytouchLogin
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 357
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Authenticates against the Atlantic/CozyTouch OAuth endpoint and returns
+
+    the JWT token required for the subsequent Overkiz <code>login</code> call.
+  example: []
+  syntax:
+    content: public Task<string> CozytouchLogin()
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The JWT string to pass to the Overkiz <code>login</code> endpoint.
+    content.vb: Public Function CozytouchLogin() As Task(Of String)
+  overload: OverKizApi.OverkizClient.CozytouchLogin*
+  exceptions:
+  - type: OverKizApi.Exceptions.CozyTouchBadCredentialsException
+    commentId: T:OverKizApi.Exceptions.CozyTouchBadCredentialsException
+    description: Thrown when the Atlantic OAuth server rejects the credentials.
+  - type: OverKizApi.Exceptions.CozyTouchServiceException
+    commentId: T:OverKizApi.Exceptions.CozyTouchServiceException
+    description: Thrown when the Atlantic token or JWT endpoint returns an unexpected response.
+- uid: OverKizApi.OverkizClient.NexityLogin
+  commentId: M:OverKizApi.OverkizClient.NexityLogin
+  id: NexityLogin
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: NexityLogin()
+  nameWithType: OverkizClient.NexityLogin()
+  fullName: OverKizApi.OverkizClient.NexityLogin()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NexityLogin
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 410
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Authenticates against the Nexity AWS Cognito SRP endpoint and returns the SSO token
+
+    required for the subsequent Overkiz <code>login</code> call.
+  remarks: >-
+    This method is a stub. Nexity authentication requires the AWS Cognito SRP protocol
+
+    which depends on <code>AWSSDK.CognitoIdentityProvider</code>. Add that package and override
+
+    (or replace) this method with a real SRP implementation.
+  example: []
+  syntax:
+    content: public Task<string> NexityLogin()
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The Nexity SSO token string.
+    content.vb: Public Function NexityLogin() As Task(Of String)
+  overload: OverKizApi.OverkizClient.NexityLogin*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: Always thrown by the default stub implementation.
+- uid: OverKizApi.OverkizClient.RegisterEventListener
+  commentId: M:OverKizApi.OverkizClient.RegisterEventListener
+  id: RegisterEventListener
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: RegisterEventListener()
+  nameWithType: OverkizClient.RegisterEventListener()
+  fullName: OverKizApi.OverkizClient.RegisterEventListener()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: RegisterEventListener
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 423
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Register an event listener to receive device state changes.
+  remarks: The assigned listener ID is stored in <xref href="OverKizApi.OverkizClient.EventListenerId" data-throw-if-not-resolved="false"></xref> after this call completes.
+  example: []
+  syntax:
+    content: public Task RegisterEventListener()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function RegisterEventListener() As Task
+  overload: OverKizApi.OverkizClient.RegisterEventListener*
+  exceptions:
+  - type: OverKizApi.Exceptions.OverkizException
+    commentId: T:OverKizApi.Exceptions.OverkizException
+    description: Thrown when the server does not return a valid listener ID.
+- uid: OverKizApi.OverkizClient.FetchEvents
+  commentId: M:OverKizApi.OverkizClient.FetchEvents
+  id: FetchEvents
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: FetchEvents()
+  nameWithType: OverkizClient.FetchEvents()
+  fullName: OverKizApi.OverkizClient.FetchEvents()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FetchEvents
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 437
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Fetches all queued events from the registered event listener and clears the server-side queue.
+
+    Call this method repeatedly (polling) to receive device state change notifications.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyList<EventObject>> FetchEvents()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject}}
+      description: A list of <xref href="OverKizApi.Models.EventObject" data-throw-if-not-resolved="false"></xref> objects; may be empty if no events are pending.
+    content.vb: Public Function FetchEvents() As Task(Of IReadOnlyList(Of EventObject))
+  overload: OverKizApi.OverkizClient.FetchEvents*
+  exceptions:
+  - type: OverKizApi.Exceptions.NoRegisteredEventListenerException
+    commentId: T:OverKizApi.Exceptions.NoRegisteredEventListenerException
+    description: Thrown when no event listener is registered. Call <xref href="OverKizApi.OverkizClient.RegisterEventListener" data-throw-if-not-resolved="false"></xref> first.
+- uid: OverKizApi.OverkizClient.FetchEventsRaw
+  commentId: M:OverKizApi.OverkizClient.FetchEventsRaw
+  id: FetchEventsRaw
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: FetchEventsRaw()
+  nameWithType: OverkizClient.FetchEventsRaw()
+  fullName: OverKizApi.OverkizClient.FetchEventsRaw()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FetchEventsRaw
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 446
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Like <xref href="OverKizApi.OverkizClient.FetchEvents" data-throw-if-not-resolved="false"></xref> but also returns the raw JSON response string for diagnostics.
+  example: []
+  syntax:
+    content: public Task<(IReadOnlyList<EventObject> Events, string RawJson)> FetchEventsRaw()
+    return:
+      type: System.Threading.Tasks.Task{System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}}
+    content.vb: Public Function FetchEventsRaw() As Task(Of (Events As IReadOnlyList(Of EventObject), RawJson As String))
+  overload: OverKizApi.OverkizClient.FetchEventsRaw*
+- uid: OverKizApi.OverkizClient.UnregisterEventListener
+  commentId: M:OverKizApi.OverkizClient.UnregisterEventListener
+  id: UnregisterEventListener
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: UnregisterEventListener()
+  nameWithType: OverkizClient.UnregisterEventListener()
+  fullName: OverKizApi.OverkizClient.UnregisterEventListener()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: UnregisterEventListener
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 507
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Unregisters the event listener and clears <xref href="OverKizApi.OverkizClient.EventListenerId" data-throw-if-not-resolved="false"></xref>.
+
+    Safe to call when no listener is registered (no-op).
+  example: []
+  syntax:
+    content: public Task UnregisterEventListener()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function UnregisterEventListener() As Task
+  overload: OverKizApi.OverkizClient.UnregisterEventListener*
+- uid: OverKizApi.OverkizClient.GetSetup(System.Boolean)
+  commentId: M:OverKizApi.OverkizClient.GetSetup(System.Boolean)
+  id: GetSetup(System.Boolean)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetSetup(bool)
+  nameWithType: OverkizClient.GetSetup(bool)
+  fullName: OverKizApi.OverkizClient.GetSetup(bool)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetSetup
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 527
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Retrieves the complete home setup including all gateways, devices, zones, places and location.
+
+    The result is cached; pass <code class="paramref">refresh</code> as <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to force a fresh API call.
+  example: []
+  syntax:
+    content: public Task<Setup> GetSetup(bool refresh = false)
+    parameters:
+    - id: refresh
+      type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> the cached result is discarded and a new API call is made.
+    return:
+      type: System.Threading.Tasks.Task{OverKizApi.Models.Setup}
+      description: The <xref href="OverKizApi.Models.Setup" data-throw-if-not-resolved="false"></xref> for the authenticated account.
+    content.vb: Public Function GetSetup(refresh As Boolean = False) As Task(Of Setup)
+  overload: OverKizApi.OverkizClient.GetSetup*
+  exceptions:
+  - type: OverKizApi.Exceptions.OverkizException
+    commentId: T:OverKizApi.Exceptions.OverkizException
+    description: Thrown when the response cannot be deserialised.
+  nameWithType.vb: OverkizClient.GetSetup(Boolean)
+  fullName.vb: OverKizApi.OverkizClient.GetSetup(Boolean)
+  name.vb: GetSetup(Boolean)
+- uid: OverKizApi.OverkizClient.GetGateways
+  commentId: M:OverKizApi.OverkizClient.GetGateways
+  id: GetGateways
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetGateways()
+  nameWithType: OverkizClient.GetGateways()
+  fullName: OverKizApi.OverkizClient.GetGateways()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetGateways
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 545
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns all gateways registered in the setup.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyList<Gateway>> GetGateways()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Gateway}}
+      description: A read-only list of <xref href="OverKizApi.Models.Gateway" data-throw-if-not-resolved="false"></xref> objects.
+    content.vb: Public Function GetGateways() As Task(Of IReadOnlyList(Of Gateway))
+  overload: OverKizApi.OverkizClient.GetGateways*
+- uid: OverKizApi.OverkizClient.DiscoverRexelGateways
+  commentId: M:OverKizApi.OverkizClient.DiscoverRexelGateways
+  id: DiscoverRexelGateways
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: DiscoverRexelGateways()
+  nameWithType: OverkizClient.DiscoverRexelGateways()
+  fullName: OverKizApi.OverkizClient.DiscoverRexelGateways()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DiscoverRexelGateways
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 555
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Discovers Rexel homes and gateways available to the current bearer token.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyList<GatewayCandidate>> DiscoverRexelGateways()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.GatewayCandidate}}
+      description: A read-only list of gateway candidates.
+    content.vb: Public Function DiscoverRexelGateways() As Task(Of IReadOnlyList(Of GatewayCandidate))
+  overload: OverKizApi.OverkizClient.DiscoverRexelGateways*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown when the current server is not Rexel or no bearer token is available.
+- uid: OverKizApi.OverkizClient.SelectRexelGateway(System.String)
+  commentId: M:OverKizApi.OverkizClient.SelectRexelGateway(System.String)
+  id: SelectRexelGateway(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: SelectRexelGateway(string)
+  nameWithType: OverkizClient.SelectRexelGateway(string)
+  fullName: OverKizApi.OverkizClient.SelectRexelGateway(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SelectRexelGateway
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 589
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Selects the Rexel gateway to scope subsequent requests to.
+  example: []
+  syntax:
+    content: public void SelectRexelGateway(string gatewayId)
+    parameters:
+    - id: gatewayId
+      type: System.String
+      description: Gateway identifier returned by <xref href="OverKizApi.OverkizClient.DiscoverRexelGateways" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub SelectRexelGateway(gatewayId As String)
+  overload: OverKizApi.OverkizClient.SelectRexelGateway*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown when the current server is not Rexel.
+  nameWithType.vb: OverkizClient.SelectRexelGateway(String)
+  fullName.vb: OverKizApi.OverkizClient.SelectRexelGateway(String)
+  name.vb: SelectRexelGateway(String)
+- uid: OverKizApi.OverkizClient.GetDevices
+  commentId: M:OverKizApi.OverkizClient.GetDevices
+  id: GetDevices
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetDevices()
+  nameWithType: OverkizClient.GetDevices()
+  fullName: OverKizApi.OverkizClient.GetDevices()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetDevices
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 601
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns all devices registered across all gateways in the setup.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyList<Device>> GetDevices()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Device}}
+      description: A read-only list of <xref href="OverKizApi.Models.Device" data-throw-if-not-resolved="false"></xref> objects.
+    content.vb: Public Function GetDevices() As Task(Of IReadOnlyList(Of Device))
+  overload: OverKizApi.OverkizClient.GetDevices*
+- uid: OverKizApi.OverkizClient.GetDevice(System.String)
+  commentId: M:OverKizApi.OverkizClient.GetDevice(System.String)
+  id: GetDevice(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetDevice(string)
+  nameWithType: OverkizClient.GetDevice(string)
+  fullName: OverKizApi.OverkizClient.GetDevice(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetDevice
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 612
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns a single device identified by its URL.
+  example: []
+  syntax:
+    content: public Task<Device> GetDevice(string deviceUrl)
+    parameters:
+    - id: deviceUrl
+      type: System.String
+      description: The device URL (e.g. <code>io://1234-5678-9012/12345678</code>).
+    return:
+      type: System.Threading.Tasks.Task{OverKizApi.Models.Device}
+      description: The matching <xref href="OverKizApi.Models.Device" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetDevice(deviceUrl As String) As Task(Of Device)
+  overload: OverKizApi.OverkizClient.GetDevice*
+  exceptions:
+  - type: OverKizApi.Exceptions.OverkizException
+    commentId: T:OverKizApi.Exceptions.OverkizException
+    description: Thrown when the response cannot be deserialised.
+  nameWithType.vb: OverkizClient.GetDevice(String)
+  fullName.vb: OverKizApi.OverkizClient.GetDevice(String)
+  name.vb: GetDevice(String)
+- uid: OverKizApi.OverkizClient.GetDeviceStates(System.String)
+  commentId: M:OverKizApi.OverkizClient.GetDeviceStates(System.String)
+  id: GetDeviceStates(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetDeviceStates(string)
+  nameWithType: OverkizClient.GetDeviceStates(string)
+  fullName: OverKizApi.OverkizClient.GetDeviceStates(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetDeviceStates
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 624
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns the current live states for a device.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyList<State>> GetDeviceStates(string deviceUrl)
+    parameters:
+    - id: deviceUrl
+      type: System.String
+      description: The device URL to query.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.State}}
+      description: A read-only list of <xref href="OverKizApi.Models.State" data-throw-if-not-resolved="false"></xref> objects.
+    content.vb: Public Function GetDeviceStates(deviceUrl As String) As Task(Of IReadOnlyList(Of State))
+  overload: OverKizApi.OverkizClient.GetDeviceStates*
+  nameWithType.vb: OverkizClient.GetDeviceStates(String)
+  fullName.vb: OverKizApi.OverkizClient.GetDeviceStates(String)
+  name.vb: GetDeviceStates(String)
+- uid: OverKizApi.OverkizClient.RefreshAllDeviceStates
+  commentId: M:OverKizApi.OverkizClient.RefreshAllDeviceStates
+  id: RefreshAllDeviceStates
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: RefreshAllDeviceStates()
+  nameWithType: OverkizClient.RefreshAllDeviceStates()
+  fullName: OverKizApi.OverkizClient.RefreshAllDeviceStates()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: RefreshAllDeviceStates
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 650
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Asks the gateway to refresh all device states from the physical devices.
+
+    Updated states will be pushed through the event listener.
+  example: []
+  syntax:
+    content: public Task RefreshAllDeviceStates()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function RefreshAllDeviceStates() As Task
+  overload: OverKizApi.OverkizClient.RefreshAllDeviceStates*
+- uid: OverKizApi.OverkizClient.ExecuteDeviceAction(System.String,System.Collections.Generic.IEnumerable{OverKizApi.Models.Command},System.String)
+  commentId: M:OverKizApi.OverkizClient.ExecuteDeviceAction(System.String,System.Collections.Generic.IEnumerable{OverKizApi.Models.Command},System.String)
+  id: ExecuteDeviceAction(System.String,System.Collections.Generic.IEnumerable{OverKizApi.Models.Command},System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: ExecuteDeviceAction(string, IEnumerable<Command>, string)
+  nameWithType: OverkizClient.ExecuteDeviceAction(string, IEnumerable<Command>, string)
+  fullName: OverKizApi.OverkizClient.ExecuteDeviceAction(string, System.Collections.Generic.IEnumerable<OverKizApi.Models.Command>, string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecuteDeviceAction
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 664
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Sends a set of commands to a device as a single execution action.
+  example: []
+  syntax:
+    content: public Task<string> ExecuteDeviceAction(string deviceUrl, IEnumerable<Command> commands, string label = "Execute")
+    parameters:
+    - id: deviceUrl
+      type: System.String
+      description: URL of the target device.
+    - id: commands
+      type: System.Collections.Generic.IEnumerable{OverKizApi.Models.Command}
+      description: One or more <xref href="OverKizApi.Models.Command" data-throw-if-not-resolved="false"></xref> objects to execute.
+    - id: label
+      type: System.String
+      description: Optional human-readable label recorded in the execution history.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The execution ID (<code>execId</code>) assigned by the server.
+    content.vb: Public Function ExecuteDeviceAction(deviceUrl As String, commands As IEnumerable(Of Command), label As String = "Execute") As Task(Of String)
+  overload: OverKizApi.OverkizClient.ExecuteDeviceAction*
+  exceptions:
+  - type: OverKizApi.Exceptions.OverkizException
+    commentId: T:OverKizApi.Exceptions.OverkizException
+    description: Thrown when the server does not return an execution ID.
+  nameWithType.vb: OverkizClient.ExecuteDeviceAction(String, IEnumerable(Of Command), String)
+  fullName.vb: OverKizApi.OverkizClient.ExecuteDeviceAction(String, System.Collections.Generic.IEnumerable(Of OverKizApi.Models.Command), String)
+  name.vb: ExecuteDeviceAction(String, IEnumerable(Of Command), String)
+- uid: OverKizApi.OverkizClient.CancelExecution(System.String)
+  commentId: M:OverKizApi.OverkizClient.CancelExecution(System.String)
+  id: CancelExecution(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: CancelExecution(string)
+  nameWithType: OverkizClient.CancelExecution(string)
+  fullName: OverKizApi.OverkizClient.CancelExecution(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CancelExecution
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 680
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Cancels a running or queued execution.
+  example: []
+  syntax:
+    content: public Task CancelExecution(string execId)
+    parameters:
+    - id: execId
+      type: System.String
+      description: The execution ID returned by <xref href="OverKizApi.OverkizClient.ExecuteDeviceAction(System.String%2cSystem.Collections.Generic.IEnumerable%7bOverKizApi.Models.Command%7d%2cSystem.String)" data-throw-if-not-resolved="false"></xref> or <xref href="OverKizApi.OverkizClient.ExecuteScenario(System.String)" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function CancelExecution(execId As String) As Task
+  overload: OverKizApi.OverkizClient.CancelExecution*
+  nameWithType.vb: OverkizClient.CancelExecution(String)
+  fullName.vb: OverKizApi.OverkizClient.CancelExecution(String)
+  name.vb: CancelExecution(String)
+- uid: OverKizApi.OverkizClient.GetCurrentExecutions
+  commentId: M:OverKizApi.OverkizClient.GetCurrentExecutions
+  id: GetCurrentExecutions
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentExecutions()
+  nameWithType: OverkizClient.GetCurrentExecutions()
+  fullName: OverKizApi.OverkizClient.GetCurrentExecutions()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetCurrentExecutions
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 688
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns all executions that are currently active (in-progress or queued) on the gateway.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyList<Execution>> GetCurrentExecutions()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Execution}}
+      description: A read-only list of <xref href="OverKizApi.Models.Execution" data-throw-if-not-resolved="false"></xref> objects; empty if nothing is running.
+    content.vb: Public Function GetCurrentExecutions() As Task(Of IReadOnlyList(Of Execution))
+  overload: OverKizApi.OverkizClient.GetCurrentExecutions*
+- uid: OverKizApi.OverkizClient.GetExecutionHistory
+  commentId: M:OverKizApi.OverkizClient.GetExecutionHistory
+  id: GetExecutionHistory
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetExecutionHistory()
+  nameWithType: OverkizClient.GetExecutionHistory()
+  fullName: OverKizApi.OverkizClient.GetExecutionHistory()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetExecutionHistory
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 697
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns the execution history log stored on the gateway.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyList<HistoryExecution>> GetExecutionHistory()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.HistoryExecution}}
+      description: A read-only list of <xref href="OverKizApi.Models.HistoryExecution" data-throw-if-not-resolved="false"></xref> records, most-recent first.
+    content.vb: Public Function GetExecutionHistory() As Task(Of IReadOnlyList(Of HistoryExecution))
+  overload: OverKizApi.OverkizClient.GetExecutionHistory*
+- uid: OverKizApi.OverkizClient.GetScenarios
+  commentId: M:OverKizApi.OverkizClient.GetScenarios
+  id: GetScenarios
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetScenarios()
+  nameWithType: OverkizClient.GetScenarios()
+  fullName: OverKizApi.OverkizClient.GetScenarios()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetScenarios
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 708
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns all named scenarios (action groups) stored in the setup.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyList<Scenario>> GetScenarios()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Scenario}}
+      description: A read-only list of <xref href="OverKizApi.Models.Scenario" data-throw-if-not-resolved="false"></xref> objects.
+    content.vb: Public Function GetScenarios() As Task(Of IReadOnlyList(Of Scenario))
+  overload: OverKizApi.OverkizClient.GetScenarios*
+- uid: OverKizApi.OverkizClient.ExecuteScenario(System.String)
+  commentId: M:OverKizApi.OverkizClient.ExecuteScenario(System.String)
+  id: ExecuteScenario(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: ExecuteScenario(string)
+  nameWithType: OverkizClient.ExecuteScenario(string)
+  fullName: OverKizApi.OverkizClient.ExecuteScenario(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecuteScenario
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 719
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Triggers immediate execution of a stored scenario.
+  example: []
+  syntax:
+    content: public Task<string> ExecuteScenario(string oid)
+    parameters:
+    - id: oid
+      type: System.String
+      description: The OID of the scenario to execute (see <xref href="OverKizApi.Models.Scenario.Oid" data-throw-if-not-resolved="false"></xref>).
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The execution ID assigned by the server.
+    content.vb: Public Function ExecuteScenario(oid As String) As Task(Of String)
+  overload: OverKizApi.OverkizClient.ExecuteScenario*
+  exceptions:
+  - type: OverKizApi.Exceptions.OverkizException
+    commentId: T:OverKizApi.Exceptions.OverkizException
+    description: Thrown when the server does not return an execution ID.
+  nameWithType.vb: OverkizClient.ExecuteScenario(String)
+  fullName.vb: OverKizApi.OverkizClient.ExecuteScenario(String)
+  name.vb: ExecuteScenario(String)
+- uid: OverKizApi.OverkizClient.ExecuteScheduledScenario(System.String,System.Int64)
+  commentId: M:OverKizApi.OverkizClient.ExecuteScheduledScenario(System.String,System.Int64)
+  id: ExecuteScheduledScenario(System.String,System.Int64)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: ExecuteScheduledScenario(string, long)
+  nameWithType: OverkizClient.ExecuteScheduledScenario(string, long)
+  fullName: OverKizApi.OverkizClient.ExecuteScheduledScenario(string, long)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecuteScheduledScenario
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 733
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Schedules a scenario to execute at a specific point in time.
+  example: []
+  syntax:
+    content: public Task<string> ExecuteScheduledScenario(string oid, long timestamp)
+    parameters:
+    - id: oid
+      type: System.String
+      description: The OID of the scenario to schedule.
+    - id: timestamp
+      type: System.Int64
+      description: Unix epoch millisecond timestamp at which to trigger the scenario.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The trigger ID assigned by the server.
+    content.vb: Public Function ExecuteScheduledScenario(oid As String, timestamp As Long) As Task(Of String)
+  overload: OverKizApi.OverkizClient.ExecuteScheduledScenario*
+  exceptions:
+  - type: OverKizApi.Exceptions.OverkizException
+    commentId: T:OverKizApi.Exceptions.OverkizException
+    description: Thrown when the server does not return a trigger ID.
+  nameWithType.vb: OverkizClient.ExecuteScheduledScenario(String, Long)
+  fullName.vb: OverKizApi.OverkizClient.ExecuteScheduledScenario(String, Long)
+  name.vb: ExecuteScheduledScenario(String, Long)
+- uid: OverKizApi.OverkizClient.GetPlaces
+  commentId: M:OverKizApi.OverkizClient.GetPlaces
+  id: GetPlaces
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetPlaces()
+  nameWithType: OverkizClient.GetPlaces()
+  fullName: OverKizApi.OverkizClient.GetPlaces()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetPlaces
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 747
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns the root of the place hierarchy (house → floors → rooms).
+  example: []
+  syntax:
+    content: public Task<Place> GetPlaces()
+    return:
+      type: System.Threading.Tasks.Task{OverKizApi.Models.Place}
+      description: The root <xref href="OverKizApi.Models.Place" data-throw-if-not-resolved="false"></xref> containing all sub-places.
+    content.vb: Public Function GetPlaces() As Task(Of Place)
+  overload: OverKizApi.OverkizClient.GetPlaces*
+  exceptions:
+  - type: OverKizApi.Exceptions.OverkizException
+    commentId: T:OverKizApi.Exceptions.OverkizException
+    description: Thrown when the response cannot be deserialised.
+- uid: OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+  commentId: M:OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+  id: GenerateLocalToken(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GenerateLocalToken(string)
+  nameWithType: OverkizClient.GenerateLocalToken(string)
+  fullName: OverKizApi.OverkizClient.GenerateLocalToken(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GenerateLocalToken
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 764
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Generates a new local API token for the specified gateway.
+
+    The token must then be activated with <xref href="OverKizApi.OverkizClient.ActivateLocalToken(System.String%2cSystem.String%2cSystem.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref> before it can be used.
+  example: []
+  syntax:
+    content: public Task<string> GenerateLocalToken(string gatewayId)
+    parameters:
+    - id: gatewayId
+      type: System.String
+      description: Serial number of the gateway to generate a token for.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The raw token string to pass to <xref href="OverKizApi.OverkizClient.ActivateLocalToken(System.String%2cSystem.String%2cSystem.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GenerateLocalToken(gatewayId As String) As Task(Of String)
+  overload: OverKizApi.OverkizClient.GenerateLocalToken*
+  exceptions:
+  - type: OverKizApi.Exceptions.OverkizException
+    commentId: T:OverKizApi.Exceptions.OverkizException
+    description: Thrown when the server does not return a token.
+  nameWithType.vb: OverkizClient.GenerateLocalToken(String)
+  fullName.vb: OverKizApi.OverkizClient.GenerateLocalToken(String)
+  name.vb: GenerateLocalToken(String)
+- uid: OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+  commentId: M:OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+  id: ActivateLocalToken(System.String,System.String,System.String,System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: ActivateLocalToken(string, string, string, string)
+  nameWithType: OverkizClient.ActivateLocalToken(string, string, string, string)
+  fullName: OverKizApi.OverkizClient.ActivateLocalToken(string, string, string, string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ActivateLocalToken
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 780
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Registers a generated local API token on the gateway so that it can be used for local API calls.
+  example: []
+  syntax:
+    content: public Task<string> ActivateLocalToken(string gatewayId, string token, string label, string scope = "devmode")
+    parameters:
+    - id: gatewayId
+      type: System.String
+      description: Serial number of the gateway to register the token on.
+    - id: token
+      type: System.String
+      description: The raw token string returned by <xref href="OverKizApi.OverkizClient.GenerateLocalToken(System.String)" data-throw-if-not-resolved="false"></xref>.
+    - id: label
+      type: System.String
+      description: A human-readable label to identify this token in the token list.
+    - id: scope
+      type: System.String
+      description: Access scope to grant (default <code>"devmode"</code>).
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The request ID of the activation request.
+    content.vb: Public Function ActivateLocalToken(gatewayId As String, token As String, label As String, scope As String = "devmode") As Task(Of String)
+  overload: OverKizApi.OverkizClient.ActivateLocalToken*
+  exceptions:
+  - type: OverKizApi.Exceptions.OverkizException
+    commentId: T:OverKizApi.Exceptions.OverkizException
+    description: Thrown when the server does not return a request ID.
+  nameWithType.vb: OverkizClient.ActivateLocalToken(String, String, String, String)
+  fullName.vb: OverKizApi.OverkizClient.ActivateLocalToken(String, String, String, String)
+  name.vb: ActivateLocalToken(String, String, String, String)
+- uid: OverKizApi.OverkizClient.GetLocalTokens(System.String,System.String)
+  commentId: M:OverKizApi.OverkizClient.GetLocalTokens(System.String,System.String)
+  id: GetLocalTokens(System.String,System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetLocalTokens(string, string)
+  nameWithType: OverkizClient.GetLocalTokens(string, string)
+  fullName: OverKizApi.OverkizClient.GetLocalTokens(string, string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetLocalTokens
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 798
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns all active local API tokens for a gateway filtered by scope.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyList<LocalToken>> GetLocalTokens(string gatewayId, string scope = "devmode")
+    parameters:
+    - id: gatewayId
+      type: System.String
+      description: Serial number of the gateway to query.
+    - id: scope
+      type: System.String
+      description: Token scope to filter by (default <code>"devmode"</code>).
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.LocalToken}}
+      description: A read-only list of <xref href="OverKizApi.Models.LocalToken" data-throw-if-not-resolved="false"></xref> descriptors.
+    content.vb: Public Function GetLocalTokens(gatewayId As String, scope As String = "devmode") As Task(Of IReadOnlyList(Of LocalToken))
+  overload: OverKizApi.OverkizClient.GetLocalTokens*
+  nameWithType.vb: OverkizClient.GetLocalTokens(String, String)
+  fullName.vb: OverKizApi.OverkizClient.GetLocalTokens(String, String)
+  name.vb: GetLocalTokens(String, String)
+- uid: OverKizApi.OverkizClient.DeleteLocalToken(System.String,System.String)
+  commentId: M:OverKizApi.OverkizClient.DeleteLocalToken(System.String,System.String)
+  id: DeleteLocalToken(System.String,System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteLocalToken(string, string)
+  nameWithType: OverkizClient.DeleteLocalToken(string, string)
+  fullName: OverKizApi.OverkizClient.DeleteLocalToken(string, string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeleteLocalToken
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 809
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Revokes and deletes a local API token.
+  example: []
+  syntax:
+    content: public Task<bool> DeleteLocalToken(string gatewayId, string uuid)
+    parameters:
+    - id: gatewayId
+      type: System.String
+      description: Serial number of the gateway the token belongs to.
+    - id: uuid
+      type: System.String
+      description: UUID of the token to delete (see <xref href="OverKizApi.Models.LocalToken.Uuid" data-throw-if-not-resolved="false"></xref>).
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> on success.
+    content.vb: Public Function DeleteLocalToken(gatewayId As String, uuid As String) As Task(Of Boolean)
+  overload: OverKizApi.OverkizClient.DeleteLocalToken*
+  nameWithType.vb: OverkizClient.DeleteLocalToken(String, String)
+  fullName.vb: OverKizApi.OverkizClient.DeleteLocalToken(String, String)
+  name.vb: DeleteLocalToken(String, String)
+- uid: OverKizApi.OverkizClient.GetSetupOptions
+  commentId: M:OverKizApi.OverkizClient.GetSetupOptions
+  id: GetSetupOptions
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetSetupOptions()
+  nameWithType: OverkizClient.GetSetupOptions()
+  fullName: OverKizApi.OverkizClient.GetSetupOptions()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetSetupOptions
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 820
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns all option subscriptions active on the authenticated setup.
+  example: []
+  syntax:
+    content: public Task<IReadOnlyList<OptionObject>> GetSetupOptions()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.OptionObject}}
+      description: A read-only list of <xref href="OverKizApi.Models.OptionObject" data-throw-if-not-resolved="false"></xref> objects.
+    content.vb: Public Function GetSetupOptions() As Task(Of IReadOnlyList(Of OptionObject))
+  overload: OverKizApi.OverkizClient.GetSetupOptions*
+- uid: OverKizApi.OverkizClient.GetSetupOption(System.String)
+  commentId: M:OverKizApi.OverkizClient.GetSetupOption(System.String)
+  id: GetSetupOption(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetSetupOption(string)
+  nameWithType: OverkizClient.GetSetupOption(string)
+  fullName: OverKizApi.OverkizClient.GetSetupOption(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetSetupOption
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 830
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns a specific option subscription by option ID.
+  example: []
+  syntax:
+    content: public Task<OptionObject?> GetSetupOption(string option)
+    parameters:
+    - id: option
+      type: System.String
+      description: Option ID to look up (e.g. <code>"ADVANCED_SCENARIOS"</code>).
+    return:
+      type: System.Threading.Tasks.Task{OverKizApi.Models.OptionObject}
+      description: The <xref href="OverKizApi.Models.OptionObject" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the option is not subscribed.
+    content.vb: Public Function GetSetupOption([option] As String) As Task(Of OptionObject)
+  overload: OverKizApi.OverkizClient.GetSetupOption*
+  nameWithType.vb: OverkizClient.GetSetupOption(String)
+  fullName.vb: OverKizApi.OverkizClient.GetSetupOption(String)
+  name.vb: GetSetupOption(String)
+- uid: OverKizApi.OverkizClient.GetSetupOptionParameter(System.String,System.String)
+  commentId: M:OverKizApi.OverkizClient.GetSetupOptionParameter(System.String,System.String)
+  id: GetSetupOptionParameter(System.String,System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetSetupOptionParameter(string, string)
+  nameWithType: OverkizClient.GetSetupOptionParameter(string, string)
+  fullName: OverKizApi.OverkizClient.GetSetupOptionParameter(string, string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetSetupOptionParameter
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 841
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns a single configuration parameter of a setup option.
+  example: []
+  syntax:
+    content: public Task<OptionParameter?> GetSetupOptionParameter(string option, string parameter)
+    parameters:
+    - id: option
+      type: System.String
+      description: Option ID (e.g. <code>"ADVANCED_SCENARIOS"</code>).
+    - id: parameter
+      type: System.String
+      description: Parameter name to retrieve.
+    return:
+      type: System.Threading.Tasks.Task{OverKizApi.Models.OptionParameter}
+      description: The <xref href="OverKizApi.Models.OptionParameter" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not found.
+    content.vb: Public Function GetSetupOptionParameter([option] As String, parameter As String) As Task(Of OptionParameter)
+  overload: OverKizApi.OverkizClient.GetSetupOptionParameter*
+  nameWithType.vb: OverkizClient.GetSetupOptionParameter(String, String)
+  fullName.vb: OverKizApi.OverkizClient.GetSetupOptionParameter(String, String)
+  name.vb: GetSetupOptionParameter(String, String)
+references:
+- uid: OverKizApi
+  commentId: N:OverKizApi
+  href: OverKizApi.html
+  name: OverKizApi
+  nameWithType: OverKizApi
+  fullName: OverKizApi
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IAsyncDisposable
+  commentId: T:System.IAsyncDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable
+  name: IAsyncDisposable
+  nameWithType: IAsyncDisposable
+  fullName: System.IAsyncDisposable
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OverKizApi.OverkizClient.Username*
+  commentId: Overload:OverKizApi.OverkizClient.Username
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_Username
+  name: Username
+  nameWithType: OverkizClient.Username
+  fullName: OverKizApi.OverkizClient.Username
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.OverkizClient.Password*
+  commentId: Overload:OverKizApi.OverkizClient.Password
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_Password
+  name: Password
+  nameWithType: OverkizClient.Password
+  fullName: OverKizApi.OverkizClient.Password
+- uid: OverKizApi.OverkizClient.Server*
+  commentId: Overload:OverKizApi.OverkizClient.Server
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_Server
+  name: Server
+  nameWithType: OverkizClient.Server
+  fullName: OverKizApi.OverkizClient.Server
+- uid: OverKizApi.Models.OverkizServer
+  commentId: T:OverKizApi.Models.OverkizServer
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.OverkizServer.html
+  name: OverkizServer
+  nameWithType: OverkizServer
+  fullName: OverKizApi.Models.OverkizServer
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: OverKizApi.OverkizClient.ApiType*
+  commentId: Overload:OverKizApi.OverkizClient.ApiType
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ApiType
+  name: ApiType
+  nameWithType: OverkizClient.ApiType
+  fullName: OverKizApi.OverkizClient.ApiType
+- uid: OverKizApi.Enums.APIType
+  commentId: T:OverKizApi.Enums.APIType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.APIType.html
+  name: APIType
+  nameWithType: APIType
+  fullName: OverKizApi.Enums.APIType
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Models.Setup
+  commentId: T:OverKizApi.Models.Setup
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.Setup.html
+  name: Setup
+  nameWithType: Setup
+  fullName: OverKizApi.Models.Setup
+- uid: OverKizApi.OverkizClient.GetSetup(System.Boolean)
+  commentId: M:OverKizApi.OverkizClient.GetSetup(System.Boolean)
+  isExternal: true
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetSetup_System_Boolean_
+  name: GetSetup(bool)
+  nameWithType: OverkizClient.GetSetup(bool)
+  fullName: OverKizApi.OverkizClient.GetSetup(bool)
+  nameWithType.vb: OverkizClient.GetSetup(Boolean)
+  fullName.vb: OverKizApi.OverkizClient.GetSetup(Boolean)
+  name.vb: GetSetup(Boolean)
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.GetSetup(System.Boolean)
+    name: GetSetup
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetSetup_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.GetSetup(System.Boolean)
+    name: GetSetup
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetSetup_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: OverKizApi.OverkizClient.Setup*
+  commentId: Overload:OverKizApi.OverkizClient.Setup
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_Setup
+  name: Setup
+  nameWithType: OverkizClient.Setup
+  fullName: OverKizApi.OverkizClient.Setup
+- uid: OverKizApi.OverkizClient.Devices*
+  commentId: Overload:OverKizApi.OverkizClient.Devices
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_Devices
+  name: Devices
+  nameWithType: OverkizClient.Devices
+  fullName: OverKizApi.OverkizClient.Devices
+- uid: System.Collections.Generic.List{OverKizApi.Models.Device}
+  commentId: T:System.Collections.Generic.List{OverKizApi.Models.Device}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Device>
+  nameWithType: List<Device>
+  fullName: System.Collections.Generic.List<OverKizApi.Models.Device>
+  nameWithType.vb: List(Of Device)
+  fullName.vb: System.Collections.Generic.List(Of OverKizApi.Models.Device)
+  name.vb: List(Of Device)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: OverKizApi.Models.Device
+    name: Device
+    href: OverKizApi.Models.Device.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Device
+    name: Device
+    href: OverKizApi.Models.Device.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OverKizApi.OverkizClient.Gateways*
+  commentId: Overload:OverKizApi.OverkizClient.Gateways
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_Gateways
+  name: Gateways
+  nameWithType: OverkizClient.Gateways
+  fullName: OverKizApi.OverkizClient.Gateways
+- uid: System.Collections.Generic.List{OverKizApi.Models.Gateway}
+  commentId: T:System.Collections.Generic.List{OverKizApi.Models.Gateway}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Gateway>
+  nameWithType: List<Gateway>
+  fullName: System.Collections.Generic.List<OverKizApi.Models.Gateway>
+  nameWithType.vb: List(Of Gateway)
+  fullName.vb: System.Collections.Generic.List(Of OverKizApi.Models.Gateway)
+  name.vb: List(Of Gateway)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: OverKizApi.Models.Gateway
+    name: Gateway
+    href: OverKizApi.Models.Gateway.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Gateway
+    name: Gateway
+    href: OverKizApi.Models.Gateway.html
+  - name: )
+- uid: OverKizApi.OverkizClient.RegisterEventListener
+  commentId: M:OverKizApi.OverkizClient.RegisterEventListener
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RegisterEventListener
+  name: RegisterEventListener()
+  nameWithType: OverkizClient.RegisterEventListener()
+  fullName: OverKizApi.OverkizClient.RegisterEventListener()
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.RegisterEventListener
+    name: RegisterEventListener
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RegisterEventListener
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.RegisterEventListener
+    name: RegisterEventListener
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RegisterEventListener
+  - name: (
+  - name: )
+- uid: OverKizApi.OverkizClient.EventListenerId*
+  commentId: Overload:OverKizApi.OverkizClient.EventListenerId
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_EventListenerId
+  name: EventListenerId
+  nameWithType: OverkizClient.EventListenerId
+  fullName: OverKizApi.OverkizClient.EventListenerId
+- uid: OverKizApi.OverkizClient.SelectedGatewayId*
+  commentId: Overload:OverKizApi.OverkizClient.SelectedGatewayId
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_SelectedGatewayId
+  name: SelectedGatewayId
+  nameWithType: OverkizClient.SelectedGatewayId
+  fullName: OverKizApi.OverkizClient.SelectedGatewayId
+- uid: OverKizApi.OverkizClient
+  commentId: T:OverKizApi.OverkizClient
+  href: OverKizApi.OverkizClient.html
+  name: OverkizClient
+  nameWithType: OverkizClient
+  fullName: OverKizApi.OverkizClient
+- uid: OverKizApi.OverkizConst.SupportedServers
+  commentId: F:OverKizApi.OverkizConst.SupportedServers
+  href: OverKizApi.OverkizConst.html#OverKizApi_OverkizConst_SupportedServers
+  name: SupportedServers
+  nameWithType: OverkizConst.SupportedServers
+  fullName: OverKizApi.OverkizConst.SupportedServers
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: OverKizApi.OverkizClient.#ctor*
+  commentId: Overload:OverKizApi.OverkizClient.#ctor
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient__ctor_System_String_System_String_OverKizApi_Models_OverkizServer_System_String_System_Net_Http_HttpClient_
+  name: OverkizClient
+  nameWithType: OverkizClient.OverkizClient
+  fullName: OverKizApi.OverkizClient.OverkizClient
+  nameWithType.vb: OverkizClient.New
+  fullName.vb: OverKizApi.OverkizClient.New
+  name.vb: New
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: OverKizApi.OverkizClient.DisposeAsync*
+  commentId: Overload:OverKizApi.OverkizClient.DisposeAsync
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DisposeAsync
+  name: DisposeAsync
+  nameWithType: OverkizClient.DisposeAsync
+  fullName: OverKizApi.OverkizClient.DisposeAsync
+- uid: System.IAsyncDisposable.DisposeAsync
+  commentId: M:System.IAsyncDisposable.DisposeAsync
+  parent: System.IAsyncDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  name: DisposeAsync()
+  nameWithType: IAsyncDisposable.DisposeAsync()
+  fullName: System.IAsyncDisposable.DisposeAsync()
+  spec.csharp:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.ValueTask
+  commentId: T:System.Threading.Tasks.ValueTask
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask
+  name: ValueTask
+  nameWithType: ValueTask
+  fullName: System.Threading.Tasks.ValueTask
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: OverKizApi.OverkizClient.Login*
+  commentId: Overload:OverKizApi.OverkizClient.Login
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_Login_System_Boolean_
+  name: Login
+  nameWithType: OverkizClient.Login
+  fullName: OverKizApi.OverkizClient.Login
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: OverKizApi.OverkizClient._accessToken
+  commentId: F:OverKizApi.OverkizClient._accessToken
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient__accessToken
+  name: _accessToken
+  nameWithType: OverkizClient._accessToken
+  fullName: OverKizApi.OverkizClient._accessToken
+- uid: OverKizApi.Exceptions.SomfyBadCredentialsException
+  commentId: T:OverKizApi.Exceptions.SomfyBadCredentialsException
+  href: OverKizApi.Exceptions.SomfyBadCredentialsException.html
+  name: SomfyBadCredentialsException
+  nameWithType: SomfyBadCredentialsException
+  fullName: OverKizApi.Exceptions.SomfyBadCredentialsException
+- uid: OverKizApi.Exceptions.SomfyServiceException
+  commentId: T:OverKizApi.Exceptions.SomfyServiceException
+  href: OverKizApi.Exceptions.SomfyServiceException.html
+  name: SomfyServiceException
+  nameWithType: SomfyServiceException
+  fullName: OverKizApi.Exceptions.SomfyServiceException
+- uid: OverKizApi.OverkizClient.SomfyTahomaGetAccessToken*
+  commentId: Overload:OverKizApi.OverkizClient.SomfyTahomaGetAccessToken
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_SomfyTahomaGetAccessToken
+  name: SomfyTahomaGetAccessToken
+  nameWithType: OverkizClient.SomfyTahomaGetAccessToken
+  fullName: OverKizApi.OverkizClient.SomfyTahomaGetAccessToken
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OverKizApi.OverkizClient.RefreshTokenIfExpired
+  commentId: M:OverKizApi.OverkizClient.RefreshTokenIfExpired
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RefreshTokenIfExpired
+  name: RefreshTokenIfExpired()
+  nameWithType: OverkizClient.RefreshTokenIfExpired()
+  fullName: OverKizApi.OverkizClient.RefreshTokenIfExpired()
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.RefreshTokenIfExpired
+    name: RefreshTokenIfExpired
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RefreshTokenIfExpired
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.RefreshTokenIfExpired
+    name: RefreshTokenIfExpired
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RefreshTokenIfExpired
+  - name: (
+  - name: )
+- uid: OverKizApi.Enums.Server.SomfyEurope
+  commentId: F:OverKizApi.Enums.Server.SomfyEurope
+  href: OverKizApi.Enums.Server.html#OverKizApi_Enums_Server_SomfyEurope
+  name: SomfyEurope
+  nameWithType: Server.SomfyEurope
+  fullName: OverKizApi.Enums.Server.SomfyEurope
+- uid: OverKizApi.OverkizClient.Login(System.Boolean)
+  commentId: M:OverKizApi.OverkizClient.Login(System.Boolean)
+  isExternal: true
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_Login_System_Boolean_
+  name: Login(bool)
+  nameWithType: OverkizClient.Login(bool)
+  fullName: OverKizApi.OverkizClient.Login(bool)
+  nameWithType.vb: OverkizClient.Login(Boolean)
+  fullName.vb: OverKizApi.OverkizClient.Login(Boolean)
+  name.vb: Login(Boolean)
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.Login(System.Boolean)
+    name: Login
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_Login_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.Login(System.Boolean)
+    name: Login
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_Login_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: OverKizApi.OverkizClient.RefreshToken*
+  commentId: Overload:OverKizApi.OverkizClient.RefreshToken
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RefreshToken
+  name: RefreshToken
+  nameWithType: OverkizClient.RefreshToken
+  fullName: OverKizApi.OverkizClient.RefreshToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: OverKizApi.Exceptions.CozyTouchBadCredentialsException
+  commentId: T:OverKizApi.Exceptions.CozyTouchBadCredentialsException
+  href: OverKizApi.Exceptions.CozyTouchBadCredentialsException.html
+  name: CozyTouchBadCredentialsException
+  nameWithType: CozyTouchBadCredentialsException
+  fullName: OverKizApi.Exceptions.CozyTouchBadCredentialsException
+- uid: OverKizApi.Exceptions.CozyTouchServiceException
+  commentId: T:OverKizApi.Exceptions.CozyTouchServiceException
+  href: OverKizApi.Exceptions.CozyTouchServiceException.html
+  name: CozyTouchServiceException
+  nameWithType: CozyTouchServiceException
+  fullName: OverKizApi.Exceptions.CozyTouchServiceException
+- uid: OverKizApi.OverkizClient.CozytouchLogin*
+  commentId: Overload:OverKizApi.OverkizClient.CozytouchLogin
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_CozytouchLogin
+  name: CozytouchLogin
+  nameWithType: OverkizClient.CozytouchLogin
+  fullName: OverKizApi.OverkizClient.CozytouchLogin
+- uid: System.NotSupportedException
+  commentId: T:System.NotSupportedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.notsupportedexception
+  name: NotSupportedException
+  nameWithType: NotSupportedException
+  fullName: System.NotSupportedException
+- uid: OverKizApi.OverkizClient.NexityLogin*
+  commentId: Overload:OverKizApi.OverkizClient.NexityLogin
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_NexityLogin
+  name: NexityLogin
+  nameWithType: OverkizClient.NexityLogin
+  fullName: OverKizApi.OverkizClient.NexityLogin
+- uid: OverKizApi.OverkizClient.EventListenerId
+  commentId: P:OverKizApi.OverkizClient.EventListenerId
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_EventListenerId
+  name: EventListenerId
+  nameWithType: OverkizClient.EventListenerId
+  fullName: OverKizApi.OverkizClient.EventListenerId
+- uid: OverKizApi.Exceptions.OverkizException
+  commentId: T:OverKizApi.Exceptions.OverkizException
+  parent: OverKizApi.Exceptions
+  href: OverKizApi.Exceptions.OverkizException.html
+  name: OverkizException
+  nameWithType: OverkizException
+  fullName: OverKizApi.Exceptions.OverkizException
+- uid: OverKizApi.OverkizClient.RegisterEventListener*
+  commentId: Overload:OverKizApi.OverkizClient.RegisterEventListener
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RegisterEventListener
+  name: RegisterEventListener
+  nameWithType: OverkizClient.RegisterEventListener
+  fullName: OverKizApi.OverkizClient.RegisterEventListener
+- uid: OverKizApi.Exceptions
+  commentId: N:OverKizApi.Exceptions
+  href: OverKizApi.html
+  name: OverKizApi.Exceptions
+  nameWithType: OverKizApi.Exceptions
+  fullName: OverKizApi.Exceptions
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Exceptions
+    name: Exceptions
+    href: OverKizApi.Exceptions.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Exceptions
+    name: Exceptions
+    href: OverKizApi.Exceptions.html
+- uid: OverKizApi.Models.EventObject
+  commentId: T:OverKizApi.Models.EventObject
+  href: OverKizApi.Models.EventObject.html
+  name: EventObject
+  nameWithType: EventObject
+  fullName: OverKizApi.Models.EventObject
+- uid: OverKizApi.Exceptions.NoRegisteredEventListenerException
+  commentId: T:OverKizApi.Exceptions.NoRegisteredEventListenerException
+  href: OverKizApi.Exceptions.NoRegisteredEventListenerException.html
+  name: NoRegisteredEventListenerException
+  nameWithType: NoRegisteredEventListenerException
+  fullName: OverKizApi.Exceptions.NoRegisteredEventListenerException
+- uid: OverKizApi.OverkizClient.FetchEvents*
+  commentId: Overload:OverKizApi.OverkizClient.FetchEvents
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_FetchEvents
+  name: FetchEvents
+  nameWithType: OverkizClient.FetchEvents
+  fullName: OverKizApi.OverkizClient.FetchEvents
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<EventObject>>
+  nameWithType: Task<IReadOnlyList<EventObject>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<OverKizApi.Models.EventObject>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of EventObject))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.EventObject))
+  name.vb: Task(Of IReadOnlyList(Of EventObject))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.EventObject
+    name: EventObject
+    href: OverKizApi.Models.EventObject.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.EventObject
+    name: EventObject
+    href: OverKizApi.Models.EventObject.html
+  - name: )
+  - name: )
+- uid: OverKizApi.OverkizClient.FetchEvents
+  commentId: M:OverKizApi.OverkizClient.FetchEvents
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_FetchEvents
+  name: FetchEvents()
+  nameWithType: OverkizClient.FetchEvents()
+  fullName: OverKizApi.OverkizClient.FetchEvents()
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.FetchEvents
+    name: FetchEvents
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_FetchEvents
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.FetchEvents
+    name: FetchEvents
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_FetchEvents
+  - name: (
+  - name: )
+- uid: OverKizApi.OverkizClient.FetchEventsRaw*
+  commentId: Overload:OverKizApi.OverkizClient.FetchEventsRaw
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_FetchEventsRaw
+  name: FetchEventsRaw
+  nameWithType: OverkizClient.FetchEventsRaw
+  fullName: OverKizApi.OverkizClient.FetchEventsRaw
+- uid: System.Threading.Tasks.Task{System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}}
+  commentId: T:System.Threading.Tasks.Task{System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<(IReadOnlyList<EventObject> Events, string RawJson)>
+  nameWithType: Task<(IReadOnlyList<EventObject> Events, string RawJson)>
+  fullName: System.Threading.Tasks.Task<(System.Collections.Generic.IReadOnlyList<OverKizApi.Models.EventObject> Events, string RawJson)>
+  nameWithType.vb: Task(Of (Events As IReadOnlyList(Of EventObject), RawJson As String))
+  fullName.vb: System.Threading.Tasks.Task(Of (Events As System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.EventObject), RawJson As String))
+  name.vb: Task(Of (Events As IReadOnlyList(Of EventObject), RawJson As String))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: (
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.EventObject
+    name: EventObject
+    href: OverKizApi.Models.EventObject.html
+  - name: '>'
+  - name: " "
+  - uid: System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}.Events
+    name: Events
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.ireadonlylist-overkizapi.models.eventobject-,system.string-.events
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}.RawJson
+    name: RawJson
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.ireadonlylist-overkizapi.models.eventobject-,system.string-.rawjson
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}.Events
+    name: Events
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.ireadonlylist-overkizapi.models.eventobject-,system.string-.events
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.EventObject
+    name: EventObject
+    href: OverKizApi.Models.EventObject.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}.RawJson
+    name: RawJson
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.ireadonlylist-overkizapi.models.eventobject-,system.string-.rawjson
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OverKizApi.OverkizClient.UnregisterEventListener*
+  commentId: Overload:OverKizApi.OverkizClient.UnregisterEventListener
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_UnregisterEventListener
+  name: UnregisterEventListener
+  nameWithType: OverkizClient.UnregisterEventListener
+  fullName: OverKizApi.OverkizClient.UnregisterEventListener
+- uid: OverKizApi.OverkizClient.GetSetup*
+  commentId: Overload:OverKizApi.OverkizClient.GetSetup
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetSetup_System_Boolean_
+  name: GetSetup
+  nameWithType: OverkizClient.GetSetup
+  fullName: OverKizApi.OverkizClient.GetSetup
+- uid: System.Threading.Tasks.Task{OverKizApi.Models.Setup}
+  commentId: T:System.Threading.Tasks.Task{OverKizApi.Models.Setup}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Setup>
+  nameWithType: Task<Setup>
+  fullName: System.Threading.Tasks.Task<OverKizApi.Models.Setup>
+  nameWithType.vb: Task(Of Setup)
+  fullName.vb: System.Threading.Tasks.Task(Of OverKizApi.Models.Setup)
+  name.vb: Task(Of Setup)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: OverKizApi.Models.Setup
+    name: Setup
+    href: OverKizApi.Models.Setup.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Setup
+    name: Setup
+    href: OverKizApi.Models.Setup.html
+  - name: )
+- uid: OverKizApi.Models.Gateway
+  commentId: T:OverKizApi.Models.Gateway
+  href: OverKizApi.Models.Gateway.html
+  name: Gateway
+  nameWithType: Gateway
+  fullName: OverKizApi.Models.Gateway
+- uid: OverKizApi.OverkizClient.GetGateways*
+  commentId: Overload:OverKizApi.OverkizClient.GetGateways
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetGateways
+  name: GetGateways
+  nameWithType: OverkizClient.GetGateways
+  fullName: OverKizApi.OverkizClient.GetGateways
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Gateway}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Gateway}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<Gateway>>
+  nameWithType: Task<IReadOnlyList<Gateway>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<OverKizApi.Models.Gateway>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of Gateway))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.Gateway))
+  name.vb: Task(Of IReadOnlyList(Of Gateway))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.Gateway
+    name: Gateway
+    href: OverKizApi.Models.Gateway.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Gateway
+    name: Gateway
+    href: OverKizApi.Models.Gateway.html
+  - name: )
+  - name: )
+- uid: OverKizApi.OverkizClient.DiscoverRexelGateways*
+  commentId: Overload:OverKizApi.OverkizClient.DiscoverRexelGateways
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DiscoverRexelGateways
+  name: DiscoverRexelGateways
+  nameWithType: OverkizClient.DiscoverRexelGateways
+  fullName: OverKizApi.OverkizClient.DiscoverRexelGateways
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.GatewayCandidate}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.GatewayCandidate}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<GatewayCandidate>>
+  nameWithType: Task<IReadOnlyList<GatewayCandidate>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<OverKizApi.Models.GatewayCandidate>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of GatewayCandidate))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.GatewayCandidate))
+  name.vb: Task(Of IReadOnlyList(Of GatewayCandidate))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.GatewayCandidate
+    name: GatewayCandidate
+    href: OverKizApi.Models.GatewayCandidate.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.GatewayCandidate
+    name: GatewayCandidate
+    href: OverKizApi.Models.GatewayCandidate.html
+  - name: )
+  - name: )
+- uid: OverKizApi.OverkizClient.DiscoverRexelGateways
+  commentId: M:OverKizApi.OverkizClient.DiscoverRexelGateways
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DiscoverRexelGateways
+  name: DiscoverRexelGateways()
+  nameWithType: OverkizClient.DiscoverRexelGateways()
+  fullName: OverKizApi.OverkizClient.DiscoverRexelGateways()
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.DiscoverRexelGateways
+    name: DiscoverRexelGateways
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DiscoverRexelGateways
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.DiscoverRexelGateways
+    name: DiscoverRexelGateways
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DiscoverRexelGateways
+  - name: (
+  - name: )
+- uid: OverKizApi.OverkizClient.SelectRexelGateway*
+  commentId: Overload:OverKizApi.OverkizClient.SelectRexelGateway
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_SelectRexelGateway_System_String_
+  name: SelectRexelGateway
+  nameWithType: OverkizClient.SelectRexelGateway
+  fullName: OverKizApi.OverkizClient.SelectRexelGateway
+- uid: OverKizApi.Models.Device
+  commentId: T:OverKizApi.Models.Device
+  href: OverKizApi.Models.Device.html
+  name: Device
+  nameWithType: Device
+  fullName: OverKizApi.Models.Device
+- uid: OverKizApi.OverkizClient.GetDevices*
+  commentId: Overload:OverKizApi.OverkizClient.GetDevices
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetDevices
+  name: GetDevices
+  nameWithType: OverkizClient.GetDevices
+  fullName: OverKizApi.OverkizClient.GetDevices
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Device}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Device}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<Device>>
+  nameWithType: Task<IReadOnlyList<Device>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<OverKizApi.Models.Device>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of Device))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.Device))
+  name.vb: Task(Of IReadOnlyList(Of Device))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.Device
+    name: Device
+    href: OverKizApi.Models.Device.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Device
+    name: Device
+    href: OverKizApi.Models.Device.html
+  - name: )
+  - name: )
+- uid: OverKizApi.OverkizClient.GetDevice*
+  commentId: Overload:OverKizApi.OverkizClient.GetDevice
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetDevice_System_String_
+  name: GetDevice
+  nameWithType: OverkizClient.GetDevice
+  fullName: OverKizApi.OverkizClient.GetDevice
+- uid: System.Threading.Tasks.Task{OverKizApi.Models.Device}
+  commentId: T:System.Threading.Tasks.Task{OverKizApi.Models.Device}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Device>
+  nameWithType: Task<Device>
+  fullName: System.Threading.Tasks.Task<OverKizApi.Models.Device>
+  nameWithType.vb: Task(Of Device)
+  fullName.vb: System.Threading.Tasks.Task(Of OverKizApi.Models.Device)
+  name.vb: Task(Of Device)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: OverKizApi.Models.Device
+    name: Device
+    href: OverKizApi.Models.Device.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Device
+    name: Device
+    href: OverKizApi.Models.Device.html
+  - name: )
+- uid: OverKizApi.Models.State
+  commentId: T:OverKizApi.Models.State
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.State.html
+  name: State
+  nameWithType: State
+  fullName: OverKizApi.Models.State
+- uid: OverKizApi.OverkizClient.GetDeviceStates*
+  commentId: Overload:OverKizApi.OverkizClient.GetDeviceStates
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetDeviceStates_System_String_
+  name: GetDeviceStates
+  nameWithType: OverkizClient.GetDeviceStates
+  fullName: OverKizApi.OverkizClient.GetDeviceStates
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.State}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.State}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<State>>
+  nameWithType: Task<IReadOnlyList<State>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<OverKizApi.Models.State>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of State))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.State))
+  name.vb: Task(Of IReadOnlyList(Of State))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.State
+    name: State
+    href: OverKizApi.Models.State.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.State
+    name: State
+    href: OverKizApi.Models.State.html
+  - name: )
+  - name: )
+- uid: OverKizApi.OverkizClient.RefreshAllDeviceStates*
+  commentId: Overload:OverKizApi.OverkizClient.RefreshAllDeviceStates
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RefreshAllDeviceStates
+  name: RefreshAllDeviceStates
+  nameWithType: OverkizClient.RefreshAllDeviceStates
+  fullName: OverKizApi.OverkizClient.RefreshAllDeviceStates
+- uid: OverKizApi.Models.Command
+  commentId: T:OverKizApi.Models.Command
+  href: OverKizApi.Models.Command.html
+  name: Command
+  nameWithType: Command
+  fullName: OverKizApi.Models.Command
+- uid: OverKizApi.OverkizClient.ExecuteDeviceAction*
+  commentId: Overload:OverKizApi.OverkizClient.ExecuteDeviceAction
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ExecuteDeviceAction_System_String_System_Collections_Generic_IEnumerable_OverKizApi_Models_Command__System_String_
+  name: ExecuteDeviceAction
+  nameWithType: OverkizClient.ExecuteDeviceAction
+  fullName: OverKizApi.OverkizClient.ExecuteDeviceAction
+- uid: System.Collections.Generic.IEnumerable{OverKizApi.Models.Command}
+  commentId: T:System.Collections.Generic.IEnumerable{OverKizApi.Models.Command}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<Command>
+  nameWithType: IEnumerable<Command>
+  fullName: System.Collections.Generic.IEnumerable<OverKizApi.Models.Command>
+  nameWithType.vb: IEnumerable(Of Command)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of OverKizApi.Models.Command)
+  name.vb: IEnumerable(Of Command)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: OverKizApi.Models.Command
+    name: Command
+    href: OverKizApi.Models.Command.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Command
+    name: Command
+    href: OverKizApi.Models.Command.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OverKizApi.OverkizClient.ExecuteDeviceAction(System.String,System.Collections.Generic.IEnumerable{OverKizApi.Models.Command},System.String)
+  commentId: M:OverKizApi.OverkizClient.ExecuteDeviceAction(System.String,System.Collections.Generic.IEnumerable{OverKizApi.Models.Command},System.String)
+  isExternal: true
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ExecuteDeviceAction_System_String_System_Collections_Generic_IEnumerable_OverKizApi_Models_Command__System_String_
+  name: ExecuteDeviceAction(string, IEnumerable<Command>, string)
+  nameWithType: OverkizClient.ExecuteDeviceAction(string, IEnumerable<Command>, string)
+  fullName: OverKizApi.OverkizClient.ExecuteDeviceAction(string, System.Collections.Generic.IEnumerable<OverKizApi.Models.Command>, string)
+  nameWithType.vb: OverkizClient.ExecuteDeviceAction(String, IEnumerable(Of Command), String)
+  fullName.vb: OverKizApi.OverkizClient.ExecuteDeviceAction(String, System.Collections.Generic.IEnumerable(Of OverKizApi.Models.Command), String)
+  name.vb: ExecuteDeviceAction(String, IEnumerable(Of Command), String)
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.ExecuteDeviceAction(System.String,System.Collections.Generic.IEnumerable{OverKizApi.Models.Command},System.String)
+    name: ExecuteDeviceAction
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ExecuteDeviceAction_System_String_System_Collections_Generic_IEnumerable_OverKizApi_Models_Command__System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: OverKizApi.Models.Command
+    name: Command
+    href: OverKizApi.Models.Command.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.ExecuteDeviceAction(System.String,System.Collections.Generic.IEnumerable{OverKizApi.Models.Command},System.String)
+    name: ExecuteDeviceAction
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ExecuteDeviceAction_System_String_System_Collections_Generic_IEnumerable_OverKizApi_Models_Command__System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Command
+    name: Command
+    href: OverKizApi.Models.Command.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OverKizApi.OverkizClient.ExecuteScenario(System.String)
+  commentId: M:OverKizApi.OverkizClient.ExecuteScenario(System.String)
+  isExternal: true
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ExecuteScenario_System_String_
+  name: ExecuteScenario(string)
+  nameWithType: OverkizClient.ExecuteScenario(string)
+  fullName: OverKizApi.OverkizClient.ExecuteScenario(string)
+  nameWithType.vb: OverkizClient.ExecuteScenario(String)
+  fullName.vb: OverKizApi.OverkizClient.ExecuteScenario(String)
+  name.vb: ExecuteScenario(String)
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.ExecuteScenario(System.String)
+    name: ExecuteScenario
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ExecuteScenario_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.ExecuteScenario(System.String)
+    name: ExecuteScenario
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ExecuteScenario_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OverKizApi.OverkizClient.CancelExecution*
+  commentId: Overload:OverKizApi.OverkizClient.CancelExecution
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_CancelExecution_System_String_
+  name: CancelExecution
+  nameWithType: OverkizClient.CancelExecution
+  fullName: OverKizApi.OverkizClient.CancelExecution
+- uid: OverKizApi.Models.Execution
+  commentId: T:OverKizApi.Models.Execution
+  href: OverKizApi.Models.Execution.html
+  name: Execution
+  nameWithType: Execution
+  fullName: OverKizApi.Models.Execution
+- uid: OverKizApi.OverkizClient.GetCurrentExecutions*
+  commentId: Overload:OverKizApi.OverkizClient.GetCurrentExecutions
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetCurrentExecutions
+  name: GetCurrentExecutions
+  nameWithType: OverkizClient.GetCurrentExecutions
+  fullName: OverKizApi.OverkizClient.GetCurrentExecutions
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Execution}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Execution}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<Execution>>
+  nameWithType: Task<IReadOnlyList<Execution>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<OverKizApi.Models.Execution>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of Execution))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.Execution))
+  name.vb: Task(Of IReadOnlyList(Of Execution))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.Execution
+    name: Execution
+    href: OverKizApi.Models.Execution.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Execution
+    name: Execution
+    href: OverKizApi.Models.Execution.html
+  - name: )
+  - name: )
+- uid: OverKizApi.Models.HistoryExecution
+  commentId: T:OverKizApi.Models.HistoryExecution
+  href: OverKizApi.Models.HistoryExecution.html
+  name: HistoryExecution
+  nameWithType: HistoryExecution
+  fullName: OverKizApi.Models.HistoryExecution
+- uid: OverKizApi.OverkizClient.GetExecutionHistory*
+  commentId: Overload:OverKizApi.OverkizClient.GetExecutionHistory
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetExecutionHistory
+  name: GetExecutionHistory
+  nameWithType: OverkizClient.GetExecutionHistory
+  fullName: OverKizApi.OverkizClient.GetExecutionHistory
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.HistoryExecution}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.HistoryExecution}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<HistoryExecution>>
+  nameWithType: Task<IReadOnlyList<HistoryExecution>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<OverKizApi.Models.HistoryExecution>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of HistoryExecution))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.HistoryExecution))
+  name.vb: Task(Of IReadOnlyList(Of HistoryExecution))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.HistoryExecution
+    name: HistoryExecution
+    href: OverKizApi.Models.HistoryExecution.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.HistoryExecution
+    name: HistoryExecution
+    href: OverKizApi.Models.HistoryExecution.html
+  - name: )
+  - name: )
+- uid: OverKizApi.Models.Scenario
+  commentId: T:OverKizApi.Models.Scenario
+  href: OverKizApi.Models.Scenario.html
+  name: Scenario
+  nameWithType: Scenario
+  fullName: OverKizApi.Models.Scenario
+- uid: OverKizApi.OverkizClient.GetScenarios*
+  commentId: Overload:OverKizApi.OverkizClient.GetScenarios
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetScenarios
+  name: GetScenarios
+  nameWithType: OverkizClient.GetScenarios
+  fullName: OverKizApi.OverkizClient.GetScenarios
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Scenario}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Scenario}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<Scenario>>
+  nameWithType: Task<IReadOnlyList<Scenario>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<OverKizApi.Models.Scenario>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of Scenario))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.Scenario))
+  name.vb: Task(Of IReadOnlyList(Of Scenario))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.Scenario
+    name: Scenario
+    href: OverKizApi.Models.Scenario.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Scenario
+    name: Scenario
+    href: OverKizApi.Models.Scenario.html
+  - name: )
+  - name: )
+- uid: OverKizApi.Models.Scenario.Oid
+  commentId: P:OverKizApi.Models.Scenario.Oid
+  href: OverKizApi.Models.Scenario.html#OverKizApi_Models_Scenario_Oid
+  name: Oid
+  nameWithType: Scenario.Oid
+  fullName: OverKizApi.Models.Scenario.Oid
+- uid: OverKizApi.OverkizClient.ExecuteScenario*
+  commentId: Overload:OverKizApi.OverkizClient.ExecuteScenario
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ExecuteScenario_System_String_
+  name: ExecuteScenario
+  nameWithType: OverkizClient.ExecuteScenario
+  fullName: OverKizApi.OverkizClient.ExecuteScenario
+- uid: OverKizApi.OverkizClient.ExecuteScheduledScenario*
+  commentId: Overload:OverKizApi.OverkizClient.ExecuteScheduledScenario
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ExecuteScheduledScenario_System_String_System_Int64_
+  name: ExecuteScheduledScenario
+  nameWithType: OverkizClient.ExecuteScheduledScenario
+  fullName: OverKizApi.OverkizClient.ExecuteScheduledScenario
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: OverKizApi.Models.Place
+  commentId: T:OverKizApi.Models.Place
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.Place.html
+  name: Place
+  nameWithType: Place
+  fullName: OverKizApi.Models.Place
+- uid: OverKizApi.OverkizClient.GetPlaces*
+  commentId: Overload:OverKizApi.OverkizClient.GetPlaces
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetPlaces
+  name: GetPlaces
+  nameWithType: OverkizClient.GetPlaces
+  fullName: OverKizApi.OverkizClient.GetPlaces
+- uid: System.Threading.Tasks.Task{OverKizApi.Models.Place}
+  commentId: T:System.Threading.Tasks.Task{OverKizApi.Models.Place}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Place>
+  nameWithType: Task<Place>
+  fullName: System.Threading.Tasks.Task<OverKizApi.Models.Place>
+  nameWithType.vb: Task(Of Place)
+  fullName.vb: System.Threading.Tasks.Task(Of OverKizApi.Models.Place)
+  name.vb: Task(Of Place)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: OverKizApi.Models.Place
+    name: Place
+    href: OverKizApi.Models.Place.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Place
+    name: Place
+    href: OverKizApi.Models.Place.html
+  - name: )
+- uid: OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+  commentId: M:OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+  isExternal: true
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ActivateLocalToken_System_String_System_String_System_String_System_String_
+  name: ActivateLocalToken(string, string, string, string)
+  nameWithType: OverkizClient.ActivateLocalToken(string, string, string, string)
+  fullName: OverKizApi.OverkizClient.ActivateLocalToken(string, string, string, string)
+  nameWithType.vb: OverkizClient.ActivateLocalToken(String, String, String, String)
+  fullName.vb: OverKizApi.OverkizClient.ActivateLocalToken(String, String, String, String)
+  name.vb: ActivateLocalToken(String, String, String, String)
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+    name: ActivateLocalToken
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ActivateLocalToken_System_String_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+    name: ActivateLocalToken
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ActivateLocalToken_System_String_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OverKizApi.OverkizClient.GenerateLocalToken*
+  commentId: Overload:OverKizApi.OverkizClient.GenerateLocalToken
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GenerateLocalToken_System_String_
+  name: GenerateLocalToken
+  nameWithType: OverkizClient.GenerateLocalToken
+  fullName: OverKizApi.OverkizClient.GenerateLocalToken
+- uid: OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+  commentId: M:OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+  isExternal: true
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GenerateLocalToken_System_String_
+  name: GenerateLocalToken(string)
+  nameWithType: OverkizClient.GenerateLocalToken(string)
+  fullName: OverKizApi.OverkizClient.GenerateLocalToken(string)
+  nameWithType.vb: OverkizClient.GenerateLocalToken(String)
+  fullName.vb: OverKizApi.OverkizClient.GenerateLocalToken(String)
+  name.vb: GenerateLocalToken(String)
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+    name: GenerateLocalToken
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GenerateLocalToken_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+    name: GenerateLocalToken
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GenerateLocalToken_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OverKizApi.OverkizClient.ActivateLocalToken*
+  commentId: Overload:OverKizApi.OverkizClient.ActivateLocalToken
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ActivateLocalToken_System_String_System_String_System_String_System_String_
+  name: ActivateLocalToken
+  nameWithType: OverkizClient.ActivateLocalToken
+  fullName: OverKizApi.OverkizClient.ActivateLocalToken
+- uid: OverKizApi.Models.LocalToken
+  commentId: T:OverKizApi.Models.LocalToken
+  href: OverKizApi.Models.LocalToken.html
+  name: LocalToken
+  nameWithType: LocalToken
+  fullName: OverKizApi.Models.LocalToken
+- uid: OverKizApi.OverkizClient.GetLocalTokens*
+  commentId: Overload:OverKizApi.OverkizClient.GetLocalTokens
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetLocalTokens_System_String_System_String_
+  name: GetLocalTokens
+  nameWithType: OverkizClient.GetLocalTokens
+  fullName: OverKizApi.OverkizClient.GetLocalTokens
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.LocalToken}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.LocalToken}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<LocalToken>>
+  nameWithType: Task<IReadOnlyList<LocalToken>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<OverKizApi.Models.LocalToken>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of LocalToken))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.LocalToken))
+  name.vb: Task(Of IReadOnlyList(Of LocalToken))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.LocalToken
+    name: LocalToken
+    href: OverKizApi.Models.LocalToken.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.LocalToken
+    name: LocalToken
+    href: OverKizApi.Models.LocalToken.html
+  - name: )
+  - name: )
+- uid: OverKizApi.Models.LocalToken.Uuid
+  commentId: P:OverKizApi.Models.LocalToken.Uuid
+  href: OverKizApi.Models.LocalToken.html#OverKizApi_Models_LocalToken_Uuid
+  name: Uuid
+  nameWithType: LocalToken.Uuid
+  fullName: OverKizApi.Models.LocalToken.Uuid
+- uid: OverKizApi.OverkizClient.DeleteLocalToken*
+  commentId: Overload:OverKizApi.OverkizClient.DeleteLocalToken
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DeleteLocalToken_System_String_System_String_
+  name: DeleteLocalToken
+  nameWithType: OverkizClient.DeleteLocalToken
+  fullName: OverKizApi.OverkizClient.DeleteLocalToken
+- uid: OverKizApi.Models.OptionObject
+  commentId: T:OverKizApi.Models.OptionObject
+  href: OverKizApi.Models.OptionObject.html
+  name: OptionObject
+  nameWithType: OptionObject
+  fullName: OverKizApi.Models.OptionObject
+- uid: OverKizApi.OverkizClient.GetSetupOptions*
+  commentId: Overload:OverKizApi.OverkizClient.GetSetupOptions
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetSetupOptions
+  name: GetSetupOptions
+  nameWithType: OverkizClient.GetSetupOptions
+  fullName: OverKizApi.OverkizClient.GetSetupOptions
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.OptionObject}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.OptionObject}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<OptionObject>>
+  nameWithType: Task<IReadOnlyList<OptionObject>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<OverKizApi.Models.OptionObject>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of OptionObject))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.OptionObject))
+  name.vb: Task(Of IReadOnlyList(Of OptionObject))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.OptionObject
+    name: OptionObject
+    href: OverKizApi.Models.OptionObject.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.OptionObject
+    name: OptionObject
+    href: OverKizApi.Models.OptionObject.html
+  - name: )
+  - name: )
+- uid: OverKizApi.OverkizClient.GetSetupOption*
+  commentId: Overload:OverKizApi.OverkizClient.GetSetupOption
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetSetupOption_System_String_
+  name: GetSetupOption
+  nameWithType: OverkizClient.GetSetupOption
+  fullName: OverKizApi.OverkizClient.GetSetupOption
+- uid: System.Threading.Tasks.Task{OverKizApi.Models.OptionObject}
+  commentId: T:System.Threading.Tasks.Task{OverKizApi.Models.OptionObject}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<OptionObject>
+  nameWithType: Task<OptionObject>
+  fullName: System.Threading.Tasks.Task<OverKizApi.Models.OptionObject>
+  nameWithType.vb: Task(Of OptionObject)
+  fullName.vb: System.Threading.Tasks.Task(Of OverKizApi.Models.OptionObject)
+  name.vb: Task(Of OptionObject)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: OverKizApi.Models.OptionObject
+    name: OptionObject
+    href: OverKizApi.Models.OptionObject.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.OptionObject
+    name: OptionObject
+    href: OverKizApi.Models.OptionObject.html
+  - name: )
+- uid: OverKizApi.Models.OptionParameter
+  commentId: T:OverKizApi.Models.OptionParameter
+  href: OverKizApi.Models.OptionParameter.html
+  name: OptionParameter
+  nameWithType: OptionParameter
+  fullName: OverKizApi.Models.OptionParameter
+- uid: OverKizApi.OverkizClient.GetSetupOptionParameter*
+  commentId: Overload:OverKizApi.OverkizClient.GetSetupOptionParameter
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetSetupOptionParameter_System_String_System_String_
+  name: GetSetupOptionParameter
+  nameWithType: OverkizClient.GetSetupOptionParameter
+  fullName: OverKizApi.OverkizClient.GetSetupOptionParameter
+- uid: System.Threading.Tasks.Task{OverKizApi.Models.OptionParameter}
+  commentId: T:System.Threading.Tasks.Task{OverKizApi.Models.OptionParameter}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<OptionParameter>
+  nameWithType: Task<OptionParameter>
+  fullName: System.Threading.Tasks.Task<OverKizApi.Models.OptionParameter>
+  nameWithType.vb: Task(Of OptionParameter)
+  fullName.vb: System.Threading.Tasks.Task(Of OverKizApi.Models.OptionParameter)
+  name.vb: Task(Of OptionParameter)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: OverKizApi.Models.OptionParameter
+    name: OptionParameter
+    href: OverKizApi.Models.OptionParameter.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.OptionParameter
+    name: OptionParameter
+    href: OverKizApi.Models.OptionParameter.html
+  - name: )

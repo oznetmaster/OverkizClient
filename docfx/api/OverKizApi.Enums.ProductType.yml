@@ -1,0 +1,147 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.ProductType
+  commentId: T:OverKizApi.Enums.ProductType
+  id: ProductType
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.ProductType.Actuator
+  - OverKizApi.Enums.ProductType.Sensor
+  - OverKizApi.Enums.ProductType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: ProductType
+  nameWithType: ProductType
+  fullName: OverKizApi.Enums.ProductType
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ProductType
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 7
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Classifies a device as an actuator, a sensor, or unknown.
+  example: []
+  syntax:
+    content: public enum ProductType
+    content.vb: Public Enum ProductType
+- uid: OverKizApi.Enums.ProductType.Unknown
+  commentId: F:OverKizApi.Enums.ProductType.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.ProductType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ProductType.Unknown
+  fullName: OverKizApi.Enums.ProductType.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 10
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Device type is not known.
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: OverKizApi.Enums.ProductType
+- uid: OverKizApi.Enums.ProductType.Actuator
+  commentId: F:OverKizApi.Enums.ProductType.Actuator
+  id: Actuator
+  parent: OverKizApi.Enums.ProductType
+  langs:
+  - csharp
+  - vb
+  name: Actuator
+  nameWithType: ProductType.Actuator
+  fullName: OverKizApi.Enums.ProductType.Actuator
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Actuator
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 12
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The device can receive commands and perform physical actions (e.g. a roller shutter motor).
+  example: []
+  syntax:
+    content: Actuator = 1
+    return:
+      type: OverKizApi.Enums.ProductType
+- uid: OverKizApi.Enums.ProductType.Sensor
+  commentId: F:OverKizApi.Enums.ProductType.Sensor
+  id: Sensor
+  parent: OverKizApi.Enums.ProductType
+  langs:
+  - csharp
+  - vb
+  name: Sensor
+  nameWithType: ProductType.Sensor
+  fullName: OverKizApi.Enums.ProductType.Sensor
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Sensor
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 14
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The device reports measured state values (e.g. a temperature sensor).
+  example: []
+  syntax:
+    content: Sensor = 2
+    return:
+      type: OverKizApi.Enums.ProductType
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.ProductType
+  commentId: T:OverKizApi.Enums.ProductType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.ProductType.html
+  name: ProductType
+  nameWithType: ProductType
+  fullName: OverKizApi.Enums.ProductType

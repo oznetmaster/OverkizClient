@@ -1,0 +1,585 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.EventName
+  commentId: T:OverKizApi.Enums.EventName
+  id: EventName
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.EventName.DeviceAvailabilityChanged
+  - OverKizApi.Enums.EventName.DeviceCreated
+  - OverKizApi.Enums.EventName.DeviceDeleted
+  - OverKizApi.Enums.EventName.DeviceGatewayUpdated
+  - OverKizApi.Enums.EventName.DeviceStateChanged
+  - OverKizApi.Enums.EventName.DeviceUpdated
+  - OverKizApi.Enums.EventName.ExecutionRegistered
+  - OverKizApi.Enums.EventName.ExecutionStateChanged
+  - OverKizApi.Enums.EventName.GatewayAliveChanged
+  - OverKizApi.Enums.EventName.GatewayDowngradeChanged
+  - OverKizApi.Enums.EventName.GatewaySynchronizationEnded
+  - OverKizApi.Enums.EventName.GatewaySynchronizationFinished
+  - OverKizApi.Enums.EventName.GatewaySynchronizationStarted
+  - OverKizApi.Enums.EventName.GatewayUpdated
+  - OverKizApi.Enums.EventName.RefreshAllDevicesStates
+  - OverKizApi.Enums.EventName.ScenarioExecutionRegistered
+  - OverKizApi.Enums.EventName.ScenarioExecutionStateChanged
+  - OverKizApi.Enums.EventName.Unknown
+  langs:
+  - csharp
+  - vb
+  name: EventName
+  nameWithType: EventName
+  fullName: OverKizApi.Enums.EventName
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: EventName
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 21
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: >-
+    Identifies the type of an event returned by the event listener endpoint
+
+    (<code>events/{listenerId}/fetch</code>).
+  example: []
+  syntax:
+    content: public enum EventName
+    content.vb: Public Enum EventName
+- uid: OverKizApi.Enums.EventName.Unknown
+  commentId: F:OverKizApi.Enums.EventName.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: EventName.Unknown
+  fullName: OverKizApi.Enums.EventName.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 24
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Event type is not recognised.
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.DeviceAvailabilityChanged
+  commentId: F:OverKizApi.Enums.EventName.DeviceAvailabilityChanged
+  id: DeviceAvailabilityChanged
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: DeviceAvailabilityChanged
+  nameWithType: EventName.DeviceAvailabilityChanged
+  fullName: OverKizApi.Enums.EventName.DeviceAvailabilityChanged
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeviceAvailabilityChanged
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 26
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A device's availability (reachability) changed.
+  example: []
+  syntax:
+    content: DeviceAvailabilityChanged = 1
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.DeviceCreated
+  commentId: F:OverKizApi.Enums.EventName.DeviceCreated
+  id: DeviceCreated
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: DeviceCreated
+  nameWithType: EventName.DeviceCreated
+  fullName: OverKizApi.Enums.EventName.DeviceCreated
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeviceCreated
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 28
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A new device was added to the setup.
+  example: []
+  syntax:
+    content: DeviceCreated = 2
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.DeviceDeleted
+  commentId: F:OverKizApi.Enums.EventName.DeviceDeleted
+  id: DeviceDeleted
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: DeviceDeleted
+  nameWithType: EventName.DeviceDeleted
+  fullName: OverKizApi.Enums.EventName.DeviceDeleted
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeviceDeleted
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 30
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A device was removed from the setup.
+  example: []
+  syntax:
+    content: DeviceDeleted = 3
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.DeviceGatewayUpdated
+  commentId: F:OverKizApi.Enums.EventName.DeviceGatewayUpdated
+  id: DeviceGatewayUpdated
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: DeviceGatewayUpdated
+  nameWithType: EventName.DeviceGatewayUpdated
+  fullName: OverKizApi.Enums.EventName.DeviceGatewayUpdated
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeviceGatewayUpdated
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 32
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A device's associated gateway was updated.
+  example: []
+  syntax:
+    content: DeviceGatewayUpdated = 4
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.DeviceStateChanged
+  commentId: F:OverKizApi.Enums.EventName.DeviceStateChanged
+  id: DeviceStateChanged
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: DeviceStateChanged
+  nameWithType: EventName.DeviceStateChanged
+  fullName: OverKizApi.Enums.EventName.DeviceStateChanged
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeviceStateChanged
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 34
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: One or more states on a device changed value.
+  example: []
+  syntax:
+    content: DeviceStateChanged = 5
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.DeviceUpdated
+  commentId: F:OverKizApi.Enums.EventName.DeviceUpdated
+  id: DeviceUpdated
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: DeviceUpdated
+  nameWithType: EventName.DeviceUpdated
+  fullName: OverKizApi.Enums.EventName.DeviceUpdated
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeviceUpdated
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 36
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A device's metadata (label, place, etc.) was updated.
+  example: []
+  syntax:
+    content: DeviceUpdated = 6
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.ExecutionRegistered
+  commentId: F:OverKizApi.Enums.EventName.ExecutionRegistered
+  id: ExecutionRegistered
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: ExecutionRegistered
+  nameWithType: EventName.ExecutionRegistered
+  fullName: OverKizApi.Enums.EventName.ExecutionRegistered
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecutionRegistered
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 38
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A new execution was registered with the gateway.
+  example: []
+  syntax:
+    content: ExecutionRegistered = 7
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.ExecutionStateChanged
+  commentId: F:OverKizApi.Enums.EventName.ExecutionStateChanged
+  id: ExecutionStateChanged
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: ExecutionStateChanged
+  nameWithType: EventName.ExecutionStateChanged
+  fullName: OverKizApi.Enums.EventName.ExecutionStateChanged
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecutionStateChanged
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 40
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: An execution transitioned to a new state.
+  example: []
+  syntax:
+    content: ExecutionStateChanged = 8
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.GatewayAliveChanged
+  commentId: F:OverKizApi.Enums.EventName.GatewayAliveChanged
+  id: GatewayAliveChanged
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: GatewayAliveChanged
+  nameWithType: EventName.GatewayAliveChanged
+  fullName: OverKizApi.Enums.EventName.GatewayAliveChanged
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayAliveChanged
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 42
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A gateway's alive/heartbeat status changed.
+  example: []
+  syntax:
+    content: GatewayAliveChanged = 9
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.GatewayDowngradeChanged
+  commentId: F:OverKizApi.Enums.EventName.GatewayDowngradeChanged
+  id: GatewayDowngradeChanged
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: GatewayDowngradeChanged
+  nameWithType: EventName.GatewayDowngradeChanged
+  fullName: OverKizApi.Enums.EventName.GatewayDowngradeChanged
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayDowngradeChanged
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 44
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A gateway firmware downgrade was detected.
+  example: []
+  syntax:
+    content: GatewayDowngradeChanged = 10
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.GatewaySynchronizationFinished
+  commentId: F:OverKizApi.Enums.EventName.GatewaySynchronizationFinished
+  id: GatewaySynchronizationFinished
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: GatewaySynchronizationFinished
+  nameWithType: EventName.GatewaySynchronizationFinished
+  fullName: OverKizApi.Enums.EventName.GatewaySynchronizationFinished
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewaySynchronizationFinished
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 46
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A gateway completed a device synchronisation cycle.
+  example: []
+  syntax:
+    content: GatewaySynchronizationFinished = 11
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.GatewaySynchronizationEnded
+  commentId: F:OverKizApi.Enums.EventName.GatewaySynchronizationEnded
+  id: GatewaySynchronizationEnded
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: GatewaySynchronizationEnded
+  nameWithType: EventName.GatewaySynchronizationEnded
+  fullName: OverKizApi.Enums.EventName.GatewaySynchronizationEnded
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewaySynchronizationEnded
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 48
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A gateway completed a device synchronisation cycle (alternate name used by some servers).
+  example: []
+  syntax:
+    content: GatewaySynchronizationEnded = 12
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.GatewaySynchronizationStarted
+  commentId: F:OverKizApi.Enums.EventName.GatewaySynchronizationStarted
+  id: GatewaySynchronizationStarted
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: GatewaySynchronizationStarted
+  nameWithType: EventName.GatewaySynchronizationStarted
+  fullName: OverKizApi.Enums.EventName.GatewaySynchronizationStarted
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewaySynchronizationStarted
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 50
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A gateway started a device synchronisation cycle.
+  example: []
+  syntax:
+    content: GatewaySynchronizationStarted = 13
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.GatewayUpdated
+  commentId: F:OverKizApi.Enums.EventName.GatewayUpdated
+  id: GatewayUpdated
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: GatewayUpdated
+  nameWithType: EventName.GatewayUpdated
+  fullName: OverKizApi.Enums.EventName.GatewayUpdated
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayUpdated
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 52
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A gateway's metadata was updated.
+  example: []
+  syntax:
+    content: GatewayUpdated = 14
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.RefreshAllDevicesStates
+  commentId: F:OverKizApi.Enums.EventName.RefreshAllDevicesStates
+  id: RefreshAllDevicesStates
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: RefreshAllDevicesStates
+  nameWithType: EventName.RefreshAllDevicesStates
+  fullName: OverKizApi.Enums.EventName.RefreshAllDevicesStates
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: RefreshAllDevicesStates
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 54
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The cloud requested all devices to refresh their states.
+  example: []
+  syntax:
+    content: RefreshAllDevicesStates = 15
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.ScenarioExecutionRegistered
+  commentId: F:OverKizApi.Enums.EventName.ScenarioExecutionRegistered
+  id: ScenarioExecutionRegistered
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: ScenarioExecutionRegistered
+  nameWithType: EventName.ScenarioExecutionRegistered
+  fullName: OverKizApi.Enums.EventName.ScenarioExecutionRegistered
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ScenarioExecutionRegistered
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 56
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A new scenario execution was registered.
+  example: []
+  syntax:
+    content: ScenarioExecutionRegistered = 16
+    return:
+      type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.ScenarioExecutionStateChanged
+  commentId: F:OverKizApi.Enums.EventName.ScenarioExecutionStateChanged
+  id: ScenarioExecutionStateChanged
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: ScenarioExecutionStateChanged
+  nameWithType: EventName.ScenarioExecutionStateChanged
+  fullName: OverKizApi.Enums.EventName.ScenarioExecutionStateChanged
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ScenarioExecutionStateChanged
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 58
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A scenario execution transitioned to a new state.
+  example: []
+  syntax:
+    content: ScenarioExecutionStateChanged = 17
+    return:
+      type: OverKizApi.Enums.EventName
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.EventName
+  commentId: T:OverKizApi.Enums.EventName
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.EventName.html
+  name: EventName
+  nameWithType: EventName
+  fullName: OverKizApi.Enums.EventName

@@ -1,0 +1,1136 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.MeasuredValueType
+  commentId: T:OverKizApi.Enums.MeasuredValueType
+  id: MeasuredValueType
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.MeasuredValueType.AbsoluteValue
+  - OverKizApi.Enums.MeasuredValueType.AngleInDegrees
+  - OverKizApi.Enums.MeasuredValueType.AngularSpeedInDegreesPerSecond
+  - OverKizApi.Enums.MeasuredValueType.ElectricCurrentInAmpere
+  - OverKizApi.Enums.MeasuredValueType.ElectricCurrentInMilliAmpere
+  - OverKizApi.Enums.MeasuredValueType.ElectricalEnergyInKWh
+  - OverKizApi.Enums.MeasuredValueType.ElectricalEnergyInWh
+  - OverKizApi.Enums.MeasuredValueType.ElectricalPowerInKW
+  - OverKizApi.Enums.MeasuredValueType.ElectricalPowerInW
+  - OverKizApi.Enums.MeasuredValueType.EnergyInCal
+  - OverKizApi.Enums.MeasuredValueType.EnergyInKCal
+  - OverKizApi.Enums.MeasuredValueType.FlowInLitrePerSecond
+  - OverKizApi.Enums.MeasuredValueType.FlowInMeterCubePerHour
+  - OverKizApi.Enums.MeasuredValueType.FlowInMeterCubePerSecond
+  - OverKizApi.Enums.MeasuredValueType.FossilEnergyInWh
+  - OverKizApi.Enums.MeasuredValueType.GradientInPercentagePerSecond
+  - OverKizApi.Enums.MeasuredValueType.LengthInMeter
+  - OverKizApi.Enums.MeasuredValueType.LinearSpeedInMeterPerSecond
+  - OverKizApi.Enums.MeasuredValueType.LuminanceInLux
+  - OverKizApi.Enums.MeasuredValueType.PartsPerBillion
+  - OverKizApi.Enums.MeasuredValueType.PartsPerMillion
+  - OverKizApi.Enums.MeasuredValueType.PartsPerQuadrillion
+  - OverKizApi.Enums.MeasuredValueType.PartsPerTrillion
+  - OverKizApi.Enums.MeasuredValueType.PowerPerSquareMeter
+  - OverKizApi.Enums.MeasuredValueType.PressureInHpa
+  - OverKizApi.Enums.MeasuredValueType.PressureInMilliBar
+  - OverKizApi.Enums.MeasuredValueType.RelativeValueInPercentage
+  - OverKizApi.Enums.MeasuredValueType.TemperatureInCelcius
+  - OverKizApi.Enums.MeasuredValueType.TemperatureInKelvin
+  - OverKizApi.Enums.MeasuredValueType.TimeInSecond
+  - OverKizApi.Enums.MeasuredValueType.Unknown
+  - OverKizApi.Enums.MeasuredValueType.VectorCoordinate
+  - OverKizApi.Enums.MeasuredValueType.VoltageInMilliVolt
+  - OverKizApi.Enums.MeasuredValueType.VoltageInVolt
+  - OverKizApi.Enums.MeasuredValueType.VolumeInCubicMeter
+  - OverKizApi.Enums.MeasuredValueType.VolumeInGallon
+  - OverKizApi.Enums.MeasuredValueType.VolumeInLiter
+  langs:
+  - csharp
+  - vb
+  name: MeasuredValueType
+  nameWithType: MeasuredValueType
+  fullName: OverKizApi.Enums.MeasuredValueType
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: MeasuredValueType
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 10
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: >-
+    Identifies the physical quantity and unit of a numeric sensor state value.
+
+    Used alongside the raw state value to interpret measurements correctly.
+  example: []
+  syntax:
+    content: public enum MeasuredValueType
+    content.vb: Public Enum MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.Unknown
+  commentId: F:OverKizApi.Enums.MeasuredValueType.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: MeasuredValueType.Unknown
+  fullName: OverKizApi.Enums.MeasuredValueType.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 13
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Unit is not specified or not recognised.
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.AbsoluteValue
+  commentId: F:OverKizApi.Enums.MeasuredValueType.AbsoluteValue
+  id: AbsoluteValue
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: AbsoluteValue
+  nameWithType: MeasuredValueType.AbsoluteValue
+  fullName: OverKizApi.Enums.MeasuredValueType.AbsoluteValue
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: AbsoluteValue
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 15
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A dimensionless absolute numeric value.
+  example: []
+  syntax:
+    content: AbsoluteValue = 1
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.AngleInDegrees
+  commentId: F:OverKizApi.Enums.MeasuredValueType.AngleInDegrees
+  id: AngleInDegrees
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: AngleInDegrees
+  nameWithType: MeasuredValueType.AngleInDegrees
+  fullName: OverKizApi.Enums.MeasuredValueType.AngleInDegrees
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: AngleInDegrees
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 17
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Angular position measured in degrees (°).
+  example: []
+  syntax:
+    content: AngleInDegrees = 2
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.AngularSpeedInDegreesPerSecond
+  commentId: F:OverKizApi.Enums.MeasuredValueType.AngularSpeedInDegreesPerSecond
+  id: AngularSpeedInDegreesPerSecond
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: AngularSpeedInDegreesPerSecond
+  nameWithType: MeasuredValueType.AngularSpeedInDegreesPerSecond
+  fullName: OverKizApi.Enums.MeasuredValueType.AngularSpeedInDegreesPerSecond
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: AngularSpeedInDegreesPerSecond
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 19
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Rotational speed measured in degrees per second (°/s).
+  example: []
+  syntax:
+    content: AngularSpeedInDegreesPerSecond = 3
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.ElectricalEnergyInKWh
+  commentId: F:OverKizApi.Enums.MeasuredValueType.ElectricalEnergyInKWh
+  id: ElectricalEnergyInKWh
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: ElectricalEnergyInKWh
+  nameWithType: MeasuredValueType.ElectricalEnergyInKWh
+  fullName: OverKizApi.Enums.MeasuredValueType.ElectricalEnergyInKWh
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ElectricalEnergyInKWh
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 21
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Electrical energy measured in kilowatt-hours (kWh).
+  example: []
+  syntax:
+    content: ElectricalEnergyInKWh = 4
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.ElectricalEnergyInWh
+  commentId: F:OverKizApi.Enums.MeasuredValueType.ElectricalEnergyInWh
+  id: ElectricalEnergyInWh
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: ElectricalEnergyInWh
+  nameWithType: MeasuredValueType.ElectricalEnergyInWh
+  fullName: OverKizApi.Enums.MeasuredValueType.ElectricalEnergyInWh
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ElectricalEnergyInWh
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 23
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Electrical energy measured in watt-hours (Wh).
+  example: []
+  syntax:
+    content: ElectricalEnergyInWh = 5
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.ElectricalPowerInKW
+  commentId: F:OverKizApi.Enums.MeasuredValueType.ElectricalPowerInKW
+  id: ElectricalPowerInKW
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: ElectricalPowerInKW
+  nameWithType: MeasuredValueType.ElectricalPowerInKW
+  fullName: OverKizApi.Enums.MeasuredValueType.ElectricalPowerInKW
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ElectricalPowerInKW
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 25
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Electrical power measured in kilowatts (kW).
+  example: []
+  syntax:
+    content: ElectricalPowerInKW = 6
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.ElectricalPowerInW
+  commentId: F:OverKizApi.Enums.MeasuredValueType.ElectricalPowerInW
+  id: ElectricalPowerInW
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: ElectricalPowerInW
+  nameWithType: MeasuredValueType.ElectricalPowerInW
+  fullName: OverKizApi.Enums.MeasuredValueType.ElectricalPowerInW
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ElectricalPowerInW
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 27
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Electrical power measured in watts (W).
+  example: []
+  syntax:
+    content: ElectricalPowerInW = 7
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.ElectricCurrentInAmpere
+  commentId: F:OverKizApi.Enums.MeasuredValueType.ElectricCurrentInAmpere
+  id: ElectricCurrentInAmpere
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: ElectricCurrentInAmpere
+  nameWithType: MeasuredValueType.ElectricCurrentInAmpere
+  fullName: OverKizApi.Enums.MeasuredValueType.ElectricCurrentInAmpere
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ElectricCurrentInAmpere
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 29
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Electric current measured in amperes (A).
+  example: []
+  syntax:
+    content: ElectricCurrentInAmpere = 8
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.ElectricCurrentInMilliAmpere
+  commentId: F:OverKizApi.Enums.MeasuredValueType.ElectricCurrentInMilliAmpere
+  id: ElectricCurrentInMilliAmpere
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: ElectricCurrentInMilliAmpere
+  nameWithType: MeasuredValueType.ElectricCurrentInMilliAmpere
+  fullName: OverKizApi.Enums.MeasuredValueType.ElectricCurrentInMilliAmpere
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ElectricCurrentInMilliAmpere
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 31
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Electric current measured in milliamperes (mA).
+  example: []
+  syntax:
+    content: ElectricCurrentInMilliAmpere = 9
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.EnergyInCal
+  commentId: F:OverKizApi.Enums.MeasuredValueType.EnergyInCal
+  id: EnergyInCal
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: EnergyInCal
+  nameWithType: MeasuredValueType.EnergyInCal
+  fullName: OverKizApi.Enums.MeasuredValueType.EnergyInCal
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: EnergyInCal
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 33
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Energy measured in calories (cal).
+  example: []
+  syntax:
+    content: EnergyInCal = 10
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.EnergyInKCal
+  commentId: F:OverKizApi.Enums.MeasuredValueType.EnergyInKCal
+  id: EnergyInKCal
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: EnergyInKCal
+  nameWithType: MeasuredValueType.EnergyInKCal
+  fullName: OverKizApi.Enums.MeasuredValueType.EnergyInKCal
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: EnergyInKCal
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 35
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Energy measured in kilocalories (kcal).
+  example: []
+  syntax:
+    content: EnergyInKCal = 11
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.FlowInLitrePerSecond
+  commentId: F:OverKizApi.Enums.MeasuredValueType.FlowInLitrePerSecond
+  id: FlowInLitrePerSecond
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: FlowInLitrePerSecond
+  nameWithType: MeasuredValueType.FlowInLitrePerSecond
+  fullName: OverKizApi.Enums.MeasuredValueType.FlowInLitrePerSecond
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FlowInLitrePerSecond
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 37
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Fluid flow rate measured in litres per second (L/s).
+  example: []
+  syntax:
+    content: FlowInLitrePerSecond = 12
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.FlowInMeterCubePerHour
+  commentId: F:OverKizApi.Enums.MeasuredValueType.FlowInMeterCubePerHour
+  id: FlowInMeterCubePerHour
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: FlowInMeterCubePerHour
+  nameWithType: MeasuredValueType.FlowInMeterCubePerHour
+  fullName: OverKizApi.Enums.MeasuredValueType.FlowInMeterCubePerHour
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FlowInMeterCubePerHour
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 39
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Fluid flow rate measured in cubic metres per hour (m³/h).
+  example: []
+  syntax:
+    content: FlowInMeterCubePerHour = 13
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.FlowInMeterCubePerSecond
+  commentId: F:OverKizApi.Enums.MeasuredValueType.FlowInMeterCubePerSecond
+  id: FlowInMeterCubePerSecond
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: FlowInMeterCubePerSecond
+  nameWithType: MeasuredValueType.FlowInMeterCubePerSecond
+  fullName: OverKizApi.Enums.MeasuredValueType.FlowInMeterCubePerSecond
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FlowInMeterCubePerSecond
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 41
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Fluid flow rate measured in cubic metres per second (m³/s).
+  example: []
+  syntax:
+    content: FlowInMeterCubePerSecond = 14
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.FossilEnergyInWh
+  commentId: F:OverKizApi.Enums.MeasuredValueType.FossilEnergyInWh
+  id: FossilEnergyInWh
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: FossilEnergyInWh
+  nameWithType: MeasuredValueType.FossilEnergyInWh
+  fullName: OverKizApi.Enums.MeasuredValueType.FossilEnergyInWh
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FossilEnergyInWh
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 43
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Fossil-fuel energy measured in watt-hours (Wh).
+  example: []
+  syntax:
+    content: FossilEnergyInWh = 15
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.GradientInPercentagePerSecond
+  commentId: F:OverKizApi.Enums.MeasuredValueType.GradientInPercentagePerSecond
+  id: GradientInPercentagePerSecond
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: GradientInPercentagePerSecond
+  nameWithType: MeasuredValueType.GradientInPercentagePerSecond
+  fullName: OverKizApi.Enums.MeasuredValueType.GradientInPercentagePerSecond
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GradientInPercentagePerSecond
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 45
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Rate of change measured in percentage points per second (%/s).
+  example: []
+  syntax:
+    content: GradientInPercentagePerSecond = 16
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.LengthInMeter
+  commentId: F:OverKizApi.Enums.MeasuredValueType.LengthInMeter
+  id: LengthInMeter
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: LengthInMeter
+  nameWithType: MeasuredValueType.LengthInMeter
+  fullName: OverKizApi.Enums.MeasuredValueType.LengthInMeter
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: LengthInMeter
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 47
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Distance or displacement measured in metres (m).
+  example: []
+  syntax:
+    content: LengthInMeter = 17
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.LinearSpeedInMeterPerSecond
+  commentId: F:OverKizApi.Enums.MeasuredValueType.LinearSpeedInMeterPerSecond
+  id: LinearSpeedInMeterPerSecond
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: LinearSpeedInMeterPerSecond
+  nameWithType: MeasuredValueType.LinearSpeedInMeterPerSecond
+  fullName: OverKizApi.Enums.MeasuredValueType.LinearSpeedInMeterPerSecond
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: LinearSpeedInMeterPerSecond
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 49
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Linear velocity measured in metres per second (m/s).
+  example: []
+  syntax:
+    content: LinearSpeedInMeterPerSecond = 18
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.LuminanceInLux
+  commentId: F:OverKizApi.Enums.MeasuredValueType.LuminanceInLux
+  id: LuminanceInLux
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: LuminanceInLux
+  nameWithType: MeasuredValueType.LuminanceInLux
+  fullName: OverKizApi.Enums.MeasuredValueType.LuminanceInLux
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: LuminanceInLux
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 51
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Illuminance measured in lux (lx).
+  example: []
+  syntax:
+    content: LuminanceInLux = 19
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.PartsPerBillion
+  commentId: F:OverKizApi.Enums.MeasuredValueType.PartsPerBillion
+  id: PartsPerBillion
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: PartsPerBillion
+  nameWithType: MeasuredValueType.PartsPerBillion
+  fullName: OverKizApi.Enums.MeasuredValueType.PartsPerBillion
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PartsPerBillion
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 53
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Concentration measured in parts per billion (ppb).
+  example: []
+  syntax:
+    content: PartsPerBillion = 20
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.PartsPerMillion
+  commentId: F:OverKizApi.Enums.MeasuredValueType.PartsPerMillion
+  id: PartsPerMillion
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: PartsPerMillion
+  nameWithType: MeasuredValueType.PartsPerMillion
+  fullName: OverKizApi.Enums.MeasuredValueType.PartsPerMillion
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PartsPerMillion
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 55
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Concentration measured in parts per million (ppm).
+  example: []
+  syntax:
+    content: PartsPerMillion = 21
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.PartsPerQuadrillion
+  commentId: F:OverKizApi.Enums.MeasuredValueType.PartsPerQuadrillion
+  id: PartsPerQuadrillion
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: PartsPerQuadrillion
+  nameWithType: MeasuredValueType.PartsPerQuadrillion
+  fullName: OverKizApi.Enums.MeasuredValueType.PartsPerQuadrillion
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PartsPerQuadrillion
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 57
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Concentration measured in parts per quadrillion (ppq).
+  example: []
+  syntax:
+    content: PartsPerQuadrillion = 22
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.PartsPerTrillion
+  commentId: F:OverKizApi.Enums.MeasuredValueType.PartsPerTrillion
+  id: PartsPerTrillion
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: PartsPerTrillion
+  nameWithType: MeasuredValueType.PartsPerTrillion
+  fullName: OverKizApi.Enums.MeasuredValueType.PartsPerTrillion
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PartsPerTrillion
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 59
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Concentration measured in parts per trillion (ppt).
+  example: []
+  syntax:
+    content: PartsPerTrillion = 23
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.PowerPerSquareMeter
+  commentId: F:OverKizApi.Enums.MeasuredValueType.PowerPerSquareMeter
+  id: PowerPerSquareMeter
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: PowerPerSquareMeter
+  nameWithType: MeasuredValueType.PowerPerSquareMeter
+  fullName: OverKizApi.Enums.MeasuredValueType.PowerPerSquareMeter
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PowerPerSquareMeter
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 61
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Irradiance measured in watts per square metre (W/m²).
+  example: []
+  syntax:
+    content: PowerPerSquareMeter = 24
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.PressureInHpa
+  commentId: F:OverKizApi.Enums.MeasuredValueType.PressureInHpa
+  id: PressureInHpa
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: PressureInHpa
+  nameWithType: MeasuredValueType.PressureInHpa
+  fullName: OverKizApi.Enums.MeasuredValueType.PressureInHpa
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PressureInHpa
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 63
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Atmospheric pressure measured in hectopascals (hPa).
+  example: []
+  syntax:
+    content: PressureInHpa = 25
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.PressureInMilliBar
+  commentId: F:OverKizApi.Enums.MeasuredValueType.PressureInMilliBar
+  id: PressureInMilliBar
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: PressureInMilliBar
+  nameWithType: MeasuredValueType.PressureInMilliBar
+  fullName: OverKizApi.Enums.MeasuredValueType.PressureInMilliBar
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PressureInMilliBar
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 65
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Atmospheric pressure measured in millibars (mbar).
+  example: []
+  syntax:
+    content: PressureInMilliBar = 26
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.RelativeValueInPercentage
+  commentId: F:OverKizApi.Enums.MeasuredValueType.RelativeValueInPercentage
+  id: RelativeValueInPercentage
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: RelativeValueInPercentage
+  nameWithType: MeasuredValueType.RelativeValueInPercentage
+  fullName: OverKizApi.Enums.MeasuredValueType.RelativeValueInPercentage
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: RelativeValueInPercentage
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 67
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A relative value expressed as a percentage (%).
+  example: []
+  syntax:
+    content: RelativeValueInPercentage = 27
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.TemperatureInCelcius
+  commentId: F:OverKizApi.Enums.MeasuredValueType.TemperatureInCelcius
+  id: TemperatureInCelcius
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: TemperatureInCelcius
+  nameWithType: MeasuredValueType.TemperatureInCelcius
+  fullName: OverKizApi.Enums.MeasuredValueType.TemperatureInCelcius
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TemperatureInCelcius
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 69
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Temperature measured in degrees Celsius (°C).
+  example: []
+  syntax:
+    content: TemperatureInCelcius = 28
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.TemperatureInKelvin
+  commentId: F:OverKizApi.Enums.MeasuredValueType.TemperatureInKelvin
+  id: TemperatureInKelvin
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: TemperatureInKelvin
+  nameWithType: MeasuredValueType.TemperatureInKelvin
+  fullName: OverKizApi.Enums.MeasuredValueType.TemperatureInKelvin
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TemperatureInKelvin
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 71
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Temperature measured in kelvin (K).
+  example: []
+  syntax:
+    content: TemperatureInKelvin = 29
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.TimeInSecond
+  commentId: F:OverKizApi.Enums.MeasuredValueType.TimeInSecond
+  id: TimeInSecond
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: TimeInSecond
+  nameWithType: MeasuredValueType.TimeInSecond
+  fullName: OverKizApi.Enums.MeasuredValueType.TimeInSecond
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TimeInSecond
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 73
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Duration measured in seconds (s).
+  example: []
+  syntax:
+    content: TimeInSecond = 30
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.VectorCoordinate
+  commentId: F:OverKizApi.Enums.MeasuredValueType.VectorCoordinate
+  id: VectorCoordinate
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: VectorCoordinate
+  nameWithType: MeasuredValueType.VectorCoordinate
+  fullName: OverKizApi.Enums.MeasuredValueType.VectorCoordinate
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: VectorCoordinate
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 75
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: A component of a vector (dimensionless coordinate).
+  example: []
+  syntax:
+    content: VectorCoordinate = 31
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.VoltageInMilliVolt
+  commentId: F:OverKizApi.Enums.MeasuredValueType.VoltageInMilliVolt
+  id: VoltageInMilliVolt
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: VoltageInMilliVolt
+  nameWithType: MeasuredValueType.VoltageInMilliVolt
+  fullName: OverKizApi.Enums.MeasuredValueType.VoltageInMilliVolt
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: VoltageInMilliVolt
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 77
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Electrical potential measured in millivolts (mV).
+  example: []
+  syntax:
+    content: VoltageInMilliVolt = 32
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.VoltageInVolt
+  commentId: F:OverKizApi.Enums.MeasuredValueType.VoltageInVolt
+  id: VoltageInVolt
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: VoltageInVolt
+  nameWithType: MeasuredValueType.VoltageInVolt
+  fullName: OverKizApi.Enums.MeasuredValueType.VoltageInVolt
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: VoltageInVolt
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 79
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Electrical potential measured in volts (V).
+  example: []
+  syntax:
+    content: VoltageInVolt = 33
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.VolumeInCubicMeter
+  commentId: F:OverKizApi.Enums.MeasuredValueType.VolumeInCubicMeter
+  id: VolumeInCubicMeter
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: VolumeInCubicMeter
+  nameWithType: MeasuredValueType.VolumeInCubicMeter
+  fullName: OverKizApi.Enums.MeasuredValueType.VolumeInCubicMeter
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: VolumeInCubicMeter
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 81
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Volume measured in cubic metres (m³).
+  example: []
+  syntax:
+    content: VolumeInCubicMeter = 34
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.VolumeInGallon
+  commentId: F:OverKizApi.Enums.MeasuredValueType.VolumeInGallon
+  id: VolumeInGallon
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: VolumeInGallon
+  nameWithType: MeasuredValueType.VolumeInGallon
+  fullName: OverKizApi.Enums.MeasuredValueType.VolumeInGallon
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: VolumeInGallon
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 83
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Volume measured in US gallons (gal).
+  example: []
+  syntax:
+    content: VolumeInGallon = 35
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+- uid: OverKizApi.Enums.MeasuredValueType.VolumeInLiter
+  commentId: F:OverKizApi.Enums.MeasuredValueType.VolumeInLiter
+  id: VolumeInLiter
+  parent: OverKizApi.Enums.MeasuredValueType
+  langs:
+  - csharp
+  - vb
+  name: VolumeInLiter
+  nameWithType: MeasuredValueType.VolumeInLiter
+  fullName: OverKizApi.Enums.MeasuredValueType.VolumeInLiter
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/MeasuredValueType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: VolumeInLiter
+    path: ../OverKizApi/Enums/MeasuredValueType.cs
+    startLine: 85
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Volume measured in litres (L).
+  example: []
+  syntax:
+    content: VolumeInLiter = 36
+    return:
+      type: OverKizApi.Enums.MeasuredValueType
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.MeasuredValueType
+  commentId: T:OverKizApi.Enums.MeasuredValueType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.MeasuredValueType.html
+  name: MeasuredValueType
+  nameWithType: MeasuredValueType
+  fullName: OverKizApi.Enums.MeasuredValueType

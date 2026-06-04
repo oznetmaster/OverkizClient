@@ -1,0 +1,183 @@
+### YamlMime:TableOfContent
+items:
+- uid: OverKizApi
+  name: OverKizApi
+  items:
+  - uid: OverKizApi.DictionaryExtensions
+    name: DictionaryExtensions
+  - uid: OverKizApi.HttpClientExtensions
+    name: HttpClientExtensions
+  - uid: OverKizApi.KeyValuePairExtensions
+    name: KeyValuePairExtensions
+  - uid: OverKizApi.OverkizClient
+    name: OverkizClient
+  - uid: OverKizApi.OverkizConst
+    name: OverkizConst
+- uid: OverKizApi.Enums
+  name: OverKizApi.Enums
+  items:
+  - uid: OverKizApi.Enums.APIType
+    name: APIType
+  - uid: OverKizApi.Enums.EventName
+    name: EventName
+  - uid: OverKizApi.Enums.ExecutionState
+    name: ExecutionState
+  - uid: OverKizApi.Enums.ExecutionSubType
+    name: ExecutionSubType
+  - uid: OverKizApi.Enums.ExecutionType
+    name: ExecutionType
+  - uid: OverKizApi.Enums.FailureType
+    name: FailureType
+  - uid: OverKizApi.Enums.GatewayConnectivityState
+    name: GatewayConnectivityState
+  - uid: OverKizApi.Enums.GatewayMode
+    name: GatewayMode
+  - uid: OverKizApi.Enums.GatewaySubType
+    name: GatewaySubType
+  - uid: OverKizApi.Enums.GatewayUpdateStatus
+    name: GatewayUpdateStatus
+  - uid: OverKizApi.Enums.MeasuredValueType
+    name: MeasuredValueType
+  - uid: OverKizApi.Enums.ProductType
+    name: ProductType
+  - uid: OverKizApi.Enums.Protocol
+    name: Protocol
+  - uid: OverKizApi.Enums.Server
+    name: Server
+  - uid: OverKizApi.Enums.UIClass
+    name: UIClass
+  - uid: OverKizApi.Enums.UIWidget
+    name: UIWidget
+- uid: OverKizApi.Exceptions
+  name: OverKizApi.Exceptions
+  items:
+  - uid: OverKizApi.Exceptions.AccessDeniedToGatewayException
+    name: AccessDeniedToGatewayException
+  - uid: OverKizApi.Exceptions.ActionGroupSetupNotFoundException
+    name: ActionGroupSetupNotFoundException
+  - uid: OverKizApi.Exceptions.ApplicationNotAllowedException
+    name: ApplicationNotAllowedException
+  - uid: OverKizApi.Exceptions.BadCredentialsException
+    name: BadCredentialsException
+  - uid: OverKizApi.Exceptions.BaseOverkizException
+    name: BaseOverkizException
+  - uid: OverKizApi.Exceptions.CozyTouchBadCredentialsException
+    name: CozyTouchBadCredentialsException
+  - uid: OverKizApi.Exceptions.CozyTouchServiceException
+    name: CozyTouchServiceException
+  - uid: OverKizApi.Exceptions.DuplicateActionOnDeviceException
+    name: DuplicateActionOnDeviceException
+  - uid: OverKizApi.Exceptions.ExecutionQueueFullException
+    name: ExecutionQueueFullException
+  - uid: OverKizApi.Exceptions.InvalidCommandException
+    name: InvalidCommandException
+  - uid: OverKizApi.Exceptions.InvalidEventListenerIdException
+    name: InvalidEventListenerIdException
+  - uid: OverKizApi.Exceptions.InvalidTokenException
+    name: InvalidTokenException
+  - uid: OverKizApi.Exceptions.MaintenanceException
+    name: MaintenanceException
+  - uid: OverKizApi.Exceptions.MissingAPIKeyException
+    name: MissingAPIKeyException
+  - uid: OverKizApi.Exceptions.MissingAuthorizationTokenException
+    name: MissingAuthorizationTokenException
+  - uid: OverKizApi.Exceptions.NexityBadCredentialsException
+    name: NexityBadCredentialsException
+  - uid: OverKizApi.Exceptions.NexityServiceException
+    name: NexityServiceException
+  - uid: OverKizApi.Exceptions.NoGatewaySelectedException
+    name: NoGatewaySelectedException
+  - uid: OverKizApi.Exceptions.NoRegisteredEventListenerException
+    name: NoRegisteredEventListenerException
+  - uid: OverKizApi.Exceptions.NoSuchResourceException
+    name: NoSuchResourceException
+  - uid: OverKizApi.Exceptions.NotAuthenticatedException
+    name: NotAuthenticatedException
+  - uid: OverKizApi.Exceptions.NotSuchTokenException
+    name: NotSuchTokenException
+  - uid: OverKizApi.Exceptions.OverkizException
+    name: OverkizException
+  - uid: OverKizApi.Exceptions.ResourceAccessDeniedException
+    name: ResourceAccessDeniedException
+  - uid: OverKizApi.Exceptions.ServiceUnavailableException
+    name: ServiceUnavailableException
+  - uid: OverKizApi.Exceptions.SessionAndBearerInSameRequestException
+    name: SessionAndBearerInSameRequestException
+  - uid: OverKizApi.Exceptions.SomfyBadCredentialsException
+    name: SomfyBadCredentialsException
+  - uid: OverKizApi.Exceptions.SomfyServiceException
+    name: SomfyServiceException
+  - uid: OverKizApi.Exceptions.TooManyAttemptsBannedException
+    name: TooManyAttemptsBannedException
+  - uid: OverKizApi.Exceptions.TooManyConcurrentRequestsException
+    name: TooManyConcurrentRequestsException
+  - uid: OverKizApi.Exceptions.TooManyExecutionsException
+    name: TooManyExecutionsException
+  - uid: OverKizApi.Exceptions.TooManyRequestsException
+    name: TooManyRequestsException
+  - uid: OverKizApi.Exceptions.UnknownObjectException
+    name: UnknownObjectException
+  - uid: OverKizApi.Exceptions.UnknownUserException
+    name: UnknownUserException
+- uid: OverKizApi.Models
+  name: OverKizApi.Models
+  items:
+  - uid: OverKizApi.Models.Action
+    name: Action
+  - uid: OverKizApi.Models.Command
+    name: Command
+  - uid: OverKizApi.Models.CommandDefinition
+    name: CommandDefinition
+  - uid: OverKizApi.Models.Connectivity
+    name: Connectivity
+  - uid: OverKizApi.Models.DataType
+    name: DataType
+  - uid: OverKizApi.Models.Definition
+    name: Definition
+  - uid: OverKizApi.Models.Device
+    name: Device
+  - uid: OverKizApi.Models.EventObject
+    name: EventObject
+  - uid: OverKizApi.Models.EventState
+    name: EventState
+  - uid: OverKizApi.Models.Execution
+    name: Execution
+  - uid: OverKizApi.Models.Feature
+    name: Feature
+  - uid: OverKizApi.Models.Gateway
+    name: Gateway
+  - uid: OverKizApi.Models.GatewayCandidate
+    name: GatewayCandidate
+  - uid: OverKizApi.Models.HistoryExecution
+    name: HistoryExecution
+  - uid: OverKizApi.Models.HistoryExecutionCommand
+    name: HistoryExecutionCommand
+  - uid: OverKizApi.Models.LocalToken
+    name: LocalToken
+  - uid: OverKizApi.Models.Location
+    name: Location
+  - uid: OverKizApi.Models.OptionObject
+    name: OptionObject
+  - uid: OverKizApi.Models.OptionParameter
+    name: OptionParameter
+  - uid: OverKizApi.Models.OverkizServer
+    name: OverkizServer
+  - uid: OverKizApi.Models.Partner
+    name: Partner
+  - uid: OverKizApi.Models.Place
+    name: Place
+  - uid: OverKizApi.Models.Scenario
+    name: Scenario
+  - uid: OverKizApi.Models.Setup
+    name: Setup
+  - uid: OverKizApi.Models.State
+    name: State
+  - uid: OverKizApi.Models.StateDefinition
+    name: StateDefinition
+  - uid: OverKizApi.Models.States
+    name: States
+  - uid: OverKizApi.Models.Zone
+    name: Zone
+  - uid: OverKizApi.Models.ZoneItem
+    name: ZoneItem
+memberLayout: SamePage

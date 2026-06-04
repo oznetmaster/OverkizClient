@@ -1,0 +1,1408 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.EventObject
+  commentId: T:OverKizApi.Models.EventObject
+  id: EventObject
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.EventObject.CameraId
+  - OverKizApi.Models.EventObject.ConditionGroupoid
+  - OverKizApi.Models.EventObject.DeletedRawDevicesCount
+  - OverKizApi.Models.EventObject.DeviceStates
+  - OverKizApi.Models.EventObject.DeviceUrl
+  - OverKizApi.Models.EventObject.ExecId
+  - OverKizApi.Models.EventObject.FailedCommands
+  - OverKizApi.Models.EventObject.FailureType
+  - OverKizApi.Models.EventObject.FailureTypeCode
+  - OverKizApi.Models.EventObject.GatewayId
+  - OverKizApi.Models.EventObject.Label
+  - OverKizApi.Models.EventObject.Metadata
+  - OverKizApi.Models.EventObject.Name
+  - OverKizApi.Models.EventObject.NewState
+  - OverKizApi.Models.EventObject.OldState
+  - OverKizApi.Models.EventObject.OwnerKey
+  - OverKizApi.Models.EventObject.PlaceOid
+  - OverKizApi.Models.EventObject.ProtocolType
+  - OverKizApi.Models.EventObject.Setupoid
+  - OverKizApi.Models.EventObject.SubType
+  - OverKizApi.Models.EventObject.TimeToNextState
+  - OverKizApi.Models.EventObject.Timestamp
+  - OverKizApi.Models.EventObject.Type
+  langs:
+  - csharp
+  - vb
+  name: EventObject
+  nameWithType: EventObject
+  fullName: OverKizApi.Models.EventObject
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: EventObject
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 606
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    An event pushed to a registered event listener by the Overkiz gateway or cloud.
+
+    The meaningful fields depend on the event type — check <code>Name</code> (mapped from <xref href="OverKizApi.Enums.EventName" data-throw-if-not-resolved="false"></xref>)
+
+    before reading type-specific fields.
+  example: []
+  syntax:
+    content: public sealed class EventObject
+    content.vb: Public NotInheritable Class EventObject
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.Models.EventObject.Timestamp
+  commentId: P:OverKizApi.Models.EventObject.Timestamp
+  id: Timestamp
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: EventObject.Timestamp
+  fullName: OverKizApi.Models.EventObject.Timestamp
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Timestamp
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 609
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unix epoch millisecond timestamp when the event occurred, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not provided.
+  example: []
+  syntax:
+    content: public long? Timestamp { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int64}
+    content.vb: Public Property Timestamp As Long?
+  overload: OverKizApi.Models.EventObject.Timestamp*
+- uid: OverKizApi.Models.EventObject.GatewayId
+  commentId: P:OverKizApi.Models.EventObject.GatewayId
+  id: GatewayId
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: GatewayId
+  nameWithType: EventObject.GatewayId
+  fullName: OverKizApi.Models.EventObject.GatewayId
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayId
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 611
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Serial number of the gateway that generated the event.
+  example: []
+  syntax:
+    content: public string? GatewayId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property GatewayId As String
+  overload: OverKizApi.Models.EventObject.GatewayId*
+- uid: OverKizApi.Models.EventObject.ExecId
+  commentId: P:OverKizApi.Models.EventObject.ExecId
+  id: ExecId
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: ExecId
+  nameWithType: EventObject.ExecId
+  fullName: OverKizApi.Models.EventObject.ExecId
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecId
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 613
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Execution ID associated with this event (present on execution state-change events).
+  example: []
+  syntax:
+    content: public string? ExecId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ExecId As String
+  overload: OverKizApi.Models.EventObject.ExecId*
+- uid: OverKizApi.Models.EventObject.DeviceUrl
+  commentId: P:OverKizApi.Models.EventObject.DeviceUrl
+  id: DeviceUrl
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: DeviceUrl
+  nameWithType: EventObject.DeviceUrl
+  fullName: OverKizApi.Models.EventObject.DeviceUrl
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeviceUrl
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 615
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Device URL of the device that triggered the event (present on device events).
+  example: []
+  syntax:
+    content: public string? DeviceUrl { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeviceUrl As String
+  overload: OverKizApi.Models.EventObject.DeviceUrl*
+- uid: OverKizApi.Models.EventObject.DeviceStates
+  commentId: P:OverKizApi.Models.EventObject.DeviceStates
+  id: DeviceStates
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: DeviceStates
+  nameWithType: EventObject.DeviceStates
+  fullName: OverKizApi.Models.EventObject.DeviceStates
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeviceStates
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 617
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Changed state snapshots included in a <code>DeviceStateChanged</code> event.
+  example: []
+  syntax:
+    content: public IReadOnlyList<EventState> DeviceStates { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventState}
+    content.vb: Public Property DeviceStates As IReadOnlyList(Of EventState)
+  overload: OverKizApi.Models.EventObject.DeviceStates*
+- uid: OverKizApi.Models.EventObject.OldState
+  commentId: P:OverKizApi.Models.EventObject.OldState
+  id: OldState
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: OldState
+  nameWithType: EventObject.OldState
+  fullName: OverKizApi.Models.EventObject.OldState
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: OldState
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 619
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Previous execution state (present on <code>ExecutionStateChanged</code> events).
+  example: []
+  syntax:
+    content: public ExecutionState? OldState { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{OverKizApi.Enums.ExecutionState}
+    content.vb: Public Property OldState As ExecutionState?
+  overload: OverKizApi.Models.EventObject.OldState*
+- uid: OverKizApi.Models.EventObject.NewState
+  commentId: P:OverKizApi.Models.EventObject.NewState
+  id: NewState
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: NewState
+  nameWithType: EventObject.NewState
+  fullName: OverKizApi.Models.EventObject.NewState
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: NewState
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 621
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: New execution state (present on <code>ExecutionStateChanged</code> events).
+  example: []
+  syntax:
+    content: public ExecutionState? NewState { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{OverKizApi.Enums.ExecutionState}
+    content.vb: Public Property NewState As ExecutionState?
+  overload: OverKizApi.Models.EventObject.NewState*
+- uid: OverKizApi.Models.EventObject.Setupoid
+  commentId: P:OverKizApi.Models.EventObject.Setupoid
+  id: Setupoid
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: Setupoid
+  nameWithType: EventObject.Setupoid
+  fullName: OverKizApi.Models.EventObject.Setupoid
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Setupoid
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 623
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: OID of the setup this event relates to.
+  example: []
+  syntax:
+    content: public string? Setupoid { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Setupoid As String
+  overload: OverKizApi.Models.EventObject.Setupoid*
+- uid: OverKizApi.Models.EventObject.OwnerKey
+  commentId: P:OverKizApi.Models.EventObject.OwnerKey
+  id: OwnerKey
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: OwnerKey
+  nameWithType: EventObject.OwnerKey
+  fullName: OverKizApi.Models.EventObject.OwnerKey
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: OwnerKey
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 625
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Owner key of the principal that triggered the execution.
+  example: []
+  syntax:
+    content: public string? OwnerKey { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OwnerKey As String
+  overload: OverKizApi.Models.EventObject.OwnerKey*
+- uid: OverKizApi.Models.EventObject.Type
+  commentId: P:OverKizApi.Models.EventObject.Type
+  id: Type
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: EventObject.Type
+  fullName: OverKizApi.Models.EventObject.Type
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Type
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 627
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Raw event type integer as returned by the API.
+  example: []
+  syntax:
+    content: public int? Type { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property Type As Integer?
+  overload: OverKizApi.Models.EventObject.Type*
+- uid: OverKizApi.Models.EventObject.SubType
+  commentId: P:OverKizApi.Models.EventObject.SubType
+  id: SubType
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: SubType
+  nameWithType: EventObject.SubType
+  fullName: OverKizApi.Models.EventObject.SubType
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SubType
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 629
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Raw event sub-type integer as returned by the API.
+  example: []
+  syntax:
+    content: public int? SubType { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property SubType As Integer?
+  overload: OverKizApi.Models.EventObject.SubType*
+- uid: OverKizApi.Models.EventObject.TimeToNextState
+  commentId: P:OverKizApi.Models.EventObject.TimeToNextState
+  id: TimeToNextState
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: TimeToNextState
+  nameWithType: EventObject.TimeToNextState
+  fullName: OverKizApi.Models.EventObject.TimeToNextState
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TimeToNextState
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 631
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Estimated seconds until the next scheduled state transition.
+  example: []
+  syntax:
+    content: public int? TimeToNextState { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property TimeToNextState As Integer?
+  overload: OverKizApi.Models.EventObject.TimeToNextState*
+- uid: OverKizApi.Models.EventObject.FailedCommands
+  commentId: P:OverKizApi.Models.EventObject.FailedCommands
+  id: FailedCommands
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: FailedCommands
+  nameWithType: EventObject.FailedCommands
+  fullName: OverKizApi.Models.EventObject.FailedCommands
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FailedCommands
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 633
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Raw failed-commands payload (structure varies by gateway firmware version).
+  example: []
+  syntax:
+    content: public object? FailedCommands { get; init; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property FailedCommands As Object
+  overload: OverKizApi.Models.EventObject.FailedCommands*
+- uid: OverKizApi.Models.EventObject.FailureType
+  commentId: P:OverKizApi.Models.EventObject.FailureType
+  id: FailureType
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: FailureType
+  nameWithType: EventObject.FailureType
+  fullName: OverKizApi.Models.EventObject.FailureType
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FailureType
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 635
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Failure type string as returned by the API (use <xref href="OverKizApi.Models.EventObject.FailureTypeCode" data-throw-if-not-resolved="false"></xref> for the parsed enum).
+  example: []
+  syntax:
+    content: public string? FailureType { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FailureType As String
+  overload: OverKizApi.Models.EventObject.FailureType*
+- uid: OverKizApi.Models.EventObject.ConditionGroupoid
+  commentId: P:OverKizApi.Models.EventObject.ConditionGroupoid
+  id: ConditionGroupoid
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: ConditionGroupoid
+  nameWithType: EventObject.ConditionGroupoid
+  fullName: OverKizApi.Models.EventObject.ConditionGroupoid
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ConditionGroupoid
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 637
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: OID of the condition group that triggered this event.
+  example: []
+  syntax:
+    content: public string? ConditionGroupoid { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ConditionGroupoid As String
+  overload: OverKizApi.Models.EventObject.ConditionGroupoid*
+- uid: OverKizApi.Models.EventObject.PlaceOid
+  commentId: P:OverKizApi.Models.EventObject.PlaceOid
+  id: PlaceOid
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: PlaceOid
+  nameWithType: EventObject.PlaceOid
+  fullName: OverKizApi.Models.EventObject.PlaceOid
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PlaceOid
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 639
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: OID of the place associated with this event.
+  example: []
+  syntax:
+    content: public string? PlaceOid { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PlaceOid As String
+  overload: OverKizApi.Models.EventObject.PlaceOid*
+- uid: OverKizApi.Models.EventObject.Label
+  commentId: P:OverKizApi.Models.EventObject.Label
+  id: Label
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: EventObject.Label
+  fullName: OverKizApi.Models.EventObject.Label
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Label
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 641
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Human-readable label associated with the event (e.g. scenario name).
+  example: []
+  syntax:
+    content: public string? Label { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: OverKizApi.Models.EventObject.Label*
+- uid: OverKizApi.Models.EventObject.Metadata
+  commentId: P:OverKizApi.Models.EventObject.Metadata
+  id: Metadata
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: Metadata
+  nameWithType: EventObject.Metadata
+  fullName: OverKizApi.Models.EventObject.Metadata
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Metadata
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 643
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Arbitrary metadata string attached to the event.
+  example: []
+  syntax:
+    content: public string? Metadata { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Metadata As String
+  overload: OverKizApi.Models.EventObject.Metadata*
+- uid: OverKizApi.Models.EventObject.CameraId
+  commentId: P:OverKizApi.Models.EventObject.CameraId
+  id: CameraId
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: CameraId
+  nameWithType: EventObject.CameraId
+  fullName: OverKizApi.Models.EventObject.CameraId
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CameraId
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 645
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Camera identifier for camera-related events.
+  example: []
+  syntax:
+    content: public string? CameraId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CameraId As String
+  overload: OverKizApi.Models.EventObject.CameraId*
+- uid: OverKizApi.Models.EventObject.DeletedRawDevicesCount
+  commentId: P:OverKizApi.Models.EventObject.DeletedRawDevicesCount
+  id: DeletedRawDevicesCount
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: DeletedRawDevicesCount
+  nameWithType: EventObject.DeletedRawDevicesCount
+  fullName: OverKizApi.Models.EventObject.DeletedRawDevicesCount
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeletedRawDevicesCount
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 647
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Number of raw device records deleted during a synchronisation event.
+  example: []
+  syntax:
+    content: public int? DeletedRawDevicesCount { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property DeletedRawDevicesCount As Integer?
+  overload: OverKizApi.Models.EventObject.DeletedRawDevicesCount*
+- uid: OverKizApi.Models.EventObject.ProtocolType
+  commentId: P:OverKizApi.Models.EventObject.ProtocolType
+  id: ProtocolType
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: ProtocolType
+  nameWithType: EventObject.ProtocolType
+  fullName: OverKizApi.Models.EventObject.ProtocolType
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ProtocolType
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 649
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Protocol type string for protocol-synchronisation events.
+  example: []
+  syntax:
+    content: public string? ProtocolType { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ProtocolType As String
+  overload: OverKizApi.Models.EventObject.ProtocolType*
+- uid: OverKizApi.Models.EventObject.Name
+  commentId: P:OverKizApi.Models.EventObject.Name
+  id: Name
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: EventObject.Name
+  fullName: OverKizApi.Models.EventObject.Name
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Name
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 651
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Event name string as returned by the API (see <xref href="OverKizApi.Enums.EventName" data-throw-if-not-resolved="false"></xref> for known values).
+  example: []
+  syntax:
+    content: public string? Name { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: OverKizApi.Models.EventObject.Name*
+- uid: OverKizApi.Models.EventObject.FailureTypeCode
+  commentId: P:OverKizApi.Models.EventObject.FailureTypeCode
+  id: FailureTypeCode
+  parent: OverKizApi.Models.EventObject
+  langs:
+  - csharp
+  - vb
+  name: FailureTypeCode
+  nameWithType: EventObject.FailureTypeCode
+  fullName: OverKizApi.Models.EventObject.FailureTypeCode
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FailureTypeCode
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 653
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Parsed failure type code for failed-execution events.
+  example: []
+  syntax:
+    content: public FailureType? FailureTypeCode { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{OverKizApi.Enums.FailureType}
+    content.vb: Public Property FailureTypeCode As FailureType?
+  overload: OverKizApi.Models.EventObject.FailureTypeCode*
+references:
+- uid: OverKizApi.Enums.EventName
+  commentId: T:OverKizApi.Enums.EventName
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.EventName.html
+  name: EventName
+  nameWithType: EventName
+  fullName: OverKizApi.Enums.EventName
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OverKizApi.Models.EventObject.Timestamp*
+  commentId: Overload:OverKizApi.Models.EventObject.Timestamp
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_Timestamp
+  name: Timestamp
+  nameWithType: EventObject.Timestamp
+  fullName: OverKizApi.Models.EventObject.Timestamp
+- uid: System.Nullable{System.Int64}
+  commentId: T:System.Nullable{System.Int64}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long?
+  nameWithType: long?
+  fullName: long?
+  nameWithType.vb: Long?
+  fullName.vb: Long?
+  name.vb: Long?
+  spec.csharp:
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  spec.vb:
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OverKizApi.Models.EventObject.GatewayId*
+  commentId: Overload:OverKizApi.Models.EventObject.GatewayId
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_GatewayId
+  name: GatewayId
+  nameWithType: EventObject.GatewayId
+  fullName: OverKizApi.Models.EventObject.GatewayId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.Models.EventObject.ExecId*
+  commentId: Overload:OverKizApi.Models.EventObject.ExecId
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_ExecId
+  name: ExecId
+  nameWithType: EventObject.ExecId
+  fullName: OverKizApi.Models.EventObject.ExecId
+- uid: OverKizApi.Models.EventObject.DeviceUrl*
+  commentId: Overload:OverKizApi.Models.EventObject.DeviceUrl
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_DeviceUrl
+  name: DeviceUrl
+  nameWithType: EventObject.DeviceUrl
+  fullName: OverKizApi.Models.EventObject.DeviceUrl
+- uid: OverKizApi.Models.EventObject.DeviceStates*
+  commentId: Overload:OverKizApi.Models.EventObject.DeviceStates
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_DeviceStates
+  name: DeviceStates
+  nameWithType: EventObject.DeviceStates
+  fullName: OverKizApi.Models.EventObject.DeviceStates
+- uid: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventState}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventState}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<EventState>
+  nameWithType: IReadOnlyList<EventState>
+  fullName: System.Collections.Generic.IReadOnlyList<OverKizApi.Models.EventState>
+  nameWithType.vb: IReadOnlyList(Of EventState)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.EventState)
+  name.vb: IReadOnlyList(Of EventState)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.EventState
+    name: EventState
+    href: OverKizApi.Models.EventState.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.EventState
+    name: EventState
+    href: OverKizApi.Models.EventState.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OverKizApi.Models.EventObject.OldState*
+  commentId: Overload:OverKizApi.Models.EventObject.OldState
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_OldState
+  name: OldState
+  nameWithType: EventObject.OldState
+  fullName: OverKizApi.Models.EventObject.OldState
+- uid: System.Nullable{OverKizApi.Enums.ExecutionState}
+  commentId: T:System.Nullable{OverKizApi.Enums.ExecutionState}
+  parent: System
+  definition: System.Nullable`1
+  href: OverKizApi.Enums.ExecutionState.html
+  name: ExecutionState?
+  nameWithType: ExecutionState?
+  fullName: OverKizApi.Enums.ExecutionState?
+  spec.csharp:
+  - uid: OverKizApi.Enums.ExecutionState
+    name: ExecutionState
+    href: OverKizApi.Enums.ExecutionState.html
+  - name: '?'
+  spec.vb:
+  - uid: OverKizApi.Enums.ExecutionState
+    name: ExecutionState
+    href: OverKizApi.Enums.ExecutionState.html
+  - name: '?'
+- uid: OverKizApi.Models.EventObject.NewState*
+  commentId: Overload:OverKizApi.Models.EventObject.NewState
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_NewState
+  name: NewState
+  nameWithType: EventObject.NewState
+  fullName: OverKizApi.Models.EventObject.NewState
+- uid: OverKizApi.Models.EventObject.Setupoid*
+  commentId: Overload:OverKizApi.Models.EventObject.Setupoid
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_Setupoid
+  name: Setupoid
+  nameWithType: EventObject.Setupoid
+  fullName: OverKizApi.Models.EventObject.Setupoid
+- uid: OverKizApi.Models.EventObject.OwnerKey*
+  commentId: Overload:OverKizApi.Models.EventObject.OwnerKey
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_OwnerKey
+  name: OwnerKey
+  nameWithType: EventObject.OwnerKey
+  fullName: OverKizApi.Models.EventObject.OwnerKey
+- uid: OverKizApi.Models.EventObject.Type*
+  commentId: Overload:OverKizApi.Models.EventObject.Type
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_Type
+  name: Type
+  nameWithType: EventObject.Type
+  fullName: OverKizApi.Models.EventObject.Type
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: OverKizApi.Models.EventObject.SubType*
+  commentId: Overload:OverKizApi.Models.EventObject.SubType
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_SubType
+  name: SubType
+  nameWithType: EventObject.SubType
+  fullName: OverKizApi.Models.EventObject.SubType
+- uid: OverKizApi.Models.EventObject.TimeToNextState*
+  commentId: Overload:OverKizApi.Models.EventObject.TimeToNextState
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_TimeToNextState
+  name: TimeToNextState
+  nameWithType: EventObject.TimeToNextState
+  fullName: OverKizApi.Models.EventObject.TimeToNextState
+- uid: OverKizApi.Models.EventObject.FailedCommands*
+  commentId: Overload:OverKizApi.Models.EventObject.FailedCommands
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_FailedCommands
+  name: FailedCommands
+  nameWithType: EventObject.FailedCommands
+  fullName: OverKizApi.Models.EventObject.FailedCommands
+- uid: OverKizApi.Models.EventObject.FailureTypeCode
+  commentId: P:OverKizApi.Models.EventObject.FailureTypeCode
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_FailureTypeCode
+  name: FailureTypeCode
+  nameWithType: EventObject.FailureTypeCode
+  fullName: OverKizApi.Models.EventObject.FailureTypeCode
+- uid: OverKizApi.Models.EventObject.FailureType*
+  commentId: Overload:OverKizApi.Models.EventObject.FailureType
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_FailureType
+  name: FailureType
+  nameWithType: EventObject.FailureType
+  fullName: OverKizApi.Models.EventObject.FailureType
+- uid: OverKizApi.Models.EventObject.ConditionGroupoid*
+  commentId: Overload:OverKizApi.Models.EventObject.ConditionGroupoid
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_ConditionGroupoid
+  name: ConditionGroupoid
+  nameWithType: EventObject.ConditionGroupoid
+  fullName: OverKizApi.Models.EventObject.ConditionGroupoid
+- uid: OverKizApi.Models.EventObject.PlaceOid*
+  commentId: Overload:OverKizApi.Models.EventObject.PlaceOid
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_PlaceOid
+  name: PlaceOid
+  nameWithType: EventObject.PlaceOid
+  fullName: OverKizApi.Models.EventObject.PlaceOid
+- uid: OverKizApi.Models.EventObject.Label*
+  commentId: Overload:OverKizApi.Models.EventObject.Label
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_Label
+  name: Label
+  nameWithType: EventObject.Label
+  fullName: OverKizApi.Models.EventObject.Label
+- uid: OverKizApi.Models.EventObject.Metadata*
+  commentId: Overload:OverKizApi.Models.EventObject.Metadata
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_Metadata
+  name: Metadata
+  nameWithType: EventObject.Metadata
+  fullName: OverKizApi.Models.EventObject.Metadata
+- uid: OverKizApi.Models.EventObject.CameraId*
+  commentId: Overload:OverKizApi.Models.EventObject.CameraId
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_CameraId
+  name: CameraId
+  nameWithType: EventObject.CameraId
+  fullName: OverKizApi.Models.EventObject.CameraId
+- uid: OverKizApi.Models.EventObject.DeletedRawDevicesCount*
+  commentId: Overload:OverKizApi.Models.EventObject.DeletedRawDevicesCount
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_DeletedRawDevicesCount
+  name: DeletedRawDevicesCount
+  nameWithType: EventObject.DeletedRawDevicesCount
+  fullName: OverKizApi.Models.EventObject.DeletedRawDevicesCount
+- uid: OverKizApi.Models.EventObject.ProtocolType*
+  commentId: Overload:OverKizApi.Models.EventObject.ProtocolType
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_ProtocolType
+  name: ProtocolType
+  nameWithType: EventObject.ProtocolType
+  fullName: OverKizApi.Models.EventObject.ProtocolType
+- uid: OverKizApi.Models.EventObject.Name*
+  commentId: Overload:OverKizApi.Models.EventObject.Name
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_Name
+  name: Name
+  nameWithType: EventObject.Name
+  fullName: OverKizApi.Models.EventObject.Name
+- uid: OverKizApi.Models.EventObject.FailureTypeCode*
+  commentId: Overload:OverKizApi.Models.EventObject.FailureTypeCode
+  href: OverKizApi.Models.EventObject.html#OverKizApi_Models_EventObject_FailureTypeCode
+  name: FailureTypeCode
+  nameWithType: EventObject.FailureTypeCode
+  fullName: OverKizApi.Models.EventObject.FailureTypeCode
+- uid: System.Nullable{OverKizApi.Enums.FailureType}
+  commentId: T:System.Nullable{OverKizApi.Enums.FailureType}
+  parent: System
+  definition: System.Nullable`1
+  href: OverKizApi.Enums.FailureType.html
+  name: FailureType?
+  nameWithType: FailureType?
+  fullName: OverKizApi.Enums.FailureType?
+  spec.csharp:
+  - uid: OverKizApi.Enums.FailureType
+    name: FailureType
+    href: OverKizApi.Enums.FailureType.html
+  - name: '?'
+  spec.vb:
+  - uid: OverKizApi.Enums.FailureType
+    name: FailureType
+    href: OverKizApi.Enums.FailureType.html
+  - name: '?'

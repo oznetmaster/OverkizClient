@@ -1,0 +1,719 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.LocalToken
+  commentId: T:OverKizApi.Models.LocalToken
+  id: LocalToken
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.LocalToken.ExpirationTime
+  - OverKizApi.Models.LocalToken.GatewayCreationTime
+  - OverKizApi.Models.LocalToken.GatewayId
+  - OverKizApi.Models.LocalToken.Label
+  - OverKizApi.Models.LocalToken.Scope
+  - OverKizApi.Models.LocalToken.Uuid
+  langs:
+  - csharp
+  - vb
+  name: LocalToken
+  nameWithType: LocalToken
+  fullName: OverKizApi.Models.LocalToken
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: LocalToken
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 732
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    Descriptor for a local gateway API token generated via
+
+    <xref href="OverKizApi.OverkizClient.GenerateLocalToken(System.String)" data-throw-if-not-resolved="false"></xref> and activated with
+
+    <xref href="OverKizApi.OverkizClient.ActivateLocalToken(System.String%2cSystem.String%2cSystem.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public sealed class LocalToken
+    content.vb: Public NotInheritable Class LocalToken
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.Models.LocalToken.Label
+  commentId: P:OverKizApi.Models.LocalToken.Label
+  id: Label
+  parent: OverKizApi.Models.LocalToken
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: LocalToken.Label
+  fullName: OverKizApi.Models.LocalToken.Label
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Label
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 735
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: User-assigned label for this token.
+  example: []
+  syntax:
+    content: public string? Label { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: OverKizApi.Models.LocalToken.Label*
+- uid: OverKizApi.Models.LocalToken.GatewayId
+  commentId: P:OverKizApi.Models.LocalToken.GatewayId
+  id: GatewayId
+  parent: OverKizApi.Models.LocalToken
+  langs:
+  - csharp
+  - vb
+  name: GatewayId
+  nameWithType: LocalToken.GatewayId
+  fullName: OverKizApi.Models.LocalToken.GatewayId
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayId
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 737
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Serial number of the gateway this token is bound to.
+  example: []
+  syntax:
+    content: public string? GatewayId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property GatewayId As String
+  overload: OverKizApi.Models.LocalToken.GatewayId*
+- uid: OverKizApi.Models.LocalToken.GatewayCreationTime
+  commentId: P:OverKizApi.Models.LocalToken.GatewayCreationTime
+  id: GatewayCreationTime
+  parent: OverKizApi.Models.LocalToken
+  langs:
+  - csharp
+  - vb
+  name: GatewayCreationTime
+  nameWithType: LocalToken.GatewayCreationTime
+  fullName: OverKizApi.Models.LocalToken.GatewayCreationTime
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayCreationTime
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 739
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unix epoch millisecond timestamp recorded when the gateway was created.
+  example: []
+  syntax:
+    content: public long GatewayCreationTime { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property GatewayCreationTime As Long
+  overload: OverKizApi.Models.LocalToken.GatewayCreationTime*
+- uid: OverKizApi.Models.LocalToken.Uuid
+  commentId: P:OverKizApi.Models.LocalToken.Uuid
+  id: Uuid
+  parent: OverKizApi.Models.LocalToken
+  langs:
+  - csharp
+  - vb
+  name: Uuid
+  nameWithType: LocalToken.Uuid
+  fullName: OverKizApi.Models.LocalToken.Uuid
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Uuid
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 741
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: UUID that uniquely identifies this token; required when deleting via <xref href="OverKizApi.OverkizClient.DeleteLocalToken(System.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public string? Uuid { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Uuid As String
+  overload: OverKizApi.Models.LocalToken.Uuid*
+- uid: OverKizApi.Models.LocalToken.Scope
+  commentId: P:OverKizApi.Models.LocalToken.Scope
+  id: Scope
+  parent: OverKizApi.Models.LocalToken
+  langs:
+  - csharp
+  - vb
+  name: Scope
+  nameWithType: LocalToken.Scope
+  fullName: OverKizApi.Models.LocalToken.Scope
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Scope
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 743
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Access scope granted by this token (e.g. <code>"devmode"</code>).
+  example: []
+  syntax:
+    content: public string? Scope { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Scope As String
+  overload: OverKizApi.Models.LocalToken.Scope*
+- uid: OverKizApi.Models.LocalToken.ExpirationTime
+  commentId: P:OverKizApi.Models.LocalToken.ExpirationTime
+  id: ExpirationTime
+  parent: OverKizApi.Models.LocalToken
+  langs:
+  - csharp
+  - vb
+  name: ExpirationTime
+  nameWithType: LocalToken.ExpirationTime
+  fullName: OverKizApi.Models.LocalToken.ExpirationTime
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExpirationTime
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 745
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unix epoch millisecond timestamp when this token expires, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if it does not expire.
+  example: []
+  syntax:
+    content: public long? ExpirationTime { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int64}
+    content.vb: Public Property ExpirationTime As Long?
+  overload: OverKizApi.Models.LocalToken.ExpirationTime*
+references:
+- uid: OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+  commentId: M:OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+  isExternal: true
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GenerateLocalToken_System_String_
+  name: GenerateLocalToken(string)
+  nameWithType: OverkizClient.GenerateLocalToken(string)
+  fullName: OverKizApi.OverkizClient.GenerateLocalToken(string)
+  nameWithType.vb: OverkizClient.GenerateLocalToken(String)
+  fullName.vb: OverKizApi.OverkizClient.GenerateLocalToken(String)
+  name.vb: GenerateLocalToken(String)
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+    name: GenerateLocalToken
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GenerateLocalToken_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.GenerateLocalToken(System.String)
+    name: GenerateLocalToken
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GenerateLocalToken_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+  commentId: M:OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+  isExternal: true
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ActivateLocalToken_System_String_System_String_System_String_System_String_
+  name: ActivateLocalToken(string, string, string, string)
+  nameWithType: OverkizClient.ActivateLocalToken(string, string, string, string)
+  fullName: OverKizApi.OverkizClient.ActivateLocalToken(string, string, string, string)
+  nameWithType.vb: OverkizClient.ActivateLocalToken(String, String, String, String)
+  fullName.vb: OverKizApi.OverkizClient.ActivateLocalToken(String, String, String, String)
+  name.vb: ActivateLocalToken(String, String, String, String)
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+    name: ActivateLocalToken
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ActivateLocalToken_System_String_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
+    name: ActivateLocalToken
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ActivateLocalToken_System_String_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OverKizApi.Models.LocalToken.Label*
+  commentId: Overload:OverKizApi.Models.LocalToken.Label
+  href: OverKizApi.Models.LocalToken.html#OverKizApi_Models_LocalToken_Label
+  name: Label
+  nameWithType: LocalToken.Label
+  fullName: OverKizApi.Models.LocalToken.Label
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.Models.LocalToken.GatewayId*
+  commentId: Overload:OverKizApi.Models.LocalToken.GatewayId
+  href: OverKizApi.Models.LocalToken.html#OverKizApi_Models_LocalToken_GatewayId
+  name: GatewayId
+  nameWithType: LocalToken.GatewayId
+  fullName: OverKizApi.Models.LocalToken.GatewayId
+- uid: OverKizApi.Models.LocalToken.GatewayCreationTime*
+  commentId: Overload:OverKizApi.Models.LocalToken.GatewayCreationTime
+  href: OverKizApi.Models.LocalToken.html#OverKizApi_Models_LocalToken_GatewayCreationTime
+  name: GatewayCreationTime
+  nameWithType: LocalToken.GatewayCreationTime
+  fullName: OverKizApi.Models.LocalToken.GatewayCreationTime
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: OverKizApi.OverkizClient.DeleteLocalToken(System.String,System.String)
+  commentId: M:OverKizApi.OverkizClient.DeleteLocalToken(System.String,System.String)
+  isExternal: true
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DeleteLocalToken_System_String_System_String_
+  name: DeleteLocalToken(string, string)
+  nameWithType: OverkizClient.DeleteLocalToken(string, string)
+  fullName: OverKizApi.OverkizClient.DeleteLocalToken(string, string)
+  nameWithType.vb: OverkizClient.DeleteLocalToken(String, String)
+  fullName.vb: OverKizApi.OverkizClient.DeleteLocalToken(String, String)
+  name.vb: DeleteLocalToken(String, String)
+  spec.csharp:
+  - uid: OverKizApi.OverkizClient.DeleteLocalToken(System.String,System.String)
+    name: DeleteLocalToken
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DeleteLocalToken_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OverKizApi.OverkizClient.DeleteLocalToken(System.String,System.String)
+    name: DeleteLocalToken
+    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DeleteLocalToken_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OverKizApi.Models.LocalToken.Uuid*
+  commentId: Overload:OverKizApi.Models.LocalToken.Uuid
+  href: OverKizApi.Models.LocalToken.html#OverKizApi_Models_LocalToken_Uuid
+  name: Uuid
+  nameWithType: LocalToken.Uuid
+  fullName: OverKizApi.Models.LocalToken.Uuid
+- uid: OverKizApi.Models.LocalToken.Scope*
+  commentId: Overload:OverKizApi.Models.LocalToken.Scope
+  href: OverKizApi.Models.LocalToken.html#OverKizApi_Models_LocalToken_Scope
+  name: Scope
+  nameWithType: LocalToken.Scope
+  fullName: OverKizApi.Models.LocalToken.Scope
+- uid: OverKizApi.Models.LocalToken.ExpirationTime*
+  commentId: Overload:OverKizApi.Models.LocalToken.ExpirationTime
+  href: OverKizApi.Models.LocalToken.html#OverKizApi_Models_LocalToken_ExpirationTime
+  name: ExpirationTime
+  nameWithType: LocalToken.ExpirationTime
+  fullName: OverKizApi.Models.LocalToken.ExpirationTime
+- uid: System.Nullable{System.Int64}
+  commentId: T:System.Nullable{System.Int64}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long?
+  nameWithType: long?
+  fullName: long?
+  nameWithType.vb: Long?
+  fullName.vb: Long?
+  name.vb: Long?
+  spec.csharp:
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  spec.vb:
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

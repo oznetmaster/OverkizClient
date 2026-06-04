@@ -1,0 +1,738 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.States
+  commentId: T:OverKizApi.Models.States
+  id: States
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.States.#ctor(System.Collections.Generic.IEnumerable{OverKizApi.Models.State})
+  - OverKizApi.Models.States.Contains(System.String)
+  - OverKizApi.Models.States.GetEnumerator
+  - OverKizApi.Models.States.Item(System.String)
+  langs:
+  - csharp
+  - vb
+  name: States
+  nameWithType: States
+  fullName: OverKizApi.Models.States
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: States
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 165
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    An ordered, name-indexed collection of <xref href="OverKizApi.Models.State" data-throw-if-not-resolved="false"></xref> objects for a device.
+
+    Implements <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> so it can be used directly in foreach loops.
+  remarks: Initialises the collection from an optional sequence of states.
+  example: []
+  syntax:
+    content: >-
+      [JsonConverter(typeof(StatesJsonConverter))]
+
+      public sealed class States : IEnumerable<State>, IEnumerable
+    content.vb: >-
+      <JsonConverter(GetType(StatesJsonConverter))>
+
+      Public NotInheritable Class States Implements IEnumerable(Of State), IEnumerable
+  inheritance:
+  - System.Object
+  implements:
+  - System.Collections.Generic.IEnumerable{OverKizApi.Models.State}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.Models.States.#ctor(System.Collections.Generic.IEnumerable{OverKizApi.Models.State})
+  commentId: M:OverKizApi.Models.States.#ctor(System.Collections.Generic.IEnumerable{OverKizApi.Models.State})
+  id: '#ctor(System.Collections.Generic.IEnumerable{OverKizApi.Models.State})'
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: States(IEnumerable<State>?)
+  nameWithType: States.States(IEnumerable<State>?)
+  fullName: OverKizApi.Models.States.States(System.Collections.Generic.IEnumerable<OverKizApi.Models.State>?)
+  type: Constructor
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: .ctor
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 165
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: >-
+    An ordered, name-indexed collection of <xref href="OverKizApi.Models.State" data-throw-if-not-resolved="false"></xref> objects for a device.
+
+    Implements <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> so it can be used directly in foreach loops.
+  remarks: Initialises the collection from an optional sequence of states.
+  example: []
+  syntax:
+    content: public States(IEnumerable<State>? states = null)
+    parameters:
+    - id: states
+      type: System.Collections.Generic.IEnumerable{OverKizApi.Models.State}
+      description: Initial states; pass <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or omit for an empty collection.
+    content.vb: Public Sub New(states As IEnumerable(Of State) = Nothing)
+  overload: OverKizApi.Models.States.#ctor*
+  nameWithType.vb: States.New(IEnumerable(Of State))
+  fullName.vb: OverKizApi.Models.States.New(System.Collections.Generic.IEnumerable(Of OverKizApi.Models.State))
+  name.vb: New(IEnumerable(Of State))
+- uid: OverKizApi.Models.States.Item(System.String)
+  commentId: P:OverKizApi.Models.States.Item(System.String)
+  id: Item(System.String)
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: this[string]
+  nameWithType: States.this[string]
+  fullName: OverKizApi.Models.States.this[string]
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: this[]
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 172
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns the <xref href="OverKizApi.Models.State" data-throw-if-not-resolved="false"></xref> with the given qualified <code class="paramref">name</code>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not found.
+  example: []
+  syntax:
+    content: public State? this[string name] { get; }
+    parameters:
+    - id: name
+      type: System.String
+      description: Qualified state name (e.g. <code>"core:ClosureState"</code>).
+    return:
+      type: OverKizApi.Models.State
+    content.vb: Public ReadOnly Default Property this[](name As String) As State
+  overload: OverKizApi.Models.States.Item*
+  nameWithType.vb: States.this[](String)
+  fullName.vb: OverKizApi.Models.States.this[](String)
+  name.vb: this[](String)
+- uid: OverKizApi.Models.States.Contains(System.String)
+  commentId: M:OverKizApi.Models.States.Contains(System.String)
+  id: Contains(System.String)
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: Contains(string)
+  nameWithType: States.Contains(string)
+  fullName: OverKizApi.Models.States.Contains(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Contains
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 176
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a state with the given qualified <code class="paramref">name</code> is present.
+  example: []
+  syntax:
+    content: public bool Contains(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: Qualified state name to look up.
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(name As String) As Boolean
+  overload: OverKizApi.Models.States.Contains*
+  nameWithType.vb: States.Contains(String)
+  fullName.vb: OverKizApi.Models.States.Contains(String)
+  name.vb: Contains(String)
+- uid: OverKizApi.Models.States.GetEnumerator
+  commentId: M:OverKizApi.Models.States.GetEnumerator
+  id: GetEnumerator
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: States.GetEnumerator()
+  fullName: OverKizApi.Models.States.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetEnumerator
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 179
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns an enumerator that iterates through the collection.
+  example: []
+  syntax:
+    content: public IEnumerator<State> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{OverKizApi.Models.State}
+      description: An enumerator that can be used to iterate through the collection.
+    content.vb: Public Function GetEnumerator() As IEnumerator(Of State)
+  overload: OverKizApi.Models.States.GetEnumerator*
+  implements:
+  - System.Collections.Generic.IEnumerable{OverKizApi.Models.State}.GetEnumerator
+references:
+- uid: OverKizApi.Models.State
+  commentId: T:OverKizApi.Models.State
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.State.html
+  name: State
+  nameWithType: State
+  fullName: OverKizApi.Models.State
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Collections.Generic.IEnumerable{OverKizApi.Models.State}
+  commentId: T:System.Collections.Generic.IEnumerable{OverKizApi.Models.State}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<State>
+  nameWithType: IEnumerable<State>
+  fullName: System.Collections.Generic.IEnumerable<OverKizApi.Models.State>
+  nameWithType.vb: IEnumerable(Of State)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of OverKizApi.Models.State)
+  name.vb: IEnumerable(Of State)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: OverKizApi.Models.State
+    name: State
+    href: OverKizApi.Models.State.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.State
+    name: State
+    href: OverKizApi.Models.State.html
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: OverKizApi.Models.States.#ctor*
+  commentId: Overload:OverKizApi.Models.States.#ctor
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States__ctor_System_Collections_Generic_IEnumerable_OverKizApi_Models_State__
+  name: States
+  nameWithType: States.States
+  fullName: OverKizApi.Models.States.States
+  nameWithType.vb: States.New
+  fullName.vb: OverKizApi.Models.States.New
+  name.vb: New
+- uid: OverKizApi.Models.States.Item*
+  commentId: Overload:OverKizApi.Models.States.Item
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_Item_System_String_
+  name: this
+  nameWithType: States.this
+  fullName: OverKizApi.Models.States.this
+  nameWithType.vb: States.this[]
+  fullName.vb: OverKizApi.Models.States.this[]
+  name.vb: this[]
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.Models.States.Contains*
+  commentId: Overload:OverKizApi.Models.States.Contains
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_Contains_System_String_
+  name: Contains
+  nameWithType: States.Contains
+  fullName: OverKizApi.Models.States.Contains
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OverKizApi.Models.States.GetEnumerator*
+  commentId: Overload:OverKizApi.Models.States.GetEnumerator
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_GetEnumerator
+  name: GetEnumerator
+  nameWithType: States.GetEnumerator
+  fullName: OverKizApi.Models.States.GetEnumerator
+- uid: System.Collections.Generic.IEnumerable{OverKizApi.Models.State}.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable{OverKizApi.Models.State}.GetEnumerator
+  parent: System.Collections.Generic.IEnumerable{OverKizApi.Models.State}
+  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<State>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<OverKizApi.Models.State>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of State).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of OverKizApi.Models.State).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable{OverKizApi.Models.State}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable{OverKizApi.Models.State}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator{OverKizApi.Models.State}
+  commentId: T:System.Collections.Generic.IEnumerator{OverKizApi.Models.State}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<State>
+  nameWithType: IEnumerator<State>
+  fullName: System.Collections.Generic.IEnumerator<OverKizApi.Models.State>
+  nameWithType.vb: IEnumerator(Of State)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of OverKizApi.Models.State)
+  name.vb: IEnumerator(Of State)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - uid: OverKizApi.Models.State
+    name: State
+    href: OverKizApi.Models.State.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.State
+    name: State
+    href: OverKizApi.Models.State.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<T>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

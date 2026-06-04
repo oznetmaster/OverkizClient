@@ -1,0 +1,729 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.Place
+  commentId: T:OverKizApi.Models.Place
+  id: Place
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.Place.CreationTime
+  - OverKizApi.Models.Place.Id
+  - OverKizApi.Models.Place.Label
+  - OverKizApi.Models.Place.LastUpdateTime
+  - OverKizApi.Models.Place.Oid
+  - OverKizApi.Models.Place.SubPlaces
+  - OverKizApi.Models.Place.Type
+  langs:
+  - csharp
+  - vb
+  name: Place
+  nameWithType: Place
+  fullName: OverKizApi.Models.Place
+  type: Class
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Place
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 494
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: A place in the home hierarchy (house, floor, or room).
+  example: []
+  syntax:
+    content: public sealed class Place
+    content.vb: Public NotInheritable Class Place
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: OverKizApi.Models.Place.CreationTime
+  commentId: P:OverKizApi.Models.Place.CreationTime
+  id: CreationTime
+  parent: OverKizApi.Models.Place
+  langs:
+  - csharp
+  - vb
+  name: CreationTime
+  nameWithType: Place.CreationTime
+  fullName: OverKizApi.Models.Place.CreationTime
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CreationTime
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 497
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unix epoch millisecond timestamp when the place was created.
+  example: []
+  syntax:
+    content: public long CreationTime { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property CreationTime As Long
+  overload: OverKizApi.Models.Place.CreationTime*
+- uid: OverKizApi.Models.Place.LastUpdateTime
+  commentId: P:OverKizApi.Models.Place.LastUpdateTime
+  id: LastUpdateTime
+  parent: OverKizApi.Models.Place
+  langs:
+  - csharp
+  - vb
+  name: LastUpdateTime
+  nameWithType: Place.LastUpdateTime
+  fullName: OverKizApi.Models.Place.LastUpdateTime
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: LastUpdateTime
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 499
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unix epoch millisecond timestamp of the most recent update, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if never updated.
+  example: []
+  syntax:
+    content: public long? LastUpdateTime { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int64}
+    content.vb: Public Property LastUpdateTime As Long?
+  overload: OverKizApi.Models.Place.LastUpdateTime*
+- uid: OverKizApi.Models.Place.Label
+  commentId: P:OverKizApi.Models.Place.Label
+  id: Label
+  parent: OverKizApi.Models.Place
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: Place.Label
+  fullName: OverKizApi.Models.Place.Label
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Label
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 501
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: User-visible label for the place (e.g. <code>"Living Room"</code>).
+  example: []
+  syntax:
+    content: public string? Label { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: OverKizApi.Models.Place.Label*
+- uid: OverKizApi.Models.Place.Type
+  commentId: P:OverKizApi.Models.Place.Type
+  id: Type
+  parent: OverKizApi.Models.Place
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: Place.Type
+  fullName: OverKizApi.Models.Place.Type
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Type
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 503
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: 'Place type: 0 = house, 1 = floor, 2 = room.'
+  example: []
+  syntax:
+    content: public int Type { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Type As Integer
+  overload: OverKizApi.Models.Place.Type*
+- uid: OverKizApi.Models.Place.Oid
+  commentId: P:OverKizApi.Models.Place.Oid
+  id: Oid
+  parent: OverKizApi.Models.Place
+  langs:
+  - csharp
+  - vb
+  name: Oid
+  nameWithType: Place.Oid
+  fullName: OverKizApi.Models.Place.Oid
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Oid
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 505
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Unique OID of this place.
+  example: []
+  syntax:
+    content: public string? Oid { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Oid As String
+  overload: OverKizApi.Models.Place.Oid*
+- uid: OverKizApi.Models.Place.Id
+  commentId: P:OverKizApi.Models.Place.Id
+  id: Id
+  parent: OverKizApi.Models.Place
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Place.Id
+  fullName: OverKizApi.Models.Place.Id
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Id
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 507
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Alias for <xref href="OverKizApi.Models.Place.Oid" data-throw-if-not-resolved="false"></xref>; provided for convenience.
+  example: []
+  syntax:
+    content: public string? Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Id As String
+  overload: OverKizApi.Models.Place.Id*
+- uid: OverKizApi.Models.Place.SubPlaces
+  commentId: P:OverKizApi.Models.Place.SubPlaces
+  id: SubPlaces
+  parent: OverKizApi.Models.Place
+  langs:
+  - csharp
+  - vb
+  name: SubPlaces
+  nameWithType: Place.SubPlaces
+  fullName: OverKizApi.Models.Place.SubPlaces
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SubPlaces
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 509
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Child places (floors within a house, rooms within a floor).
+  example: []
+  syntax:
+    content: public IReadOnlyList<Place> SubPlaces { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Place}
+    content.vb: Public Property SubPlaces As IReadOnlyList(Of Place)
+  overload: OverKizApi.Models.Place.SubPlaces*
+references:
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OverKizApi.Models.Place.CreationTime*
+  commentId: Overload:OverKizApi.Models.Place.CreationTime
+  href: OverKizApi.Models.Place.html#OverKizApi_Models_Place_CreationTime
+  name: CreationTime
+  nameWithType: Place.CreationTime
+  fullName: OverKizApi.Models.Place.CreationTime
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: OverKizApi.Models.Place.LastUpdateTime*
+  commentId: Overload:OverKizApi.Models.Place.LastUpdateTime
+  href: OverKizApi.Models.Place.html#OverKizApi_Models_Place_LastUpdateTime
+  name: LastUpdateTime
+  nameWithType: Place.LastUpdateTime
+  fullName: OverKizApi.Models.Place.LastUpdateTime
+- uid: System.Nullable{System.Int64}
+  commentId: T:System.Nullable{System.Int64}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long?
+  nameWithType: long?
+  fullName: long?
+  nameWithType.vb: Long?
+  fullName.vb: Long?
+  name.vb: Long?
+  spec.csharp:
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  spec.vb:
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OverKizApi.Models.Place.Label*
+  commentId: Overload:OverKizApi.Models.Place.Label
+  href: OverKizApi.Models.Place.html#OverKizApi_Models_Place_Label
+  name: Label
+  nameWithType: Place.Label
+  fullName: OverKizApi.Models.Place.Label
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OverKizApi.Models.Place.Type*
+  commentId: Overload:OverKizApi.Models.Place.Type
+  href: OverKizApi.Models.Place.html#OverKizApi_Models_Place_Type
+  name: Type
+  nameWithType: Place.Type
+  fullName: OverKizApi.Models.Place.Type
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OverKizApi.Models.Place.Oid*
+  commentId: Overload:OverKizApi.Models.Place.Oid
+  href: OverKizApi.Models.Place.html#OverKizApi_Models_Place_Oid
+  name: Oid
+  nameWithType: Place.Oid
+  fullName: OverKizApi.Models.Place.Oid
+- uid: OverKizApi.Models.Place.Oid
+  commentId: P:OverKizApi.Models.Place.Oid
+  href: OverKizApi.Models.Place.html#OverKizApi_Models_Place_Oid
+  name: Oid
+  nameWithType: Place.Oid
+  fullName: OverKizApi.Models.Place.Oid
+- uid: OverKizApi.Models.Place.Id*
+  commentId: Overload:OverKizApi.Models.Place.Id
+  href: OverKizApi.Models.Place.html#OverKizApi_Models_Place_Id
+  name: Id
+  nameWithType: Place.Id
+  fullName: OverKizApi.Models.Place.Id
+- uid: OverKizApi.Models.Place.SubPlaces*
+  commentId: Overload:OverKizApi.Models.Place.SubPlaces
+  href: OverKizApi.Models.Place.html#OverKizApi_Models_Place_SubPlaces
+  name: SubPlaces
+  nameWithType: Place.SubPlaces
+  fullName: OverKizApi.Models.Place.SubPlaces
+- uid: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Place}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Place}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<Place>
+  nameWithType: IReadOnlyList<Place>
+  fullName: System.Collections.Generic.IReadOnlyList<OverKizApi.Models.Place>
+  nameWithType.vb: IReadOnlyList(Of Place)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.Place)
+  name.vb: IReadOnlyList(Of Place)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.Place
+    name: Place
+    href: OverKizApi.Models.Place.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.Place
+    name: Place
+    href: OverKizApi.Models.Place.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

@@ -1,0 +1,176 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.ExecutionSubType
+  commentId: T:OverKizApi.Enums.ExecutionSubType
+  id: ExecutionSubType
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.ExecutionSubType.External
+  - OverKizApi.Enums.ExecutionSubType.Internal
+  - OverKizApi.Enums.ExecutionSubType.Scenario
+  - OverKizApi.Enums.ExecutionSubType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: ExecutionSubType
+  nameWithType: ExecutionSubType
+  fullName: OverKizApi.Enums.ExecutionSubType
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecutionSubType
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 41
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Further classifies the origin of an execution.
+  example: []
+  syntax:
+    content: public enum ExecutionSubType
+    content.vb: Public Enum ExecutionSubType
+- uid: OverKizApi.Enums.ExecutionSubType.Internal
+  commentId: F:OverKizApi.Enums.ExecutionSubType.Internal
+  id: Internal
+  parent: OverKizApi.Enums.ExecutionSubType
+  langs:
+  - csharp
+  - vb
+  name: Internal
+  nameWithType: ExecutionSubType.Internal
+  fullName: OverKizApi.Enums.ExecutionSubType.Internal
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Internal
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 44
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Execution was triggered by an internal gateway rule or automation.
+  example: []
+  syntax:
+    content: Internal = 0
+    return:
+      type: OverKizApi.Enums.ExecutionSubType
+- uid: OverKizApi.Enums.ExecutionSubType.External
+  commentId: F:OverKizApi.Enums.ExecutionSubType.External
+  id: External
+  parent: OverKizApi.Enums.ExecutionSubType
+  langs:
+  - csharp
+  - vb
+  name: External
+  nameWithType: ExecutionSubType.External
+  fullName: OverKizApi.Enums.ExecutionSubType.External
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: External
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 46
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Execution was triggered by an external application or API call.
+  example: []
+  syntax:
+    content: External = 1
+    return:
+      type: OverKizApi.Enums.ExecutionSubType
+- uid: OverKizApi.Enums.ExecutionSubType.Scenario
+  commentId: F:OverKizApi.Enums.ExecutionSubType.Scenario
+  id: Scenario
+  parent: OverKizApi.Enums.ExecutionSubType
+  langs:
+  - csharp
+  - vb
+  name: Scenario
+  nameWithType: ExecutionSubType.Scenario
+  fullName: OverKizApi.Enums.ExecutionSubType.Scenario
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Scenario
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 48
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Execution was triggered as part of a named scenario.
+  example: []
+  syntax:
+    content: Scenario = 2
+    return:
+      type: OverKizApi.Enums.ExecutionSubType
+- uid: OverKizApi.Enums.ExecutionSubType.Unknown
+  commentId: F:OverKizApi.Enums.ExecutionSubType.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.ExecutionSubType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ExecutionSubType.Unknown
+  fullName: OverKizApi.Enums.ExecutionSubType.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 50
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Execution sub-type could not be determined.
+  example: []
+  syntax:
+    content: Unknown = 3
+    return:
+      type: OverKizApi.Enums.ExecutionSubType
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.ExecutionSubType
+  commentId: T:OverKizApi.Enums.ExecutionSubType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.ExecutionSubType.html
+  name: ExecutionSubType
+  nameWithType: ExecutionSubType
+  fullName: OverKizApi.Enums.ExecutionSubType

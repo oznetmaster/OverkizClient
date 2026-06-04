@@ -1,0 +1,176 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.GatewayMode
+  commentId: T:OverKizApi.Enums.GatewayMode
+  id: GatewayMode
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.GatewayMode.Master
+  - OverKizApi.Enums.GatewayMode.Slave
+  - OverKizApi.Enums.GatewayMode.Standalone
+  - OverKizApi.Enums.GatewayMode.Unknown
+  langs:
+  - csharp
+  - vb
+  name: GatewayMode
+  nameWithType: GatewayMode
+  fullName: OverKizApi.Enums.GatewayMode
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayMode
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 7
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Describes the role of a gateway within its installation.
+  example: []
+  syntax:
+    content: public enum GatewayMode
+    content.vb: Public Enum GatewayMode
+- uid: OverKizApi.Enums.GatewayMode.Standalone
+  commentId: F:OverKizApi.Enums.GatewayMode.Standalone
+  id: Standalone
+  parent: OverKizApi.Enums.GatewayMode
+  langs:
+  - csharp
+  - vb
+  name: Standalone
+  nameWithType: GatewayMode.Standalone
+  fullName: OverKizApi.Enums.GatewayMode.Standalone
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Standalone
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 10
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The gateway operates independently with no peer gateways.
+  example: []
+  syntax:
+    content: Standalone = 0
+    return:
+      type: OverKizApi.Enums.GatewayMode
+- uid: OverKizApi.Enums.GatewayMode.Master
+  commentId: F:OverKizApi.Enums.GatewayMode.Master
+  id: Master
+  parent: OverKizApi.Enums.GatewayMode
+  langs:
+  - csharp
+  - vb
+  name: Master
+  nameWithType: GatewayMode.Master
+  fullName: OverKizApi.Enums.GatewayMode.Master
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Master
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 12
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The gateway is the primary coordinator in a multi-gateway setup.
+  example: []
+  syntax:
+    content: Master = 1
+    return:
+      type: OverKizApi.Enums.GatewayMode
+- uid: OverKizApi.Enums.GatewayMode.Slave
+  commentId: F:OverKizApi.Enums.GatewayMode.Slave
+  id: Slave
+  parent: OverKizApi.Enums.GatewayMode
+  langs:
+  - csharp
+  - vb
+  name: Slave
+  nameWithType: GatewayMode.Slave
+  fullName: OverKizApi.Enums.GatewayMode.Slave
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Slave
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 14
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The gateway is subordinate to a master gateway.
+  example: []
+  syntax:
+    content: Slave = 2
+    return:
+      type: OverKizApi.Enums.GatewayMode
+- uid: OverKizApi.Enums.GatewayMode.Unknown
+  commentId: F:OverKizApi.Enums.GatewayMode.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.GatewayMode
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: GatewayMode.Unknown
+  fullName: OverKizApi.Enums.GatewayMode.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 16
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Gateway mode could not be determined.
+  example: []
+  syntax:
+    content: Unknown = 3
+    return:
+      type: OverKizApi.Enums.GatewayMode
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.GatewayMode
+  commentId: T:OverKizApi.Enums.GatewayMode
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.GatewayMode.html
+  name: GatewayMode
+  nameWithType: GatewayMode
+  fullName: OverKizApi.Enums.GatewayMode

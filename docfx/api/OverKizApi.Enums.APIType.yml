@@ -1,0 +1,118 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.APIType
+  commentId: T:OverKizApi.Enums.APIType
+  id: APIType
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.APIType.Cloud
+  - OverKizApi.Enums.APIType.Local
+  langs:
+  - csharp
+  - vb
+  name: APIType
+  nameWithType: APIType
+  fullName: OverKizApi.Enums.APIType
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/APIType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: APIType
+    path: ../OverKizApi/Enums/APIType.cs
+    startLine: 7
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Determines whether the client communicates with the Overkiz cloud or a local gateway.
+  example: []
+  syntax:
+    content: public enum APIType
+    content.vb: Public Enum APIType
+- uid: OverKizApi.Enums.APIType.Cloud
+  commentId: F:OverKizApi.Enums.APIType.Cloud
+  id: Cloud
+  parent: OverKizApi.Enums.APIType
+  langs:
+  - csharp
+  - vb
+  name: Cloud
+  nameWithType: APIType.Cloud
+  fullName: OverKizApi.Enums.APIType.Cloud
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/APIType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Cloud
+    path: ../OverKizApi/Enums/APIType.cs
+    startLine: 10
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Communicate via the Overkiz cloud API (default for all named servers).
+  example: []
+  syntax:
+    content: Cloud = 0
+    return:
+      type: OverKizApi.Enums.APIType
+- uid: OverKizApi.Enums.APIType.Local
+  commentId: F:OverKizApi.Enums.APIType.Local
+  id: Local
+  parent: OverKizApi.Enums.APIType
+  langs:
+  - csharp
+  - vb
+  name: Local
+  nameWithType: APIType.Local
+  fullName: OverKizApi.Enums.APIType.Local
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/APIType.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Local
+    path: ../OverKizApi/Enums/APIType.cs
+    startLine: 12
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Communicate directly with a local gateway using the developer-mode API token.
+  example: []
+  syntax:
+    content: Local = 1
+    return:
+      type: OverKizApi.Enums.APIType
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.APIType
+  commentId: T:OverKizApi.Enums.APIType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.APIType.html
+  name: APIType
+  nameWithType: APIType
+  fullName: OverKizApi.Enums.APIType

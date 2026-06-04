@@ -1,0 +1,147 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.GatewayConnectivityState
+  commentId: T:OverKizApi.Enums.GatewayConnectivityState
+  id: GatewayConnectivityState
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.GatewayConnectivityState.Connected
+  - OverKizApi.Enums.GatewayConnectivityState.Disconnected
+  - OverKizApi.Enums.GatewayConnectivityState.Unknown
+  langs:
+  - csharp
+  - vb
+  name: GatewayConnectivityState
+  nameWithType: GatewayConnectivityState
+  fullName: OverKizApi.Enums.GatewayConnectivityState
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GatewayConnectivityState
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 68
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Indicates whether the gateway is reachable by the Overkiz cloud.
+  example: []
+  syntax:
+    content: public enum GatewayConnectivityState
+    content.vb: Public Enum GatewayConnectivityState
+- uid: OverKizApi.Enums.GatewayConnectivityState.Connected
+  commentId: F:OverKizApi.Enums.GatewayConnectivityState.Connected
+  id: Connected
+  parent: OverKizApi.Enums.GatewayConnectivityState
+  langs:
+  - csharp
+  - vb
+  name: Connected
+  nameWithType: GatewayConnectivityState.Connected
+  fullName: OverKizApi.Enums.GatewayConnectivityState.Connected
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Connected
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 71
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The gateway is online and connected to the cloud.
+  example: []
+  syntax:
+    content: Connected = 0
+    return:
+      type: OverKizApi.Enums.GatewayConnectivityState
+- uid: OverKizApi.Enums.GatewayConnectivityState.Disconnected
+  commentId: F:OverKizApi.Enums.GatewayConnectivityState.Disconnected
+  id: Disconnected
+  parent: OverKizApi.Enums.GatewayConnectivityState
+  langs:
+  - csharp
+  - vb
+  name: Disconnected
+  nameWithType: GatewayConnectivityState.Disconnected
+  fullName: OverKizApi.Enums.GatewayConnectivityState.Disconnected
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Disconnected
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 73
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The gateway cannot be reached by the cloud.
+  example: []
+  syntax:
+    content: Disconnected = 1
+    return:
+      type: OverKizApi.Enums.GatewayConnectivityState
+- uid: OverKizApi.Enums.GatewayConnectivityState.Unknown
+  commentId: F:OverKizApi.Enums.GatewayConnectivityState.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.GatewayConnectivityState
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: GatewayConnectivityState.Unknown
+  fullName: OverKizApi.Enums.GatewayConnectivityState.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Gateway.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/Gateway.cs
+    startLine: 75
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Connectivity state could not be determined.
+  example: []
+  syntax:
+    content: Unknown = 2
+    return:
+      type: OverKizApi.Enums.GatewayConnectivityState
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.GatewayConnectivityState
+  commentId: T:OverKizApi.Enums.GatewayConnectivityState
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.GatewayConnectivityState.html
+  name: GatewayConnectivityState
+  nameWithType: GatewayConnectivityState
+  fullName: OverKizApi.Enums.GatewayConnectivityState

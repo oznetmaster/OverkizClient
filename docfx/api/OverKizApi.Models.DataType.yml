@@ -1,0 +1,328 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Models.DataType
+  commentId: T:OverKizApi.Models.DataType
+  id: DataType
+  parent: OverKizApi.Models
+  children:
+  - OverKizApi.Models.DataType.Blob
+  - OverKizApi.Models.DataType.Boolean
+  - OverKizApi.Models.DataType.Date
+  - OverKizApi.Models.DataType.Float
+  - OverKizApi.Models.DataType.Integer
+  - OverKizApi.Models.DataType.JsonArray
+  - OverKizApi.Models.DataType.JsonObject
+  - OverKizApi.Models.DataType.None
+  - OverKizApi.Models.DataType.String
+  langs:
+  - csharp
+  - vb
+  name: DataType
+  nameWithType: DataType
+  fullName: OverKizApi.Models.DataType
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DataType
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 82
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Discriminates the CLR type of a <xref href="OverKizApi.Models.State" data-throw-if-not-resolved="false"></xref> value as reported by the Overkiz API.
+  example: []
+  syntax:
+    content: public enum DataType
+    content.vb: Public Enum DataType
+- uid: OverKizApi.Models.DataType.None
+  commentId: F:OverKizApi.Models.DataType.None
+  id: None
+  parent: OverKizApi.Models.DataType
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: DataType.None
+  fullName: OverKizApi.Models.DataType.None
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: None
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 87
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: No value is present.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: OverKizApi.Models.DataType
+- uid: OverKizApi.Models.DataType.Integer
+  commentId: F:OverKizApi.Models.DataType.Integer
+  id: Integer
+  parent: OverKizApi.Models.DataType
+  langs:
+  - csharp
+  - vb
+  name: Integer
+  nameWithType: DataType.Integer
+  fullName: OverKizApi.Models.DataType.Integer
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Integer
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 89
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Value is a 32-bit integer.
+  example: []
+  syntax:
+    content: Integer = 1
+    return:
+      type: OverKizApi.Models.DataType
+- uid: OverKizApi.Models.DataType.Float
+  commentId: F:OverKizApi.Models.DataType.Float
+  id: Float
+  parent: OverKizApi.Models.DataType
+  langs:
+  - csharp
+  - vb
+  name: Float
+  nameWithType: DataType.Float
+  fullName: OverKizApi.Models.DataType.Float
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Float
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 91
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Value is a double-precision floating-point number.
+  example: []
+  syntax:
+    content: Float = 2
+    return:
+      type: OverKizApi.Models.DataType
+- uid: OverKizApi.Models.DataType.String
+  commentId: F:OverKizApi.Models.DataType.String
+  id: String
+  parent: OverKizApi.Models.DataType
+  langs:
+  - csharp
+  - vb
+  name: String
+  nameWithType: DataType.String
+  fullName: OverKizApi.Models.DataType.String
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: String
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 93
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Value is a UTF-8 string.
+  example: []
+  syntax:
+    content: String = 3
+    return:
+      type: OverKizApi.Models.DataType
+- uid: OverKizApi.Models.DataType.Blob
+  commentId: F:OverKizApi.Models.DataType.Blob
+  id: Blob
+  parent: OverKizApi.Models.DataType
+  langs:
+  - csharp
+  - vb
+  name: Blob
+  nameWithType: DataType.Blob
+  fullName: OverKizApi.Models.DataType.Blob
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Blob
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 95
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Value is an opaque binary blob (Base64-encoded in JSON).
+  example: []
+  syntax:
+    content: Blob = 4
+    return:
+      type: OverKizApi.Models.DataType
+- uid: OverKizApi.Models.DataType.Boolean
+  commentId: F:OverKizApi.Models.DataType.Boolean
+  id: Boolean
+  parent: OverKizApi.Models.DataType
+  langs:
+  - csharp
+  - vb
+  name: Boolean
+  nameWithType: DataType.Boolean
+  fullName: OverKizApi.Models.DataType.Boolean
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Boolean
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 97
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Value is a boolean (<code>true</code> or <code>false</code>).
+  example: []
+  syntax:
+    content: Boolean = 6
+    return:
+      type: OverKizApi.Models.DataType
+- uid: OverKizApi.Models.DataType.JsonArray
+  commentId: F:OverKizApi.Models.DataType.JsonArray
+  id: JsonArray
+  parent: OverKizApi.Models.DataType
+  langs:
+  - csharp
+  - vb
+  name: JsonArray
+  nameWithType: DataType.JsonArray
+  fullName: OverKizApi.Models.DataType.JsonArray
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: JsonArray
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 99
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Value is a JSON array serialised as a string.
+  example: []
+  syntax:
+    content: JsonArray = 10
+    return:
+      type: OverKizApi.Models.DataType
+- uid: OverKizApi.Models.DataType.JsonObject
+  commentId: F:OverKizApi.Models.DataType.JsonObject
+  id: JsonObject
+  parent: OverKizApi.Models.DataType
+  langs:
+  - csharp
+  - vb
+  name: JsonObject
+  nameWithType: DataType.JsonObject
+  fullName: OverKizApi.Models.DataType.JsonObject
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: JsonObject
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 101
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Value is a JSON object serialised as a string.
+  example: []
+  syntax:
+    content: JsonObject = 11
+    return:
+      type: OverKizApi.Models.DataType
+- uid: OverKizApi.Models.DataType.Date
+  commentId: F:OverKizApi.Models.DataType.Date
+  id: Date
+  parent: OverKizApi.Models.DataType
+  langs:
+  - csharp
+  - vb
+  name: Date
+  nameWithType: DataType.Date
+  fullName: OverKizApi.Models.DataType.Date
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Date
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 103
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Value is a date/time represented as a Unix epoch millisecond timestamp.
+  example: []
+  syntax:
+    content: Date = 13
+    return:
+      type: OverKizApi.Models.DataType
+references:
+- uid: OverKizApi.Models.State
+  commentId: T:OverKizApi.Models.State
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.State.html
+  name: State
+  nameWithType: State
+  fullName: OverKizApi.Models.State
+- uid: OverKizApi.Models
+  commentId: N:OverKizApi.Models
+  href: OverKizApi.html
+  name: OverKizApi.Models
+  nameWithType: OverKizApi.Models
+  fullName: OverKizApi.Models
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Models
+    name: Models
+    href: OverKizApi.Models.html
+- uid: OverKizApi.Models.DataType
+  commentId: T:OverKizApi.Models.DataType
+  parent: OverKizApi.Models
+  href: OverKizApi.Models.DataType.html
+  name: DataType
+  nameWithType: DataType
+  fullName: OverKizApi.Models.DataType

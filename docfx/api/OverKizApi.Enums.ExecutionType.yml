@@ -1,0 +1,205 @@
+### YamlMime:ManagedReference
+items:
+- uid: OverKizApi.Enums.ExecutionType
+  commentId: T:OverKizApi.Enums.ExecutionType
+  id: ExecutionType
+  parent: OverKizApi.Enums
+  children:
+  - OverKizApi.Enums.ExecutionType.Delayed
+  - OverKizApi.Enums.ExecutionType.Immediate
+  - OverKizApi.Enums.ExecutionType.Sunrise
+  - OverKizApi.Enums.ExecutionType.Sunset
+  - OverKizApi.Enums.ExecutionType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: ExecutionType
+  nameWithType: ExecutionType
+  fullName: OverKizApi.Enums.ExecutionType
+  type: Enum
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ExecutionType
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 26
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Indicates how an execution was triggered.
+  example: []
+  syntax:
+    content: public enum ExecutionType
+    content.vb: Public Enum ExecutionType
+- uid: OverKizApi.Enums.ExecutionType.Immediate
+  commentId: F:OverKizApi.Enums.ExecutionType.Immediate
+  id: Immediate
+  parent: OverKizApi.Enums.ExecutionType
+  langs:
+  - csharp
+  - vb
+  name: Immediate
+  nameWithType: ExecutionType.Immediate
+  fullName: OverKizApi.Enums.ExecutionType.Immediate
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Immediate
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 29
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Execution was triggered immediately (no delay).
+  example: []
+  syntax:
+    content: Immediate = 0
+    return:
+      type: OverKizApi.Enums.ExecutionType
+- uid: OverKizApi.Enums.ExecutionType.Delayed
+  commentId: F:OverKizApi.Enums.ExecutionType.Delayed
+  id: Delayed
+  parent: OverKizApi.Enums.ExecutionType
+  langs:
+  - csharp
+  - vb
+  name: Delayed
+  nameWithType: ExecutionType.Delayed
+  fullName: OverKizApi.Enums.ExecutionType.Delayed
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Delayed
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 31
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Execution was scheduled for a specific future time.
+  example: []
+  syntax:
+    content: Delayed = 1
+    return:
+      type: OverKizApi.Enums.ExecutionType
+- uid: OverKizApi.Enums.ExecutionType.Sunrise
+  commentId: F:OverKizApi.Enums.ExecutionType.Sunrise
+  id: Sunrise
+  parent: OverKizApi.Enums.ExecutionType
+  langs:
+  - csharp
+  - vb
+  name: Sunrise
+  nameWithType: ExecutionType.Sunrise
+  fullName: OverKizApi.Enums.ExecutionType.Sunrise
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Sunrise
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 33
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Execution was triggered at sunrise.
+  example: []
+  syntax:
+    content: Sunrise = 2
+    return:
+      type: OverKizApi.Enums.ExecutionType
+- uid: OverKizApi.Enums.ExecutionType.Sunset
+  commentId: F:OverKizApi.Enums.ExecutionType.Sunset
+  id: Sunset
+  parent: OverKizApi.Enums.ExecutionType
+  langs:
+  - csharp
+  - vb
+  name: Sunset
+  nameWithType: ExecutionType.Sunset
+  fullName: OverKizApi.Enums.ExecutionType.Sunset
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Sunset
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 35
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Execution was triggered at sunset.
+  example: []
+  syntax:
+    content: Sunset = 3
+    return:
+      type: OverKizApi.Enums.ExecutionType
+- uid: OverKizApi.Enums.ExecutionType.Unknown
+  commentId: F:OverKizApi.Enums.ExecutionType.Unknown
+  id: Unknown
+  parent: OverKizApi.Enums.ExecutionType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ExecutionType.Unknown
+  fullName: OverKizApi.Enums.ExecutionType.Unknown
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Unknown
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 37
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Execution type could not be determined.
+  example: []
+  syntax:
+    content: Unknown = 4
+    return:
+      type: OverKizApi.Enums.ExecutionType
+references:
+- uid: OverKizApi.Enums
+  commentId: N:OverKizApi.Enums
+  href: OverKizApi.html
+  name: OverKizApi.Enums
+  nameWithType: OverKizApi.Enums
+  fullName: OverKizApi.Enums
+  spec.csharp:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+  spec.vb:
+  - uid: OverKizApi
+    name: OverKizApi
+    href: OverKizApi.html
+  - name: .
+  - uid: OverKizApi.Enums
+    name: Enums
+    href: OverKizApi.Enums.html
+- uid: OverKizApi.Enums.ExecutionType
+  commentId: T:OverKizApi.Enums.ExecutionType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.ExecutionType.html
+  name: ExecutionType
+  nameWithType: ExecutionType
+  fullName: OverKizApi.Enums.ExecutionType
