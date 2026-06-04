@@ -42,12 +42,10 @@ jobs:
         run: dotnet tool restore
 
       - name: Generate DocFX metadata
-        working-directory: docfx
-        run: dotnet tool run docfx metadata "docfx.json" --property "TargetFramework=net10.0;Configuration=Release"
+        run: dotnet tool run docfx metadata "docfx/docfx.json" --property "TargetFramework=net10.0;Configuration=Release"
 
       - name: Build DocFX site
-        working-directory: docfx
-        run: dotnet tool run docfx build "docfx.json" --output ../docfx-site
+        run: dotnet tool run docfx build "docfx/docfx.json" --output .\docfx-site
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -55,7 +53,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docfx-site
+          path: .\docfx-site
 
   deploy-docs:
     environment:
