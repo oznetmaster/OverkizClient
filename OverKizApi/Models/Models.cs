@@ -59,6 +59,90 @@ internal sealed class RexelGatewayDirectoryEntry
 	public string? ExternalId { get; init; }
 	}
 
+internal sealed class GatewayTypeJsonConverter : JsonConverter<GatewayType?>
+	{
+	public override GatewayType? Read (ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+		{
+		if (reader.TokenType == JsonTokenType.Null)
+			return null;
+
+		if (reader.TokenType == JsonTokenType.Number)
+			return ReadNumericValue (reader.GetInt32 ());
+
+		if (reader.TokenType == JsonTokenType.String)
+			{
+			string? raw = reader.GetString ();
+			if (string.IsNullOrWhiteSpace (raw))
+				return null;
+
+			if (int.TryParse (raw, NumberStyles.Integer, CultureInfo.InvariantCulture, out int numericValue))
+				return ReadNumericValue (numericValue);
+
+			return Enum.TryParse<GatewayType> (raw, ignoreCase: true, out GatewayType parsedValue)
+				? parsedValue
+				: GatewayType.Unknown;
+			}
+
+		throw new JsonException ($"Unsupported token {reader.TokenType} for gateway type.");
+		}
+
+	public override void Write (Utf8JsonWriter writer, GatewayType? value, JsonSerializerOptions options)
+		{
+		if (value is null)
+			writer.WriteNullValue ();
+		else
+			writer.WriteNumberValue ((int) value.Value);
+		}
+
+	private static GatewayType ReadNumericValue (int rawValue)
+		=> Enum.IsDefined (typeof (GatewayType), rawValue)
+			? (GatewayType) rawValue
+			: GatewayType.Unknown;
+	}
+
+internal sealed class GatewaySubTypeJsonConverter : JsonConverter<GatewaySubType?>
+	{
+	public override GatewaySubType? Read (ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+		{
+		if (reader.TokenType == JsonTokenType.Null)
+			return null;
+
+		if (reader.TokenType == JsonTokenType.Number)
+			return ReadNumericValue (reader.GetInt32 ());
+
+		if (reader.TokenType == JsonTokenType.String)
+			{
+			string? raw = reader.GetString ();
+			if (string.IsNullOrWhiteSpace (raw))
+				return null;
+
+			if (int.TryParse (raw, NumberStyles.Integer, CultureInfo.InvariantCulture, out int numericValue))
+				return ReadNumericValue (numericValue);
+
+			return Enum.TryParse<GatewaySubType> (raw, ignoreCase: true, out GatewaySubType parsedValue)
+				? parsedValue
+				: GatewaySubType.Unknown;
+			}
+
+		throw new JsonException ($"Unsupported token {reader.TokenType} for gateway sub-type.");
+		}
+
+	public override void Write (Utf8JsonWriter writer, GatewaySubType? value, JsonSerializerOptions options)
+		{
+		if (value is null)
+			writer.WriteNullValue ();
+		else
+			writer.WriteNumberValue ((int) value.Value);
+		}
+
+	private static GatewaySubType? ReadNumericValue (int rawValue)
+		=> rawValue == 0
+			? null
+			: Enum.IsDefined (typeof (GatewaySubType), rawValue)
+				? (GatewaySubType) rawValue
+				: GatewaySubType.Unknown;
+	}
+
 /// <summary>
 /// A command to be sent to a device as part of an execution action.
 /// Commands are defined in the device's <see cref="Definition.Commands"/> list.
@@ -445,7 +529,11 @@ public sealed class Gateway
 	public bool? SyncInProgress { get; init; }
 	/// <summary>Third-party partner integrations activated on this gateway.</summary>
 	public IReadOnlyList<Partner> Partners { get; init; } = [];
+	/// <summary>Hardware product family of the gateway.</summary>
+	[JsonConverter (typeof (GatewayTypeJsonConverter))]
+	public GatewayType? Type { get; init; }
 	/// <summary>Hardware model / product family of the gateway.</summary>
+	[JsonConverter (typeof (GatewaySubTypeJsonConverter))]
 	public GatewaySubType? SubType { get; init; }
 	}
 

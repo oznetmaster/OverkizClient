@@ -36,7 +36,7 @@ A .NET client library for the **Overkiz** cloud and local REST API, enabling con
 
 Local API (LAN) is supported for Somfy TaHoma and compatible gateways when a developer-mode bearer token is available.
 
-Compatibility note: this .NET library is intended to work across the broader family of Overkiz-compatible gateways, following the design and gateway coverage of the original `python-overkiz-api` project. The current .NET implementation has been validated by the author with a Somfy TaHoma gateway; other Overkiz-compatible gateways and cloud ecosystems are expected to work but have not yet been directly tested here. Recent upstream parity updates include the modern Rexel backend flow and newer Hitachi Hi Kumo `hlrrwifi://` device URL handling.
+Compatibility note: this .NET library is intended to work across the broader family of Overkiz-compatible gateways, following the design and gateway coverage of the original `python-overkiz-api` project. The current .NET implementation has been validated by the author with a Somfy TaHoma gateway; other Overkiz-compatible gateways and cloud ecosystems are expected to work but have not yet been directly tested here. Recent upstream parity updates include the modern Rexel backend flow, newer Hitachi Hi Kumo `hlrrwifi://` device URL handling, and aligned gateway type/sub-type metadata for newer Energeasy Connect variants.
 
 ---
 
@@ -45,6 +45,15 @@ Compatibility note: this .NET library is intended to work across the broader fam
 ```
 dotnet add package OverkizClient
 ```
+
+---
+
+## What's New in 1.1.1.0
+
+- Synced recent upstream `python-overkiz-api` parity updates relevant to this .NET implementation.
+- Added aligned gateway `Type` metadata and corrected gateway `SubType` numeric mappings.
+- Improved Rexel compatibility by treating gateway `subType: 0` as no specific subtype instead of an unknown subtype.
+- Preserved support for the newer Rexel bearer-token-plus-gateway-selection flow and Hitachi Hi Kumo `hlrrwifi://` device URL handling.
 
 ---
 

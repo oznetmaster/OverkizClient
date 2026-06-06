@@ -26,7 +26,7 @@ public enum Server
 	HiKumoOceania,
 	/// <summary>Nexity Eugénie — uses AWS Cognito SRP authentication.</summary>
 	Nexity,
-	/// <summary>Rexel Energeasy Connect — standard username/password login.</summary>
+	/// <summary>Rexel Energeasy Connect — externally managed bearer token with gateway selection.</summary>
 	Rexel,
 	/// <summary>Sauter Cozytouch — uses CozyTouch JWT authentication.</summary>
 	SauterCozytouch,
