@@ -238,6 +238,13 @@ public class NoGatewaySelectedException (string message) : BaseOverkizException 
 	{
 	}
 
+/// <summary>Raised when an operation is not supported by the current server, gateway, or endpoint.</summary>
+/// <remarks>Initialises a new instance with the specified error <paramref name="message"/>.</remarks>
+/// <param name="message">The API error message.</param>
+public class UnsupportedOperationException (string message) : BaseOverkizException (message)
+	{
+	}
+
 /// <summary>Raised when no local token exists for the specified UUID.</summary>
 /// <remarks>Initialises a new instance with the specified error <paramref name="message"/>.</remarks>
 /// <param name="message">The API error message, which typically includes the UUID.</param>

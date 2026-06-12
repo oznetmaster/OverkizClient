@@ -552,11 +552,12 @@ public sealed class OverkizClient : IAsyncDisposable
 
 	/// <summary>Discovers Rexel homes and gateways available to the current bearer token.</summary>
 	/// <returns>A read-only list of gateway candidates.</returns>
-	/// <exception cref="InvalidOperationException">Thrown when the current server is not Rexel or no bearer token is available.</exception>
+	/// <exception cref="UnsupportedOperationException">Thrown when the current server is not Rexel.</exception>
+	/// <exception cref="InvalidOperationException">Thrown when no bearer token is available.</exception>
 	public async Task<IReadOnlyList<GatewayCandidate>> DiscoverRexelGateways ()
 		{
 		if (Server != OverkizConst.SupportedServers[Enums.Server.Rexel])
-			throw new InvalidOperationException ("Gateway discovery is only available for the Rexel server.");
+			throw new UnsupportedOperationException ("Gateway discovery is only available for the Rexel server.");
 		if (string.IsNullOrWhiteSpace (_accessToken))
 			throw new InvalidOperationException ("Rexel gateway discovery requires a bearer token.");
 
@@ -586,11 +587,11 @@ public sealed class OverkizClient : IAsyncDisposable
 
 	/// <summary>Selects the Rexel gateway to scope subsequent requests to.</summary>
 	/// <param name="gatewayId">Gateway identifier returned by <see cref="DiscoverRexelGateways"/>.</param>
-	/// <exception cref="InvalidOperationException">Thrown when the current server is not Rexel.</exception>
+	/// <exception cref="UnsupportedOperationException">Thrown when the current server is not Rexel.</exception>
 	public void SelectRexelGateway (string gatewayId)
 		{
 		if (Server != OverkizConst.SupportedServers[Enums.Server.Rexel])
-			throw new InvalidOperationException ("Gateway selection is only available for the Rexel server.");
+			throw new UnsupportedOperationException ("Gateway selection is only available for the Rexel server.");
 
 		SelectedGatewayId = string.IsNullOrWhiteSpace (gatewayId)
 			? throw new ArgumentException ("Gateway ID is required.", nameof (gatewayId))
@@ -759,20 +760,21 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// Generates a new local API token for the specified gateway.
 	/// The token must then be activated with <see cref="ActivateLocalToken"/> before it can be used.
 	/// </summary>
-	/// <param name="gatewayId">Serial number of the gateway to generate a token for.</param>
+	/// <param name="gatewayId">Serial number of the gateway to generate a token for. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/> rather than the header-scoping <see cref="GatewayCandidate.GatewayId"/>.</param>
 	/// <returns>The raw token string to pass to <see cref="ActivateLocalToken"/>.</returns>
 	/// <exception cref="OverkizException">Thrown when the server does not return a token.</exception>
 	public async Task<string> GenerateLocalToken (string gatewayId)
 		{
 		await RefreshTokenIfExpired ();
-		Dictionary<string, object?> response = await GetAsync ($"config/{gatewayId}/local/tokens/generate");
+		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
+		Dictionary<string, object?> response = await GetAsync ($"config/{encodedGatewayId}/local/tokens/generate");
 		return response["token"]?.ToString () ?? throw new OverkizException ("No token returned.");
 		}
 
 	/// <summary>
 	/// Registers a generated local API token on the gateway so that it can be used for local API calls.
 	/// </summary>
-	/// <param name="gatewayId">Serial number of the gateway to register the token on.</param>
+	/// <param name="gatewayId">Serial number of the gateway to register the token on. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
 	/// <param name="token">The raw token string returned by <see cref="GenerateLocalToken"/>.</param>
 	/// <param name="label">A human-readable label to identify this token in the token list.</param>
 	/// <param name="scope">Access scope to grant (default <c>"devmode"</c>).</param>
@@ -781,8 +783,9 @@ public sealed class OverkizClient : IAsyncDisposable
 	public async Task<string> ActivateLocalToken (string gatewayId, string token, string label, string scope = "devmode")
 		{
 		await RefreshTokenIfExpired ();
+		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
 		Dictionary<string, object?> response = await PostAsync (
-			$"config/{gatewayId}/local/tokens",
+			$"config/{encodedGatewayId}/local/tokens",
 			new
 				{
 				label,
@@ -793,25 +796,83 @@ public sealed class OverkizClient : IAsyncDisposable
 		}
 
 	/// <summary>Returns all active local API tokens for a gateway filtered by scope.</summary>
-	/// <param name="gatewayId">Serial number of the gateway to query.</param>
+	/// <param name="gatewayId">Serial number of the gateway to query. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
 	/// <param name="scope">Token scope to filter by (default <c>"devmode"</c>).</param>
 	/// <returns>A read-only list of <see cref="LocalToken"/> descriptors.</returns>
 	public async Task<IReadOnlyList<LocalToken>> GetLocalTokens (string gatewayId, string scope = "devmode")
 		{
 		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ($"config/{gatewayId}/local/tokens/{scope}");
+		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
+		string encodedScope = Uri.EscapeDataString (scope);
+		var raw = await GetRawAsync ($"config/{encodedGatewayId}/local/tokens/{encodedScope}");
 		return JsonSerializer.Deserialize<List<LocalToken>> (raw, _jsonOptions) ?? [];
 		}
 
 	/// <summary>Revokes and deletes a local API token.</summary>
-	/// <param name="gatewayId">Serial number of the gateway the token belongs to.</param>
+	/// <param name="gatewayId">Serial number of the gateway the token belongs to. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
 	/// <param name="uuid">UUID of the token to delete (see <see cref="LocalToken.Uuid"/>).</param>
 	/// <returns><see langword="true"/> on success.</returns>
 	public async Task<bool> DeleteLocalToken (string gatewayId, string uuid)
 		{
 		await RefreshTokenIfExpired ();
-		await DeleteAsync ($"config/{gatewayId}/local/tokens/{uuid}");
+		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
+		string encodedUuid = Uri.EscapeDataString (uuid);
+		await DeleteAsync ($"config/{encodedGatewayId}/local/tokens/{encodedUuid}");
 		return true;
+		}
+
+	/// <summary>
+	/// Opens the local pairing window on a gateway for approximately 180 seconds.
+	/// During this period, additional local tokens may be registered directly on the gateway.
+	/// </summary>
+	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
+	/// <returns>The raw JSON response payload, or <see langword="null"/> if the server returns no body.</returns>
+	public async Task<JsonElement?> OpenLocalPairing (string gatewayId)
+		{
+		await RefreshTokenIfExpired ();
+		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
+		string raw = await PostRawAsync ($"config/{encodedGatewayId}/local/openPairing");
+		if (string.IsNullOrWhiteSpace (raw))
+			return null;
+
+		using JsonDocument document = JsonDocument.Parse (raw);
+		return document.RootElement.Clone ();
+		}
+
+	/// <summary>
+	/// Activates developer mode for a gateway.
+	/// This is required on supported gateways before local developer-mode tokens can be used.
+	/// </summary>
+	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
+	public async Task ActivateDeveloperMode (string gatewayId)
+		{
+		await RefreshTokenIfExpired ();
+		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
+		_ = await PostAsync ($"setup/gateways/{encodedGatewayId}/developerMode");
+		}
+
+	/// <summary>Returns the current developer-mode status for a gateway.</summary>
+	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
+	/// <returns>A <see cref="DeveloperMode"/> object describing whether developer mode is active.</returns>
+	public async Task<DeveloperMode> GetDeveloperMode (string gatewayId)
+		{
+		await RefreshTokenIfExpired ();
+		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
+		string raw = await GetRawAsync ($"setup/gateways/{encodedGatewayId}/developerMode");
+		return JsonSerializer.Deserialize<DeveloperMode> (raw, _jsonOptions)
+			?? throw new OverkizException ($"Failed to deserialize developer mode status for gateway {gatewayId}.");
+		}
+
+	/// <summary>
+	/// Deactivates developer mode for a gateway.
+	/// Some gateways reject this endpoint even when they support reading developer-mode state.
+	/// </summary>
+	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
+	public async Task DeactivateDeveloperMode (string gatewayId)
+		{
+		await RefreshTokenIfExpired ();
+		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
+		await DeleteAsync ($"setup/gateways/{encodedGatewayId}/developerMode");
 		}
 
 	// ── Setup options ──────────────────────────────────────────────────────
@@ -1004,6 +1065,8 @@ public sealed class OverkizClient : IAsyncDisposable
 			throw new AccessDeniedToGatewayException (message);
 		if (message == "Your setup cannot be accessed through this application")
 			throw new ApplicationNotAllowedException (message);
+		if (message.Contains ("not supported", StringComparison.OrdinalIgnoreCase))
+			throw new UnsupportedOperationException (message);
 		if (message.Contains ("Another action already exists for device", StringComparison.Ordinal))
 			throw new DuplicateActionOnDeviceException (message);
 		if (message.Contains ("No action group setup found", StringComparison.Ordinal))

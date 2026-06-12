@@ -119,10 +119,16 @@ public enum UIClass
 	Pump,
 	/// <summary>Rain detector or precipitation sensor.</summary>
 	RainSensor,
+	/// <summary>Handheld or wall-mounted remote controller device.</summary>
+	RemoteController,
 	/// <summary>Roller shutter (opaque panel that rolls up into a box).</summary>
 	RollerShutter,
 	/// <summary>Interior roller screen or sun screen.</summary>
 	Screen,
+	/// <summary>Scene or automation object exposed as a controllable item.</summary>
+	Scene,
+	/// <summary>Controller used to launch one or more predefined scenes.</summary>
+	SceneLauncherController,
 	/// <summary>Shower-room extractor fan.</summary>
 	ShowerRoomFan,
 	/// <summary>Alarm siren (audible/visual alert actuator).</summary>
@@ -257,6 +263,8 @@ public enum UIWidget
 	AdjustableSlatsRollerShutter,
 	/// <summary>Widget for an alarm panel or intrusion detection system.</summary>
 	Alarm,
+	/// <summary>Widget for an alarm-specific remote controller.</summary>
+	AlarmRemoteController,
 	/// <summary>Widget for an AirPlay-enabled smart socket.</summary>
 	AirPlaySocket,
 	/// <summary>Widget for a barometric pressure sensor.</summary>
@@ -275,6 +283,8 @@ public enum UIWidget
 	ConfigurableGate,
 	/// <summary>Widget for a magnetic contact / door-window open sensor.</summary>
 	ContactSensor,
+	/// <summary>Widget for a cyclic sliding gate opener.</summary>
+	CyclicSlidingGateOpener,
 	/// <summary>Widget for a fabric curtain that draws to the side(s).</summary>
 	Curtain,
 	/// <summary>Widget for an exterior heater with variable (dimmer) control.</summary>
@@ -285,8 +295,16 @@ public enum UIWidget
 	Door,
 	/// <summary>Widget for an electronic door lock.</summary>
 	DoorLock,
+	/// <summary>Widget for a dynamic remote controller.</summary>
+	DynamicRemoteController,
+	/// <summary>Widget for a dynamic scene object.</summary>
+	DynamicScene,
+	/// <summary>Widget for a dynamic scene-launcher controller.</summary>
+	DynamicSceneLauncherController,
 	/// <summary>Widget for a real-time electricity consumption sensor.</summary>
 	ElectricitySensor,
+	/// <summary>Widget for an unconfigured or placeholder remote controller.</summary>
+	EmptyRemoteController,
 	/// <summary>Widget for an exterior fabric or slat blind.</summary>
 	ExteriorBlind,
 	/// <summary>Widget for an exterior roller screen.</summary>
@@ -337,22 +355,40 @@ public enum UIWidget
 	ProtocolGateway,
 	/// <summary>Widget for a generic pump actuator.</summary>
 	Pump,
+	/// <summary>Widget for a push-button controller.</summary>
+	PushButton,
+	/// <summary>Widget for a rain sensor that also exposes an alarm state.</summary>
+	RainAlarmSensor,
 	/// <summary>Widget for a rain / precipitation sensor.</summary>
 	RainSensor,
+	/// <summary>Widget for a one-way remote controller.</summary>
+	RemoteControllerOneWay,
 	/// <summary>Widget for a roller shutter.</summary>
 	RollerShutter,
 	/// <summary>Widget for an interior roller screen.</summary>
 	Screen,
+	/// <summary>Widget for a scenario trigger control.</summary>
+	ScenarioTrigger,
+	/// <summary>Widget for a scene object.</summary>
+	Scene,
 	/// <summary>Widget for an alarm siren.</summary>
 	Siren,
 	/// <summary>Widget for a combined siren and sensor.</summary>
 	SirenSensor,
 	/// <summary>Widget for a smoke detector.</summary>
 	SmokeSensor,
+	/// <summary>Widget for a solenoid valve actuator.</summary>
+	SolenoidValve,
 	/// <summary>Widget for a stateless alarm panel.</summary>
 	StatelessAlarm,
 	/// <summary>Widget for a stateless exterior heater.</summary>
 	StatelessExteriorHeating,
+	/// <summary>Widget for a combined start/stop timer control.</summary>
+	StartStopTimer,
+	/// <summary>Widget for a start timer control.</summary>
+	StartTimer,
+	/// <summary>Widget for a stateful on/off wall switch.</summary>
+	StatefulOnOffSwitch,
 	/// <summary>Widget for a full swimming pool management system.</summary>
 	SwimmingPool,
 	/// <summary>Widget for a hinged or bi-fold swinging shutter.</summary>
@@ -367,6 +403,10 @@ public enum UIWidget
 	TimedOnOff,
 	/// <summary>Widget for a timed on/off light.</summary>
 	TimedOnOffLight,
+	/// <summary>Widget for a timed solenoid valve actuator.</summary>
+	TimedSolenoidValve,
+	/// <summary>Widget for a two-buttons controller.</summary>
+	TwoButtonsController,
 	/// <summary>Widget for a configurable universal sensor.</summary>
 	UniversalSensor,
 	/// <summary>Widget for an unclassified device.</summary>
@@ -381,6 +421,8 @@ public enum UIWidget
 	UpDownWindow,
 	/// <summary>Widget for a thermostatic valve with temperature interface.</summary>
 	ValveHeatingTemperatureInterface,
+	/// <summary>Widget for a ventilation extractor unit.</summary>
+	VentilationExtractor,
 	/// <summary>Widget for a controlled fresh-air ventilation inlet.</summary>
 	VentilationInlet,
 	/// <summary>Widget for a controlled exhaust-air ventilation outlet.</summary>
@@ -401,6 +443,14 @@ public enum UIWidget
 	WindowLock,
 	/// <summary>Widget for a window sensor that detects tilt as well as open/closed state.</summary>
 	WindowWithTiltSensor,
+	/// <summary>Widget for a wall heating temperature interface.</summary>
+	WallHeatingTemperatureInterface,
+	/// <summary>Widget for Urmet call-forwarding control.</summary>
+	UrmetCallForwarding,
+	/// <summary>Widget for an Urmet stack/integration component.</summary>
+	UrmetStack,
+	/// <summary>Widget for a Yokis transceiver.</summary>
+	YokisTransceiver,
 	/// <summary>Widget for a Z-Wave transceiver module.</summary>
 	ZWaveTransceiver,
 	/// <summary>Widget for a Zigbee network coordinator or router.</summary>

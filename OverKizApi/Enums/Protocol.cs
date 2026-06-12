@@ -12,10 +12,18 @@ public enum Protocol
 	{
 	/// <summary>Protocol is not recognised.</summary>
 	Unknown,
+	/// <summary>Ariston cloud/webservices integration.</summary>
+	Ariston,
 	/// <summary>August smart lock protocol.</summary>
 	August,
+	/// <summary>Aurora protocol.</summary>
+	Aurora,
 	/// <summary>IP camera protocol.</summary>
 	Camera,
+	/// <summary>De Dietrich SmartTC webservices integration.</summary>
+	Dedietrichstc,
+	/// <summary>Deltadore webservices integration.</summary>
+	Deltadore,
 	/// <summary>Eliot IoT protocol (Somfy cloud-to-cloud).</summary>
 	Eliot,
 	/// <summary>EnOcean self-powered wireless protocol.</summary>
@@ -32,12 +40,16 @@ public enum Protocol
 	Io,
 	/// <summary>JSW protocol.</summary>
 	Jsw,
+	/// <summary>KNX building-automation protocol.</summary>
+	Knx,
 	/// <summary>Modbus wired serial protocol.</summary>
 	Modbus,
 	/// <summary>Modbus Link variant.</summary>
 	Modbuslink,
 	/// <summary>MyFox security protocol.</summary>
 	Myfox,
+	/// <summary>Nest cloud/webservices integration.</summary>
+	Nest,
 	/// <summary>Netatmo cloud-to-cloud integration.</summary>
 	Netatmo,
 	/// <summary>Open Gateway Communication Protocol.</summary>
@@ -62,12 +74,18 @@ public enum Protocol
 	Rts,
 	/// <summary>Somfy Thermostat protocol.</summary>
 	SomfyThermostat,
+	/// <summary>Sonos cloud protocol.</summary>
+	Sonos,
 	/// <summary>UPnP control protocol.</summary>
 	UpnpControl,
+	/// <summary>Urmet webservices integration.</summary>
+	Urmet,
 	/// <summary>Verisure security system integration.</summary>
 	Verisure,
 	/// <summary>Schneider Wiser heating/energy protocol.</summary>
 	Wiser,
+	/// <summary>Yokis protocol.</summary>
+	Yokis,
 	/// <summary>Zigbee IEEE 802.15.4 mesh protocol.</summary>
 	Zigbee,
 	/// <summary>Z-Wave mesh wireless protocol.</summary>

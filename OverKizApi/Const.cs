@@ -112,7 +112,7 @@ public static class OverkizConst
 	/// cloud credentials to communicate directly with the gateway on the LAN.
 	/// </summary>
 	public static readonly IReadOnlyList<Server> ServersWithLocalApi =
-		[Server.SomfyEurope, Server.SomfyOceania, Server.SomfyAmerica];
+		[Server.SomfyEurope, Server.SomfyOceania, Server.SomfyAmerica, Server.Rexel];
 
 	/// <summary>
 	/// Maps every known <see cref="Server"/> key to its <see cref="OverkizServer"/> endpoint descriptor.

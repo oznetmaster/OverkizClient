@@ -37,7 +37,7 @@ public sealed class GatewayCandidate
 	public required string HomeId { get; init; }
 	/// <summary>Optional human-readable home label.</summary>
 	public string? Label { get; init; }
-	/// <summary>Optional external identifier associated with the gateway.</summary>
+	/// <summary>Optional external identifier associated with the gateway; this is the Overkiz serial used in URL paths for Rexel cloud endpoints.</summary>
 	public string? ExternalId { get; init; }
 	}
 
@@ -832,6 +832,13 @@ public sealed class LocalToken
 	public string? Scope { get; init; }
 	/// <summary>Unix epoch millisecond timestamp when this token expires, or <see langword="null"/> if it does not expire.</summary>
 	public long? ExpirationTime { get; init; }
+	}
+
+/// <summary>Developer-mode status for a gateway, as returned by <c>setup/gateways/{gatewayId}/developerMode</c>.</summary>
+public sealed class DeveloperMode
+	{
+	/// <summary><see langword="true"/> when developer mode is active for the gateway.</summary>
+	public bool Active { get; init; }
 	}
 
 /// <summary>A key/value configuration parameter belonging to a setup <see cref="OptionObject"/>.</summary>
