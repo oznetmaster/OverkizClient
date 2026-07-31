@@ -1,6 +1,5 @@
 ﻿// Copyright © 2026 Neil Colvin.
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
-// Portions derived from python-overkiz-api © 2020 Mick Vleeshouwer — MIT License.
 
 using System.Net;
 using System.Net.Http;
@@ -21,7 +20,7 @@ using Polly.Retry;
 namespace OverKizApi;
 
 /// <summary>
-/// C# client for the Overkiz API, functionally equivalent to the Python python-overkiz-api library.
+/// C# client for the Overkiz API, providing similar capabilities to the Python python-overkiz-api library.
 /// Supports cloud (standard, Somfy OAuth, CozyTouch JWT, Nexity SSO) and local API modes.
 /// </summary>
 public sealed class OverkizClient : IAsyncDisposable

@@ -36,7 +36,7 @@ A .NET client library for the **Overkiz** cloud and local REST API, enabling con
 
 Local API (LAN) is supported for Somfy TaHoma, Rexel Energeasy Connect, and compatible gateways when a local or developer-mode bearer token is available.
 
-Compatibility note: this .NET library is intended to work across the broader family of Overkiz-compatible gateways, following the design and gateway coverage of the original `python-overkiz-api` project. The current .NET implementation has been validated by the author with a Somfy TaHoma gateway; other Overkiz-compatible gateways and cloud ecosystems are expected to work but have not yet been directly tested here. Recent upstream parity updates include the modern Rexel backend flow, newer Hitachi Hi Kumo `hlrrwifi://` device URL handling, and aligned gateway type/sub-type metadata for newer Energeasy Connect variants.
+Compatibility note: this .NET library is intended to work across the broader family of Overkiz-compatible gateways, with gateway coverage informed by the behavior of the upstream `python-overkiz-api` project. The current .NET implementation has been validated by the author with a Somfy TaHoma gateway; other Overkiz-compatible gateways and cloud ecosystems are expected to work but have not yet been directly tested here. Recent compatibility updates include the modern Rexel backend flow, newer Hitachi Hi Kumo `hlrrwifi://` device URL handling, and aligned gateway type/sub-type metadata for newer Energeasy Connect variants.
 
 ---
 
@@ -163,9 +163,9 @@ Full API documentation is published at **[oznetmaster.github.io/OverkizClient](h
 
 ## Acknowledgements
 
-Protocol details and server endpoint information derived from
-[python-overkiz-api](https://github.com/iMicknl/python-overkiz-api)
-by Mick Vleeshouwer — MIT License.
+Behavioral and compatibility reference work in this project draws on the upstream
+[python-overkiz-api](https://github.com/iMicknl/python-overkiz-api) project and its public documentation.
+This is an independent C# implementation and does not include or derive from its source code.
 
 ---
 
