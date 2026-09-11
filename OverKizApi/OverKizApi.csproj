@@ -19,15 +19,16 @@
     <Company>Neil Colvin</Company>
     <Product>OverKizApi</Product>
     <Copyright>Copyright ©2026 Neil Colvin</Copyright>
-    <AssemblyVersion>1.1.4</AssemblyVersion>
-    <FileVersion>1.1.4</FileVersion>
+    <AssemblyVersion>1.1.5</AssemblyVersion>
+    <FileVersion>1.1.5</FileVersion>
 
     <!-- NuGet package metadata -->
     <PackageId>OverkizClient</PackageId>
-    <Version>1.1.4</Version>
+    <Version>1.1.5</Version>
     <Authors>Neil Colvin</Authors>
     <Description>A .NET client library for the Overkiz cloud and local REST API, enabling control and monitoring of Somfy, Atlantic Cozytouch, Hitachi Hi Kumo, and other Overkiz-compatible smart-home gateways and devices. Supports both cloud (OAuth2/cookie) and local (bearer token) connection modes, device discovery, state polling, command execution, and real-time event streaming.</Description>
     <PackageTags>overkiz;somfy;tahoma;smarthome;iot;rest;api;crestron</PackageTags>
+    <PackageReleaseNotes>Fix JSON login success handling, CozyTouch authorization, typed state conversion and serialization, event device URLs, unknown enum values, and missing response IDs. Add 154 offline NUnit tests for net472 and net10.0. Full notes: https://github.com/oznetmaster/OverkizClient/releases/tag/v1.1.5</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/oznetmaster/OverkizClient</RepositoryUrl>

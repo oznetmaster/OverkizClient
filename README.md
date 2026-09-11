@@ -25,7 +25,7 @@ A .NET client library for the **Overkiz** cloud and local REST API, enabling con
 | Sauter Cozytouch | CozyTouch JWT |
 | Thermor Cozytouch | CozyTouch JWT |
 | Hitachi Hi Kumo (Asia, Europe, Oceania) | Username / Password |
-| Nexity Eugénie | AWS Cognito SRP |
+| Nexity Eugénie | Not implemented; requires AWS Cognito SRP |
 | Flexom by Bouygues | Username / Password |
 | Brandt Smart Control | Username / Password |
 | Rexel Energeasy Connect | External Bearer Token + Gateway Selection |
@@ -47,6 +47,12 @@ dotnet add package OverkizClient
 ```
 
 ---
+
+## Version 1.1.5
+
+This patch adds 154 offline NUnit tests and fixes the authentication, JSON state handling, event mapping and error-handling problems they exposed. It retains the existing public API and targets .NET Framework 4.7.2 and .NET 10. No credentials or devices are required to run the automated tests.
+
+See the [changelog](CHANGELOG.md), [release notes](release-notes/v1.1.5.md) and [test guide](OverKizApi.Tests/README.md). Tagged releases run the suite on both frameworks before publishing to NuGet. The test project is not included in the NuGet package.
 
 ## Recent Upstream Parity Updates
 

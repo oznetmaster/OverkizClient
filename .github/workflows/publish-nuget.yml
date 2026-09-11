@@ -1,3 +1,4 @@
+# Copyright (c) 2026 Neil Colvin. MIT License; see LICENSE in the repository root.
 name: Publish NuGet package
 
 on:
@@ -17,6 +18,7 @@ permissions:
 jobs:
   publish:
     runs-on: windows-latest
+    timeout-minutes: 20
     env:
       PROJECT_PATH: OverKizApi/OverKizApi.csproj
       ARTIFACT_DIR: ${{ github.workspace }}/artifacts
@@ -36,10 +38,14 @@ jobs:
       - name: Determine package version
         id: version
         shell: pwsh
+        env:
+          RELEASE_EVENT: ${{ github.event_name }}
+          RELEASE_INPUT: ${{ inputs.version }}
+          RELEASE_REF: ${{ github.ref_name }}
         run: |
-          $rawVersion = switch ('${{ github.event_name }}') {
-              'workflow_dispatch' { '${{ inputs.version }}'; break }
-              'push' { '${{ github.ref_name }}'; break }
+          $rawVersion = switch ($env:RELEASE_EVENT) {
+              'workflow_dispatch' { $env:RELEASE_INPUT; break }
+              'push' { $env:RELEASE_REF; break }
               default { '' }
           }
           if ([string]::IsNullOrWhiteSpace($rawVersion)) {
@@ -55,8 +61,38 @@ jobs:
               throw "Version '$packageVersion' is not a supported NuGet semantic version."
           }
 
+          [xml]$project = Get-Content -LiteralPath $env:PROJECT_PATH -Raw
+          foreach ($propertyName in @('Version', 'AssemblyVersion', 'FileVersion')) {
+              $expected = if ($propertyName -eq 'Version') { $packageVersion } else { ($packageVersion -split '[-+]')[0] }
+              $node = $project.SelectSingleNode("/Project/PropertyGroup/$propertyName")
+              if ($null -eq $node -or $node.InnerText -ne $expected) {
+                  throw "Update project $propertyName to '$expected' before publishing."
+              }
+          }
+          $notesPath = "release-notes/v$packageVersion.md"
+          if (-not (Test-Path -LiteralPath $notesPath -PathType Leaf)) {
+              throw "Missing release notes: $notesPath"
+          }
+
+          "notes_path=$notesPath" >> $env:GITHUB_OUTPUT
           "raw_version=$rawVersion" >> $env:GITHUB_OUTPUT
           "package_version=$packageVersion" >> $env:GITHUB_OUTPUT
+
+      - name: Run NUnit tests on both frameworks
+        shell: pwsh
+        run: |
+          foreach ($framework in @('net472', 'net10.0')) {
+              dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj --configuration Release --framework $framework -p:ContinuousIntegrationBuild=true --logger "trx;LogFileName=tests.trx" --results-directory "artifacts/test-results/$framework"
+              if ($LASTEXITCODE -ne 0) { throw "NUnit tests failed for $framework." }
+          }
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-test-results
+          path: artifacts/test-results
+          if-no-files-found: warn
 
       - name: Restore
         run: dotnet restore ${{ env.PROJECT_PATH }}
@@ -80,6 +116,7 @@ jobs:
 
           foreach ($package in $packages) {
               dotnet nuget push $package.FullName --api-key "${{ secrets.NUGET_API_KEY }}" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+              if ($LASTEXITCODE -ne 0) { throw "NuGet publication failed for $($package.Name)." }
           }
 
       - name: Create GitHub release from tag
@@ -88,6 +125,7 @@ jobs:
         with:
           tag_name: ${{ steps.version.outputs.raw_version }}
           name: ${{ steps.version.outputs.raw_version }}
-          generate_release_notes: true
+          body_path: ${{ steps.version.outputs.notes_path }}
+          generate_release_notes: false
           prerelease: ${{ contains(steps.version.outputs.package_version, '-') }}
           files: ${{ env.ARTIFACT_DIR }}/*.nupkg
