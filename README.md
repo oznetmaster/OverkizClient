@@ -149,6 +149,22 @@ await client.UnregisterEventListener();
 
 ---
 
+## Automated tests
+
+`OverKizApi.Tests` contains **154 NUnit tests**, targeting both **net472** and **net10.0**, with the same `latest` C# language setting as the library. Open `OverkizClient.slnx` in Visual Studio and use Test Explorer, or run:
+
+```powershell
+dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj -c Release
+```
+
+The suite exercises the public client through an injected `HttpClient` and a strict scripted HTTP handler. Every request is intercepted: it does not open sockets, access cloud accounts, use saved credentials or operate devices. All identifiers, credentials, tokens and responses are synthetic. Tests validate request methods, escaped URLs, authorization headers and JSON/form payloads as well as returned models and exceptions.
+
+Coverage includes standard, Somfy and CozyTouch login; token refresh; Rexel gateway discovery/selection; setup caching; device/state parsing; commands and scenarios; execution history; event registration/fetch/cleanup; local tokens and developer mode; HTTP error mapping; enum compatibility; serialization; and client resource ownership. NUnit3TestAdapter enables Visual Studio discovery, and the **NUnit tests** GitHub workflow runs both targets on pushes and pull requests without publishing packages.
+
+The suite validates library behavior against synthetic protocol examples, not service availability or compatibility with every physical gateway. Nexity authentication is currently an explicit unsupported stub. Local label polling is checked for initial snapshots, throttling and best-effort errors; the timed rename-difference branch is not covered by this first suite. See [the test guide](OverKizApi.Tests/README.md) for regression details and limitations.
+
+---
+
 ## Test Console
 
 The solution includes `OverKizApi.TestConsole`, an interactive command-line tool for testing API operations — device listing, command execution, live event watching, and Rexel gateway discovery/selection — against both cloud and local connections.

@@ -209,8 +209,9 @@ public sealed class State
 	/// Returns the value as <see cref="int"/>, or <see langword="null"/> when <see cref="Type"/> is <see cref="DataType.None"/>.
 	/// </summary>
 	/// <exception cref="InvalidCastException">Thrown when <see cref="Type"/> is not <see cref="DataType.Integer"/>.</exception>
+	[JsonIgnore]
 	public int? ValueAsInt => Type == DataType.None ? null
-		: Type == DataType.Integer ? Convert.ToInt32 (Value, CultureInfo.InvariantCulture)
+		: Type == DataType.Integer ? Convert.ToInt32 (Value is JsonElement element ? element.ToString () : Value, CultureInfo.InvariantCulture)
 		: throw new InvalidCastException ($"{Name} is not an integer");
 
 	/// <summary>
@@ -218,23 +219,26 @@ public sealed class State
 	/// Integer states are promoted to <see cref="double"/> automatically.
 	/// </summary>
 	/// <exception cref="InvalidCastException">Thrown when <see cref="Type"/> is neither <see cref="DataType.Float"/> nor <see cref="DataType.Integer"/>.</exception>
+	[JsonIgnore]
 	public double? ValueAsFloat => Type == DataType.None ? null
-		: Type == DataType.Float ? Convert.ToDouble (Value, CultureInfo.InvariantCulture)
-		: Type == DataType.Integer ? Convert.ToDouble (Value, CultureInfo.InvariantCulture)
+		: Type == DataType.Float ? Convert.ToDouble (Value is JsonElement element ? element.ToString () : Value, CultureInfo.InvariantCulture)
+		: Type == DataType.Integer ? Convert.ToDouble (Value is JsonElement integerElement ? integerElement.ToString () : Value, CultureInfo.InvariantCulture)
 		: throw new InvalidCastException ($"{Name} is not a float");
 
 	/// <summary>
 	/// Returns the value as <see cref="bool"/>, or <see langword="null"/> when <see cref="Type"/> is <see cref="DataType.None"/>.
 	/// </summary>
 	/// <exception cref="InvalidCastException">Thrown when <see cref="Type"/> is not <see cref="DataType.Boolean"/>.</exception>
+	[JsonIgnore]
 	public bool? ValueAsBool => Type == DataType.None ? null
-		: Type == DataType.Boolean ? Convert.ToBoolean (Value, CultureInfo.InvariantCulture)
+		: Type == DataType.Boolean ? Convert.ToBoolean (Value is JsonElement element ? element.ToString () : Value, CultureInfo.InvariantCulture)
 		: throw new InvalidCastException ($"{Name} is not a boolean");
 
 	/// <summary>
 	/// Returns the value as <see cref="string"/>, or <see langword="null"/> when <see cref="Type"/> is <see cref="DataType.None"/>.
 	/// </summary>
 	/// <exception cref="InvalidCastException">Thrown when <see cref="Type"/> is not <see cref="DataType.String"/>.</exception>
+	[JsonIgnore]
 	public string? ValueAsStr => Type == DataType.None ? null
 		: Type == DataType.String ? Value?.ToString ()
 		: throw new InvalidCastException ($"{Name} is not a string");
@@ -700,6 +704,7 @@ public sealed class EventObject
 	/// <summary>Execution ID associated with this event (present on execution state-change events).</summary>
 	public string? ExecId { get; init; }
 	/// <summary>Device URL of the device that triggered the event (present on device events).</summary>
+	[JsonPropertyName ("deviceURL")]
 	public string? DeviceUrl { get; init; }
 	/// <summary>Changed state snapshots included in a <c>DeviceStateChanged</c> event.</summary>
 	public IReadOnlyList<EventState> DeviceStates { get; init; } = [];

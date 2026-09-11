@@ -235,7 +235,7 @@ public sealed class OverkizClient : IAsyncDisposable
 			{
 			var jwt = await CozytouchLogin ();
 			Dictionary<string, object?> response = await PostAsync ("login", new Dictionary<string, string> { ["jwt"] = jwt });
-			var success = response.TryGetValue ("success", out var s) && s is true;
+			var success = response.TryGetValue ("success", out var s) && s is JsonElement { ValueKind: JsonValueKind.True };
 			if (success && registerEventListener)
 				await RegisterEventListener ();
 			return success;
@@ -253,7 +253,7 @@ public sealed class OverkizClient : IAsyncDisposable
 				["ssoToken"] = ssoToken,
 				};
 			Dictionary<string, object?> response = await PostAsync ("login", payload);
-			var success = response.TryGetValue ("success", out var s) && s is true;
+			var success = response.TryGetValue ("success", out var s) && s is JsonElement { ValueKind: JsonValueKind.True };
 			if (success && registerEventListener)
 				await RegisterEventListener ();
 			return success;
@@ -267,7 +267,7 @@ public sealed class OverkizClient : IAsyncDisposable
 				["userPassword"] = Password,
 				};
 			Dictionary<string, object?> response = await PostAsync ("login", payload);
-			var success = response.TryGetValue ("success", out var s) && s is true;
+			var success = response.TryGetValue ("success", out var s) && s is JsonElement { ValueKind: JsonValueKind.True };
 			if (success && registerEventListener)
 				await RegisterEventListener ();
 			return success;
@@ -364,13 +364,12 @@ public sealed class OverkizClient : IAsyncDisposable
 			]);
 		form.Headers.ContentType = new MediaTypeHeaderValue ("application/x-www-form-urlencoded");
 
-		using HttpResponseMessage tokenResp = await _http.PostAsync (
-			new Uri (OverkizConst.COZYTOUCH_ATLANTIC_API + "/token"),
-			new HttpRequestMessage (HttpMethod.Post, OverkizConst.COZYTOUCH_ATLANTIC_API + "/token")
-				{
-				Content = form,
-				Headers = { Authorization = new AuthenticationHeaderValue ("Basic", OverkizConst.COZYTOUCH_CLIENT_ID) },
-				}.Content);
+		using var tokenRequest = new HttpRequestMessage (HttpMethod.Post, OverkizConst.COZYTOUCH_ATLANTIC_API + "/token")
+			{
+			Content = form,
+			Headers = { Authorization = new AuthenticationHeaderValue ("Basic", OverkizConst.COZYTOUCH_CLIENT_ID) },
+			};
+		using HttpResponseMessage tokenResp = await _http.SendAsync (tokenRequest);
 
 		Dictionary<string, JsonElement> tokenJson = await tokenResp.Content.ReadFromJsonAsync<Dictionary<string, JsonElement>> (_jsonOptions)
 			?? throw new CozyTouchServiceException ("Empty response from CozyTouch token endpoint.");
@@ -425,7 +424,7 @@ public sealed class OverkizClient : IAsyncDisposable
 		Dictionary<string, object?> response = await PostAsync ("events/register", new
 			{
 			});
-		EventListenerId = response["id"]?.ToString () ?? throw new OverkizException ("No event listener ID returned.");
+		EventListenerId = GetRequiredResponseString (response, "id", "No event listener ID returned.");
 		}
 
 	/// <summary>
@@ -723,7 +722,7 @@ public sealed class OverkizClient : IAsyncDisposable
 		Dictionary<string, object?> response = await PostAsync ($"exec/{oid}", new
 			{
 			});
-		return response["execId"]?.ToString () ?? throw new OverkizException ("No execId returned.");
+		return GetRequiredResponseString (response, "execId", "No execId returned.");
 		}
 
 	/// <summary>Schedules a scenario to execute at a specific point in time.</summary>
@@ -737,7 +736,7 @@ public sealed class OverkizClient : IAsyncDisposable
 		Dictionary<string, object?> response = await PostAsync ($"exec/schedule/{oid}/{timestamp}", new
 			{
 			});
-		return response["triggerId"]?.ToString () ?? throw new OverkizException ("No triggerId returned.");
+		return GetRequiredResponseString (response, "triggerId", "No triggerId returned.");
 		}
 
 	// ── Places ─────────────────────────────────────────────────────────────
@@ -767,7 +766,7 @@ public sealed class OverkizClient : IAsyncDisposable
 		await RefreshTokenIfExpired ();
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
 		Dictionary<string, object?> response = await GetAsync ($"config/{encodedGatewayId}/local/tokens/generate");
-		return response["token"]?.ToString () ?? throw new OverkizException ("No token returned.");
+		return GetRequiredResponseString (response, "token", "No token returned.");
 		}
 
 	/// <summary>
@@ -791,7 +790,7 @@ public sealed class OverkizClient : IAsyncDisposable
 				token,
 				scope
 				});
-		return response["requestId"]?.ToString () ?? throw new OverkizException ("No requestId returned.");
+		return GetRequiredResponseString (response, "requestId", "No requestId returned.");
 		}
 
 	/// <summary>Returns all active local API tokens for a gateway filtered by scope.</summary>
@@ -943,6 +942,11 @@ public sealed class OverkizClient : IAsyncDisposable
 		await ThrowIfOverkizError (resp, body);
 		return body;
 		}
+
+	private static string GetRequiredResponseString (Dictionary<string, object?> response, string key, string errorMessage)
+		=> response.TryGetValue (key, out object? value) && value is not null
+			? value.ToString ()!
+			: throw new OverkizException (errorMessage);
 
 	private async Task<Dictionary<string, object?>> GetAsync (string path)
 		{

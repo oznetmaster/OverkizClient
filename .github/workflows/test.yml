@@ -1,0 +1,33 @@
+# Copyright (c) 2026 Neil Colvin. MIT License; see LICENSE in the repository root.
+name: NUnit tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        framework: [net472, net10.0]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Run isolated API tests
+        run: dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj -c Release -f ${{ matrix.framework }} --logger "trx;LogFileName=tests.trx" --results-directory artifacts/test-results/${{ matrix.framework }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-${{ matrix.framework }}
+          path: artifacts/test-results/${{ matrix.framework }}
+          if-no-files-found: warn
