@@ -48,11 +48,13 @@ dotnet add package OverkizClient
 
 ---
 
-## Version 1.1.5
+## Version 1.2.0
 
-This patch adds 154 offline NUnit tests and fixes the authentication, JSON state handling, event mapping and error-handling problems they exposed. It retains the existing public API and targets .NET Framework 4.7.2 and .NET 10. No credentials or devices are required to run the automated tests.
+This minor release adds dedicated internal response models and six opt-in local API live tests, and expands offline NUnit coverage to 233 cases on each target framework. The console and live tests share private local credentials through `LiveTestSettings.json`.
 
-See the [changelog](CHANGELOG.md), [release notes](release-notes/v1.1.5.md) and [test guide](OverKizApi.Tests/README.md). Tagged releases run the suite on both frameworks before publishing to NuGet. The test project is not included in the NuGet package.
+Public method signatures and existing public domain models remain unchanged. Response validation is stricter: blank required identifiers and incompatible known-field JSON types are rejected, and invalid OAuth responses are rejected before updating authentication state. Optional response fields and unknown fields remain supported. See the [changelog](CHANGELOG.md), [release notes](release-notes/v1.2.0.md) and [test guide](OverKizApi.Tests/README.md) for the exact behavior and live-test opt-in instructions.
+
+Tagged releases run all offline cases on .NET Framework 4.7.2 and .NET 10 before publishing to NuGet. The test project, NUnit dependencies and private settings are not included in the library package.
 
 ## Recent Upstream Parity Updates
 
