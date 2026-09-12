@@ -20,4 +20,7 @@
     <PackageReference Include="IsExternalInit" Version="1.0.3" PrivateAssets="all" />
     <PackageReference Include="RequiredMemberAttribute" Version="1.0.0" PrivateAssets="all" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\TestSupport\LiveTestSettings.cs" Link="TestSupport\LiveTestSettings.cs" />
+  </ItemGroup>
 </Project>

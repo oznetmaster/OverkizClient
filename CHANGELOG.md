@@ -2,6 +2,25 @@
 
 Notable changes to OverkizClient are recorded here. Earlier release history is available in [GitHub Releases](https://github.com/oznetmaster/OverkizClient/releases).
 
+## Unreleased
+
+### Changed
+
+- Use dedicated internal models for login, Somfy/CozyTouch OAuth, listener registration, execution/scheduling IDs, local-token generation/activation and API errors.
+- Model alternative device-state wrappers with optional `states`, `deviceStates` and `values` collections, choosing the first non-null collection in that order. Empty objects and null collections still return no states.
+- Preserve public method signatures and existing public domain models. Unknown response fields are ignored; open-ended state values, command parameters and the unstructured pairing payload retain flexible handling.
+- Reject blank response identifiers and invalid known-field JSON types instead of accepting arbitrary string conversions. Missing required identifiers raise `OverkizException`; incompatible property types raise `JsonException`. Unparseable API error envelopes fall back to the HTTP status exception.
+- Validate required OAuth token fields before storing authentication state or requesting the CozyTouch JWT. Somfy expiry is required; its refresh token is optional. Invalid Somfy refresh responses preserve the existing token state.
+- Skip response deserialization for successful operations whose bodies are not consumed, while retaining HTTP error mapping.
+
+### Added
+
+- Six separately selectable local API live tests in category `Live`, disabled unless enabled through private JSON or the explicit NUnit run parameter. The tests reuse an existing token and restore their event-listener resources.
+- Shared console/live-test credentials in a private `LiveTestSettings.json`, with legacy console import and per-run enable overrides for embedded runners. Actual credential files are not included in builds or packages.
+- Eight offline live-configuration checks, bringing the offline suite to 233 tests, plus six opt-in live cases. CI explicitly excludes live tests.
+- 71 response-model regression cases, bringing the offline NUnit suite to 225 tests per target framework.
+- Documentation of optional response fields, typed transport models and remaining flexible payloads.
+
 ## [1.1.5](https://github.com/oznetmaster/OverkizClient/releases/tag/v1.1.5) - 2026-09-11
 
 ### Fixed

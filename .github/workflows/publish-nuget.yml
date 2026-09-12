@@ -82,7 +82,7 @@ jobs:
         shell: pwsh
         run: |
           foreach ($framework in @('net472', 'net10.0')) {
-              dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj --configuration Release --framework $framework -p:ContinuousIntegrationBuild=true --logger "trx;LogFileName=tests.trx" --results-directory "artifacts/test-results/$framework"
+              dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj --configuration Release --framework $framework -p:ContinuousIntegrationBuild=true --filter "TestCategory!=Live" --logger "trx;LogFileName=tests.trx" --results-directory "artifacts/test-results/$framework"
               if ($LASTEXITCODE -ne 0) { throw "NUnit tests failed for $framework." }
           }
 

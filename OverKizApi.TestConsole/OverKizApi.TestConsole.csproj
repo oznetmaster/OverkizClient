@@ -17,5 +17,7 @@
     <ProjectReference Include="..\OverKizApi\OverKizApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Include="..\TestSupport\LiveTestSettings.cs" Link="TestSupport\LiveTestSettings.cs" />
+  </ItemGroup>
 </Project>
-

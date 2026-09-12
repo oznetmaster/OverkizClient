@@ -1,4 +1,4 @@
-﻿// Copyright © 2026 Neil Colvin.
+// Copyright © 2026 Neil Colvin.
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 using System;
@@ -7,6 +7,7 @@ using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using OverKizApi.Enums;
+using OverKizApi.TestSupport;
 
 namespace OverKizApi.TestConsole;
 
@@ -63,8 +64,14 @@ internal static class CredentialStore
 	/// </summary>
 	public static SavedCredential? LoadLocal ()
 		{
+		LiveTestSettings? settings = LiveTestSettingsStore.Load (LiveTestSettingsStore.DefaultPath);
+		if (settings is not null && !string.IsNullOrWhiteSpace (settings.GatewayHost) && !string.IsNullOrWhiteSpace (settings.Token))
+			return new SavedCredential { Username = settings.GatewayHost, Password = settings.Token };
+
 		Dictionary<string, SavedCredential> store = ReadFile ();
 		_ = store.TryGetValue (LOCAL_KEY, out SavedCredential? cred);
+		if (cred is not null)
+			LiveTestSettingsStore.SaveLocalCredentials (cred.Username, cred.Password);
 		return cred;
 		}
 
@@ -73,6 +80,7 @@ internal static class CredentialStore
 		{
 		Dictionary<string, SavedCredential> store = ReadFile ();
 		store [LOCAL_KEY] = cred;
+		LiveTestSettingsStore.SaveLocalCredentials (cred.Username, cred.Password);
 		File.WriteAllText (_filePath, JsonSerializer.Serialize (store, _jsonOptions));
 		}
 

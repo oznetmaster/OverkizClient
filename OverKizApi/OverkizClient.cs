@@ -234,8 +234,8 @@ public sealed class OverkizClient : IAsyncDisposable
 			Server == OverkizConst.SupportedServers [Enums.Server.SauterCozytouch])
 			{
 			var jwt = await CozytouchLogin ();
-			Dictionary<string, object?> response = await PostAsync ("login", new Dictionary<string, string> { ["jwt"] = jwt });
-			var success = response.TryGetValue ("success", out var s) && s is JsonElement { ValueKind: JsonValueKind.True };
+			LoginResponse? response = await PostAsync<LoginResponse> ("login", new Dictionary<string, string> { ["jwt"] = jwt });
+			var success = response?.Success is true;
 			if (success && registerEventListener)
 				await RegisterEventListener ();
 			return success;
@@ -252,8 +252,8 @@ public sealed class OverkizClient : IAsyncDisposable
 				["userPassword"] = Password,
 				["ssoToken"] = ssoToken,
 				};
-			Dictionary<string, object?> response = await PostAsync ("login", payload);
-			var success = response.TryGetValue ("success", out var s) && s is JsonElement { ValueKind: JsonValueKind.True };
+			LoginResponse? response = await PostAsync<LoginResponse> ("login", payload);
+			var success = response?.Success is true;
 			if (success && registerEventListener)
 				await RegisterEventListener ();
 			return success;
@@ -266,8 +266,8 @@ public sealed class OverkizClient : IAsyncDisposable
 				["userId"] = Username,
 				["userPassword"] = Password,
 				};
-			Dictionary<string, object?> response = await PostAsync ("login", payload);
-			var success = response.TryGetValue ("success", out var s) && s is JsonElement { ValueKind: JsonValueKind.True };
+			LoginResponse? response = await PostAsync<LoginResponse> ("login", payload);
+			var success = response?.Success is true;
 			if (success && registerEventListener)
 				await RegisterEventListener ();
 			return success;
@@ -291,19 +291,11 @@ public sealed class OverkizClient : IAsyncDisposable
 		using HttpResponseMessage resp = await _http.PostAsync (
 			new Uri (OverkizConst.SOMFY_API + "/oauth/oauth/v2/token/jwt"), form);
 
-		Dictionary<string, JsonElement> token = await resp.Content.ReadFromJsonAsync<Dictionary<string, JsonElement>> (_jsonOptions)
+		SomfyTokenResponse token = await resp.Content.ReadFromJsonAsync<SomfyTokenResponse> (_jsonOptions)
 			?? throw new SomfyServiceException ("Empty response from Somfy token endpoint.");
 
-		if (token.TryGetValue ("message", out JsonElement msg) && msg.GetString () == "error.invalid.grant")
-			throw new SomfyBadCredentialsException (msg.GetString ()!);
-
-		if (!token.TryGetValue ("access_token", out JsonElement value))
-			throw new SomfyServiceException ("No Somfy access token provided.");
-
-		_accessToken = value.GetString ()!;
-		_refreshToken = token["refresh_token"].GetString ();
-		_expiresAt = DateTime.Now.AddSeconds (token["expires_in"].GetInt32 () - 5);
-		return _accessToken;
+		ApplySomfyTokenResponse (token);
+		return _accessToken!;
 		}
 
 	/// <summary>
@@ -333,18 +325,24 @@ public sealed class OverkizClient : IAsyncDisposable
 		using HttpResponseMessage resp = await _http.PostAsync (
 			new Uri (OverkizConst.SOMFY_API + "/oauth/oauth/v2/token/jwt"), form);
 
-		Dictionary<string, JsonElement> token = await resp.Content.ReadFromJsonAsync<Dictionary<string, JsonElement>> (_jsonOptions)
+		SomfyTokenResponse token = await resp.Content.ReadFromJsonAsync<SomfyTokenResponse> (_jsonOptions)
 			?? throw new SomfyServiceException ("Empty response from Somfy refresh endpoint.");
 
-		if (token.TryGetValue ("message", out JsonElement msg) && msg.GetString () == "error.invalid.grant")
-			throw new SomfyBadCredentialsException (msg.GetString ()!);
+		ApplySomfyTokenResponse (token);
+		}
 
-		if (!token.TryGetValue ("access_token", out JsonElement value))
+	private void ApplySomfyTokenResponse (SomfyTokenResponse token)
+		{
+		if (token.Message == "error.invalid.grant")
+			throw new SomfyBadCredentialsException (token.Message);
+		if (string.IsNullOrWhiteSpace (token.AccessToken))
 			throw new SomfyServiceException ("No Somfy access token provided.");
+		if (token.ExpiresIn is null)
+			throw new SomfyServiceException ("No Somfy token expiry provided.");
 
-		_accessToken = value.GetString ()!;
-		_refreshToken = token["refresh_token"].GetString ();
-		_expiresAt = DateTime.Now.AddSeconds (token["expires_in"].GetInt32 () - 5);
+		_accessToken = token.AccessToken;
+		_refreshToken = token.RefreshToken;
+		_expiresAt = DateTime.Now.AddSeconds (token.ExpiresIn.Value - 5);
 		}
 
 	/// <summary>
@@ -371,23 +369,18 @@ public sealed class OverkizClient : IAsyncDisposable
 			};
 		using HttpResponseMessage tokenResp = await _http.SendAsync (tokenRequest);
 
-		Dictionary<string, JsonElement> tokenJson = await tokenResp.Content.ReadFromJsonAsync<Dictionary<string, JsonElement>> (_jsonOptions)
+		CozyTouchTokenResponse token = await tokenResp.Content.ReadFromJsonAsync<CozyTouchTokenResponse> (_jsonOptions)
 			?? throw new CozyTouchServiceException ("Empty response from CozyTouch token endpoint.");
 
-		if (tokenJson.TryGetValue ("error", out JsonElement err) && err.GetString () == "invalid_grant")
-			{
-			throw new CozyTouchBadCredentialsException (
-				tokenJson.TryGetValue ("error_description", out JsonElement desc) ? desc.GetString ()! : "Invalid grant");
-			}
+		if (token.Error == "invalid_grant")
+			throw new CozyTouchBadCredentialsException (token.ErrorDescription ?? "Invalid grant");
 
-		if (!tokenJson.TryGetValue ("token_type", out _))
+		if (string.IsNullOrWhiteSpace (token.TokenType) || string.IsNullOrWhiteSpace (token.AccessToken))
 			throw new CozyTouchServiceException ("No CozyTouch token provided.");
-
-		var accessToken = tokenJson["access_token"].GetString ()!;
 
 		// Step 2: exchange for JWT
 		using var req = new HttpRequestMessage (HttpMethod.Get, OverkizConst.COZYTOUCH_ATLANTIC_API + "/magellan/accounts/jwt");
-		req.Headers.Authorization = new AuthenticationHeaderValue ("Bearer", accessToken);
+		req.Headers.Authorization = new AuthenticationHeaderValue ("Bearer", token.AccessToken);
 		using HttpResponseMessage jwtResp = await _http.SendAsync (req);
 		string jwtRaw = await jwtResp.Content.ReadAsStringAsync ();
 		string jwt = jwtRaw.Trim ().Trim ('"');
@@ -421,10 +414,10 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <exception cref="OverkizException">Thrown when the server does not return a valid listener ID.</exception>
 	public async Task RegisterEventListener ()
 		{
-		Dictionary<string, object?> response = await PostAsync ("events/register", new
+		EventListenerResponse? response = await PostAsync<EventListenerResponse> ("events/register", new
 			{
 			});
-		EventListenerId = GetRequiredResponseString (response, "id", "No event listener ID returned.");
+		EventListenerId = GetRequiredResponseString (response?.Id, "No event listener ID returned.");
 		}
 
 	/// <summary>
@@ -629,15 +622,8 @@ public sealed class OverkizClient : IAsyncDisposable
 		raw = raw.TrimStart ();
 		if (raw.Length > 0 && raw [0] == '{')
 			{
-			using var doc = JsonDocument.Parse (raw);
-			// Empty object {} means no states; try common wrapper keys otherwise
-			foreach (string key in new [] { "states", "deviceStates", "values" })
-				{
-				if (doc.RootElement.TryGetProperty (key, out JsonElement arr))
-					return JsonSerializer.Deserialize<List<State>> (arr.GetRawText (), _jsonOptions) ?? [];
-				}
-
-			return [];
+			DeviceStatesResponse? response = JsonSerializer.Deserialize<DeviceStatesResponse> (raw, _jsonOptions);
+			return response?.States ?? response?.DeviceStates ?? response?.Values ?? [];
 			}
 
 		return JsonSerializer.Deserialize<List<State>> (raw, _jsonOptions) ?? [];
@@ -650,7 +636,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	public async Task RefreshAllDeviceStates ()
 		{
 		await RefreshTokenIfExpired ();
-		_ = await PostAsync ("setup/devices/states/refresh");
+		_ = await PostRawAsync ("setup/devices/states/refresh");
 		}
 
 	// ── Execution ──────────────────────────────────────────────────────────
@@ -669,10 +655,8 @@ public sealed class OverkizClient : IAsyncDisposable
 			label,
 			actions = new[] { new { deviceURL = deviceUrl, commands } },
 			};
-		Dictionary<string, object?> response = await PostAsync ("exec/apply", payload);
-		return response.TryGetValue ("execId", out var id) && id is not null
-			? id.ToString ()!
-			: throw new OverkizException ("No execId returned.");
+		ExecutionResponse? response = await PostAsync<ExecutionResponse> ("exec/apply", payload);
+		return GetRequiredResponseString (response?.ExecId, "No execId returned.");
 		}
 
 	/// <summary>Cancels a running or queued execution.</summary>
@@ -719,10 +703,10 @@ public sealed class OverkizClient : IAsyncDisposable
 	public async Task<string> ExecuteScenario (string oid)
 		{
 		await RefreshTokenIfExpired ();
-		Dictionary<string, object?> response = await PostAsync ($"exec/{oid}", new
+		ExecutionResponse? response = await PostAsync<ExecutionResponse> ($"exec/{oid}", new
 			{
 			});
-		return GetRequiredResponseString (response, "execId", "No execId returned.");
+		return GetRequiredResponseString (response?.ExecId, "No execId returned.");
 		}
 
 	/// <summary>Schedules a scenario to execute at a specific point in time.</summary>
@@ -733,10 +717,10 @@ public sealed class OverkizClient : IAsyncDisposable
 	public async Task<string> ExecuteScheduledScenario (string oid, long timestamp)
 		{
 		await RefreshTokenIfExpired ();
-		Dictionary<string, object?> response = await PostAsync ($"exec/schedule/{oid}/{timestamp}", new
+		ScheduledExecutionResponse? response = await PostAsync<ScheduledExecutionResponse> ($"exec/schedule/{oid}/{timestamp}", new
 			{
 			});
-		return GetRequiredResponseString (response, "triggerId", "No triggerId returned.");
+		return GetRequiredResponseString (response?.TriggerId, "No triggerId returned.");
 		}
 
 	// ── Places ─────────────────────────────────────────────────────────────
@@ -765,8 +749,8 @@ public sealed class OverkizClient : IAsyncDisposable
 		{
 		await RefreshTokenIfExpired ();
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
-		Dictionary<string, object?> response = await GetAsync ($"config/{encodedGatewayId}/local/tokens/generate");
-		return GetRequiredResponseString (response, "token", "No token returned.");
+		LocalTokenGenerationResponse? response = await GetAsync<LocalTokenGenerationResponse> ($"config/{encodedGatewayId}/local/tokens/generate");
+		return GetRequiredResponseString (response?.Token, "No token returned.");
 		}
 
 	/// <summary>
@@ -782,7 +766,7 @@ public sealed class OverkizClient : IAsyncDisposable
 		{
 		await RefreshTokenIfExpired ();
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
-		Dictionary<string, object?> response = await PostAsync (
+		LocalTokenActivationResponse? response = await PostAsync<LocalTokenActivationResponse> (
 			$"config/{encodedGatewayId}/local/tokens",
 			new
 				{
@@ -790,7 +774,7 @@ public sealed class OverkizClient : IAsyncDisposable
 				token,
 				scope
 				});
-		return GetRequiredResponseString (response, "requestId", "No requestId returned.");
+		return GetRequiredResponseString (response?.RequestId, "No requestId returned.");
 		}
 
 	/// <summary>Returns all active local API tokens for a gateway filtered by scope.</summary>
@@ -846,7 +830,7 @@ public sealed class OverkizClient : IAsyncDisposable
 		{
 		await RefreshTokenIfExpired ();
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
-		_ = await PostAsync ($"setup/gateways/{encodedGatewayId}/developerMode");
+		_ = await PostRawAsync ($"setup/gateways/{encodedGatewayId}/developerMode");
 		}
 
 	/// <summary>Returns the current developer-mode status for a gateway.</summary>
@@ -943,15 +927,13 @@ public sealed class OverkizClient : IAsyncDisposable
 		return body;
 		}
 
-	private static string GetRequiredResponseString (Dictionary<string, object?> response, string key, string errorMessage)
-		=> response.TryGetValue (key, out object? value) && value is not null
-			? value.ToString ()!
-			: throw new OverkizException (errorMessage);
+	private static string GetRequiredResponseString (string? value, string errorMessage)
+		=> !string.IsNullOrWhiteSpace (value) ? value! : throw new OverkizException (errorMessage);
 
-	private async Task<Dictionary<string, object?>> GetAsync (string path)
+	private async Task<T?> GetAsync<T> (string path) where T : class
 		{
 		var raw = await GetRawAsync (path);
-		return JsonSerializer.Deserialize<Dictionary<string, object?>> (raw, _jsonOptions) ?? [];
+		return string.IsNullOrWhiteSpace (raw) ? null : JsonSerializer.Deserialize<T> (raw, _jsonOptions);
 		}
 
 	private async Task<string> PostRawAsync (string path, object? payload = null)
@@ -967,12 +949,10 @@ public sealed class OverkizClient : IAsyncDisposable
 		return body;
 		}
 
-	private async Task<Dictionary<string, object?>> PostAsync (string path, object? payload = null)
+	private async Task<T?> PostAsync<T> (string path, object? payload = null) where T : class
 		{
 		var raw = await PostRawAsync (path, payload);
-		return string.IsNullOrWhiteSpace (raw)
-			? []
-			: JsonSerializer.Deserialize<Dictionary<string, object?>> (raw, _jsonOptions) ?? [];
+		return string.IsNullOrWhiteSpace (raw) ? null : JsonSerializer.Deserialize<T> (raw, _jsonOptions);
 		}
 
 	private async Task DeleteAsync (string path)
@@ -1011,10 +991,10 @@ public sealed class OverkizClient : IAsyncDisposable
 		if (response.IsSuccessStatusCode)
 			return Task.CompletedTask;
 
-		Dictionary<string, JsonElement>? result = null;
+		ApiErrorResponse? result = null;
 		try
 			{
-			result = JsonSerializer.Deserialize<Dictionary<string, JsonElement>> (body, _jsonOptions);
+			result = JsonSerializer.Deserialize<ApiErrorResponse> (body, _jsonOptions);
 			}
 		catch (JsonException) { }
 
@@ -1024,7 +1004,7 @@ public sealed class OverkizClient : IAsyncDisposable
 			return Task.CompletedTask;
 			}
 
-		var message = result.TryGetValue ("error", out JsonElement e) ? e.GetString () ?? string.Empty : string.Empty;
+		var message = result.Error ?? string.Empty;
 
 		if (message == "Bad credentials.")
 			throw new BadCredentialsException (message);

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Neil Colvin. MIT License; see LICENSE. Explicitly passing this file enables live tests. -->
+<RunSettings>
+  <TestRunParameters>
+    <Parameter name="EnableLiveTests" value="true" />
+  </TestRunParameters>
+</RunSettings>

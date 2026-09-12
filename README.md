@@ -155,21 +155,46 @@ await client.UnregisterEventListener();
 
 ---
 
+## Response models
+
+The client deserializes setup, devices, states, gateways, events and other domain data into public models. Internal response models describe login results, OAuth tokens, listener registration, execution and scheduling IDs, local-token generation/activation, API errors and wrapped device-state lists.
+
+Optional properties represent missing or null fields and gateway-specific alternatives. Device-state wrappers support `states`, `deviceStates` and `values`, using the first non-null collection in that order. Additional JSON fields are ignored. Required IDs and tokens are validated before use; properties with an incompatible JSON type are rejected rather than converted to arbitrary strings.
+
+Existing public methods continue to return useful domain models or validated values. The small transport wrappers do not add public API surface. Open-ended state values and command parameters remain flexible, and `OpenLocalPairing` retains its raw JSON result because the library does not define that payload's schema. `FetchEventsRaw` provides both typed events and the original JSON for diagnostics.
+
 ## Automated tests
 
-`OverKizApi.Tests` contains **154 NUnit tests**, targeting both **net472** and **net10.0**, with the same `latest` C# language setting as the library. Open `OverkizClient.slnx` in Visual Studio and use Test Explorer, or run:
+`OverKizApi.Tests` contains **233 offline NUnit tests and 6 opt-in live tests**, targeting both **net472** and **net10.0**, with the same `latest` C# language setting as the library. Open `OverkizClient.slnx` in Visual Studio and use Test Explorer, or run:
 
 ```powershell
 dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj -c Release
 ```
 
-The suite exercises the public client through an injected `HttpClient` and a strict scripted HTTP handler. Every request is intercepted: it does not open sockets, access cloud accounts, use saved credentials or operate devices. All identifiers, credentials, tokens and responses are synthetic. Tests validate request methods, escaped URLs, authorization headers and JSON/form payloads as well as returned models and exceptions.
+The offline API tests exercise the public client through an injected `HttpClient` and a strict scripted HTTP handler. Every request is intercepted: it does not open sockets, access cloud accounts, use saved credentials or operate devices. All offline identifiers, credentials, tokens and responses are synthetic. Configuration tests use temporary files which they remove after each run. Tests validate request methods, escaped URLs, authorization headers and JSON/form payloads as well as returned models and exceptions.
 
 Coverage includes standard, Somfy and CozyTouch login; token refresh; Rexel gateway discovery/selection; setup caching; device/state parsing; commands and scenarios; execution history; event registration/fetch/cleanup; local tokens and developer mode; HTTP error mapping; enum compatibility; serialization; and client resource ownership. NUnit3TestAdapter enables Visual Studio discovery, and the **NUnit tests** GitHub workflow runs both targets on pushes and pull requests without publishing packages.
 
 The suite validates library behavior against synthetic protocol examples, not service availability or compatibility with every physical gateway. Nexity authentication is currently an explicit unsupported stub. Local label polling is checked for initial snapshots, throttling and best-effort errors; the timed rename-difference branch is not covered by this first suite. See [the test guide](OverKizApi.Tests/README.md) for regression details and limitations.
 
 ---
+
+## Opt-in local API live tests
+
+`LiveLocalApiTests` is a separate NUnit fixture in category `Live`. Its six tests use an existing local gateway token to check authentication, gateways, setup, devices, device states and event-listener lifecycle. They do not generate or revoke tokens, send device commands or change device settings. The event test creates its own listener and unregisters it during cleanup.
+
+The console and tests share `%LOCALAPPDATA%/OverkizClient/LiveTestSettings.json`. Opening the console in local mode imports its previously saved local credentials if the shared file is missing; saving local credentials updates this same file while preserving its enable flag and timeout. Cloud-account credentials are not used by this fixture.
+
+Live tests are disabled by default. Set `enabled` to `true` in the private JSON file, or explicitly pass the opt-in run settings:
+
+```powershell
+dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj -c Release -f net472 --filter "TestCategory=Live" --settings OverKizApi.Tests/LiveTests.runsettings.example
+```
+
+For Visual Studio, select a local copy of the run settings and run the `Live` category. Ordinary offline checks can always use `--filter "TestCategory!=Live"`; CI uses that filter explicitly.
+
+An embedded runner can supply the same JSON file in its private test inputs, set NUnit's `TestDataDirectory` parameter to that input directory and set `EnableLiveTests=true` only for its separately selected Live suite. An explicit `false` overrides the saved enable flag. Supplying an input directory prevents fallback to desktop credentials. No credentials are copied into builds or packages. See the [live test guide](OverKizApi.Tests/README.md#live-local-api-fixture) for details.
+
 
 ## Test Console
 
