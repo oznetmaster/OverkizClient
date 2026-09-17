@@ -1,5 +1,8 @@
 # OverkizClient
 
+For shipped changes, see the [changelog](CHANGELOG.md). Test, CI and build history is recorded separately in [development and validation history](DEVELOPMENT-HISTORY.md).
+
+
 A .NET client library for the **Overkiz** cloud and local REST API, enabling control and monitoring of smart-home gateways and devices from Somfy, Atlantic Cozytouch, Hitachi Hi Kumo, and other Overkiz-compatible ecosystems.
 
 [![NuGet](https://img.shields.io/nuget/v/OverkizClient.svg)](https://www.nuget.org/packages/OverkizClient)
