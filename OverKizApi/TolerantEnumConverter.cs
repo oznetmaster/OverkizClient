@@ -1,4 +1,4 @@
-﻿// Copyright © 2026 Neil Colvin.
+// Copyright © 2026 Neil Colvin.
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 using System.Text.Json;
@@ -37,7 +37,10 @@ internal sealed class TolerantEnumConverter<T> : JsonConverter<T> where T : stru
 			return Enum.TryParse ("Unknown", out T unknown) ? unknown : default;
 			}
 
-		return reader.TokenType == JsonTokenType.Number ? (T) Enum.ToObject (typeof (T), reader.GetInt32 ()) : default;
+		if (reader.TokenType == JsonTokenType.Number && reader.TryGetInt32 (out int numericValue))
+			return (T) Enum.ToObject (typeof (T), numericValue);
+
+		throw new JsonException ($"Unsupported token {reader.TokenType} for {typeof (T).Name}.");
 		}
 
 	public override void Write (Utf8JsonWriter writer, T value, JsonSerializerOptions options)

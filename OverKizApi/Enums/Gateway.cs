@@ -1,5 +1,7 @@
-﻿// Copyright © 2026 Neil Colvin.
+// Copyright © 2026 Neil Colvin.
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
+
+using System.Text.Json.Serialization;
 
 namespace OverKizApi.Enums;
 
@@ -175,6 +177,7 @@ public enum GatewaySubType
 	}
 
 /// <summary>Tracks the firmware/software update lifecycle of a gateway.</summary>
+[JsonConverter (typeof (TolerantEnumConverterFactory))]
 public enum GatewayUpdateStatus
 	{
 	/// <summary>No update is pending; firmware is current.</summary>

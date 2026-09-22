@@ -29,8 +29,8 @@ internal sealed class ScriptedApi : IDisposable
 		}
 
 	internal void Expect (string method, string path, string response = "{}", HttpStatusCode status = HttpStatusCode.OK,
-		 System.Action<HttpRequestMessage, string>? inspect = null)
-		 => _handler.Enqueue (method, new Uri (Http.BaseAddress!, path).AbsoluteUri, response, status, inspect);
+		 System.Action<HttpRequestMessage, string>? inspect = null, string mediaType = "application/json")
+		 => _handler.Enqueue (method, new Uri (Http.BaseAddress!, path).AbsoluteUri, response, status, inspect, mediaType);
 
 	internal void Complete ()
 		{
@@ -65,14 +65,14 @@ internal sealed class ScriptedApi : IDisposable
 			}
 
 		internal void Enqueue (string method, string uri, string response, HttpStatusCode status,
-			 System.Action<HttpRequestMessage, string>? inspect)
+			 System.Action<HttpRequestMessage, string>? inspect, string mediaType)
 			{
 			_steps.Enqueue ((request, body) =>
 			{
 				Assert.That (request.Method.Method, Is.EqualTo (method));
 				Assert.That (request.RequestUri!.AbsoluteUri, Is.EqualTo (uri));
 				inspect?.Invoke (request, body);
-				return new HttpResponseMessage (status) { Content = new StringContent (response, Encoding.UTF8, "application/json") };
+				return new HttpResponseMessage (status) { Content = new StringContent (response, Encoding.UTF8, mediaType) };
 			});
 			}
 

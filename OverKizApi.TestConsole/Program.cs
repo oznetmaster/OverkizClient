@@ -1,4 +1,4 @@
-﻿// Copyright © 2026 Neil Colvin.
+// Copyright © 2026 Neil Colvin.
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 using System;
@@ -535,10 +535,8 @@ internal static class Program
 				{
 				await Task.Delay (POLL_MS, cts.Token);
 
-				(IReadOnlyList<EventObject>? events, string? rawJson) = await client.FetchEventsRaw ();
+				IReadOnlyList<EventObject> events = await client.FetchEvents ();
 
-				if (events.Count == 0 && rawJson.Length > 2)
-					Console.WriteLine ($"[RAW] {rawJson}");
 
 				foreach (EventObject ev in events)
 					PrintEvent (ev);

@@ -144,21 +144,20 @@ public sealed class ExecutionAndConfigurationTests
 
 	[TestCase ("")]
 	[TestCase (" ")]
-	public async Task OpenPairing_EmptyBodyIsNull (string response)
+	public async Task OpenPairing_AcceptsEmptyBody (string response)
 		{
 		using var api = new ScriptedApi ();
 		api.Expect ("POST", "config/hub%2Fone/local/openPairing", response);
-		Assert.That (await api.Client.OpenLocalPairing ("hub/one"), Is.Null);
+		await api.Client.OpenLocalPairing ("hub/one");
 		api.Complete ();
 		}
 
 	[Test]
-	public async Task OpenPairing_ReturnedJsonRemainsUsableAfterResponseDisposal ()
+	public async Task OpenPairing_AcceptsResponseWithoutExposingPayload ()
 		{
 		using var api = new ScriptedApi ();
 		api.Expect ("POST", "config/hub/local/openPairing", "{\"duration\":180}");
-		JsonElement? result = await api.Client.OpenLocalPairing ("hub");
-		Assert.That (result!.Value.GetProperty ("duration").GetInt32 (), Is.EqualTo (180));
+		await api.Client.OpenLocalPairing ("hub");
 		api.Complete ();
 		}
 

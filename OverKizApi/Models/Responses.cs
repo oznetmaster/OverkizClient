@@ -25,6 +25,7 @@ internal sealed class SomfyTokenResponse
 	public string? RefreshToken { get; init; }
 
 	[JsonPropertyName ("expires_in")]
+	[JsonNumberHandling (JsonNumberHandling.AllowReadingFromString)]
 	public int? ExpiresIn { get; init; }
 
 	[JsonPropertyName ("message")]

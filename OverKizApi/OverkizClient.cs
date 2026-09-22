@@ -1,4 +1,4 @@
-﻿// Copyright © 2026 Neil Colvin.
+// Copyright © 2026 Neil Colvin.
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 using System.Net;
@@ -13,9 +13,6 @@ using System.Threading.Tasks;
 using OverKizApi.Enums;
 using OverKizApi.Exceptions;
 using OverKizApi.Models;
-
-using Polly;
-using Polly.Retry;
 
 namespace OverKizApi;
 
@@ -95,7 +92,7 @@ public sealed class OverkizClient : IAsyncDisposable
 
 	// ── Local-mode label-change detection ──────────────────────────────────
 	// On local connections the gateway never emits DeviceUpdatedEvent for renames.
-	// We diff device labels inside FetchEventsRaw and synthesize the event so callers
+	// We diff device labels inside FetchEvents and synthesize the event so callers
 	// need no special handling.  Cloud connections skip this entirely.
 	private readonly Dictionary<string, string> _labelSnapshot
 		= new (StringComparer.OrdinalIgnoreCase);
@@ -104,30 +101,8 @@ public sealed class OverkizClient : IAsyncDisposable
 
 	private static readonly JsonSerializerOptions _jsonOptions = new ()
 		{
-		PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
 		DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-		NumberHandling = JsonNumberHandling.AllowReadingFromString,
-		Converters = { new TolerantEnumConverterFactory () },
 		};
-
-	// ── Polly retry pipelines ───────────────────────────────────────────────
-	private ResiliencePipeline<HttpResponseMessage> BuildAuthRetry () =>
-		new ResiliencePipelineBuilder<HttpResponseMessage> ()
-			.AddRetry (new RetryStrategyOptions<HttpResponseMessage>
-				{
-				ShouldHandle = new PredicateBuilder<HttpResponseMessage> ()
-					.Handle<NotAuthenticatedException> (),
-				MaxRetryAttempts = 2,
-				DelayGenerator = args => new ValueTask<TimeSpan?> (
-					TimeSpan.FromSeconds (Math.Pow (2, args.AttemptNumber))),
-				OnRetry = async args =>
-					{
-						_ = await Login (registerEventListener: false);
-						if (EventListenerId is not null)
-							await RegisterEventListener ();
-					},
-				})
-			.Build ();
 
 	// ── Constructor ────────────────────────────────────────────────────────
 
@@ -234,7 +209,7 @@ public sealed class OverkizClient : IAsyncDisposable
 			Server == OverkizConst.SupportedServers [Enums.Server.SauterCozytouch])
 			{
 			var jwt = await CozytouchLogin ();
-			LoginResponse? response = await PostAsync<LoginResponse> ("login", new Dictionary<string, string> { ["jwt"] = jwt });
+			LoginResponse? response = await PostAsync<LoginResponse> ("login", new LoginRequest { Jwt = jwt });
 			var success = response?.Success is true;
 			if (success && registerEventListener)
 				await RegisterEventListener ();
@@ -246,11 +221,11 @@ public sealed class OverkizClient : IAsyncDisposable
 			{
 			var ssoToken = await NexityLogin ();
 			var userId = Username.Replace ("@", "_-_");
-			var payload = new Dictionary<string, string>
+			var payload = new LoginRequest
 				{
-				["userId"] = userId,
-				["userPassword"] = Password,
-				["ssoToken"] = ssoToken,
+				UserId = userId,
+				UserPassword = Password,
+				SsoToken = ssoToken,
 				};
 			LoginResponse? response = await PostAsync<LoginResponse> ("login", payload);
 			var success = response?.Success is true;
@@ -261,10 +236,10 @@ public sealed class OverkizClient : IAsyncDisposable
 
 		// Standard username + password
 			{
-			var payload = new Dictionary<string, string>
+			var payload = new LoginRequest
 				{
-				["userId"] = Username,
-				["userPassword"] = Password,
+				UserId = Username,
+				UserPassword = Password,
 				};
 			LoginResponse? response = await PostAsync<LoginResponse> ("login", payload);
 			var success = response?.Success is true;
@@ -382,10 +357,28 @@ public sealed class OverkizClient : IAsyncDisposable
 		using var req = new HttpRequestMessage (HttpMethod.Get, OverkizConst.COZYTOUCH_ATLANTIC_API + "/magellan/accounts/jwt");
 		req.Headers.Authorization = new AuthenticationHeaderValue ("Bearer", token.AccessToken);
 		using HttpResponseMessage jwtResp = await _http.SendAsync (req);
-		string jwtRaw = await jwtResp.Content.ReadAsStringAsync ();
-		string jwt = jwtRaw.Trim ().Trim ('"');
+		if (!jwtResp.IsSuccessStatusCode)
+			throw new CozyTouchServiceException ($"CozyTouch JWT exchange failed with HTTP {(int) jwtResp.StatusCode}.");
 
-		return jwt.Length == 0 ? throw new CozyTouchServiceException ("No JWT token provided.") : jwt;
+		string? jwt;
+		try
+			{
+			if (string.Equals (jwtResp.Content.Headers.ContentType?.MediaType, "text/plain", StringComparison.OrdinalIgnoreCase))
+				{
+				// Legacy text responses must still be a compact JWT, not an error page or arbitrary text.
+				jwt = (await jwtResp.Content.ReadAsStringAsync ()).Trim ();
+				if (!System.Text.RegularExpressions.Regex.IsMatch (jwt, @"\A[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\z"))
+					throw new CozyTouchServiceException ("Invalid plain-text JWT response from CozyTouch.");
+				}
+			else
+				jwt = await jwtResp.Content.ReadFromJsonAsync<string> (_jsonOptions);
+			}
+		catch (JsonException)
+			{
+			throw new CozyTouchServiceException ("Invalid JSON JWT response from CozyTouch.");
+			}
+
+		return string.IsNullOrWhiteSpace (jwt) ? throw new CozyTouchServiceException ("No JWT token provided.") : jwt!;
 		}
 
 	/// <summary>
@@ -414,9 +407,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <exception cref="OverkizException">Thrown when the server does not return a valid listener ID.</exception>
 	public async Task RegisterEventListener ()
 		{
-		EventListenerResponse? response = await PostAsync<EventListenerResponse> ("events/register", new
-			{
-			});
+		EventListenerResponse? response = await PostAsync<EventListenerResponse> ("events/register", new EmptyRequest ());
 		EventListenerId = GetRequiredResponseString (response?.Id, "No event listener ID returned.");
 		}
 
@@ -427,15 +418,6 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <returns>A list of <see cref="EventObject"/> objects; may be empty if no events are pending.</returns>
 	/// <exception cref="NoRegisteredEventListenerException">Thrown when no event listener is registered. Call <see cref="RegisterEventListener"/> first.</exception>
 	public async Task<IReadOnlyList<EventObject>> FetchEvents ()
-		{
-		(IReadOnlyList<EventObject>? events, string _) = await FetchEventsRaw ();
-		return events;
-		}
-
-	/// <summary>
-	/// Like <see cref="FetchEvents"/> but also returns the raw JSON response string for diagnostics.
-	/// </summary>
-	public async Task<(IReadOnlyList<EventObject> Events, string RawJson)> FetchEventsRaw ()
 		{
 		if (EventListenerId is null)
 			throw new NoRegisteredEventListenerException ("No event listener registered. Call RegisterEventListener first.");
@@ -489,7 +471,7 @@ public sealed class OverkizClient : IAsyncDisposable
 				}
 			}
 
-		return (events, response);
+		return events;
 		}
 
 	/// <summary>
@@ -618,15 +600,8 @@ public sealed class OverkizClient : IAsyncDisposable
 		{
 		await RefreshTokenIfExpired ();
 		var encoded = Uri.EscapeDataString (deviceUrl);
-		var raw = await GetRawAsync ($"setup/devices/{encoded}/states");
-		raw = raw.TrimStart ();
-		if (raw.Length > 0 && raw [0] == '{')
-			{
-			DeviceStatesResponse? response = JsonSerializer.Deserialize<DeviceStatesResponse> (raw, _jsonOptions);
-			return response?.States ?? response?.DeviceStates ?? response?.Values ?? [];
-			}
-
-		return JsonSerializer.Deserialize<List<State>> (raw, _jsonOptions) ?? [];
+		DeviceStatesPayload? response = await GetAsync<DeviceStatesPayload> ($"setup/devices/{encoded}/states");
+		return response?.States ?? [];
 		}
 
 	/// <summary>
@@ -650,10 +625,10 @@ public sealed class OverkizClient : IAsyncDisposable
 	public async Task<string> ExecuteDeviceAction (string deviceUrl, IEnumerable<Command> commands, string label = "Execute")
 		{
 		await RefreshTokenIfExpired ();
-		var payload = new
+		var payload = new DeviceActionRequest
 			{
-			label,
-			actions = new[] { new { deviceURL = deviceUrl, commands } },
+			Label = label,
+			Actions = [new Models.Action { DeviceUrl = deviceUrl, Commands = commands.ToList () }],
 			};
 		ExecutionResponse? response = await PostAsync<ExecutionResponse> ("exec/apply", payload);
 		return GetRequiredResponseString (response?.ExecId, "No execId returned.");
@@ -703,9 +678,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	public async Task<string> ExecuteScenario (string oid)
 		{
 		await RefreshTokenIfExpired ();
-		ExecutionResponse? response = await PostAsync<ExecutionResponse> ($"exec/{oid}", new
-			{
-			});
+		ExecutionResponse? response = await PostAsync<ExecutionResponse> ($"exec/{oid}", new EmptyRequest ());
 		return GetRequiredResponseString (response?.ExecId, "No execId returned.");
 		}
 
@@ -717,9 +690,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	public async Task<string> ExecuteScheduledScenario (string oid, long timestamp)
 		{
 		await RefreshTokenIfExpired ();
-		ScheduledExecutionResponse? response = await PostAsync<ScheduledExecutionResponse> ($"exec/schedule/{oid}/{timestamp}", new
-			{
-			});
+		ScheduledExecutionResponse? response = await PostAsync<ScheduledExecutionResponse> ($"exec/schedule/{oid}/{timestamp}", new EmptyRequest ());
 		return GetRequiredResponseString (response?.TriggerId, "No triggerId returned.");
 		}
 
@@ -768,11 +739,11 @@ public sealed class OverkizClient : IAsyncDisposable
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
 		LocalTokenActivationResponse? response = await PostAsync<LocalTokenActivationResponse> (
 			$"config/{encodedGatewayId}/local/tokens",
-			new
+			new LocalTokenActivationRequest
 				{
-				label,
-				token,
-				scope
+				Label = label,
+				Token = token,
+				Scope = scope
 				});
 		return GetRequiredResponseString (response?.RequestId, "No requestId returned.");
 		}
@@ -808,17 +779,12 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// During this period, additional local tokens may be registered directly on the gateway.
 	/// </summary>
 	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
-	/// <returns>The raw JSON response payload, or <see langword="null"/> if the server returns no body.</returns>
-	public async Task<JsonElement?> OpenLocalPairing (string gatewayId)
+	/// <returns>A task that completes when the pairing request succeeds.</returns>
+	public async Task OpenLocalPairing (string gatewayId)
 		{
 		await RefreshTokenIfExpired ();
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
-		string raw = await PostRawAsync ($"config/{encodedGatewayId}/local/openPairing");
-		if (string.IsNullOrWhiteSpace (raw))
-			return null;
-
-		using JsonDocument document = JsonDocument.Parse (raw);
-		return document.RootElement.Clone ();
+		_ = await PostRawAsync ($"config/{encodedGatewayId}/local/openPairing");
 		}
 
 	/// <summary>

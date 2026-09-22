@@ -1,9 +1,12 @@
-﻿// Copyright © 2026 Neil Colvin.
+// Copyright © 2026 Neil Colvin.
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
+
+using System.Text.Json.Serialization;
 
 namespace OverKizApi.Enums;
 
 /// <summary>Lifecycle states of an execution as reported by the Overkiz API.</summary>
+[JsonConverter (typeof (TolerantEnumConverterFactory))]
 public enum ExecutionState
 	{
 	/// <summary>The execution has been accepted but has not yet started.</summary>
@@ -23,6 +26,7 @@ public enum ExecutionState
 	}
 
 /// <summary>Indicates how an execution was triggered.</summary>
+[JsonConverter (typeof (TolerantEnumConverterFactory))]
 public enum ExecutionType
 	{
 	/// <summary>Execution was triggered immediately (no delay).</summary>
@@ -38,6 +42,7 @@ public enum ExecutionType
 	}
 
 /// <summary>Further classifies the origin of an execution.</summary>
+[JsonConverter (typeof (TolerantEnumConverterFactory))]
 public enum ExecutionSubType
 	{
 	/// <summary>Execution was triggered by an internal gateway rule or automation.</summary>
@@ -51,6 +56,7 @@ public enum ExecutionSubType
 	}
 
 /// <summary>Failure reason codes reported on a failed execution.</summary>
+[JsonConverter (typeof (TolerantEnumConverterFactory))]
 public enum FailureType
 	{
 	/// <summary>No failure occurred.</summary>

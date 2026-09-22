@@ -4,6 +4,16 @@ Notable changes to OverkizClient are recorded here. Earlier release history is a
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
+## [2.0.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.0.0) - 2026-09-22
+
+- Return typed events and execution actions; make pairing completion-only and remove the raw event-response API.
+- Represent variable JSON values as CLR primitives and collections. Declare serialization contracts on model attributes and exclude computed properties.
+- Validate CozyTouch JWT responses and reject incompatible enum token types.
+- Remove unused log4net and Polly dependencies; retain no Newtonsoft.Json dependency.
+- Update JSON and .NET Framework compatibility packages to stable 10.0.12, replacing preview references.
+
+This is a breaking release. See the [migration guide](MIGRATION-2.0.md) and [release notes](release-notes/v2.0.0.md).
+
 ## [1.2.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v1.2.0) - 2026-09-12
 
 ### Changed

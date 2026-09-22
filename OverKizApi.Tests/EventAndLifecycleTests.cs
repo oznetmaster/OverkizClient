@@ -7,15 +7,14 @@ namespace OverKizApi.Tests;
 public sealed class EventAndLifecycleTests
 	{
 	[Test]
-	public async Task EventLifecycle_PreservesWireFieldsAndRawJson ()
+	public async Task EventLifecycle_PreservesTypedWireFields ()
 		{
 		using var api = new ScriptedApi ();
 		api.Expect ("POST", "events/register", "{\"id\":\"listener\"}");
 		await api.Client.RegisterEventListener ();
 		const string response = """[{"name":"DeviceStateChangedEvent","deviceURL":"io://hub/device","timestamp":"1700000000123","deviceStates":[{"name":"core:ClosureState","type":1,"value":45}],"newState":"Completed"}]""";
 		api.Expect ("POST", "events/listener/fetch", response);
-		var (events, raw) = await api.Client.FetchEventsRaw ();
-		Assert.That (raw, Is.EqualTo (response));
+		var events = await api.Client.FetchEvents ();
 		EventObject change = events.Single ();
 		Assert.That (change.DeviceUrl, Is.EqualTo ("io://hub/device"));
 		Assert.That (change.Timestamp, Is.EqualTo (1700000000123));

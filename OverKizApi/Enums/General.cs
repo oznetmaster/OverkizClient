@@ -1,9 +1,12 @@
-﻿// Copyright © 2026 Neil Colvin.
+// Copyright © 2026 Neil Colvin.
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
+
+using System.Text.Json.Serialization;
 
 namespace OverKizApi.Enums;
 
 /// <summary>Classifies a device as an actuator, a sensor, or unknown.</summary>
+[JsonConverter (typeof (TolerantEnumConverterFactory))]
 public enum ProductType
 	{
 	/// <summary>Device type is not known.</summary>

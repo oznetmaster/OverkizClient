@@ -51,13 +51,13 @@ dotnet add package OverkizClient
 
 ---
 
-## Version 1.2.0
+## Version 2.0.0
 
-This minor release adds dedicated internal response models and six opt-in local API live tests, and expands offline NUnit coverage to 233 cases on each target framework. The console and live tests share private local credentials through `LiveTestSettings.json`.
+This major version moves JSON contracts onto model attributes, returns typed events and execution actions, makes local pairing completion-only, and represents variable device values using CLR primitives and collections. The unused log4net and Polly dependencies are removed; Newtonsoft.Json is not used. JSON packages and .NET Framework compatibility packages use stable 10.0.12 releases instead of preview packages.
 
-Public method signatures and existing public domain models remain unchanged. Response validation is stricter: blank required identifiers and incompatible known-field JSON types are rejected, and invalid OAuth responses are rejected before updating authentication state. Optional response fields and unknown fields remain supported. See the [changelog](CHANGELOG.md), [release notes](release-notes/v1.2.0.md) and [test guide](OverKizApi.Tests/README.md) for the exact behavior and live-test opt-in instructions.
+Public API changes require recompiling consumers. See [the 2.0 migration guide](MIGRATION-2.0.md) for replacements for `FetchEventsRaw`, pairing-result access, action dictionaries and `JsonElement` value casts. The test console has been updated.
 
-Tagged releases run all offline cases on .NET Framework 4.7.2 and .NET 10 before publishing to NuGet. The test project, NUnit dependencies and private settings are not included in the library package.
+The offline suite has 272 cases per target framework, including regression coverage for JWT errors, invalid enum tokens, default-option model serialization and flexible values. Six live tests remain separately opt-in.
 
 ## Recent Upstream Parity Updates
 
@@ -166,11 +166,11 @@ The client deserializes setup, devices, states, gateways, events and other domai
 
 Optional properties represent missing or null fields and gateway-specific alternatives. Device-state wrappers support `states`, `deviceStates` and `values`, using the first non-null collection in that order. Additional JSON fields are ignored. Required IDs and tokens are validated before use; properties with an incompatible JSON type are rejected rather than converted to arbitrary strings.
 
-Existing public methods continue to return useful domain models or validated values. The small transport wrappers do not add public API surface. Open-ended state values and command parameters remain flexible, and `OpenLocalPairing` retains its raw JSON result because the library does not define that payload's schema. `FetchEventsRaw` provides both typed events and the original JSON for diagnostics.
+Existing public methods continue to return useful domain models or validated values. The small transport wrappers do not add public API surface. Open-ended state values and command parameters remain flexible, and `OpenLocalPairing` returns completion only because its response schema is not portable. `FetchEvents` returns typed events. Flexible values deserialize to CLR primitives, lists and dictionaries, without exposing JSON document types.
 
 ## Automated tests
 
-`OverKizApi.Tests` contains **233 offline NUnit tests and 6 opt-in live tests**, targeting both **net472** and **net10.0**, with the same `latest` C# language setting as the library. Open `OverkizClient.slnx` in Visual Studio and use Test Explorer, or run:
+`OverKizApi.Tests` contains **272 offline NUnit tests and 6 opt-in live tests**, targeting both **net472** and **net10.0**, with the same `latest` C# language setting as the library. Open `OverkizClient.slnx` in Visual Studio and use Test Explorer, or run:
 
 ```powershell
 dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj -c Release
