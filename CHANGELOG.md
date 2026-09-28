@@ -4,6 +4,15 @@ Notable changes to OverkizClient are recorded here. Earlier release history is a
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
+## [2.1.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.0) - 2026-09-28
+
+- Add opt-in listener registration and bounded recovery through `FetchEvents(bool autoRegister)`, retaining the existing parameterless behavior.
+- Fix listener IDs used after token refresh, duplicate registration, stale IDs after failed replacement and cleanup, and overlapping event operations.
+- Invalidate cached setup, devices, gateways and listener state when switching Rexel gateways or establishing a new cloud session.
+- Add typed state lookup/fallback methods, dictionary/list accessors and supported-alias helpers with most-featured-per-type selection.
+
+Existing public method signatures, target frameworks and runtime dependencies are unchanged. See the [release notes](release-notes/v2.1.0.md).
+
 ## [2.0.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.0.0) - 2026-09-22
 
 - Return typed events and execution actions; make pairing completion-only and remove the raw event-response API.

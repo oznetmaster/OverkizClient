@@ -208,7 +208,7 @@ public enum DataType
 /// A named state value reported by a device (e.g. <c>"core:ClosureState"</c> = <c>50</c>).
 /// Use <see cref="Type"/> to determine the appropriate typed accessor.
 /// </summary>
-public sealed class State
+public sealed partial class State
 	{
 	/// <summary>Qualified state name (e.g. <c>"core:ClosureState"</c>).</summary>
 	[JsonPropertyName ("name")]
@@ -271,7 +271,7 @@ public sealed class State
 /// <remarks>Initialises the collection from an optional sequence of states.</remarks>
 /// <param name="states">Initial states; pass <see langword="null"/> or omit for an empty collection.</param>
 [JsonConverter (typeof (StatesJsonConverter))]
-public sealed class States (IEnumerable<State>? states = null) : System.Collections.Generic.IEnumerable<State>
+public sealed partial class States (IEnumerable<State>? states = null) : System.Collections.Generic.IEnumerable<State>
 	{
 	private readonly List<State> _states = states?.ToList () ?? [];
 
@@ -444,7 +444,7 @@ public sealed class Definition
 /// Represents a physical or virtual device registered in a setup.
 /// The <see cref="DeviceUrl"/> uniquely identifies the device across the entire API.
 /// </summary>
-public sealed class Device
+public sealed partial class Device
 	{
 	private const string HITACHI_HLRR_WIFI_PREFIX = "hlrrwifi";
 

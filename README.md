@@ -51,13 +51,17 @@ dotnet add package OverkizClient
 
 ---
 
-## Version 2.0.0
+## Version 2.1.0
+
+Adds opt-in event registration and bounded recovery, fixes listener lifecycle and Rexel cache invalidation, and provides typed state and supported-alias helpers. Existing 2.0 method signatures remain available. See the [2.1.0 release notes](release-notes/v2.1.0.md).
+
+### Upgrading from 1.x
 
 This major version moves JSON contracts onto model attributes, returns typed events and execution actions, makes local pairing completion-only, and represents variable device values using CLR primitives and collections. The unused log4net and Polly dependencies are removed; Newtonsoft.Json is not used. JSON packages and .NET Framework compatibility packages use stable 10.0.12 releases instead of preview packages.
 
 Public API changes require recompiling consumers. See [the 2.0 migration guide](MIGRATION-2.0.md) for replacements for `FetchEventsRaw`, pairing-result access, action dictionaries and `JsonElement` value casts. The test console has been updated.
 
-The offline suite has 272 cases per target framework, including regression coverage for JWT errors, invalid enum tokens, default-option model serialization and flexible values. Six live tests remain separately opt-in.
+The offline suite has 323 cases per target framework, including regression coverage for JWT errors, invalid enum tokens, default-option model serialization and flexible values. Six live tests remain separately opt-in.
 
 ## Recent Upstream Parity Updates
 
@@ -150,13 +154,38 @@ while (true)
 {
 	var events = await client.FetchEvents();
 	foreach (var ev in events)
-		Console.WriteLine($"{ev.Name}: {ev.DeviceURL}");
+		Console.WriteLine($"{ev.Name}: {ev.DeviceUrl}");
 
 	await Task.Delay(2000);
 }
 
 await client.UnregisterEventListener();
 ```
+
+For automatic listener registration and bounded recovery, use the overload:
+
+```csharp
+var events = await client.FetchEvents(autoRegister: true);
+```
+
+`FetchEvents()` and `FetchEvents(autoRegister: false)` retain the explicit-registration contract: a missing listener raises `NoRegisteredEventListenerException`. With `true`, the client registers a missing listener and allows one recovery attempt after an explicit listener or session rejection. Cloud reauthentication requires stored username/password credentials; local and externally managed Rexel tokens remain the caller's responsibility. Token refresh completes before the fetch URL is constructed. Timeouts, transport failures and service errors are not retried because fetching consumes queued events.
+
+Overlapping event operations share registration and token refresh. Finish outstanding operations before signing in again, switching Rexel gateways or disposing the client. Switching gateways clears the cached setup, devices, gateways and listener; register again or use automatic registration for the selected gateway.
+
+### Typed state and alias helpers
+
+`States` provides `GetValueAsInt`, `GetValueAsFloat`, `GetValueAsBool`, `GetValueAsStr`, `GetValueAsDict` and `GetValueAsList`. Matching `FirstValueAs...` methods accept candidate names in preference order. Missing or null values return null; zero, false and empty collections remain valid values. A present value of the wrong type throws instead of silently trying the next name. Dictionary and list accessors return ordinary CLR values.
+
+```csharp
+int? position = device.States.GetValueAsInt("core:ClosureState");
+int? preferredPosition = device.States.FirstValueAsInt(
+    new[] { "core:ClosureState", "core:TargetClosureState" });
+
+var aliases = device.GetSupportedAliases();
+var mostFeaturedByType = device.GetMostFeaturedAliases();
+```
+
+Alias helpers read `core:SupportedAliases` into attributed `SupportedAlias` models. All valid slots and unknown type names are preserved; malformed entries are skipped. Most-featured selection returns one slot per type, keeping the first slot when feature counts tie. Integer identifiers are normalized to invariant strings for command parameters.
 
 ---
 
@@ -170,7 +199,7 @@ Existing public methods continue to return useful domain models or validated val
 
 ## Automated tests
 
-`OverKizApi.Tests` contains **272 offline NUnit tests and 6 opt-in live tests**, targeting both **net472** and **net10.0**, with the same `latest` C# language setting as the library. Open `OverkizClient.slnx` in Visual Studio and use Test Explorer, or run:
+`OverKizApi.Tests` contains **323 offline NUnit tests and 6 opt-in live tests**, targeting both **net472** and **net10.0**, with the same `latest` C# language setting as the library. Open `OverkizClient.slnx` in Visual Studio and use Test Explorer, or run:
 
 ```powershell
 dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj -c Release

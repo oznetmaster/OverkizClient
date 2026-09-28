@@ -11,6 +11,16 @@ See the [product changelog](CHANGELOG.md) for shipped changes. This document pre
 
 <!-- development-history -->
 
+## [2.1.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.0) - 2026-09-28
+
+- Add opt-in automatic registration and bounded listener/session recovery through `FetchEvents(bool autoRegister)`, preserving the parameterless explicit-registration contract.
+- Complete token refresh before constructing listener requests; serialize listener operations and refresh, avoid duplicate registration during cleanup, and clear rejected or stale listener IDs.
+- Invalidate cached setup, devices, gateways and listener state when changing Rexel gateways or establishing a new cloud session.
+- Add typed state lookup/fallback helpers, dictionary/list accessors and supported-alias models with stable most-featured-per-type selection.
+- Add 51 offline NUnit cases. All 323 pass on both net472 and net10.0 with live tests disabled. The original nine review reproductions also pass on both targets; six had failed before the fixes.
+- Experimental multi-site authentication remains outside this change.
+
+
 ## Offline release workflow option - 2026-09-15 (no package release)
 
 - Allow an explicit manual release when local hardware or the self-hosted runner is unavailable, with the reason and exact source recorded in the workflow summary.
