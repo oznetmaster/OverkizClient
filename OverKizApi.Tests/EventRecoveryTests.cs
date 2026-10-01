@@ -113,7 +113,7 @@ public sealed class EventRecoveryTests
 		await RegisterOld (api);
 		Exception failure = timeout ? new TaskCanceledException ("simulated timeout") : new HttpRequestException ("simulated disconnect");
 		api.Expect ("POST", "events/old/fetch", inspect: (_, _) => throw failure);
-		var caught = Assert.CatchAsync (() => api.Client.FetchEvents (true));
+		var caught = await Assert.CatchAsync (() => api.Client.FetchEvents (true));
 		if (timeout) Assert.That (caught, Is.InstanceOf<OperationCanceledException> ());
 		else Assert.That (caught, Is.SameAs (failure));
 		Assert.That (api.Client.EventListenerId, Is.EqualTo ("old"));

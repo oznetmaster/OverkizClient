@@ -11,7 +11,7 @@ dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj -c Release -f net472
 dotnet test OverKizApi.Tests/OverKizApi.Tests.csproj -c Release -f net10.0
 ```
 
-Official NUnit 4.6.1, NUnit3TestAdapter 6.3.0, NUnit.Analyzers 4.15.0 and Microsoft.NET.Test.Sdk 18.10.1 are used. The project is not packable. Both targets compile with `LangVersion=latest`; net472 includes the necessary compiler-attribute shims.
+Official NUnit 5.0.0, NUnit3TestAdapter 6.3.0, NUnit.Analyzers 4.15.0 and Microsoft.NET.Test.Sdk 18.10.1 are used. The project is not packable. Both targets compile with `LangVersion=latest`; net472 includes the necessary compiler-attribute shims.
 
 ## Behavior covered
 
