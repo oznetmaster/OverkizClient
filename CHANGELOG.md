@@ -4,7 +4,9 @@ Notable changes to OverkizClient are recorded here. Earlier release history is a
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
-## [2.1.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.0) - 2026-09-28
+## 2.1.0 — 2026-09-28
+
+[Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.0)
 
 - Add opt-in listener registration and bounded recovery through `FetchEvents(bool autoRegister)`, retaining the existing parameterless behavior.
 - Fix listener IDs used after token refresh, duplicate registration, stale IDs after failed replacement and cleanup, and overlapping event operations.
@@ -13,7 +15,9 @@ This changelog records shipped features, fixes, compatibility and runtime depend
 
 Existing public method signatures, target frameworks and runtime dependencies are unchanged. See the [release notes](release-notes/v2.1.0.md).
 
-## [2.0.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.0.0) - 2026-09-22
+## 2.0.0 — 2026-09-22
+
+[Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.0.0)
 
 - Return typed events and execution actions; make pairing completion-only and remove the raw event-response API.
 - Represent variable JSON values as CLR primitives and collections. Declare serialization contracts on model attributes and exclude computed properties.
@@ -23,7 +27,9 @@ Existing public method signatures, target frameworks and runtime dependencies ar
 
 This is a breaking release. See the [migration guide](MIGRATION-2.0.md) and [release notes](release-notes/v2.0.0.md).
 
-## [1.2.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v1.2.0) - 2026-09-12
+## 1.2.0 — 2026-09-12
+
+[Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v1.2.0)
 
 ### Changed
 
@@ -43,7 +49,9 @@ This is a breaking release. See the [migration guide](MIGRATION-2.0.md) and [rel
 
 - Documentation of optional response fields, typed transport models and remaining flexible payloads.
 
-## [1.1.5](https://github.com/oznetmaster/OverkizClient/releases/tag/v1.1.5) - 2026-09-11
+## 1.1.5 — 2026-09-11
+
+[Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v1.1.5)
 
 ### Fixed
 
