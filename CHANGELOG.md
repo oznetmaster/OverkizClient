@@ -4,6 +4,15 @@ Notable changes to OverkizClient are recorded here. Earlier release history is a
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
+## 2.1.2 — 2026-10-19
+
+[Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.2)
+
+- Recognize the local gateway's quoted `"No registered event listener."` error so the existing opt-in, bounded event-listener recovery replaces a stale listener. Preserve the original message and explicit-fetch behaviour.
+- Correctly classify the cloud HTTP 400 quota message as `TooManyRequestsException`, regardless of the response error code. HTTP 429 handling and retry behaviour are unchanged.
+
+Public APIs, target frameworks and runtime dependencies are unchanged. Package, assembly and file versions are 2.1.2. The unpublished 2.1.1 quota correction is included in this release. See the [release notes](release-notes/v2.1.2.md).
+
 ## 2.1.0 — 2026-09-28
 
 [Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.0)

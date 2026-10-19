@@ -51,6 +51,12 @@ dotnet add package OverkizClient
 
 ---
 
+## Version 2.1.2
+
+Fixes recognition of the local gateway's quoted `"No registered event listener."` error, allowing `FetchEvents(autoRegister: true)` to replace the rejected listener using its existing bounded recovery. Explicit fetch still does not retry. Also maps the cloud HTTP 400 quota message to `TooManyRequestsException` while preserving the server message. Public APIs, target frameworks and runtime dependencies are unchanged. See the [2.1.2 release notes](release-notes/v2.1.2.md).
+
+Version 2.1.1 was prepared locally but not published; its quota correction is included in 2.1.2.
+
 ## Version 2.1.0
 
 Adds opt-in event registration and bounded recovery, fixes listener lifecycle and Rexel cache invalidation, and provides typed state and supported-alias helpers. Existing 2.0 method signatures remain available. See the [2.1.0 release notes](release-notes/v2.1.0.md).
@@ -61,7 +67,7 @@ This major version moves JSON contracts onto model attributes, returns typed eve
 
 Public API changes require recompiling consumers. See [the 2.0 migration guide](MIGRATION-2.0.md) for replacements for `FetchEventsRaw`, pairing-result access, action dictionaries and `JsonElement` value casts. The test console has been updated.
 
-The offline suite has 323 cases per target framework, including regression coverage for JWT errors, invalid enum tokens, default-option model serialization and flexible values. Six live tests remain separately opt-in.
+The offline suite has 331 cases per target framework, including regression coverage for JWT errors, invalid enum tokens, default-option model serialization and flexible values. Six live tests remain separately opt-in.
 
 ## Recent Upstream Parity Updates
 

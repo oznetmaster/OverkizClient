@@ -1,6 +1,6 @@
 # OverKizApi NUnit tests
 
-The 323 offline tests require no credentials, devices, sockets or real API calls. Configuration tests use isolated temporary files and remove them afterward. Six additional live tests are separately selectable and disabled by default. In the offline API tests, the public client receives a scripted HTTP handler which checks each outgoing request and returns synthetic responses. Each test owns its client and handler; no server definitions are mutated. Culture changes are restored in `finally` blocks. Even assertions swallowed by best-effort library cleanup are retained and checked by the handler.
+The 331 offline tests require no credentials, devices, sockets or real API calls. Configuration tests use isolated temporary files and remove them afterward. Six additional live tests are separately selectable and disabled by default. In the offline API tests, the public client receives a scripted HTTP handler which checks each outgoing request and returns synthetic responses. Each test owns its client and handler; no server definitions are mutated. Culture changes are restored in `finally` blocks. Even assertions swallowed by best-effort library cleanup are retained and checked by the handler.
 
 ## Running
 

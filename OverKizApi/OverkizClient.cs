@@ -1090,6 +1090,8 @@ public sealed class OverkizClient : IAsyncDisposable
 
 		var message = result.Error ?? string.Empty;
 
+		if (message == "Too many requests, try again later")
+			throw new TooManyRequestsException (message);
 		if (message == "Bad credentials.")
 			throw new BadCredentialsException (message);
 		if (message == "Your account has been temporarily locked.")
@@ -1106,7 +1108,7 @@ public sealed class OverkizClient : IAsyncDisposable
 			throw new InvalidCommandException (message);
 		if (message.Contains ("Invalid event listener id", StringComparison.Ordinal))
 			throw new InvalidEventListenerIdException (message);
-		if (message == "No registered event listener")
+		if (message == "No registered event listener" || message == "\"No registered event listener.\"")
 			throw new NoRegisteredEventListenerException (message);
 		if (message.Contains ("No such user account", StringComparison.Ordinal))
 			throw new UnknownUserException (message);

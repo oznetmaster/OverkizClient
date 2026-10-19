@@ -15,6 +15,7 @@ public sealed class ErrorHandlingTests
 	[TestCase ("No such command: fly", typeof (InvalidCommandException))]
 	[TestCase ("Invalid event listener id: missing", typeof (InvalidEventListenerIdException))]
 	[TestCase ("No registered event listener", typeof (NoRegisteredEventListenerException))]
+	[TestCase ("\"No registered event listener.\"", typeof (NoRegisteredEventListenerException))]
 	[TestCase ("No such user account: test", typeof (UnknownUserException))]
 	[TestCase ("No such resource", typeof (NoSuchResourceException))]
 	[TestCase ("too many concurrent requests", typeof (TooManyConcurrentRequestsException))]
@@ -39,6 +40,22 @@ public sealed class ErrorHandlingTests
 			error = message
 			}), HttpStatusCode.BadRequest);
 		await Assert.ThatAsync (() => api.Client.GetDevices (), Throws.TypeOf (exception).With.Message.EqualTo (message));
+		api.Complete ();
+		}
+
+	[TestCase ("QUOTA_EXCEEDED")]
+	[TestCase ("AUTHENTICATION_ERROR")]
+	[TestCase (null)]
+	public async Task CloudQuotaExceeded_MapsToTooManyRequests (string? errorCode)
+		{
+		const string message = "Too many requests, try again later";
+		using var api = new ScriptedApi ();
+		var payload = new Dictionary<string, string> { ["error"] = message };
+		if (errorCode is not null)
+			payload["errorCode"] = errorCode;
+		api.Expect ("GET", "setup/devices", JsonSerializer.Serialize (payload), HttpStatusCode.BadRequest);
+		await Assert.ThatAsync (() => api.Client.GetDevices (),
+			Throws.TypeOf<TooManyRequestsException> ().With.Message.EqualTo (message));
 		api.Complete ();
 		}
 

@@ -70,6 +70,7 @@ public sealed class EventRecoveryTests
 
 	[TestCase ("Invalid event listener id old")]
 	[TestCase ("No registered event listener")]
+	[TestCase ("\"No registered event listener.\"")]
 	public async Task ExplicitListenerRejection_RecoversOnce (string error)
 		{
 		using var api = new ScriptedApi ();
@@ -102,6 +103,50 @@ public sealed class EventRecoveryTests
 		api.Expect ("POST", "events/old/fetch", """{"error":"Invalid event listener id old"}""", HttpStatusCode.BadRequest);
 		await Assert.ThatAsync (() => api.Client.FetchEvents (), Throws.TypeOf<InvalidEventListenerIdException> ());
 		Assert.That (api.Client.EventListenerId, Is.Null);
+		api.Complete ();
+		}
+
+	[Test]
+	public async Task QuotedLocalListenerRejection_StrictFetchClearsWithoutRetry ()
+		{
+		const string error = "\"No registered event listener.\"";
+		using var api = new ScriptedApi ();
+		await RegisterOld (api);
+		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new { error }), HttpStatusCode.BadRequest);
+		await Assert.ThatAsync (() => api.Client.FetchEvents (false),
+			Throws.TypeOf<NoRegisteredEventListenerException> ().With.Message.EqualTo (error));
+		Assert.That (api.Client.EventListenerId, Is.Null);
+		Assert.That (api.RequestCount, Is.EqualTo (2));
+		api.Complete ();
+		}
+
+	[Test]
+	public async Task QuotedLocalListenerRejection_RepeatedRecoveryRemainsBounded ()
+		{
+		const string error = "\"No registered event listener.\"";
+		using var api = new ScriptedApi ();
+		await RegisterOld (api);
+		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new { error }), HttpStatusCode.BadRequest);
+		api.Expect ("POST", "events/register", """{"id":"new"}""");
+		api.Expect ("POST", "events/new/fetch", JsonSerializer.Serialize (new { error }), HttpStatusCode.BadRequest);
+		await Assert.ThatAsync (() => api.Client.FetchEvents (true),
+			Throws.TypeOf<NoRegisteredEventListenerException> ().With.Message.EqualTo (error));
+		Assert.That (api.Client.EventListenerId, Is.Null);
+		Assert.That (api.RequestCount, Is.EqualTo (4));
+		api.Complete ();
+		}
+
+	[Test]
+	public async Task SimilarListenerText_DoesNotTriggerRecovery ()
+		{
+		const string error = "No registered event listener for another resource.";
+		using var api = new ScriptedApi ();
+		await RegisterOld (api);
+		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new { error }), HttpStatusCode.BadRequest);
+		await Assert.ThatAsync (() => api.Client.FetchEvents (true),
+			Throws.TypeOf<OverkizException> ().With.Message.EqualTo (error));
+		Assert.That (api.Client.EventListenerId, Is.EqualTo ("old"));
+		Assert.That (api.RequestCount, Is.EqualTo (2));
 		api.Complete ();
 		}
 

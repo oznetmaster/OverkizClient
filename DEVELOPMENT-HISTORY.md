@@ -11,6 +11,25 @@ See the [product changelog](CHANGELOG.md) for shipped changes. This document pre
 
 <!-- development-history -->
 
+## 2.1.2 release preparation - 2026-10-19
+
+The two locally prepared error-classification fixes below are combined in patch 2.1.2. README, changelog and release notes now describe the combined release. AssemblyVersion is updated from the local candidate's 2.1.0 to 2.1.2, matching the existing publication workflow's package/assembly/file version contract. Runtime implementation and dependencies are unchanged from the corrected local candidate. Earlier dated local/unpublished entries remain historical records. Release validation against the official NUnit 5 package exposed a local-candidate assertion mismatch; restoring the awaited Assert.CatchAsync call matches the maintained NUnit 5 test contract. The original failed release-build log is retained.
+
+
+## Pending quoted local listener-rejection correction - 2026-10-19
+
+A real local gateway returned HTTP 400 with `errorCode: UNSPECIFIED_ERROR` and an `error` string containing `"No registered event listener."`, including the quotation marks and period. The previous exact comparison classified it as a generic error, leaving the stale listener ID unchanged and preventing the existing bounded automatic recovery. A diagnostic registered and unregistered only its own listener; no gateway power cycle or shade command was used. This reproduces a recovery defect, without proving the inaccessible installed driver's exact exception.
+
+The classifier now accepts this exact observed spelling and retains the original message. Five additional offline cases cover message classification, automatic recovery, strict fetch, bounded repeated rejection and near-match rejection. Four focused cases failed before the change; all 331 offline tests pass on each of net472 and net10.0 afterward. The distinct 2.1.2 package is local and unpublished; no hardware validation of the corrected bytes is claimed by these offline results.
+
+
+## Pending quota-error correction — 2026-10-17
+
+- Map the cloud HTTP 400 message `Too many requests, try again later` to `TooManyRequestsException`, preserving its message regardless of the envelope's `errorCode` (including `QUOTA_EXCEEDED`). Existing HTTP 429 handling is unchanged.
+- Three intercepted-HTTP regressions failed before the mapping and pass afterward; all 326 offline tests pass on both net472 and net10.0. No live devices were contacted. Receipts are retained under `artifacts/quota-error-regression`.
+- Remove an invalid `await` on the existing NUnit `Assert.CatchAsync` call in the transport-recovery test, which prevented both targets from compiling.
+- This is a local, unpublished correction. Upstream reference: [pyoverkiz October 11 message-fallback correction](https://github.com/iMicknl/python-overkiz-api/commit/7cd820a4d7042674c18e1ce5e254bfe6d91d7892).
+
 ## [2.1.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.0) - 2026-09-28
 
 - Add opt-in automatic registration and bounded listener/session recovery through `FetchEvents(bool autoRegister)`, preserving the parameterless explicit-registration contract.
@@ -54,3 +73,6 @@ See the [product changelog](CHANGELOG.md) for shipped changes. This document pre
 - Describe the distinction between scripted API tests and live service validation. The suite needs no credentials and makes no real network requests.
 
 The public API, target frameworks and production dependencies are unchanged. NUnit and its tooling are test-only dependencies and are not shipped in the library package. No live service or device validation is claimed for this release.
+## Local 2.1.1 package preparation - 2026-10-17
+
+Prepared distinct package/file version 2.1.1 for the quota-error mapping; AssemblyVersion remains 2.1.0. This is not a NuGet publication or a claim that hosted release validation ran. Existing source/test changes and prior failed/passed regression originals are preserved.
