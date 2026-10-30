@@ -4,7 +4,7 @@ Notable changes to OverkizClient are recorded here. Earlier release history is a
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
-## 2.1.2 — 2026-10-19
+## [2.1.2](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.2) — 2026-10-19
 
 [Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.2)
 
@@ -13,7 +13,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
 
 Public APIs, target frameworks and runtime dependencies are unchanged. Package, assembly and file versions are 2.1.2. The unpublished 2.1.1 quota correction is included in this release. See the [release notes](release-notes/v2.1.2.md).
 
-## 2.1.0 — 2026-09-28
+## [2.1.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.0) — 2026-09-28
 
 [Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.0)
 
@@ -24,7 +24,7 @@ Public APIs, target frameworks and runtime dependencies are unchanged. Package, 
 
 Existing public method signatures, target frameworks and runtime dependencies are unchanged. See the [release notes](release-notes/v2.1.0.md).
 
-## 2.0.0 — 2026-09-22
+## [2.0.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.0.0) — 2026-09-22
 
 [Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.0.0)
 
@@ -36,7 +36,7 @@ Existing public method signatures, target frameworks and runtime dependencies ar
 
 This is a breaking release. See the [migration guide](MIGRATION-2.0.md) and [release notes](release-notes/v2.0.0.md).
 
-## 1.2.0 — 2026-09-12
+## [1.2.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v1.2.0) — 2026-09-12
 
 [Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v1.2.0)
 
@@ -58,7 +58,7 @@ This is a breaking release. See the [migration guide](MIGRATION-2.0.md) and [rel
 
 - Documentation of optional response fields, typed transport models and remaining flexible payloads.
 
-## 1.1.5 — 2026-09-11
+## [1.1.5](https://github.com/oznetmaster/OverkizClient/releases/tag/v1.1.5) — 2026-09-11
 
 [Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v1.1.5)
 
