@@ -11,6 +11,10 @@ See the [product changelog](CHANGELOG.md) for shipped changes. This document pre
 
 <!-- development-history -->
 
+## 2.1.3 release preparation — 2026-11-02
+
+Prepare the previously verified internal-failure correction for patch release 2.1.3. Package, assembly and file versions are aligned with the existing publication contract; product changelog, README, NuGet notes and versioned release notes describe the correction. Runtime implementation and tests are unchanged from verified commit `8a784ecbb5f30c0e9c9fc305021cf6ae059d6b49`. The dated pending entry below preserves the original validation and publication status. The manual publication path now retains the exact NuGet package as a workflow artifact and creates its corresponding GitHub release, just like tag-triggered publication. Existing release tags must match the source commit, and existing assets are not overwritten.
+
 ## Pending internal failure-code correction — 2026-11-02
 
 Recognize upstream execution failure code `INTERNAL = 60001` as `FailureType.Internal`. The new member has an explicit numeric value and is appended after the existing members, preserving every existing enum value, including `Unknown = 10`. The raw event failure string, serializer behavior, public method signatures, target frameworks and runtime dependencies are unchanged. The product version remains 2.1.2 until a separate release is prepared.

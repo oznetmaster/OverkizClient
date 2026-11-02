@@ -51,6 +51,10 @@ dotnet add package OverkizClient
 
 ---
 
+## Version 2.1.3
+
+Recognizes execution failure code `60001` as `FailureType.Internal`, preserving the raw event failure text and all existing enum values. Public method signatures, target frameworks and runtime dependencies are unchanged. See the [2.1.3 release notes](release-notes/v2.1.3.md).
+
 ## Version 2.1.2
 
 Fixes recognition of the local gateway's quoted `"No registered event listener."` error, allowing `FetchEvents(autoRegister: true)` to replace the rejected listener using its existing bounded recovery. Explicit fetch still does not retry. Also maps the cloud HTTP 400 quota message to `TooManyRequestsException` while preserving the server message. Public APIs, target frameworks and runtime dependencies are unchanged. See the [2.1.2 release notes](release-notes/v2.1.2.md).

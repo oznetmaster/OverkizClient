@@ -4,6 +4,13 @@ Notable changes to OverkizClient are recorded here. Earlier release history is a
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
+## [2.1.3](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.3) — 2026-11-02
+
+- Recognize execution failure code `60001` as `FailureType.Internal` instead of an unnamed numeric enum value.
+- Preserve existing enum values, raw event failure text, public method signatures, target frameworks and runtime dependencies.
+
+Package, assembly and file versions are 2.1.3. See the [release notes](release-notes/v2.1.3.md).
+
 ## [2.1.2](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.2) — 2026-10-19
 
 [Release notes](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.2)
