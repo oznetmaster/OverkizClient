@@ -3,7 +3,9 @@
     {
       "src": [
         {
-          "files": [ "OverKizApi/OverKizApi.csproj" ],
+          "files": [
+            "OverKizApi/OverKizApi.csproj"
+          ],
           "src": ".."
         }
       ],
@@ -13,18 +15,58 @@
   ],
   "build": {
     "content": [
-      { "files": [ "api/**.yml" ] },
-      { "files": [ "articles/**.md" ] },
-      { "files": [ "references/**.md" ] },
-      { "files": [ "index.md" ] },
-      { "files": [ "toc.yml" ] }
+      {
+        "files": [
+          "api/**.yml"
+        ]
+      },
+      {
+        "files": [
+          "articles/**.md"
+        ]
+      },
+      {
+        "files": [
+          "references/**.md"
+        ]
+      },
+      {
+        "files": [
+          "index.md"
+        ]
+      },
+      {
+        "files": [
+          "toc.yml"
+        ]
+      },
+      {
+        "files": [
+          "toc.yml",
+          "guides/**.md",
+          "guides/**/toc.yml",
+          "reference/**.md",
+          "reference/**/toc.yml"
+        ]
+      }
     ],
     "resource": [
-      { "files": [ "images/**" ] },
-      { "files": [ "styles/**" ] }
+      {
+        "files": [
+          "images/**"
+        ]
+      },
+      {
+        "files": [
+          "styles/**"
+        ]
+      }
     ],
     "globalMetadata": {
-      "_appTitle": "OverkizClient API"
+      "_appTitle": "OverkizClient",
+      "_appName": "OverkizClient",
+      "_appFooter": "Copyright (c) 2026 Neil Colvin.",
+      "_enableSearch": true
     },
     "template": [
       "default",

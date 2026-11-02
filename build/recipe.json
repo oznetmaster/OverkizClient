@@ -24,6 +24,56 @@
       "results": [
         "artifacts/test-results/${env:BUILD_INPUT_1}/**/*.trx"
       ]
+    },
+    "documentation": {
+      "commands": [
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "build",
+            "OverKizApi/OverKizApi.csproj",
+            "--configuration",
+            "Release",
+            "-p:ContinuousIntegrationBuild=true"
+          ]
+        },
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "tool",
+            "restore"
+          ]
+        },
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "tool",
+            "run",
+            "docfx",
+            "metadata",
+            "docfx/docfx.json",
+            "--property",
+            "TargetFramework=net472;Configuration=Release"
+          ]
+        },
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "tool",
+            "run",
+            "docfx",
+            "build",
+            "docfx/docfx.json",
+            "--output",
+            "./docfx-site"
+          ]
+        }
+      ],
+      "documentation": {
+        "config": "docfx/docfx.json",
+        "site": "docfx-site",
+        "title": "OverkizClient"
+      }
     }
   }
 }
