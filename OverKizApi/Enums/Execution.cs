@@ -81,4 +81,6 @@ public enum FailureType
 	MissingSsmToken,
 	/// <summary>Failure reason could not be determined.</summary>
 	Unknown,
+	/// <summary>The execution failed with the Overkiz internal error code 60001.</summary>
+	Internal = 60001,
 	}

@@ -90,6 +90,36 @@ public sealed class ModelTests
 		api.Complete ();
 		}
 
+	[Test]
+	public async Task InternalFailureCode_IsRecognized ()
+		{
+		using var api = new ScriptedApi ();
+		api.Expect ("POST", "events/register", "{\"id\":\"listener\"}");
+		await api.Client.RegisterEventListener ();
+		api.Expect ("POST", "events/listener/fetch", """[{"name":"ExecutionStateChangedEvent","failureType":"INTERNAL","failureTypeCode":60001}]""");
+		EventObject change = (await api.Client.FetchEvents ()).Single ();
+		Assert.That (change.FailureTypeCode.ToString (), Is.EqualTo ("Internal"));
+		Assert.That ((int) change.FailureTypeCode!.Value, Is.EqualTo (60001));
+		Assert.That (change.FailureType, Is.EqualTo ("INTERNAL"));
+		EventObject roundTrip = JsonSerializer.Deserialize<EventObject> (JsonSerializer.Serialize (change))!;
+		Assert.That (roundTrip.FailureTypeCode, Is.EqualTo (FailureType.Internal));
+		api.Expect ("POST", "events/listener/unregister", "", HttpStatusCode.NoContent);
+		await api.Client.UnregisterEventListener ();
+		api.Complete ();
+		}
+
+	[TestCase ("\"INTERNAL\"", FailureType.Internal)]
+	[TestCase ("\"internal\"", FailureType.Internal)]
+	[TestCase ("\"60001\"", FailureType.Internal)]
+	[TestCase ("\"future-failure\"", FailureType.Unknown)]
+	[TestCase ("0", FailureType.NoFailure)]
+	[TestCase ("10", FailureType.Unknown)]
+	public void FailureCode_PreservesNamedNumericAndUnknownValues (string value, FailureType expected)
+		{
+		EventObject change = JsonSerializer.Deserialize<EventObject> ("{\"failureTypeCode\":" + value + "}")!;
+		Assert.That (change.FailureTypeCode, Is.EqualTo (expected));
+		}
+
 	[TestCase ("42")]
 	[TestCase ("\"42\"")]
 	public void IntegerState_ReadsJsonValue (string value)

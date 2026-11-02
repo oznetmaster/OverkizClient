@@ -11,6 +11,16 @@ See the [product changelog](CHANGELOG.md) for shipped changes. This document pre
 
 <!-- development-history -->
 
+## Pending internal failure-code correction — 2026-11-02
+
+Recognize upstream execution failure code `INTERNAL = 60001` as `FailureType.Internal`. The new member has an explicit numeric value and is appended after the existing members, preserving every existing enum value, including `Unknown = 10`. The raw event failure string, serializer behavior, public method signatures, target frameworks and runtime dependencies are unchanged. The product version remains 2.1.2 until a separate release is prepared.
+
+The event-fetch regression failed against the prior implementation because code 60001 had no enum name. Seven new isolated cases cover the fetched event, raw text preservation, serialization round-trip, named and numeric-string input, future-name fallback and existing numeric values. All 338 isolated cases pass on each of net472 and net10.0; the shared strict XML gate passes for Debug and Release on both targets. These are synthetic transport/model checks, not hardware validation. Local receipts are under `artifacts/internal-failure-regression/before` and `artifacts/test-results/internal-failure-*`.
+
+Upstream reference: [failure-code definitions at 5f318585](https://github.com/iMicknl/python-overkiz-api/blob/5f31858570e14be4f58e6cc58b7a448000556449/pyoverkiz/enums/general.py).
+
+The same review confirmed that Nexity authentication remains an explicitly documented unsupported feature in this client. Upstream's [Nexity strategy](https://github.com/iMicknl/python-overkiz-api/blob/5f31858570e14be4f58e6cc58b7a448000556449/pyoverkiz/auth/strategies.py) performs Cognito SRP authentication and then exchanges the identity token for an Overkiz SSO token; our `NexityLogin` currently throws `NotSupportedException`. The public typed Nexity exceptions already exist, but no Cognito operation invokes them. Porting those error branches alone would not implement Nexity login. Full authentication, token exchange, challenge handling and regression coverage remain separate work.
+
 ## 2.1.2 release preparation - 2026-10-19
 
 The two locally prepared error-classification fixes below are combined in patch 2.1.2. README, changelog and release notes now describe the combined release. AssemblyVersion is updated from the local candidate's 2.1.0 to 2.1.2, matching the existing publication workflow's package/assembly/file version contract. Runtime implementation and dependencies are unchanged from the corrected local candidate. Earlier dated local/unpublished entries remain historical records. Release validation against the official NUnit 5 package exposed a local-candidate assertion mismatch; restoring the awaited Assert.CatchAsync call matches the maintained NUnit 5 test contract. The original failed release-build log is retained.
