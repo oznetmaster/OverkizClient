@@ -74,6 +74,21 @@
         "site": "docfx-site",
         "title": "OverkizClient"
       }
+    },
+    "xml-documentation": {
+      "commands": [
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "--version"
+          ]
+        }
+      ]
     }
+  },
+  "xmlDocumentation": {
+    "projects": [
+      "OverKizApi/OverKizApi.csproj"
+    ]
   }
 }

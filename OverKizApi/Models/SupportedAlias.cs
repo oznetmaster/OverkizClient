@@ -9,12 +9,15 @@ namespace OverKizApi.Models;
 public sealed class SupportedAlias
 	{
 	/// <summary>Identifier to supply to the device's goToAlias command.</summary>
+	/// <value>Identifier to supply to the device's goToAlias command.</value>
 	[JsonPropertyName ("id")]
 	public required string Id { get; init; }
 	/// <summary>Vendor alias type, including unknown types introduced by newer devices.</summary>
+	/// <value>Vendor alias type, including unknown types introduced by newer devices.</value>
 	[JsonPropertyName ("type")]
 	public required string Type { get; init; }
 	/// <summary>Features supported by this slot, in source order.</summary>
+	/// <value>Features supported by this slot, in source order.</value>
 	[JsonPropertyName ("features")]
 	public IReadOnlyList<string> Features { get; init; } = [];
 	}
@@ -27,6 +30,7 @@ public sealed partial class Device
 	/// IDs may be nonempty strings or integer values; types and features are strings.
 	/// Missing features are treated as an empty list. Unknown alias types are preserved.
 	/// </remarks>
+	/// <returns>The valid advertised alias slots in source order, or an empty list if none are available.</returns>
 	public IReadOnlyList<SupportedAlias> GetSupportedAliases ()
 		{
 		if (Attributes["core:SupportedAliases"]?.Value is not IReadOnlyList<object?> values)
@@ -56,6 +60,7 @@ public sealed partial class Device
 		}
 
 	/// <summary>Returns one alias per type, selecting the slot with the most features; source order breaks ties.</summary>
+	/// <returns>The selected alias for each advertised type, keyed by the exact type name.</returns>
 	public IReadOnlyDictionary<string, SupportedAlias> GetMostFeaturedAliases ()
 		{
 		var aliases = new Dictionary<string, SupportedAlias> (StringComparer.Ordinal);

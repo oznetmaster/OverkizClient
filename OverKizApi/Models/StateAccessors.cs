@@ -11,6 +11,7 @@ public sealed partial class State
 	{
 	/// <summary>Returns an object state as CLR dictionary values, or null when no value is present.</summary>
 	/// <exception cref="InvalidCastException">The state is not an object.</exception>
+	/// <value>Returns an object state as CLR dictionary values, or null when no value is present.</value>
 	[JsonIgnore]
 	public IReadOnlyDictionary<string, object?>? ValueAsDict => Type == DataType.None || Value is null ? null
 		: Type == DataType.JsonObject && Value is IReadOnlyDictionary<string, object?> dictionary ? dictionary
@@ -18,6 +19,7 @@ public sealed partial class State
 
 	/// <summary>Returns an array state as CLR list values, or null when no value is present.</summary>
 	/// <exception cref="InvalidCastException">The state is not an array.</exception>
+	/// <value>Returns an array state as CLR list values, or null when no value is present.</value>
 	[JsonIgnore]
 	public IReadOnlyList<object?>? ValueAsList => Type == DataType.None || Value is null ? null
 		: Type == DataType.JsonArray && Value is IReadOnlyList<object?> list ? list
@@ -27,29 +29,53 @@ public sealed partial class State
 public sealed partial class States
 	{
 	/// <summary>Returns a named integer value, or null if missing or null. A wrong type throws InvalidCastException.</summary>
+	/// <param name="name">The qualified state name to look up.</param>
+	/// <returns>The named integer value; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public int? GetValueAsInt (string name) => WithValue (name)?.ValueAsInt;
 	/// <summary>Returns a named floating-point value, promoting integers; null if missing or null. A wrong type throws InvalidCastException.</summary>
+	/// <param name="name">The qualified state name to look up.</param>
+	/// <returns>The named floating-point value; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public double? GetValueAsFloat (string name) => WithValue (name)?.ValueAsFloat;
 	/// <summary>Returns a named boolean value, or null if missing or null. A wrong type throws InvalidCastException.</summary>
+	/// <param name="name">The qualified state name to look up.</param>
+	/// <returns>The named Boolean value; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public bool? GetValueAsBool (string name) => WithValue (name)?.ValueAsBool;
 	/// <summary>Returns a named string value, or null if missing or null. A wrong type throws InvalidCastException.</summary>
+	/// <param name="name">The qualified state name to look up.</param>
+	/// <returns>The named string value; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public string? GetValueAsStr (string name) => WithValue (name)?.ValueAsStr;
 	/// <summary>Returns a named CLR dictionary, or null if missing or null. A wrong type throws InvalidCastException.</summary>
+	/// <param name="name">The qualified state name to look up.</param>
+	/// <returns>The named dictionary value; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public IReadOnlyDictionary<string, object?>? GetValueAsDict (string name) => WithValue (name)?.ValueAsDict;
 	/// <summary>Returns a named CLR list, or null if missing or null. A wrong type throws InvalidCastException.</summary>
+	/// <param name="name">The qualified state name to look up.</param>
+	/// <returns>The named list value; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public IReadOnlyList<object?>? GetValueAsList (string name) => WithValue (name)?.ValueAsList;
 
 	/// <summary>Returns the first non-null value in name order as an integer. A wrong type throws; later names are not tried.</summary>
+	/// <param name="names">The qualified state names to try, in priority order.</param>
+	/// <returns>The first non-null integer value in name order; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public int? FirstValueAsInt (IEnumerable<string> names) => FirstWithValue (names)?.ValueAsInt;
 	/// <summary>Returns the first non-null value in name order as a float, promoting integers. A wrong type throws.</summary>
+	/// <param name="names">The qualified state names to try, in priority order.</param>
+	/// <returns>The first non-null floating-point value in name order; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public double? FirstValueAsFloat (IEnumerable<string> names) => FirstWithValue (names)?.ValueAsFloat;
 	/// <summary>Returns the first non-null value in name order as a boolean. A wrong type throws.</summary>
+	/// <param name="names">The qualified state names to try, in priority order.</param>
+	/// <returns>The first non-null Boolean value in name order; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public bool? FirstValueAsBool (IEnumerable<string> names) => FirstWithValue (names)?.ValueAsBool;
 	/// <summary>Returns the first non-null value in name order as a string. A wrong type throws.</summary>
+	/// <param name="names">The qualified state names to try, in priority order.</param>
+	/// <returns>The first non-null string value in name order; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public string? FirstValueAsStr (IEnumerable<string> names) => FirstWithValue (names)?.ValueAsStr;
 	/// <summary>Returns the first non-null value in name order as a CLR dictionary. A wrong type throws.</summary>
+	/// <param name="names">The qualified state names to try, in priority order.</param>
+	/// <returns>The first non-null dictionary value in name order; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public IReadOnlyDictionary<string, object?>? FirstValueAsDict (IEnumerable<string> names) => FirstWithValue (names)?.ValueAsDict;
 	/// <summary>Returns the first non-null value in name order as a CLR list. A wrong type throws.</summary>
+	/// <param name="names">The qualified state names to try, in priority order.</param>
+	/// <returns>The first non-null list value in name order; <see langword="null"/> if no non-null state value is found. An incompatible value type throws an InvalidCastException.</returns>
 	public IReadOnlyList<object?>? FirstValueAsList (IEnumerable<string> names) => FirstWithValue (names)?.ValueAsList;
 
 	private State? WithValue (string name)

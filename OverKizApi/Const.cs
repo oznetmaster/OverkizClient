@@ -86,12 +86,16 @@ public static class OverkizConst
 	/// <summary>
 	/// Builds the full local API endpoint URL for the given gateway IP or hostname.
 	/// </summary>
+	/// <param name="gatewayIp">The IP address or hostname of the local gateway.</param>
+	/// <returns>The HTTPS URL of the local gateway API.</returns>
 	public static string LocalEndpoint (string gatewayIp)
 		=> $"https://{gatewayIp}:{LOCAL_API_PORT}{LOCAL_API_PATH}";
 
 	/// <summary>
 	/// Creates an <see cref="OverkizServer"/> descriptor for a local gateway connection.
 	/// </summary>
+	/// <param name="gatewayIp">The IP address or hostname of the local gateway.</param>
+	/// <returns>A server descriptor pointing to the local gateway.</returns>
 	public static OverkizServer LocalServer (string gatewayIp)
 		=> new ()
 			{ Name = $"Local gateway ({gatewayIp})", Endpoint = LocalEndpoint (gatewayIp), Manufacturer = "Local" };
@@ -101,6 +105,7 @@ public static class OverkizConst
 	/// The handler bypasses TLS certificate validation because local gateways use a self-signed certificate.
 	/// The caller is responsible for disposing both the handler and the <see cref="HttpClient"/> built from it.
 	/// </summary>
+	/// <returns>A caller-owned handler that accepts the local gateway certificate.</returns>
 	public static HttpClientHandler CreateLocalHttpClientHandler ()
 		=> new ()
 			{ ServerCertificateCustomValidationCallback = (_, _, _, _) => true };

@@ -27,24 +27,28 @@ public sealed class OverkizClient : IAsyncDisposable
 	// ── Configuration ──────────────────────────────────────────────────────
 
 	/// <summary>Account username or e-mail address used to authenticate with the Overkiz server.</summary>
+	/// <value>Account username or e-mail address used to authenticate with the Overkiz server.</value>
 	public string Username
 		{
 		get;
 		}
 
 	/// <summary>Account password used to authenticate with the Overkiz server.</summary>
+	/// <value>Account password used to authenticate with the Overkiz server.</value>
 	public string Password
 		{
 		get;
 		}
 
 	/// <summary>The target server this client is connected to.</summary>
+	/// <value>The target server this client is connected to.</value>
 	public OverkizServer Server
 		{
 		get;
 		}
 
 	/// <summary>Whether the client is operating against the cloud API or a local gateway API.</summary>
+	/// <value>Whether the client is operating against the cloud API or a local gateway API.</value>
 	public APIType ApiType
 		{
 		get;
@@ -56,6 +60,10 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// The most recently retrieved <see cref="Models.Setup"/>, or <see langword="null"/> if
 	/// <see cref="GetSetup"/> has not yet been called.
 	/// </summary>
+	/// <value>
+	/// The most recently retrieved <see cref="Models.Setup"/>, or <see langword="null"/> if
+	/// <see cref="GetSetup"/> has not yet been called.
+	/// </value>
 	public Setup? Setup
 		{
 		get; private set;
@@ -65,24 +73,37 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// All devices from the most recently retrieved setup.
 	/// Populated by <see cref="GetSetup"/>; empty until that method is called.
 	/// </summary>
+	/// <value>
+	/// All devices from the most recently retrieved setup.
+	/// Populated by <see cref="GetSetup"/>; empty until that method is called.
+	/// </value>
 	public List<Device> Devices { get; private set; } = [];
 
 	/// <summary>
 	/// All gateways from the most recently retrieved setup.
 	/// Populated by <see cref="GetSetup"/>; empty until that method is called.
 	/// </summary>
+	/// <value>
+	/// All gateways from the most recently retrieved setup.
+	/// Populated by <see cref="GetSetup"/>; empty until that method is called.
+	/// </value>
 	public List<Gateway> Gateways { get; private set; } = [];
 
 	/// <summary>
 	/// The event listener ID returned by the last successful <see cref="RegisterEventListener"/> call,
 	/// or <see langword="null"/> if no listener is currently registered.
 	/// </summary>
+	/// <value>
+	/// The event listener ID returned by the last successful <see cref="RegisterEventListener"/> call,
+	/// or <see langword="null"/> if no listener is currently registered.
+	/// </value>
 	public string? EventListenerId
 		{
 		get; private set;
 		}
 
 	/// <summary>The currently selected Rexel gateway ID, or <see langword="null"/> if none has been selected.</summary>
+	/// <value>The currently selected Rexel gateway ID, or <see langword="null"/> if none has been selected.</value>
 	public string? SelectedGatewayId { get; private set; }
 
 	// ── Private fields ─────────────────────────────────────────────────────
@@ -145,6 +166,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// If an event listener is registered it is unregistered (best-effort) before disposal.
 	/// If the <see cref="HttpClient"/> was created internally it is also disposed.
 	/// </summary>
+	/// <returns>A task that completes when listener cleanup and resource disposal finish.</returns>
 	public ValueTask DisposeAsync () => new(DisposeAsyncCore ());
 
 	private async Task DisposeAsyncCore ()
@@ -171,6 +193,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// Authenticate and open an API session. Must be called before other operations unless a token was supplied.
 	/// </summary>
 	/// <param name="registerEventListener">Register an event listener after login (default true).</param>
+	/// <returns>A task containing true if login succeeds; false if the server rejects the login.</returns>
 	public Task<bool> Login (bool registerEventListener = true)
 		=> WithSessionLock (() => LoginCore (registerEventListener));
 
@@ -308,6 +331,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <exception cref="InvalidOperationException">Thrown when no refresh token is available (i.e. <see cref="Login"/> was not called first).</exception>
 	/// <exception cref="SomfyBadCredentialsException">Thrown when the refresh token has been revoked.</exception>
 	/// <exception cref="SomfyServiceException">Thrown when the Somfy token endpoint returns an unexpected response.</exception>
+	/// <returns>A task that completes when token refresh finishes, or immediately if refresh is not applicable.</returns>
 	public Task RefreshToken () => WithSessionLock (RefreshTokenCore);
 
 	private async Task RefreshTokenCore ()
@@ -433,6 +457,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <summary>Register an event listener to receive device state changes.</summary>
 	/// <remarks>The assigned listener ID is stored in <see cref="EventListenerId"/> after this call completes.</remarks>
 	/// <exception cref="OverkizException">Thrown when the server does not return a valid listener ID.</exception>
+	/// <returns>A task that completes when the listener has been registered.</returns>
 	public Task RegisterEventListener () => WithSessionLock (async () =>
 		{
 		await RefreshTokenIfExpiredCore (replaceListener: false);
@@ -558,6 +583,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// Unregisters the event listener and clears <see cref="EventListenerId"/>.
 	/// Safe to call when no listener is registered (no-op).
 	/// </summary>
+	/// <returns>A task that completes when listener cleanup finishes.</returns>
 	public Task UnregisterEventListener () => WithSessionLock (async () =>
 		{
 		var listenerId = EventListenerId;
@@ -700,6 +726,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// Asks the gateway to refresh all device states from the physical devices.
 	/// Updated states will be pushed through the event listener.
 	/// </summary>
+	/// <returns>A task that completes when the refresh request has been accepted; device state updates arrive separately.</returns>
 	public async Task RefreshAllDeviceStates ()
 		{
 		await RefreshTokenIfExpired ();
@@ -728,6 +755,7 @@ public sealed class OverkizClient : IAsyncDisposable
 
 	/// <summary>Cancels a running or queued execution.</summary>
 	/// <param name="execId">The execution ID returned by <see cref="ExecuteDeviceAction"/> or <see cref="ExecuteScenario"/>.</param>
+	/// <returns>A task that completes when the cancellation request finishes.</returns>
 	public async Task CancelExecution (string execId)
 		{
 		await RefreshTokenIfExpired ();
@@ -884,6 +912,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// This is required on supported gateways before local developer-mode tokens can be used.
 	/// </summary>
 	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
+	/// <returns>A task that completes when the activation request finishes.</returns>
 	public async Task ActivateDeveloperMode (string gatewayId)
 		{
 		await RefreshTokenIfExpired ();
@@ -908,6 +937,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// Some gateways reject this endpoint even when they support reading developer-mode state.
 	/// </summary>
 	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
+	/// <returns>A task that completes when the deactivation request finishes.</returns>
 	public async Task DeactivateDeveloperMode (string gatewayId)
 		{
 		await RefreshTokenIfExpired ();
