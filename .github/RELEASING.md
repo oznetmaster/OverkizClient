@@ -1,5 +1,15 @@
 # Concurrent releases and completed validation
 
+## NuGet Trusted Publishing
+
+Product publication uses the pinned `NuGet/login` action to exchange the GitHub OIDC token for a short-lived NuGet credential immediately before upload. It does not read or fall back to the repository's expired `NUGET_API_KEY` secret. Only the publishing job has `id-token: write` permission.
+
+The NuGet policy must name package owner `oznetmaster`, GitHub repository `oznetmaster/OverkizClient`, workflow file `publish-nuget.yml`, no GitHub environment, and the exact package ID `OverkizClient`. Scope it to **Push only new package versions**. Do not grant wildcard-package, new-package or unlisting access. Creating the policy is a separate account authorization; changing the workflow alone does not grant publishing rights.
+
+The built package is retained as the `release-package` workflow artifact before upload. Manual and tag-triggered publication both create the corresponding GitHub release from that same package. Existing tags must refer to the current release source; duplicate NuGet uploads fail rather than masking uncertain publication state.
+
+## Concurrent validation and publication
+
 Independent tasks may initiate releases at the same time. All publication workflows in this repository share `public-release` with `cancel-in-progress: false` and `queue: max`. GitHub retains up to 100 queued requests per group; overflow/cancellation is not a successful release. Different repositories publish independently. Do not invoke another workflow requiring the same publication lock while holding it.
 
 On manual release workflows, desktop and processor evidence can be reused independently. Both options default to false:

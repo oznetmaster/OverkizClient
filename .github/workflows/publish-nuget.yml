@@ -48,6 +48,11 @@ jobs:
   publish:
     runs-on: windows-latest
     timeout-minutes: 20
+    permissions:
+      actions: read
+      checks: read
+      contents: write
+      id-token: write
     env:
       PROJECT_PATH: OverKizApi/OverKizApi.csproj
       ARTIFACT_DIR: ${{ github.workspace }}/artifacts
@@ -176,16 +181,27 @@ jobs:
           path: ${{ env.ARTIFACT_DIR }}/*.nupkg
           if-no-files-found: error
 
+      - name: Authenticate to NuGet with GitHub OIDC
+        id: nuget-login
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1
+        with:
+          user: oznetmaster
+
       - name: Publish to NuGet
         shell: pwsh
+        env:
+          NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
         run: |
+          if ([string]::IsNullOrWhiteSpace($env:NUGET_API_KEY)) {
+              throw 'NuGet Trusted Publishing did not provide a temporary credential.'
+          }
           $packages = Get-ChildItem -Path "${{ env.ARTIFACT_DIR }}" -Filter '*.nupkg' | Where-Object { $_.Name -notlike '*.symbols.nupkg' }
           if (-not $packages) {
               throw 'No NuGet package was produced.'
           }
 
           foreach ($package in $packages) {
-              dotnet nuget push $package.FullName --api-key "${{ secrets.NUGET_API_KEY }}" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+              dotnet nuget push $package.FullName --api-key "$env:NUGET_API_KEY" --source "https://api.nuget.org/v3/index.json"
               if ($LASTEXITCODE -ne 0) { throw "NuGet publication failed for $($package.Name)." }
           }
 
