@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "tasks": {
+    "test-test-run-isolated-api-tests": {
+      "commands": [
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "test",
+            "OverKizApi.Tests/OverKizApi.Tests.csproj",
+            "-c",
+            "Release",
+            "-f",
+            "${env:BUILD_INPUT_0}",
+            "--filter",
+            "TestCategory!=Live",
+            "--logger",
+            "trx;LogFileName=tests.trx",
+            "--results-directory",
+            "artifacts/test-results/${env:BUILD_INPUT_1}"
+          ]
+        }
+      ],
+      "results": [
+        "artifacts/test-results/${env:BUILD_INPUT_1}/**/*.trx"
+      ]
+    }
+  }
+}
