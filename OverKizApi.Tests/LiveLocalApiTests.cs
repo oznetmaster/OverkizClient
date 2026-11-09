@@ -22,7 +22,9 @@ public sealed class LiveLocalApiTests
 	public void ConnectUsingSavedLocalToken ()
 		{
 		_http = new HttpClient (OverkizConst.CreateLocalHttpClientHandler ())
-			{ Timeout = TimeSpan.FromSeconds (_settings.TimeoutSeconds) };
+			{
+			Timeout = TimeSpan.FromSeconds (_settings.TimeoutSeconds)
+			};
 		_client = new OverkizClient (string.Empty, string.Empty, OverkizConst.LocalServer (_settings.GatewayHost), _settings.Token, _http);
 		}
 

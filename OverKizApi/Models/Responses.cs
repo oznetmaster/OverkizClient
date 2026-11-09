@@ -12,93 +12,147 @@ namespace OverKizApi.Models;
 internal sealed class LoginResponse
 	{
 	[JsonPropertyName ("success")]
-	public bool? Success { get; init; }
+	public bool? Success
+		{
+		get; init;
+		}
 	}
 
 /// <summary>Somfy OAuth token exchange, refresh or credential error.</summary>
 internal sealed class SomfyTokenResponse
 	{
 	[JsonPropertyName ("access_token")]
-	public string? AccessToken { get; init; }
+	public string? AccessToken
+		{
+		get; init;
+		}
 
 	[JsonPropertyName ("refresh_token")]
-	public string? RefreshToken { get; init; }
+	public string? RefreshToken
+		{
+		get; init;
+		}
 
 	[JsonPropertyName ("expires_in")]
 	[JsonNumberHandling (JsonNumberHandling.AllowReadingFromString)]
-	public int? ExpiresIn { get; init; }
+	public int? ExpiresIn
+		{
+		get; init;
+		}
 
 	[JsonPropertyName ("message")]
-	public string? Message { get; init; }
+	public string? Message
+		{
+		get; init;
+		}
 	}
 
 /// <summary>Atlantic OAuth token exchange or credential error.</summary>
 internal sealed class CozyTouchTokenResponse
 	{
 	[JsonPropertyName ("access_token")]
-	public string? AccessToken { get; init; }
+	public string? AccessToken
+		{
+		get; init;
+		}
 
 	[JsonPropertyName ("token_type")]
-	public string? TokenType { get; init; }
+	public string? TokenType
+		{
+		get; init;
+		}
 
 	[JsonPropertyName ("error")]
-	public string? Error { get; init; }
+	public string? Error
+		{
+		get; init;
+		}
 
 	[JsonPropertyName ("error_description")]
-	public string? ErrorDescription { get; init; }
+	public string? ErrorDescription
+		{
+		get; init;
+		}
 	}
 
 /// <summary>Identifier assigned by event listener registration.</summary>
 internal sealed class EventListenerResponse
 	{
 	[JsonPropertyName ("id")]
-	public string? Id { get; init; }
+	public string? Id
+		{
+		get; init;
+		}
 	}
 
 /// <summary>Identifier assigned to a device action or scenario execution.</summary>
 internal sealed class ExecutionResponse
 	{
 	[JsonPropertyName ("execId")]
-	public string? ExecId { get; init; }
+	public string? ExecId
+		{
+		get; init;
+		}
 	}
 
 /// <summary>Identifier assigned to a scheduled scenario.</summary>
 internal sealed class ScheduledExecutionResponse
 	{
 	[JsonPropertyName ("triggerId")]
-	public string? TriggerId { get; init; }
+	public string? TriggerId
+		{
+		get; init;
+		}
 	}
 
 /// <summary>Local API token generated for a gateway.</summary>
 internal sealed class LocalTokenGenerationResponse
 	{
 	[JsonPropertyName ("token")]
-	public string? Token { get; init; }
+	public string? Token
+		{
+		get; init;
+		}
 	}
 
 /// <summary>Identifier assigned to a local-token activation request.</summary>
 internal sealed class LocalTokenActivationResponse
 	{
 	[JsonPropertyName ("requestId")]
-	public string? RequestId { get; init; }
+	public string? RequestId
+		{
+		get; init;
+		}
 	}
 
 /// <summary>Overkiz error envelope used by the exception mapping layer.</summary>
 internal sealed class ApiErrorResponse
 	{
 	[JsonPropertyName ("error")]
-	public string? Error { get; init; }
+	public string? Error
+		{
+		get; init;
+		}
 	}
 
 /// <summary>Alternative wrappers used by gateways when returning device states.</summary>
 internal sealed class DeviceStatesResponse
 	{
 	[JsonPropertyName ("states")]
-	public IReadOnlyList<State>? States { get; init; }
+	public IReadOnlyList<State>? States
+		{
+		get; init;
+		}
 
 	[JsonPropertyName ("deviceStates")]
-	public IReadOnlyList<State>? DeviceStates { get; init; }
+	public IReadOnlyList<State>? DeviceStates
+		{
+		get; init;
+		}
 
 	[JsonPropertyName ("values")]
-	public IReadOnlyList<State>? Values { get; init; }
+	public IReadOnlyList<State>? Values
+		{
+		get; init;
+		}
 	}

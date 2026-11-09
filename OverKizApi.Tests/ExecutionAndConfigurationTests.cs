@@ -16,7 +16,7 @@ public sealed class ExecutionAndConfigurationTests
 			JsonElement json = ScriptedApi.Json (body);
 			Assert.That (json.GetProperty ("label").GetString (), Is.EqualTo ("Test action"));
 			JsonElement action = json.GetProperty ("actions")[0];
-			Assert.That (action.GetProperty ("deviceURL").GetString (), Is.EqualTo (ScriptedApi.DeviceUrl));
+			Assert.That (action.GetProperty ("deviceURL").GetString (), Is.EqualTo (ScriptedApi.DEVICE_URL));
 			JsonElement commands = action.GetProperty ("commands");
 			Assert.That (commands.GetArrayLength (), Is.EqualTo (2));
 			Assert.That (commands[0].GetProperty ("name").GetString (), Is.EqualTo ("setClosure"));
@@ -24,7 +24,7 @@ public sealed class ExecutionAndConfigurationTests
 			Assert.That (commands[1].GetProperty ("name").GetString (), Is.EqualTo ("stop"));
 			Assert.That (commands[1].TryGetProperty ("parameters", out _), Is.False);
 		});
-		string result = await api.Client.ExecuteDeviceAction (ScriptedApi.DeviceUrl,
+		string result = await api.Client.ExecuteDeviceAction (ScriptedApi.DEVICE_URL,
 			 new[] { new Command { Name = "setClosure", Parameters = new object?[] { 45 } }, new Command { Name = "stop" } }, "Test action");
 		Assert.That (result, Is.EqualTo ("execution-1"));
 		api.Complete ();
@@ -54,7 +54,7 @@ public sealed class ExecutionAndConfigurationTests
 		api.Expect (operation == "generate" ? "GET" : "POST", path, "{}");
 		Func<Task> call = operation switch
 			{
-				"action" => async () => { await api.Client.ExecuteDeviceAction (ScriptedApi.DeviceUrl, new[] { new Command { Name = "stop" } }); }
+				"action" => async () => { await api.Client.ExecuteDeviceAction (ScriptedApi.DEVICE_URL, new[] { new Command { Name = "stop" } }); }
 				,
 				"scenario" => async () => { await api.Client.ExecuteScenario ("scenario"); }
 				,

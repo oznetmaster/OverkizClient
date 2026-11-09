@@ -6,10 +6,12 @@ items:
   parent: OverKizApi
   children:
   - OverKizApi.OverkizClient.#ctor(System.String,System.String,OverKizApi.Models.OverkizServer,System.String,System.Net.Http.HttpClient)
+  - OverKizApi.OverkizClient.ActivateDeveloperMode(System.String)
   - OverKizApi.OverkizClient.ActivateLocalToken(System.String,System.String,System.String,System.String)
   - OverKizApi.OverkizClient.ApiType
   - OverKizApi.OverkizClient.CancelExecution(System.String)
   - OverKizApi.OverkizClient.CozytouchLogin
+  - OverKizApi.OverkizClient.DeactivateDeveloperMode(System.String)
   - OverKizApi.OverkizClient.DeleteLocalToken(System.String,System.String)
   - OverKizApi.OverkizClient.Devices
   - OverKizApi.OverkizClient.DiscoverRexelGateways
@@ -19,10 +21,11 @@ items:
   - OverKizApi.OverkizClient.ExecuteScenario(System.String)
   - OverKizApi.OverkizClient.ExecuteScheduledScenario(System.String,System.Int64)
   - OverKizApi.OverkizClient.FetchEvents
-  - OverKizApi.OverkizClient.FetchEventsRaw
+  - OverKizApi.OverkizClient.FetchEvents(System.Boolean)
   - OverKizApi.OverkizClient.Gateways
   - OverKizApi.OverkizClient.GenerateLocalToken(System.String)
   - OverKizApi.OverkizClient.GetCurrentExecutions
+  - OverKizApi.OverkizClient.GetDeveloperMode(System.String)
   - OverKizApi.OverkizClient.GetDevice(System.String)
   - OverKizApi.OverkizClient.GetDeviceStates(System.String)
   - OverKizApi.OverkizClient.GetDevices
@@ -37,6 +40,7 @@ items:
   - OverKizApi.OverkizClient.GetSetupOptions
   - OverKizApi.OverkizClient.Login(System.Boolean)
   - OverKizApi.OverkizClient.NexityLogin
+  - OverKizApi.OverkizClient.OpenLocalPairing(System.String)
   - OverKizApi.OverkizClient.Password
   - OverKizApi.OverkizClient.RefreshAllDeviceStates
   - OverKizApi.OverkizClient.RefreshToken
@@ -57,19 +61,23 @@ items:
   type: Class
   source:
     remote:
-      path: OverKizApi/OverkizClient.cs
+      path: OverKizApi/OverkizClient.Operations.cs
       branch: master
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: OverkizClient
-    path: ../OverKizApi/OverkizClient.cs
-    startLine: 26
+    path: ../OverKizApi/OverkizClient.Operations.cs
+    startLine: 10
   assemblies:
   - OverKizApi
   namespace: OverKizApi
   summary: >-
-    C# client for the Overkiz API, functionally equivalent to the Python python-overkiz-api library.
+    C# client for the Overkiz API, providing similar capabilities to the Python python-overkiz-api library.
 
     Supports cloud (standard, Somfy OAuth, CozyTouch JWT, Nexity SSO) and local API modes.
+  remarks: >-
+    Independent reads may overlap. Authentication, gateway and listener changes are coordinated with reads.
+        Disposal cancels pending work and prevents late publication. Callers must coordinate their own mutations
+        of returned models and dedicate any supplied HttpClient to this client.
   example: []
   syntax:
     content: 'public sealed class OverkizClient : IAsyncDisposable'
@@ -103,7 +111,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Username
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 31
+    startLine: 33
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -114,6 +122,7 @@ items:
     parameters: []
     return:
       type: System.String
+      description: Account username or e-mail address used to authenticate with the Overkiz server.
     content.vb: Public ReadOnly Property Username As String
   overload: OverKizApi.OverkizClient.Username*
 - uid: OverKizApi.OverkizClient.Password
@@ -134,7 +143,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Password
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 37
+    startLine: 40
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -145,6 +154,7 @@ items:
     parameters: []
     return:
       type: System.String
+      description: Account password used to authenticate with the Overkiz server.
     content.vb: Public ReadOnly Property Password As String
   overload: OverKizApi.OverkizClient.Password*
 - uid: OverKizApi.OverkizClient.Server
@@ -165,7 +175,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Server
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 43
+    startLine: 47
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -176,6 +186,7 @@ items:
     parameters: []
     return:
       type: OverKizApi.Models.OverkizServer
+      description: The target server this client is connected to.
     content.vb: Public ReadOnly Property Server As OverkizServer
   overload: OverKizApi.OverkizClient.Server*
 - uid: OverKizApi.OverkizClient.ApiType
@@ -196,7 +207,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ApiType
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 49
+    startLine: 54
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -207,6 +218,7 @@ items:
     parameters: []
     return:
       type: OverKizApi.Enums.APIType
+      description: Whether the client is operating against the cloud API or a local gateway API.
     content.vb: Public ReadOnly Property ApiType As APIType
   overload: OverKizApi.OverkizClient.ApiType*
 - uid: OverKizApi.OverkizClient.Setup
@@ -227,7 +239,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Setup
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 60
+    startLine: 69
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -241,6 +253,10 @@ items:
     parameters: []
     return:
       type: OverKizApi.Models.Setup
+      description: >-
+        The most recently retrieved <xref href="OverKizApi.Models.Setup" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if
+
+        <xref href="OverKizApi.OverkizClient.GetSetup(System.Boolean)" data-throw-if-not-resolved="false"></xref> has not yet been called.
     content.vb: Public Property Setup As Setup
   overload: OverKizApi.OverkizClient.Setup*
 - uid: OverKizApi.OverkizClient.Devices
@@ -261,7 +277,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Devices
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 69
+    startLine: 83
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -275,6 +291,10 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.List{OverKizApi.Models.Device}
+      description: >-
+        All devices from the most recently retrieved setup.
+
+        Populated by <xref href="OverKizApi.OverkizClient.GetSetup(System.Boolean)" data-throw-if-not-resolved="false"></xref>; empty until that method is called.
     content.vb: Public Property Devices As List(Of Device)
   overload: OverKizApi.OverkizClient.Devices*
 - uid: OverKizApi.OverkizClient.Gateways
@@ -295,7 +315,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Gateways
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 75
+    startLine: 96
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -309,6 +329,10 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.List{OverKizApi.Models.Gateway}
+      description: >-
+        All gateways from the most recently retrieved setup.
+
+        Populated by <xref href="OverKizApi.OverkizClient.GetSetup(System.Boolean)" data-throw-if-not-resolved="false"></xref>; empty until that method is called.
     content.vb: Public Property Gateways As List(Of Gateway)
   overload: OverKizApi.OverkizClient.Gateways*
 - uid: OverKizApi.OverkizClient.EventListenerId
@@ -329,7 +353,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: EventListenerId
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 81
+    startLine: 109
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -343,6 +367,10 @@ items:
     parameters: []
     return:
       type: System.String
+      description: >-
+        The event listener ID returned by the last successful <xref href="OverKizApi.OverkizClient.RegisterEventListener" data-throw-if-not-resolved="false"></xref> call,
+
+        or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no listener is currently registered.
     content.vb: Public Property EventListenerId As String
   overload: OverKizApi.OverkizClient.EventListenerId*
 - uid: OverKizApi.OverkizClient.SelectedGatewayId
@@ -363,7 +391,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SelectedGatewayId
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 87
+    startLine: 117
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -374,6 +402,7 @@ items:
     parameters: []
     return:
       type: System.String
+      description: The currently selected Rexel gateway ID, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none has been selected.
     content.vb: Public Property SelectedGatewayId As String
   overload: OverKizApi.OverkizClient.SelectedGatewayId*
 - uid: OverKizApi.OverkizClient.#ctor(System.String,System.String,OverKizApi.Models.OverkizServer,System.String,System.Net.Http.HttpClient)
@@ -394,7 +423,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: .ctor
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 142
+    startLine: 164
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -441,7 +470,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DisposeAsync
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 169
+    startLine: 196
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -456,6 +485,7 @@ items:
     content: public ValueTask DisposeAsync()
     return:
       type: System.Threading.Tasks.ValueTask
+      description: A task that completes when listener cleanup and resource disposal finish.
     content.vb: Public Function DisposeAsync() As ValueTask
   overload: OverKizApi.OverkizClient.DisposeAsync*
   implements:
@@ -478,7 +508,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Login
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 192
+    startLine: 251
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -492,6 +522,7 @@ items:
       description: Register an event listener after login (default true).
     return:
       type: System.Threading.Tasks.Task{System.Boolean}
+      description: A task containing true if login succeeds; false if the server rejects the login.
     content.vb: Public Function Login(registerEventListener As Boolean = True) As Task(Of Boolean)
   overload: OverKizApi.OverkizClient.Login*
   nameWithType.vb: OverkizClient.Login(Boolean)
@@ -515,7 +546,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SomfyTahomaGetAccessToken
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 281
+    startLine: 360
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -553,7 +584,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: RefreshToken
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 318
+    startLine: 393
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -569,6 +600,7 @@ items:
     content: public Task RefreshToken()
     return:
       type: System.Threading.Tasks.Task
+      description: A task that completes when token refresh finishes, or immediately if refresh is not applicable.
     content.vb: Public Function RefreshToken() As Task
   overload: OverKizApi.OverkizClient.RefreshToken*
   exceptions:
@@ -599,7 +631,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CozytouchLogin
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 357
+    startLine: 448
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -640,7 +672,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: NexityLogin
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 410
+    startLine: 515
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -684,7 +716,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: RegisterEventListener
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 423
+    startLine: 531
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -695,6 +727,7 @@ items:
     content: public Task RegisterEventListener()
     return:
       type: System.Threading.Tasks.Task
+      description: A task that completes when the listener has been registered.
     content.vb: Public Function RegisterEventListener() As Task
   overload: OverKizApi.OverkizClient.RegisterEventListener*
   exceptions:
@@ -719,7 +752,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: FetchEvents
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 437
+    startLine: 551
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -739,36 +772,54 @@ items:
   - type: OverKizApi.Exceptions.NoRegisteredEventListenerException
     commentId: T:OverKizApi.Exceptions.NoRegisteredEventListenerException
     description: Thrown when no event listener is registered. Call <xref href="OverKizApi.OverkizClient.RegisterEventListener" data-throw-if-not-resolved="false"></xref> first.
-- uid: OverKizApi.OverkizClient.FetchEventsRaw
-  commentId: M:OverKizApi.OverkizClient.FetchEventsRaw
-  id: FetchEventsRaw
+- uid: OverKizApi.OverkizClient.FetchEvents(System.Boolean)
+  commentId: M:OverKizApi.OverkizClient.FetchEvents(System.Boolean)
+  id: FetchEvents(System.Boolean)
   parent: OverKizApi.OverkizClient
   langs:
   - csharp
   - vb
-  name: FetchEventsRaw()
-  nameWithType: OverkizClient.FetchEventsRaw()
-  fullName: OverKizApi.OverkizClient.FetchEventsRaw()
+  name: FetchEvents(bool)
+  nameWithType: OverkizClient.FetchEvents(bool)
+  fullName: OverKizApi.OverkizClient.FetchEvents(bool)
   type: Method
   source:
     remote:
       path: OverKizApi/OverkizClient.cs
       branch: master
       repo: https://github.com/oznetmaster/OverkizClient.git
-    id: FetchEventsRaw
+    id: FetchEvents
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 446
+    startLine: 562
   assemblies:
   - OverKizApi
   namespace: OverKizApi
-  summary: Like <xref href="OverKizApi.OverkizClient.FetchEvents" data-throw-if-not-resolved="false"></xref> but also returns the raw JSON response string for diagnostics.
+  summary: Fetches queued events, optionally registering or recovering the listener automatically.
+  remarks: >-
+    Authentication refresh completes before the listener URL is constructed. Recovery is bounded to one
+
+    replacement per fetch. Timeouts and other transport failures are not retried because fetching consumes events.
+
+    Reauthentication requires cloud credentials; rejected local or externally managed tokens are not retried.
   example: []
   syntax:
-    content: public Task<(IReadOnlyList<EventObject> Events, string RawJson)> FetchEventsRaw()
+    content: public Task<IReadOnlyList<EventObject>> FetchEvents(bool autoRegister)
+    parameters:
+    - id: autoRegister
+      type: System.Boolean
+      description: When true, registers a missing listener and allows one recovery after an explicit listener or session rejection.
     return:
-      type: System.Threading.Tasks.Task{System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}}
-    content.vb: Public Function FetchEventsRaw() As Task(Of (Events As IReadOnlyList(Of EventObject), RawJson As String))
-  overload: OverKizApi.OverkizClient.FetchEventsRaw*
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject}}
+      description: The queued events; may be empty.
+    content.vb: Public Function FetchEvents(autoRegister As Boolean) As Task(Of IReadOnlyList(Of EventObject))
+  overload: OverKizApi.OverkizClient.FetchEvents*
+  exceptions:
+  - type: OverKizApi.Exceptions.NoRegisteredEventListenerException
+    commentId: T:OverKizApi.Exceptions.NoRegisteredEventListenerException
+    description: No listener is registered and automatic registration is disabled, or the server rejects recovery.
+  nameWithType.vb: OverkizClient.FetchEvents(Boolean)
+  fullName.vb: OverKizApi.OverkizClient.FetchEvents(Boolean)
+  name.vb: FetchEvents(Boolean)
 - uid: OverKizApi.OverkizClient.UnregisterEventListener
   commentId: M:OverKizApi.OverkizClient.UnregisterEventListener
   id: UnregisterEventListener
@@ -787,7 +838,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UnregisterEventListener
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 507
+    startLine: 662
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -800,6 +851,7 @@ items:
     content: public Task UnregisterEventListener()
     return:
       type: System.Threading.Tasks.Task
+      description: A task that completes when listener cleanup finishes.
     content.vb: Public Function UnregisterEventListener() As Task
   overload: OverKizApi.OverkizClient.UnregisterEventListener*
 - uid: OverKizApi.OverkizClient.GetSetup(System.Boolean)
@@ -820,7 +872,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetSetup
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 527
+    startLine: 689
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -865,7 +917,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetGateways
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 545
+    startLine: 712
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -896,7 +948,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DiscoverRexelGateways
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 555
+    startLine: 725
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -910,9 +962,12 @@ items:
     content.vb: Public Function DiscoverRexelGateways() As Task(Of IReadOnlyList(Of GatewayCandidate))
   overload: OverKizApi.OverkizClient.DiscoverRexelGateways*
   exceptions:
+  - type: OverKizApi.Exceptions.UnsupportedOperationException
+    commentId: T:OverKizApi.Exceptions.UnsupportedOperationException
+    description: Thrown when the current server is not Rexel.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: Thrown when the current server is not Rexel or no bearer token is available.
+    description: Thrown when no bearer token is available.
 - uid: OverKizApi.OverkizClient.SelectRexelGateway(System.String)
   commentId: M:OverKizApi.OverkizClient.SelectRexelGateway(System.String)
   id: SelectRexelGateway(System.String)
@@ -931,7 +986,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SelectRexelGateway
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 589
+    startLine: 761
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -946,8 +1001,8 @@ items:
     content.vb: Public Sub SelectRexelGateway(gatewayId As String)
   overload: OverKizApi.OverkizClient.SelectRexelGateway*
   exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
+  - type: OverKizApi.Exceptions.UnsupportedOperationException
+    commentId: T:OverKizApi.Exceptions.UnsupportedOperationException
     description: Thrown when the current server is not Rexel.
   nameWithType.vb: OverkizClient.SelectRexelGateway(String)
   fullName.vb: OverKizApi.OverkizClient.SelectRexelGateway(String)
@@ -970,7 +1025,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetDevices
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 601
+    startLine: 786
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1001,7 +1056,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetDevice
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 612
+    startLine: 799
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1043,7 +1098,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetDeviceStates
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 624
+    startLine: 813
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1081,7 +1136,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: RefreshAllDeviceStates
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 650
+    startLine: 828
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1094,6 +1149,7 @@ items:
     content: public Task RefreshAllDeviceStates()
     return:
       type: System.Threading.Tasks.Task
+      description: A task that completes when the refresh request has been accepted; device state updates arrive separately.
     content.vb: Public Function RefreshAllDeviceStates() As Task
   overload: OverKizApi.OverkizClient.RefreshAllDeviceStates*
 - uid: OverKizApi.OverkizClient.ExecuteDeviceAction(System.String,System.Collections.Generic.IEnumerable{OverKizApi.Models.Command},System.String)
@@ -1114,7 +1170,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExecuteDeviceAction
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 664
+    startLine: 844
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1162,7 +1218,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CancelExecution
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 680
+    startLine: 862
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1176,6 +1232,7 @@ items:
       description: The execution ID returned by <xref href="OverKizApi.OverkizClient.ExecuteDeviceAction(System.String%2cSystem.Collections.Generic.IEnumerable%7bOverKizApi.Models.Command%7d%2cSystem.String)" data-throw-if-not-resolved="false"></xref> or <xref href="OverKizApi.OverkizClient.ExecuteScenario(System.String)" data-throw-if-not-resolved="false"></xref>.
     return:
       type: System.Threading.Tasks.Task
+      description: A task that completes when the cancellation request finishes.
     content.vb: Public Function CancelExecution(execId As String) As Task
   overload: OverKizApi.OverkizClient.CancelExecution*
   nameWithType.vb: OverkizClient.CancelExecution(String)
@@ -1199,7 +1256,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetCurrentExecutions
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 688
+    startLine: 872
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1230,7 +1287,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetExecutionHistory
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 697
+    startLine: 883
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1261,7 +1318,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetScenarios
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 708
+    startLine: 896
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1292,7 +1349,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExecuteScenario
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 719
+    startLine: 909
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1334,7 +1391,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExecuteScheduledScenario
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 733
+    startLine: 923
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1379,7 +1436,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetPlaces
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 747
+    startLine: 937
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1414,7 +1471,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GenerateLocalToken
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 764
+    startLine: 956
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1428,7 +1485,7 @@ items:
     parameters:
     - id: gatewayId
       type: System.String
-      description: Serial number of the gateway to generate a token for.
+      description: Serial number of the gateway to generate a token for. For Rexel cloud endpoints, use <xref href="OverKizApi.Models.GatewayCandidate.ExternalId" data-throw-if-not-resolved="false"></xref> rather than the header-scoping <xref href="OverKizApi.Models.GatewayCandidate.GatewayId" data-throw-if-not-resolved="false"></xref>.
     return:
       type: System.Threading.Tasks.Task{System.String}
       description: The raw token string to pass to <xref href="OverKizApi.OverkizClient.ActivateLocalToken(System.String%2cSystem.String%2cSystem.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.
@@ -1459,7 +1516,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ActivateLocalToken
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 780
+    startLine: 975
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1470,7 +1527,7 @@ items:
     parameters:
     - id: gatewayId
       type: System.String
-      description: Serial number of the gateway to register the token on.
+      description: Serial number of the gateway to register the token on. For Rexel cloud endpoints, use <xref href="OverKizApi.Models.GatewayCandidate.ExternalId" data-throw-if-not-resolved="false"></xref>.
     - id: token
       type: System.String
       description: The raw token string returned by <xref href="OverKizApi.OverkizClient.GenerateLocalToken(System.String)" data-throw-if-not-resolved="false"></xref>.
@@ -1510,7 +1567,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetLocalTokens
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 798
+    startLine: 997
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1521,7 +1578,7 @@ items:
     parameters:
     - id: gatewayId
       type: System.String
-      description: Serial number of the gateway to query.
+      description: Serial number of the gateway to query. For Rexel cloud endpoints, use <xref href="OverKizApi.Models.GatewayCandidate.ExternalId" data-throw-if-not-resolved="false"></xref>.
     - id: scope
       type: System.String
       description: Token scope to filter by (default <code>"devmode"</code>).
@@ -1551,7 +1608,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeleteLocalToken
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 809
+    startLine: 1012
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1562,7 +1619,7 @@ items:
     parameters:
     - id: gatewayId
       type: System.String
-      description: Serial number of the gateway the token belongs to.
+      description: Serial number of the gateway the token belongs to. For Rexel cloud endpoints, use <xref href="OverKizApi.Models.GatewayCandidate.ExternalId" data-throw-if-not-resolved="false"></xref>.
     - id: uuid
       type: System.String
       description: UUID of the token to delete (see <xref href="OverKizApi.Models.LocalToken.Uuid" data-throw-if-not-resolved="false"></xref>).
@@ -1574,6 +1631,167 @@ items:
   nameWithType.vb: OverkizClient.DeleteLocalToken(String, String)
   fullName.vb: OverKizApi.OverkizClient.DeleteLocalToken(String, String)
   name.vb: DeleteLocalToken(String, String)
+- uid: OverKizApi.OverkizClient.OpenLocalPairing(System.String)
+  commentId: M:OverKizApi.OverkizClient.OpenLocalPairing(System.String)
+  id: OpenLocalPairing(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: OpenLocalPairing(string)
+  nameWithType: OverkizClient.OpenLocalPairing(string)
+  fullName: OverKizApi.OverkizClient.OpenLocalPairing(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: OpenLocalPairing
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 1029
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Opens the local pairing window on a gateway for approximately 180 seconds.
+
+    During this period, additional local tokens may be registered directly on the gateway.
+  example: []
+  syntax:
+    content: public Task OpenLocalPairing(string gatewayId)
+    parameters:
+    - id: gatewayId
+      type: System.String
+      description: Serial number of the gateway. For Rexel cloud endpoints, use <xref href="OverKizApi.Models.GatewayCandidate.ExternalId" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task that completes when the pairing request succeeds.
+    content.vb: Public Function OpenLocalPairing(gatewayId As String) As Task
+  overload: OverKizApi.OverkizClient.OpenLocalPairing*
+  nameWithType.vb: OverkizClient.OpenLocalPairing(String)
+  fullName.vb: OverKizApi.OverkizClient.OpenLocalPairing(String)
+  name.vb: OpenLocalPairing(String)
+- uid: OverKizApi.OverkizClient.ActivateDeveloperMode(System.String)
+  commentId: M:OverKizApi.OverkizClient.ActivateDeveloperMode(System.String)
+  id: ActivateDeveloperMode(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: ActivateDeveloperMode(string)
+  nameWithType: OverkizClient.ActivateDeveloperMode(string)
+  fullName: OverKizApi.OverkizClient.ActivateDeveloperMode(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ActivateDeveloperMode
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 1044
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Activates developer mode for a gateway.
+
+    This is required on supported gateways before local developer-mode tokens can be used.
+  example: []
+  syntax:
+    content: public Task ActivateDeveloperMode(string gatewayId)
+    parameters:
+    - id: gatewayId
+      type: System.String
+      description: Serial number of the gateway. For Rexel cloud endpoints, use <xref href="OverKizApi.Models.GatewayCandidate.ExternalId" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task that completes when the activation request finishes.
+    content.vb: Public Function ActivateDeveloperMode(gatewayId As String) As Task
+  overload: OverKizApi.OverkizClient.ActivateDeveloperMode*
+  nameWithType.vb: OverkizClient.ActivateDeveloperMode(String)
+  fullName.vb: OverKizApi.OverkizClient.ActivateDeveloperMode(String)
+  name.vb: ActivateDeveloperMode(String)
+- uid: OverKizApi.OverkizClient.GetDeveloperMode(System.String)
+  commentId: M:OverKizApi.OverkizClient.GetDeveloperMode(System.String)
+  id: GetDeveloperMode(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: GetDeveloperMode(string)
+  nameWithType: OverkizClient.GetDeveloperMode(string)
+  fullName: OverKizApi.OverkizClient.GetDeveloperMode(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetDeveloperMode
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 1056
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: Returns the current developer-mode status for a gateway.
+  example: []
+  syntax:
+    content: public Task<DeveloperMode> GetDeveloperMode(string gatewayId)
+    parameters:
+    - id: gatewayId
+      type: System.String
+      description: Serial number of the gateway. For Rexel cloud endpoints, use <xref href="OverKizApi.Models.GatewayCandidate.ExternalId" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{OverKizApi.Models.DeveloperMode}
+      description: A <xref href="OverKizApi.Models.DeveloperMode" data-throw-if-not-resolved="false"></xref> object describing whether developer mode is active.
+    content.vb: Public Function GetDeveloperMode(gatewayId As String) As Task(Of DeveloperMode)
+  overload: OverKizApi.OverkizClient.GetDeveloperMode*
+  nameWithType.vb: OverkizClient.GetDeveloperMode(String)
+  fullName.vb: OverKizApi.OverkizClient.GetDeveloperMode(String)
+  name.vb: GetDeveloperMode(String)
+- uid: OverKizApi.OverkizClient.DeactivateDeveloperMode(System.String)
+  commentId: M:OverKizApi.OverkizClient.DeactivateDeveloperMode(System.String)
+  id: DeactivateDeveloperMode(System.String)
+  parent: OverKizApi.OverkizClient
+  langs:
+  - csharp
+  - vb
+  name: DeactivateDeveloperMode(string)
+  nameWithType: OverkizClient.DeactivateDeveloperMode(string)
+  fullName: OverKizApi.OverkizClient.DeactivateDeveloperMode(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/OverkizClient.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DeactivateDeveloperMode
+    path: ../OverKizApi/OverkizClient.cs
+    startLine: 1073
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi
+  summary: >-
+    Deactivates developer mode for a gateway.
+
+    Some gateways reject this endpoint even when they support reading developer-mode state.
+  example: []
+  syntax:
+    content: public Task DeactivateDeveloperMode(string gatewayId)
+    parameters:
+    - id: gatewayId
+      type: System.String
+      description: Serial number of the gateway. For Rexel cloud endpoints, use <xref href="OverKizApi.Models.GatewayCandidate.ExternalId" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task that completes when the deactivation request finishes.
+    content.vb: Public Function DeactivateDeveloperMode(gatewayId As String) As Task
+  overload: OverKizApi.OverkizClient.DeactivateDeveloperMode*
+  nameWithType.vb: OverkizClient.DeactivateDeveloperMode(String)
+  fullName.vb: OverKizApi.OverkizClient.DeactivateDeveloperMode(String)
+  name.vb: DeactivateDeveloperMode(String)
 - uid: OverKizApi.OverkizClient.GetSetupOptions
   commentId: M:OverKizApi.OverkizClient.GetSetupOptions
   id: GetSetupOptions
@@ -1592,7 +1810,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetSetupOptions
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 820
+    startLine: 1086
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1623,7 +1841,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetSetupOption
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 830
+    startLine: 1098
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1661,7 +1879,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetSetupOptionParameter
     path: ../OverKizApi/OverkizClient.cs
-    startLine: 841
+    startLine: 1111
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -1687,7 +1905,6 @@ items:
 references:
 - uid: OverKizApi
   commentId: N:OverKizApi
-  href: OverKizApi.html
   name: OverKizApi
   nameWithType: OverKizApi
   fullName: OverKizApi
@@ -1950,26 +2167,21 @@ references:
   fullName: OverKizApi.Models.OverkizServer
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: OverKizApi.OverkizClient.ApiType*
   commentId: Overload:OverKizApi.OverkizClient.ApiType
   href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ApiType
@@ -1985,26 +2197,21 @@ references:
   fullName: OverKizApi.Enums.APIType
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Models.Setup
   commentId: T:OverKizApi.Models.Setup
   parent: OverKizApi.Models
@@ -2442,7 +2649,6 @@ references:
   - name: )
 - uid: OverKizApi.OverkizClient._accessToken
   commentId: F:OverKizApi.OverkizClient._accessToken
-  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient__accessToken
   name: _accessToken
   nameWithType: OverkizClient._accessToken
   fullName: OverKizApi.OverkizClient._accessToken
@@ -2501,20 +2707,17 @@ references:
   - name: )
 - uid: OverKizApi.OverkizClient.RefreshTokenIfExpired
   commentId: M:OverKizApi.OverkizClient.RefreshTokenIfExpired
-  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RefreshTokenIfExpired
   name: RefreshTokenIfExpired()
   nameWithType: OverkizClient.RefreshTokenIfExpired()
   fullName: OverKizApi.OverkizClient.RefreshTokenIfExpired()
   spec.csharp:
   - uid: OverKizApi.OverkizClient.RefreshTokenIfExpired
     name: RefreshTokenIfExpired
-    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RefreshTokenIfExpired
   - name: (
   - name: )
   spec.vb:
   - uid: OverKizApi.OverkizClient.RefreshTokenIfExpired
     name: RefreshTokenIfExpired
-    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_RefreshTokenIfExpired
   - name: (
   - name: )
 - uid: OverKizApi.Enums.Server.SomfyEurope
@@ -2626,26 +2829,21 @@ references:
   fullName: OverKizApi.OverkizClient.RegisterEventListener
 - uid: OverKizApi.Exceptions
   commentId: N:OverKizApi.Exceptions
-  href: OverKizApi.html
   name: OverKizApi.Exceptions
   nameWithType: OverKizApi.Exceptions
   fullName: OverKizApi.Exceptions
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Exceptions
     name: Exceptions
-    href: OverKizApi.Exceptions.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Exceptions
     name: Exceptions
-    href: OverKizApi.Exceptions.html
 - uid: OverKizApi.Models.EventObject
   commentId: T:OverKizApi.Models.EventObject
   href: OverKizApi.Models.EventObject.html
@@ -2709,113 +2907,6 @@ references:
   - uid: OverKizApi.Models.EventObject
     name: EventObject
     href: OverKizApi.Models.EventObject.html
-  - name: )
-  - name: )
-- uid: OverKizApi.OverkizClient.FetchEvents
-  commentId: M:OverKizApi.OverkizClient.FetchEvents
-  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_FetchEvents
-  name: FetchEvents()
-  nameWithType: OverkizClient.FetchEvents()
-  fullName: OverKizApi.OverkizClient.FetchEvents()
-  spec.csharp:
-  - uid: OverKizApi.OverkizClient.FetchEvents
-    name: FetchEvents
-    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_FetchEvents
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OverKizApi.OverkizClient.FetchEvents
-    name: FetchEvents
-    href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_FetchEvents
-  - name: (
-  - name: )
-- uid: OverKizApi.OverkizClient.FetchEventsRaw*
-  commentId: Overload:OverKizApi.OverkizClient.FetchEventsRaw
-  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_FetchEventsRaw
-  name: FetchEventsRaw
-  nameWithType: OverkizClient.FetchEventsRaw
-  fullName: OverKizApi.OverkizClient.FetchEventsRaw
-- uid: System.Threading.Tasks.Task{System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}}
-  commentId: T:System.Threading.Tasks.Task{System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
-  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<(IReadOnlyList<EventObject> Events, string RawJson)>
-  nameWithType: Task<(IReadOnlyList<EventObject> Events, string RawJson)>
-  fullName: System.Threading.Tasks.Task<(System.Collections.Generic.IReadOnlyList<OverKizApi.Models.EventObject> Events, string RawJson)>
-  nameWithType.vb: Task(Of (Events As IReadOnlyList(Of EventObject), RawJson As String))
-  fullName.vb: System.Threading.Tasks.Task(Of (Events As System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.EventObject), RawJson As String))
-  name.vb: Task(Of (Events As IReadOnlyList(Of EventObject), RawJson As String))
-  spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: <
-  - name: (
-  - uid: System.Collections.Generic.IReadOnlyList`1
-    name: IReadOnlyList
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
-  - name: <
-  - uid: OverKizApi.Models.EventObject
-    name: EventObject
-    href: OverKizApi.Models.EventObject.html
-  - name: '>'
-  - name: " "
-  - uid: System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}.Events
-    name: Events
-    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.ireadonlylist-overkizapi.models.eventobject-,system.string-.events
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: " "
-  - uid: System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}.RawJson
-    name: RawJson
-    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.ireadonlylist-overkizapi.models.eventobject-,system.string-.rawjson
-  - name: )
-  - name: '>'
-  spec.vb:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: (
-  - uid: System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}.Events
-    name: Events
-    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.ireadonlylist-overkizapi.models.eventobject-,system.string-.events
-  - name: " "
-  - name: As
-  - name: " "
-  - uid: System.Collections.Generic.IReadOnlyList`1
-    name: IReadOnlyList
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: OverKizApi.Models.EventObject
-    name: EventObject
-    href: OverKizApi.Models.EventObject.html
-  - name: )
-  - name: ','
-  - name: " "
-  - uid: System.ValueTuple{System.Collections.Generic.IReadOnlyList{OverKizApi.Models.EventObject},System.String}.RawJson
-    name: RawJson
-    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.ireadonlylist-overkizapi.models.eventobject-,system.string-.rawjson
-  - name: " "
-  - name: As
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
   - name: )
 - uid: OverKizApi.OverkizClient.UnregisterEventListener*
@@ -2922,6 +3013,12 @@ references:
     href: OverKizApi.Models.Gateway.html
   - name: )
   - name: )
+- uid: OverKizApi.Exceptions.UnsupportedOperationException
+  commentId: T:OverKizApi.Exceptions.UnsupportedOperationException
+  href: OverKizApi.Exceptions.UnsupportedOperationException.html
+  name: UnsupportedOperationException
+  nameWithType: UnsupportedOperationException
+  fullName: OverKizApi.Exceptions.UnsupportedOperationException
 - uid: OverKizApi.OverkizClient.DiscoverRexelGateways*
   commentId: Overload:OverKizApi.OverkizClient.DiscoverRexelGateways
   href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DiscoverRexelGateways
@@ -3656,6 +3753,18 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
+- uid: OverKizApi.Models.GatewayCandidate.ExternalId
+  commentId: P:OverKizApi.Models.GatewayCandidate.ExternalId
+  href: OverKizApi.Models.GatewayCandidate.html#OverKizApi_Models_GatewayCandidate_ExternalId
+  name: ExternalId
+  nameWithType: GatewayCandidate.ExternalId
+  fullName: OverKizApi.Models.GatewayCandidate.ExternalId
+- uid: OverKizApi.Models.GatewayCandidate.GatewayId
+  commentId: P:OverKizApi.Models.GatewayCandidate.GatewayId
+  href: OverKizApi.Models.GatewayCandidate.html#OverKizApi_Models_GatewayCandidate_GatewayId
+  name: GatewayId
+  nameWithType: GatewayCandidate.GatewayId
+  fullName: OverKizApi.Models.GatewayCandidate.GatewayId
 - uid: OverKizApi.OverkizClient.GenerateLocalToken*
   commentId: Overload:OverKizApi.OverkizClient.GenerateLocalToken
   href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GenerateLocalToken_System_String_
@@ -3769,6 +3878,69 @@ references:
   name: DeleteLocalToken
   nameWithType: OverkizClient.DeleteLocalToken
   fullName: OverKizApi.OverkizClient.DeleteLocalToken
+- uid: OverKizApi.OverkizClient.OpenLocalPairing*
+  commentId: Overload:OverKizApi.OverkizClient.OpenLocalPairing
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_OpenLocalPairing_System_String_
+  name: OpenLocalPairing
+  nameWithType: OverkizClient.OpenLocalPairing
+  fullName: OverKizApi.OverkizClient.OpenLocalPairing
+- uid: OverKizApi.OverkizClient.ActivateDeveloperMode*
+  commentId: Overload:OverKizApi.OverkizClient.ActivateDeveloperMode
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_ActivateDeveloperMode_System_String_
+  name: ActivateDeveloperMode
+  nameWithType: OverkizClient.ActivateDeveloperMode
+  fullName: OverKizApi.OverkizClient.ActivateDeveloperMode
+- uid: OverKizApi.Models.DeveloperMode
+  commentId: T:OverKizApi.Models.DeveloperMode
+  href: OverKizApi.Models.DeveloperMode.html
+  name: DeveloperMode
+  nameWithType: DeveloperMode
+  fullName: OverKizApi.Models.DeveloperMode
+- uid: OverKizApi.OverkizClient.GetDeveloperMode*
+  commentId: Overload:OverKizApi.OverkizClient.GetDeveloperMode
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_GetDeveloperMode_System_String_
+  name: GetDeveloperMode
+  nameWithType: OverkizClient.GetDeveloperMode
+  fullName: OverKizApi.OverkizClient.GetDeveloperMode
+- uid: System.Threading.Tasks.Task{OverKizApi.Models.DeveloperMode}
+  commentId: T:System.Threading.Tasks.Task{OverKizApi.Models.DeveloperMode}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<DeveloperMode>
+  nameWithType: Task<DeveloperMode>
+  fullName: System.Threading.Tasks.Task<OverKizApi.Models.DeveloperMode>
+  nameWithType.vb: Task(Of DeveloperMode)
+  fullName.vb: System.Threading.Tasks.Task(Of OverKizApi.Models.DeveloperMode)
+  name.vb: Task(Of DeveloperMode)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: OverKizApi.Models.DeveloperMode
+    name: DeveloperMode
+    href: OverKizApi.Models.DeveloperMode.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.DeveloperMode
+    name: DeveloperMode
+    href: OverKizApi.Models.DeveloperMode.html
+  - name: )
+- uid: OverKizApi.OverkizClient.DeactivateDeveloperMode*
+  commentId: Overload:OverKizApi.OverkizClient.DeactivateDeveloperMode
+  href: OverKizApi.OverkizClient.html#OverKizApi_OverkizClient_DeactivateDeveloperMode_System_String_
+  name: DeactivateDeveloperMode
+  nameWithType: OverkizClient.DeactivateDeveloperMode
+  fullName: OverKizApi.OverkizClient.DeactivateDeveloperMode
 - uid: OverKizApi.Models.OptionObject
   commentId: T:OverKizApi.Models.OptionObject
   href: OverKizApi.Models.OptionObject.html

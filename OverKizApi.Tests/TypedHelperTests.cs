@@ -6,6 +6,10 @@ namespace OverKizApi.Tests;
 [TestFixture]
 public sealed class TypedHelperTests
 	{
+	private static readonly string[] _stateWireNames = ["name", "type", "value"];
+	private static readonly string[] _aliasIds = ["a", "2", "c", "d"];
+	private static readonly string[] _vendorFeatures = ["vendor-feature"];
+	private static readonly string[] _aliasWireNames = ["id", "type", "features"];
 	[TestCase (DataType.Integer)]
 	[TestCase (DataType.Float)]
 	[TestCase (DataType.Boolean)]
@@ -16,13 +20,13 @@ public sealed class TypedHelperTests
 		{
 		object value = type switch
 			{
-			DataType.Integer => 0,
-			DataType.Float => 0d,
-			DataType.Boolean => false,
-			DataType.String => "",
-			DataType.JsonArray => new List<object?> (),
-			_ => new Dictionary<string, object?> ()
-			};
+				DataType.Integer => 0,
+				DataType.Float => 0d,
+				DataType.Boolean => false,
+				DataType.String => "",
+				DataType.JsonArray => new List<object?> (),
+				_ => new Dictionary<string, object?> ()
+				};
 		var states = new States ([new State { Name = "null", Type = type }, new State { Name = "value", Type = type, Value = value }]);
 		Assert.That (Get (states, "value", type), Is.EqualTo (value));
 		Assert.That (First (states, ["missing", "null", "value"], type), Is.EqualTo (value));
@@ -66,7 +70,7 @@ public sealed class TypedHelperTests
 		Assert.That (states.FirstValueAsList (["absent", "array"]), Is.SameAs (states["array"]!.Value));
 		Assert.That (states.FirstValueAsDict (["absent", "object"]), Is.SameAs (states["object"]!.Value));
 		using var document = JsonDocument.Parse (JsonSerializer.Serialize (states));
-		Assert.That (document.RootElement[0].EnumerateObject ().Select (p => p.Name), Is.EquivalentTo (new[] { "name", "type", "value" }));
+		Assert.That (document.RootElement[0].EnumerateObject ().Select (p => p.Name), Is.EquivalentTo (_stateWireNames));
 		Assert.That (JsonSerializer.Deserialize<States> (JsonSerializer.Serialize (states))!.GetValueAsList ("array")![0], Is.EqualTo (1L));
 		Assert.That (new State { Type = DataType.None }.ValueAsList, Is.Null);
 		Assert.That (new State { Type = DataType.JsonObject }.ValueAsDict, Is.Null);
@@ -88,7 +92,7 @@ public sealed class TypedHelperTests
 		{
 		var device = DeviceWithAliases ("""[{"id":"a","type":"favorite1"},{"id":2,"type":"favorite1","features":["position","tilt"]},{"id":"c","type":"favorite1","features":["position","tilt"]},{"id":"d","type":"vendor:new","features":[]}]""");
 		var all = device.GetSupportedAliases ();
-		Assert.That (all.Select (a => a.Id), Is.EqualTo (new[] { "a", "2", "c", "d" }));
+		Assert.That (all.Select (a => a.Id), Is.EqualTo (_aliasIds));
 		Assert.That (all[0].Features, Is.Empty);
 		var selected = device.GetMostFeaturedAliases ();
 		Assert.That (selected.Count, Is.EqualTo (2));
@@ -104,7 +108,7 @@ public sealed class TypedHelperTests
 		{
 		var device = DeviceWithAliases ("""[null,7,{}, {"id":true,"type":"x"},{"id":1.5,"type":"x"},{"id":"","type":"x"},{"id":"x","type":9},{"id":"x","type":"x","features":null},{"id":"x","type":"x","features":[1]},{"id":"good","type":"unknown","features":["vendor-feature"]}]""");
 		Assert.That (device.GetSupportedAliases ().Single ().Id, Is.EqualTo ("good"));
-		Assert.That (device.GetSupportedAliases ().Single ().Features, Is.EqualTo (new[] { "vendor-feature" }));
+		Assert.That (device.GetSupportedAliases ().Single ().Features, Is.EqualTo (_vendorFeatures));
 		}
 
 	[Test]
@@ -114,7 +118,7 @@ public sealed class TypedHelperTests
 		Assert.That (alias.Id, Is.EqualTo ("preset"));
 		Assert.That (alias.Type, Is.EqualTo ("favorite1"));
 		using var json = JsonDocument.Parse (JsonSerializer.Serialize (alias));
-		Assert.That (json.RootElement.EnumerateObject ().Select (p => p.Name), Is.EquivalentTo (new[] { "id", "type", "features" }));
+		Assert.That (json.RootElement.EnumerateObject ().Select (p => p.Name), Is.EquivalentTo (_aliasWireNames));
 		Assert.That (json.RootElement.GetProperty ("features")[0].GetString (), Is.EqualTo ("position"));
 		}
 
@@ -123,20 +127,20 @@ public sealed class TypedHelperTests
 
 	private static object? Get (States states, string name, DataType type) => type switch
 		{
-		DataType.Integer => states.GetValueAsInt (name),
-		DataType.Float => states.GetValueAsFloat (name),
-		DataType.Boolean => states.GetValueAsBool (name),
-		DataType.String => states.GetValueAsStr (name),
-		DataType.JsonArray => states.GetValueAsList (name),
-		_ => states.GetValueAsDict (name)
-		};
+			DataType.Integer => states.GetValueAsInt (name),
+			DataType.Float => states.GetValueAsFloat (name),
+			DataType.Boolean => states.GetValueAsBool (name),
+			DataType.String => states.GetValueAsStr (name),
+			DataType.JsonArray => states.GetValueAsList (name),
+			_ => states.GetValueAsDict (name)
+			};
 	private static object? First (States states, IEnumerable<string> names, DataType type) => type switch
 		{
-		DataType.Integer => states.FirstValueAsInt (names),
-		DataType.Float => states.FirstValueAsFloat (names),
-		DataType.Boolean => states.FirstValueAsBool (names),
-		DataType.String => states.FirstValueAsStr (names),
-		DataType.JsonArray => states.FirstValueAsList (names),
-		_ => states.FirstValueAsDict (names)
-		};
+			DataType.Integer => states.FirstValueAsInt (names),
+			DataType.Float => states.FirstValueAsFloat (names),
+			DataType.Boolean => states.FirstValueAsBool (names),
+			DataType.String => states.FirstValueAsStr (names),
+			DataType.JsonArray => states.FirstValueAsList (names),
+			_ => states.FirstValueAsDict (names)
+			};
 	}

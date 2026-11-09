@@ -24,7 +24,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: OptionObject
     path: ../OverKizApi/Models/Models.cs
-    startLine: 761
+    startLine: 1930
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -63,19 +63,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CreationTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 764
+    startLine: 1934
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp when the option subscription started.
   example: []
   syntax:
-    content: public long CreationTime { get; init; }
+    content: >-
+      [JsonPropertyName("creationTime")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public long CreationTime { get; init; }
     parameters: []
     return:
       type: System.Int64
-    content.vb: Public Property CreationTime As Long
+      description: Unix epoch millisecond timestamp when the option subscription started.
+    content.vb: >-
+      <JsonPropertyName("creationTime")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property CreationTime As Long
   overload: OverKizApi.Models.OptionObject.CreationTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: creationTime
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 - uid: OverKizApi.Models.OptionObject.LastUpdateTime
   commentId: P:OverKizApi.Models.OptionObject.LastUpdateTime
   id: LastUpdateTime
@@ -94,19 +116,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LastUpdateTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 766
+    startLine: 1942
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp of the most recent update to this option.
   example: []
   syntax:
-    content: public long LastUpdateTime { get; init; }
+    content: >-
+      [JsonPropertyName("lastUpdateTime")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public long LastUpdateTime { get; init; }
     parameters: []
     return:
       type: System.Int64
-    content.vb: Public Property LastUpdateTime As Long
+      description: Unix epoch millisecond timestamp of the most recent update to this option.
+    content.vb: >-
+      <JsonPropertyName("lastUpdateTime")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property LastUpdateTime As Long
   overload: OverKizApi.Models.OptionObject.LastUpdateTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: lastUpdateTime
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 - uid: OverKizApi.Models.OptionObject.OptionId
   commentId: P:OverKizApi.Models.OptionObject.OptionId
   id: OptionId
@@ -125,19 +169,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: OptionId
     path: ../OverKizApi/Models/Models.cs
-    startLine: 768
+    startLine: 1950
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unique identifier of the option type (e.g. <code>"ADVANCED_SCENARIOS"</code>).
   example: []
   syntax:
-    content: public string? OptionId { get; init; }
+    content: >-
+      [JsonPropertyName("optionId")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? OptionId { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property OptionId As String
+      description: Unique identifier of the option type (e.g. <code>"ADVANCED_SCENARIOS"</code>).
+    content.vb: >-
+      <JsonPropertyName("optionId")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property OptionId As String
   overload: OverKizApi.Models.OptionObject.OptionId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: optionId
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.OptionObject.StartDate
   commentId: P:OverKizApi.Models.OptionObject.StartDate
   id: StartDate
@@ -156,19 +224,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: StartDate
     path: ../OverKizApi/Models/Models.cs
-    startLine: 770
+    startLine: 1958
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp of the subscription start date.
   example: []
   syntax:
-    content: public long StartDate { get; init; }
+    content: >-
+      [JsonPropertyName("startDate")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public long StartDate { get; init; }
     parameters: []
     return:
       type: System.Int64
-    content.vb: Public Property StartDate As Long
+      description: Unix epoch millisecond timestamp of the subscription start date.
+    content.vb: >-
+      <JsonPropertyName("startDate")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property StartDate As Long
   overload: OverKizApi.Models.OptionObject.StartDate*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: startDate
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 - uid: OverKizApi.Models.OptionObject.Parameters
   commentId: P:OverKizApi.Models.OptionObject.Parameters
   id: Parameters
@@ -187,42 +277,61 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Parameters
     path: ../OverKizApi/Models/Models.cs
-    startLine: 772
+    startLine: 1966
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Configuration parameters for this option, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none are defined.
   example: []
   syntax:
-    content: public IReadOnlyList<OptionParameter>? Parameters { get; init; }
+    content: >-
+      [JsonPropertyName("parameters")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public IReadOnlyList<OptionParameter>? Parameters { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.OptionParameter}
-    content.vb: Public Property Parameters As IReadOnlyList(Of OptionParameter)
+      description: Configuration parameters for this option, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none are defined.
+    content.vb: >-
+      <JsonPropertyName("parameters")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Parameters As IReadOnlyList(Of OptionParameter)
   overload: OverKizApi.Models.OptionObject.Parameters*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: parameters
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

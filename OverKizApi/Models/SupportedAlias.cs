@@ -11,11 +11,17 @@ public sealed class SupportedAlias
 	/// <summary>Identifier to supply to the device's goToAlias command.</summary>
 	/// <value>Identifier to supply to the device's goToAlias command.</value>
 	[JsonPropertyName ("id")]
-	public required string Id { get; init; }
+	public required string Id
+		{
+		get; init;
+		}
 	/// <summary>Vendor alias type, including unknown types introduced by newer devices.</summary>
 	/// <value>Vendor alias type, including unknown types introduced by newer devices.</value>
 	[JsonPropertyName ("type")]
-	public required string Type { get; init; }
+	public required string Type
+		{
+		get; init;
+		}
 	/// <summary>Features supported by this slot, in source order.</summary>
 	/// <value>Features supported by this slot, in source order.</value>
 	[JsonPropertyName ("features")]
@@ -46,7 +52,8 @@ public sealed partial class Device
 			var id = rawId is string text ? text
 				: rawId is sbyte or byte or short or ushort or int or uint or long or ulong
 					? Convert.ToString (rawId, CultureInfo.InvariantCulture) : null;
-			if (string.IsNullOrWhiteSpace (id)) continue;
+			if (string.IsNullOrWhiteSpace (id))
+				continue;
 			var features = new List<string> ();
 			if (entry.TryGetValue ("features", out var rawFeatures))
 				{

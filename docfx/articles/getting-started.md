@@ -14,19 +14,24 @@ dotnet add package OverkizClient
 
 ```csharp
 using OverKizApi;
+using OverKizApi.Enums;
 
-// Cloud (OAuth2) connection
-await using var client = new OverkizClient(server: OverkizServer.Somfy_Europe);
-await client.LoginAsync("user@example.com", "password");
+// Obtain username and password from your application's credential storage.
+await using var client = new OverkizClient(username, password,
+    OverkizConst.SupportedServers[Server.SomfyEurope]);
+if (!await client.Login(registerEventListener: false))
+    throw new InvalidOperationException("Cloud login was rejected.");
 
 // Discover devices
-var devices = await client.GetDevicesAsync();
+var devices = await client.GetDevices();
 foreach (var device in devices)
 	Console.WriteLine(device.Label);
 
-// Execute a command
-await client.ExecuteCommandAsync(device.DeviceURL, "open");
 ```
+
+For Sauter or Brandt appliances, see [Smart Control authentication](../guides/smart-control.md). For local bearer-token connections and command examples, see the repository README. Command names depend on the discovered device's supported commands; discovery itself does not operate a device.
+
+After login, independent reads can overlap. Authentication, listener changes, setup cache replacement, gateway selection and commands are sequenced. Await client disposal before releasing an application-owned HTTP transport. Returned models are mutable snapshots; coordinate application mutations yourself.
 
 ## Next Pages
 

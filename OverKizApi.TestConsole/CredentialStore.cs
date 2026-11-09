@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+
 using OverKizApi.Enums;
 using OverKizApi.TestSupport;
 
@@ -54,7 +55,7 @@ internal static class CredentialStore
 	public static void Save (Server server, SavedCredential cred)
 		{
 		Dictionary<string, SavedCredential> store = ReadFile ();
-		store [server.ToString ()] = cred;
+		store[server.ToString ()] = cred;
 		File.WriteAllText (_filePath, JsonSerializer.Serialize (store, _jsonOptions));
 		}
 
@@ -79,7 +80,7 @@ internal static class CredentialStore
 	public static void SaveLocal (SavedCredential cred)
 		{
 		Dictionary<string, SavedCredential> store = ReadFile ();
-		store [LOCAL_KEY] = cred;
+		store[LOCAL_KEY] = cred;
 		LiveTestSettingsStore.SaveLocalCredentials (cred.Username, cred.Password);
 		File.WriteAllText (_filePath, JsonSerializer.Serialize (store, _jsonOptions));
 		}

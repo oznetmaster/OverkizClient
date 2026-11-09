@@ -13,6 +13,7 @@ items:
   - OverKizApi.Enums.GatewayConnectivityState
   - OverKizApi.Enums.GatewayMode
   - OverKizApi.Enums.GatewaySubType
+  - OverKizApi.Enums.GatewayType
   - OverKizApi.Enums.GatewayUpdateStatus
   - OverKizApi.Enums.MeasuredValueType
   - OverKizApi.Enums.ProductType
@@ -72,6 +73,13 @@ references:
   name: GatewayMode
   nameWithType: GatewayMode
   fullName: OverKizApi.Enums.GatewayMode
+- uid: OverKizApi.Enums.GatewayType
+  commentId: T:OverKizApi.Enums.GatewayType
+  parent: OverKizApi.Enums
+  href: OverKizApi.Enums.GatewayType.html
+  name: GatewayType
+  nameWithType: GatewayType
+  fullName: OverKizApi.Enums.GatewayType
 - uid: OverKizApi.Enums.GatewaySubType
   commentId: T:OverKizApi.Enums.GatewaySubType
   parent: OverKizApi.Enums
@@ -144,23 +152,18 @@ references:
   fullName: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html

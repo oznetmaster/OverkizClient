@@ -37,7 +37,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Location
     path: ../OverKizApi/Models/Models.cs
-    startLine: 199
+    startLine: 388
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -73,19 +73,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CreationTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 202
+    startLine: 392
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp when the location was created.
   example: []
   syntax:
-    content: public long CreationTime { get; init; }
+    content: >-
+      [JsonPropertyName("creationTime")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public long CreationTime { get; init; }
     parameters: []
     return:
       type: System.Int64
-    content.vb: Public Property CreationTime As Long
+      description: Unix epoch millisecond timestamp when the location was created.
+    content.vb: >-
+      <JsonPropertyName("creationTime")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property CreationTime As Long
   overload: OverKizApi.Models.Location.CreationTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: creationTime
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 - uid: OverKizApi.Models.Location.LastUpdateTime
   commentId: P:OverKizApi.Models.Location.LastUpdateTime
   id: LastUpdateTime
@@ -104,19 +126,52 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LastUpdateTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 204
+    startLine: 400
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp of the last update, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if never updated.
   example: []
   syntax:
-    content: public long? LastUpdateTime { get; init; }
+    content: >-
+      [JsonPropertyName("lastUpdateTime")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public long? LastUpdateTime { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Int64}
-    content.vb: Public Property LastUpdateTime As Long?
+      description: Unix epoch millisecond timestamp of the last update, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if never updated.
+    content.vb: >-
+      <JsonPropertyName("lastUpdateTime")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property LastUpdateTime As Long?
   overload: OverKizApi.Models.Location.LastUpdateTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: lastUpdateTime
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.City
   commentId: P:OverKizApi.Models.Location.City
   id: City
@@ -135,19 +190,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: City
     path: ../OverKizApi/Models/Models.cs
-    startLine: 206
+    startLine: 409
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: City name.
   example: []
   syntax:
-    content: public string? City { get; init; }
+    content: >-
+      [JsonPropertyName("city")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? City { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property City As String
+      description: City name.
+    content.vb: >-
+      <JsonPropertyName("city")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property City As String
   overload: OverKizApi.Models.Location.City*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: city
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.Country
   commentId: P:OverKizApi.Models.Location.Country
   id: Country
@@ -166,19 +245,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Country
     path: ../OverKizApi/Models/Models.cs
-    startLine: 208
+    startLine: 417
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Country name.
   example: []
   syntax:
-    content: public string? Country { get; init; }
+    content: >-
+      [JsonPropertyName("country")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Country { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Country As String
+      description: Country name.
+    content.vb: >-
+      <JsonPropertyName("country")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Country As String
   overload: OverKizApi.Models.Location.Country*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: country
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.PostalCode
   commentId: P:OverKizApi.Models.Location.PostalCode
   id: PostalCode
@@ -197,19 +300,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PostalCode
     path: ../OverKizApi/Models/Models.cs
-    startLine: 210
+    startLine: 425
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Postal / ZIP code.
   example: []
   syntax:
-    content: public string? PostalCode { get; init; }
+    content: >-
+      [JsonPropertyName("postalCode")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? PostalCode { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property PostalCode As String
+      description: Postal / ZIP code.
+    content.vb: >-
+      <JsonPropertyName("postalCode")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property PostalCode As String
   overload: OverKizApi.Models.Location.PostalCode*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: postalCode
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.AddressLine1
   commentId: P:OverKizApi.Models.Location.AddressLine1
   id: AddressLine1
@@ -228,19 +355,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: AddressLine1
     path: ../OverKizApi/Models/Models.cs
-    startLine: 212
+    startLine: 433
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: First line of the street address.
   example: []
   syntax:
-    content: public string? AddressLine1 { get; init; }
+    content: >-
+      [JsonPropertyName("addressLine1")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? AddressLine1 { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property AddressLine1 As String
+      description: First line of the street address.
+    content.vb: >-
+      <JsonPropertyName("addressLine1")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property AddressLine1 As String
   overload: OverKizApi.Models.Location.AddressLine1*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addressLine1
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.AddressLine2
   commentId: P:OverKizApi.Models.Location.AddressLine2
   id: AddressLine2
@@ -259,19 +410,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: AddressLine2
     path: ../OverKizApi/Models/Models.cs
-    startLine: 214
+    startLine: 441
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Second line of the street address (apartment, suite, etc.).
   example: []
   syntax:
-    content: public string? AddressLine2 { get; init; }
+    content: >-
+      [JsonPropertyName("addressLine2")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? AddressLine2 { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property AddressLine2 As String
+      description: Second line of the street address (apartment, suite, etc.).
+    content.vb: >-
+      <JsonPropertyName("addressLine2")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property AddressLine2 As String
   overload: OverKizApi.Models.Location.AddressLine2*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addressLine2
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.Timezone
   commentId: P:OverKizApi.Models.Location.Timezone
   id: Timezone
@@ -290,19 +465,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Timezone
     path: ../OverKizApi/Models/Models.cs
-    startLine: 216
+    startLine: 449
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: IANA time zone identifier (e.g. <code>"Europe/Paris"</code>).
   example: []
   syntax:
-    content: public string? Timezone { get; init; }
+    content: >-
+      [JsonPropertyName("timezone")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Timezone { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Timezone As String
+      description: IANA time zone identifier (e.g. <code>"Europe/Paris"</code>).
+    content.vb: >-
+      <JsonPropertyName("timezone")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Timezone As String
   overload: OverKizApi.Models.Location.Timezone*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: timezone
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.Longitude
   commentId: P:OverKizApi.Models.Location.Longitude
   id: Longitude
@@ -321,19 +520,52 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Longitude
     path: ../OverKizApi/Models/Models.cs
-    startLine: 218
+    startLine: 457
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Longitude coordinate in decimal degrees.
   example: []
   syntax:
-    content: public double? Longitude { get; init; }
+    content: >-
+      [JsonPropertyName("longitude")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public double? Longitude { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Double}
-    content.vb: Public Property Longitude As Double?
+      description: Longitude coordinate in decimal degrees.
+    content.vb: >-
+      <JsonPropertyName("longitude")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Longitude As Double?
   overload: OverKizApi.Models.Location.Longitude*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: longitude
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.Latitude
   commentId: P:OverKizApi.Models.Location.Latitude
   id: Latitude
@@ -352,19 +584,52 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Latitude
     path: ../OverKizApi/Models/Models.cs
-    startLine: 220
+    startLine: 466
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Latitude coordinate in decimal degrees.
   example: []
   syntax:
-    content: public double? Latitude { get; init; }
+    content: >-
+      [JsonPropertyName("latitude")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public double? Latitude { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Double}
-    content.vb: Public Property Latitude As Double?
+      description: Latitude coordinate in decimal degrees.
+    content.vb: >-
+      <JsonPropertyName("latitude")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Latitude As Double?
   overload: OverKizApi.Models.Location.Latitude*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: latitude
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.TwilightMode
   commentId: P:OverKizApi.Models.Location.TwilightMode
   id: TwilightMode
@@ -383,19 +648,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TwilightMode
     path: ../OverKizApi/Models/Models.cs
-    startLine: 222
+    startLine: 475
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Twilight calculation mode (0 = civil, 1 = nautical, 2 = astronomical, 3 = custom city).
   example: []
   syntax:
-    content: public int TwilightMode { get; init; }
+    content: >-
+      [JsonPropertyName("twilightMode")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public int TwilightMode { get; init; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property TwilightMode As Integer
+      description: Twilight calculation mode (0 = civil, 1 = nautical, 2 = astronomical, 3 = custom city).
+    content.vb: >-
+      <JsonPropertyName("twilightMode")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property TwilightMode As Integer
   overload: OverKizApi.Models.Location.TwilightMode*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: twilightMode
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 - uid: OverKizApi.Models.Location.TwilightAngle
   commentId: P:OverKizApi.Models.Location.TwilightAngle
   id: TwilightAngle
@@ -414,19 +701,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TwilightAngle
     path: ../OverKizApi/Models/Models.cs
-    startLine: 224
+    startLine: 483
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Twilight angle used for custom-mode calculations.
   example: []
   syntax:
-    content: public string? TwilightAngle { get; init; }
+    content: >-
+      [JsonPropertyName("twilightAngle")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? TwilightAngle { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property TwilightAngle As String
+      description: Twilight angle used for custom-mode calculations.
+    content.vb: >-
+      <JsonPropertyName("twilightAngle")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property TwilightAngle As String
   overload: OverKizApi.Models.Location.TwilightAngle*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: twilightAngle
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.TwilightCity
   commentId: P:OverKizApi.Models.Location.TwilightCity
   id: TwilightCity
@@ -445,19 +756,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TwilightCity
     path: ../OverKizApi/Models/Models.cs
-    startLine: 226
+    startLine: 491
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: City used for twilight calculations when <xref href="OverKizApi.Models.Location.TwilightMode" data-throw-if-not-resolved="false"></xref> is 3.
   example: []
   syntax:
-    content: public string? TwilightCity { get; init; }
+    content: >-
+      [JsonPropertyName("twilightCity")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? TwilightCity { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property TwilightCity As String
+      description: City used for twilight calculations when <xref href="OverKizApi.Models.Location.TwilightMode" data-throw-if-not-resolved="false"></xref> is 3.
+    content.vb: >-
+      <JsonPropertyName("twilightCity")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property TwilightCity As String
   overload: OverKizApi.Models.Location.TwilightCity*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: twilightCity
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.SummerSolsticeDuskMinutes
   commentId: P:OverKizApi.Models.Location.SummerSolsticeDuskMinutes
   id: SummerSolsticeDuskMinutes
@@ -476,19 +811,52 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SummerSolsticeDuskMinutes
     path: ../OverKizApi/Models/Models.cs
-    startLine: 228
+    startLine: 499
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Minutes after sunset at summer solstice (used for dusk offset calculations).
   example: []
   syntax:
-    content: public int? SummerSolsticeDuskMinutes { get; init; }
+    content: >-
+      [JsonPropertyName("summerSolsticeDuskMinutes")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public int? SummerSolsticeDuskMinutes { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
-    content.vb: Public Property SummerSolsticeDuskMinutes As Integer?
+      description: Minutes after sunset at summer solstice (used for dusk offset calculations).
+    content.vb: >-
+      <JsonPropertyName("summerSolsticeDuskMinutes")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property SummerSolsticeDuskMinutes As Integer?
   overload: OverKizApi.Models.Location.SummerSolsticeDuskMinutes*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: summerSolsticeDuskMinutes
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.WinterSolsticeDuskMinutes
   commentId: P:OverKizApi.Models.Location.WinterSolsticeDuskMinutes
   id: WinterSolsticeDuskMinutes
@@ -507,19 +875,52 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: WinterSolsticeDuskMinutes
     path: ../OverKizApi/Models/Models.cs
-    startLine: 230
+    startLine: 508
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Minutes after sunset at winter solstice (used for dusk offset calculations).
   example: []
   syntax:
-    content: public int? WinterSolsticeDuskMinutes { get; init; }
+    content: >-
+      [JsonPropertyName("winterSolsticeDuskMinutes")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public int? WinterSolsticeDuskMinutes { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
-    content.vb: Public Property WinterSolsticeDuskMinutes As Integer?
+      description: Minutes after sunset at winter solstice (used for dusk offset calculations).
+    content.vb: >-
+      <JsonPropertyName("winterSolsticeDuskMinutes")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property WinterSolsticeDuskMinutes As Integer?
   overload: OverKizApi.Models.Location.WinterSolsticeDuskMinutes*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: winterSolsticeDuskMinutes
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Location.TwilightOffsetEnabled
   commentId: P:OverKizApi.Models.Location.TwilightOffsetEnabled
   id: TwilightOffsetEnabled
@@ -538,19 +939,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TwilightOffsetEnabled
     path: ../OverKizApi/Models/Models.cs
-    startLine: 232
+    startLine: 517
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether manual dawn/dusk offsets are enabled.
   example: []
   syntax:
-    content: public bool TwilightOffsetEnabled { get; init; }
+    content: >-
+      [JsonPropertyName("twilightOffsetEnabled")]
+
+      public bool TwilightOffsetEnabled { get; init; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Property TwilightOffsetEnabled As Boolean
+      description: Whether manual dawn/dusk offsets are enabled.
+    content.vb: >-
+      <JsonPropertyName("twilightOffsetEnabled")>
+
+      Public Property TwilightOffsetEnabled As Boolean
   overload: OverKizApi.Models.Location.TwilightOffsetEnabled*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: twilightOffsetEnabled
 - uid: OverKizApi.Models.Location.DawnOffset
   commentId: P:OverKizApi.Models.Location.DawnOffset
   id: DawnOffset
@@ -569,19 +983,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DawnOffset
     path: ../OverKizApi/Models/Models.cs
-    startLine: 234
+    startLine: 524
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Manual dawn offset in minutes (positive = later, negative = earlier).
   example: []
   syntax:
-    content: public int DawnOffset { get; init; }
+    content: >-
+      [JsonPropertyName("dawnOffset")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public int DawnOffset { get; init; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property DawnOffset As Integer
+      description: Manual dawn offset in minutes (positive = later, negative = earlier).
+    content.vb: >-
+      <JsonPropertyName("dawnOffset")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property DawnOffset As Integer
   overload: OverKizApi.Models.Location.DawnOffset*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: dawnOffset
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 - uid: OverKizApi.Models.Location.DuskOffset
   commentId: P:OverKizApi.Models.Location.DuskOffset
   id: DuskOffset
@@ -600,19 +1036,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DuskOffset
     path: ../OverKizApi/Models/Models.cs
-    startLine: 236
+    startLine: 532
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Manual dusk offset in minutes (positive = later, negative = earlier).
   example: []
   syntax:
-    content: public int DuskOffset { get; init; }
+    content: >-
+      [JsonPropertyName("duskOffset")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public int DuskOffset { get; init; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property DuskOffset As Integer
+      description: Manual dusk offset in minutes (positive = later, negative = earlier).
+    content.vb: >-
+      <JsonPropertyName("duskOffset")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property DuskOffset As Integer
   overload: OverKizApi.Models.Location.DuskOffset*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: duskOffset
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 references:
 - uid: OverKizApi.Models.Setup
   commentId: T:OverKizApi.Models.Setup
@@ -623,26 +1081,21 @@ references:
   fullName: OverKizApi.Models.Setup
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

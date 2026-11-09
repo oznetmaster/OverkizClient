@@ -44,10 +44,10 @@ public sealed class SetupAndDeviceTests
 	public async Task GetDevice_EncodesEntireDeviceUrlAsOneSegment ()
 		{
 		using var api = new ScriptedApi ();
-		api.Expect ("GET", "setup/devices/" + ScriptedApi.EncodedDeviceUrl,
+		api.Expect ("GET", "setup/devices/" + ScriptedApi.ENCODED_DEVICE_URL,
 			 """{"deviceURL":"io://test-gateway/shutter#2","label":"Shutter","available":true,"type":"actuator"}""");
-		Device device = await api.Client.GetDevice (ScriptedApi.DeviceUrl);
-		Assert.That (device.Id, Is.EqualTo (ScriptedApi.DeviceUrl));
+		Device device = await api.Client.GetDevice (ScriptedApi.DEVICE_URL);
+		Assert.That (device.Id, Is.EqualTo (ScriptedApi.DEVICE_URL));
 		Assert.That (device.Type, Is.EqualTo (ProductType.Actuator));
 		Assert.That (device.Available, Is.True);
 		api.Complete ();
@@ -60,8 +60,8 @@ public sealed class SetupAndDeviceTests
 	public async Task States_ReadsSupportedResponseShapes (string response)
 		{
 		using var api = new ScriptedApi ();
-		api.Expect ("GET", "setup/devices/" + ScriptedApi.EncodedDeviceUrl + "/states", response);
-		State state = (await api.Client.GetDeviceStates (ScriptedApi.DeviceUrl)).Single ();
+		api.Expect ("GET", "setup/devices/" + ScriptedApi.ENCODED_DEVICE_URL + "/states", response);
+		State state = (await api.Client.GetDeviceStates (ScriptedApi.DEVICE_URL)).Single ();
 		Assert.That (state.Name, Is.EqualTo ("core:ClosureState"));
 		Assert.That (state.ValueAsInt, Is.EqualTo (45));
 		api.Complete ();
@@ -74,8 +74,8 @@ public sealed class SetupAndDeviceTests
 	public async Task States_EmptyResponsesReturnEmptyCollection (string response)
 		{
 		using var api = new ScriptedApi ();
-		api.Expect ("GET", "setup/devices/" + ScriptedApi.EncodedDeviceUrl + "/states", response);
-		Assert.That (await api.Client.GetDeviceStates (ScriptedApi.DeviceUrl), Is.Empty);
+		api.Expect ("GET", "setup/devices/" + ScriptedApi.ENCODED_DEVICE_URL + "/states", response);
+		Assert.That (await api.Client.GetDeviceStates (ScriptedApi.DEVICE_URL), Is.Empty);
 		api.Complete ();
 		}
 
@@ -85,8 +85,8 @@ public sealed class SetupAndDeviceTests
 	public async Task InvalidDeviceResponse_IsNotAcceptedAsADevice (string response, Type exception)
 		{
 		using var api = new ScriptedApi ();
-		api.Expect ("GET", "setup/devices/" + ScriptedApi.EncodedDeviceUrl, response);
-		await Assert.ThatAsync (() => api.Client.GetDevice (ScriptedApi.DeviceUrl), Throws.TypeOf (exception));
+		api.Expect ("GET", "setup/devices/" + ScriptedApi.ENCODED_DEVICE_URL, response);
+		await Assert.ThatAsync (() => api.Client.GetDevice (ScriptedApi.DEVICE_URL), Throws.TypeOf (exception));
 		api.Complete ();
 		}
 

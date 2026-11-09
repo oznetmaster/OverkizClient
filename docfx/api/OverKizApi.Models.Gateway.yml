@@ -16,6 +16,7 @@ items:
   - OverKizApi.Models.Gateway.SubType
   - OverKizApi.Models.Gateway.SyncInProgress
   - OverKizApi.Models.Gateway.TimeReliable
+  - OverKizApi.Models.Gateway.Type
   - OverKizApi.Models.Gateway.UpToDate
   - OverKizApi.Models.Gateway.UpdateStatus
   langs:
@@ -32,7 +33,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Gateway
     path: ../OverKizApi/Models/Models.cs
-    startLine: 421
+    startLine: 903
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -71,19 +72,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewayId
     path: ../OverKizApi/Models/Models.cs
-    startLine: 424
+    startLine: 907
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unique gateway serial number (e.g. <code>"1234-5678-9012"</code>).
   example: []
   syntax:
-    content: public string? GatewayId { get; init; }
+    content: >-
+      [JsonPropertyName("gatewayId")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? GatewayId { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property GatewayId As String
+      description: Unique gateway serial number (e.g. <code>"1234-5678-9012"</code>).
+    content.vb: >-
+      <JsonPropertyName("gatewayId")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property GatewayId As String
   overload: OverKizApi.Models.Gateway.GatewayId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: gatewayId
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.Id
   commentId: P:OverKizApi.Models.Gateway.Id
   id: Id
@@ -102,19 +127,30 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Id
     path: ../OverKizApi/Models/Models.cs
-    startLine: 426
+    startLine: 915
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Alias for <xref href="OverKizApi.Models.Gateway.GatewayId" data-throw-if-not-resolved="false"></xref>; provided for convenience.
   example: []
   syntax:
-    content: public string? Id { get; }
+    content: >-
+      [JsonIgnore]
+
+      public string? Id { get; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public ReadOnly Property Id As String
+      description: Alias for <xref href="OverKizApi.Models.Gateway.GatewayId" data-throw-if-not-resolved="false"></xref>; provided for convenience.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Id As String
   overload: OverKizApi.Models.Gateway.Id*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.Gateway.Functions
   commentId: P:OverKizApi.Models.Gateway.Functions
   id: Functions
@@ -133,19 +169,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Functions
     path: ../OverKizApi/Models/Models.cs
-    startLine: 428
+    startLine: 919
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Comma-separated list of functional capability flags reported by the gateway.
   example: []
   syntax:
-    content: public string? Functions { get; init; }
+    content: >-
+      [JsonPropertyName("functions")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Functions { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Functions As String
+      description: Comma-separated list of functional capability flags reported by the gateway.
+    content.vb: >-
+      <JsonPropertyName("functions")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Functions As String
   overload: OverKizApi.Models.Gateway.Functions*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: functions
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.Alive
   commentId: P:OverKizApi.Models.Gateway.Alive
   id: Alive
@@ -164,19 +224,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Alive
     path: ../OverKizApi/Models/Models.cs
-    startLine: 430
+    startLine: 927
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether the gateway is currently sending heartbeat signals to the cloud.
   example: []
   syntax:
-    content: public bool? Alive { get; init; }
+    content: >-
+      [JsonPropertyName("alive")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public bool? Alive { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Boolean}
-    content.vb: Public Property Alive As Boolean?
+      description: Whether the gateway is currently sending heartbeat signals to the cloud.
+    content.vb: >-
+      <JsonPropertyName("alive")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Alive As Boolean?
   overload: OverKizApi.Models.Gateway.Alive*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: alive
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.Mode
   commentId: P:OverKizApi.Models.Gateway.Mode
   id: Mode
@@ -195,19 +279,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Mode
     path: ../OverKizApi/Models/Models.cs
-    startLine: 432
+    startLine: 935
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Gateway operating mode string (see <xref href="OverKizApi.Enums.GatewayMode" data-throw-if-not-resolved="false"></xref>).
   example: []
   syntax:
-    content: public string? Mode { get; init; }
+    content: >-
+      [JsonPropertyName("mode")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Mode { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Mode As String
+      description: Gateway operating mode string (see <xref href="OverKizApi.Enums.GatewayMode" data-throw-if-not-resolved="false"></xref>).
+    content.vb: >-
+      <JsonPropertyName("mode")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Mode As String
   overload: OverKizApi.Models.Gateway.Mode*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: mode
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.PlaceOid
   commentId: P:OverKizApi.Models.Gateway.PlaceOid
   id: PlaceOid
@@ -226,19 +334,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PlaceOid
     path: ../OverKizApi/Models/Models.cs
-    startLine: 434
+    startLine: 943
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: OID of the place (room/floor) the gateway is assigned to.
   example: []
   syntax:
-    content: public string? PlaceOid { get; init; }
+    content: >-
+      [JsonPropertyName("placeOid")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? PlaceOid { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property PlaceOid As String
+      description: OID of the place (room/floor) the gateway is assigned to.
+    content.vb: >-
+      <JsonPropertyName("placeOid")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property PlaceOid As String
   overload: OverKizApi.Models.Gateway.PlaceOid*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: placeOid
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.TimeReliable
   commentId: P:OverKizApi.Models.Gateway.TimeReliable
   id: TimeReliable
@@ -257,19 +389,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TimeReliable
     path: ../OverKizApi/Models/Models.cs
-    startLine: 436
+    startLine: 951
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether the gateway's real-time clock is synchronised.
   example: []
   syntax:
-    content: public bool? TimeReliable { get; init; }
+    content: >-
+      [JsonPropertyName("timeReliable")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public bool? TimeReliable { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Boolean}
-    content.vb: Public Property TimeReliable As Boolean?
+      description: Whether the gateway's real-time clock is synchronised.
+    content.vb: >-
+      <JsonPropertyName("timeReliable")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property TimeReliable As Boolean?
   overload: OverKizApi.Models.Gateway.TimeReliable*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: timeReliable
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.Connectivity
   commentId: P:OverKizApi.Models.Gateway.Connectivity
   id: Connectivity
@@ -288,19 +444,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Connectivity
     path: ../OverKizApi/Models/Models.cs
-    startLine: 438
+    startLine: 959
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Live connectivity state of the gateway.
   example: []
   syntax:
-    content: public Connectivity? Connectivity { get; init; }
+    content: >-
+      [JsonPropertyName("connectivity")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public Connectivity? Connectivity { get; init; }
     parameters: []
     return:
       type: OverKizApi.Models.Connectivity
-    content.vb: Public Property Connectivity As Connectivity
+      description: Live connectivity state of the gateway.
+    content.vb: >-
+      <JsonPropertyName("connectivity")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Connectivity As Connectivity
   overload: OverKizApi.Models.Gateway.Connectivity*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: connectivity
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.UpToDate
   commentId: P:OverKizApi.Models.Gateway.UpToDate
   id: UpToDate
@@ -319,19 +499,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UpToDate
     path: ../OverKizApi/Models/Models.cs
-    startLine: 440
+    startLine: 967
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether the gateway firmware is up to date.
   example: []
   syntax:
-    content: public bool? UpToDate { get; init; }
+    content: >-
+      [JsonPropertyName("upToDate")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public bool? UpToDate { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Boolean}
-    content.vb: Public Property UpToDate As Boolean?
+      description: Whether the gateway firmware is up to date.
+    content.vb: >-
+      <JsonPropertyName("upToDate")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property UpToDate As Boolean?
   overload: OverKizApi.Models.Gateway.UpToDate*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: upToDate
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.UpdateStatus
   commentId: P:OverKizApi.Models.Gateway.UpdateStatus
   id: UpdateStatus
@@ -350,19 +554,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UpdateStatus
     path: ../OverKizApi/Models/Models.cs
-    startLine: 442
+    startLine: 975
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Current firmware update lifecycle state.
   example: []
   syntax:
-    content: public GatewayUpdateStatus? UpdateStatus { get; init; }
+    content: >-
+      [JsonPropertyName("updateStatus")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public GatewayUpdateStatus? UpdateStatus { get; init; }
     parameters: []
     return:
       type: System.Nullable{OverKizApi.Enums.GatewayUpdateStatus}
-    content.vb: Public Property UpdateStatus As GatewayUpdateStatus?
+      description: Current firmware update lifecycle state.
+    content.vb: >-
+      <JsonPropertyName("updateStatus")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property UpdateStatus As GatewayUpdateStatus?
   overload: OverKizApi.Models.Gateway.UpdateStatus*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: updateStatus
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.SyncInProgress
   commentId: P:OverKizApi.Models.Gateway.SyncInProgress
   id: SyncInProgress
@@ -381,19 +609,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SyncInProgress
     path: ../OverKizApi/Models/Models.cs
-    startLine: 444
+    startLine: 983
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether a device synchronisation cycle is in progress.
   example: []
   syntax:
-    content: public bool? SyncInProgress { get; init; }
+    content: >-
+      [JsonPropertyName("syncInProgress")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public bool? SyncInProgress { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Boolean}
-    content.vb: Public Property SyncInProgress As Boolean?
+      description: Whether a device synchronisation cycle is in progress.
+    content.vb: >-
+      <JsonPropertyName("syncInProgress")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property SyncInProgress As Boolean?
   overload: OverKizApi.Models.Gateway.SyncInProgress*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: syncInProgress
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.Partners
   commentId: P:OverKizApi.Models.Gateway.Partners
   id: Partners
@@ -412,19 +664,91 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Partners
     path: ../OverKizApi/Models/Models.cs
-    startLine: 446
+    startLine: 991
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Third-party partner integrations activated on this gateway.
   example: []
   syntax:
-    content: public IReadOnlyList<Partner> Partners { get; init; }
+    content: >-
+      [JsonPropertyName("partners")]
+
+      public IReadOnlyList<Partner> Partners { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Partner}
-    content.vb: Public Property Partners As IReadOnlyList(Of Partner)
+      description: Third-party partner integrations activated on this gateway.
+    content.vb: >-
+      <JsonPropertyName("partners")>
+
+      Public Property Partners As IReadOnlyList(Of Partner)
   overload: OverKizApi.Models.Gateway.Partners*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: partners
+- uid: OverKizApi.Models.Gateway.Type
+  commentId: P:OverKizApi.Models.Gateway.Type
+  id: Type
+  parent: OverKizApi.Models.Gateway
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: Gateway.Type
+  fullName: OverKizApi.Models.Gateway.Type
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/Models.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Type
+    path: ../OverKizApi/Models/Models.cs
+    startLine: 995
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Hardware product family of the gateway.
+  example: []
+  syntax:
+    content: >-
+      [JsonConverter(typeof(GatewayTypeJsonConverter))]
+
+      [JsonPropertyName("type")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public GatewayType? Type { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{OverKizApi.Enums.GatewayType}
+      description: Hardware product family of the gateway.
+    content.vb: >-
+      <JsonConverter(GetType(GatewayTypeJsonConverter))>
+
+      <JsonPropertyName("type")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Type As GatewayType?
+  overload: OverKizApi.Models.Gateway.Type*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: type
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Gateway.SubType
   commentId: P:OverKizApi.Models.Gateway.SubType
   id: SubType
@@ -443,42 +767,65 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SubType
     path: ../OverKizApi/Models/Models.cs
-    startLine: 448
+    startLine: 1004
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Hardware model / product family of the gateway.
   example: []
   syntax:
-    content: public GatewaySubType? SubType { get; init; }
+    content: >-
+      [JsonConverter(typeof(GatewaySubTypeJsonConverter))]
+
+      [JsonPropertyName("subType")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public GatewaySubType? SubType { get; init; }
     parameters: []
     return:
       type: System.Nullable{OverKizApi.Enums.GatewaySubType}
-    content.vb: Public Property SubType As GatewaySubType?
+      description: Hardware model / product family of the gateway.
+    content.vb: >-
+      <JsonConverter(GetType(GatewaySubTypeJsonConverter))>
+
+      <JsonPropertyName("subType")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property SubType As GatewaySubType?
   overload: OverKizApi.Models.Gateway.SubType*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: subType
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -799,26 +1146,21 @@ references:
   fullName: OverKizApi.Models.Gateway.Mode
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Models.Gateway.PlaceOid*
   commentId: Overload:OverKizApi.Models.Gateway.PlaceOid
   href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_PlaceOid
@@ -984,6 +1326,30 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OverKizApi.Models.Gateway.Type*
+  commentId: Overload:OverKizApi.Models.Gateway.Type
+  href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_Type
+  name: Type
+  nameWithType: Gateway.Type
+  fullName: OverKizApi.Models.Gateway.Type
+- uid: System.Nullable{OverKizApi.Enums.GatewayType}
+  commentId: T:System.Nullable{OverKizApi.Enums.GatewayType}
+  parent: System
+  definition: System.Nullable`1
+  href: OverKizApi.Enums.GatewayType.html
+  name: GatewayType?
+  nameWithType: GatewayType?
+  fullName: OverKizApi.Enums.GatewayType?
+  spec.csharp:
+  - uid: OverKizApi.Enums.GatewayType
+    name: GatewayType
+    href: OverKizApi.Enums.GatewayType.html
+  - name: '?'
+  spec.vb:
+  - uid: OverKizApi.Enums.GatewayType
+    name: GatewayType
+    href: OverKizApi.Enums.GatewayType.html
+  - name: '?'
 - uid: OverKizApi.Models.Gateway.SubType*
   commentId: Overload:OverKizApi.Models.Gateway.SubType
   href: OverKizApi.Models.Gateway.html#OverKizApi_Models_Gateway_SubType

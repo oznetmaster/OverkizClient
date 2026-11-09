@@ -24,7 +24,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Definition
     path: ../OverKizApi/Models/Models.cs
-    startLine: 263
+    startLine: 594
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -63,19 +63,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Commands
     path: ../OverKizApi/Models/Models.cs
-    startLine: 266
+    startLine: 598
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: All commands supported by the device.
   example: []
   syntax:
-    content: public IReadOnlyList<CommandDefinition> Commands { get; init; }
+    content: >-
+      [JsonPropertyName("commands")]
+
+      public IReadOnlyList<CommandDefinition> Commands { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.CommandDefinition}
-    content.vb: Public Property Commands As IReadOnlyList(Of CommandDefinition)
+      description: All commands supported by the device.
+    content.vb: >-
+      <JsonPropertyName("commands")>
+
+      Public Property Commands As IReadOnlyList(Of CommandDefinition)
   overload: OverKizApi.Models.Definition.Commands*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: commands
 - uid: OverKizApi.Models.Definition.States
   commentId: P:OverKizApi.Models.Definition.States
   id: States
@@ -94,19 +107,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: States
     path: ../OverKizApi/Models/Models.cs
-    startLine: 268
+    startLine: 602
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: All states the device can report.
   example: []
   syntax:
-    content: public IReadOnlyList<StateDefinition> States { get; init; }
+    content: >-
+      [JsonPropertyName("states")]
+
+      public IReadOnlyList<StateDefinition> States { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.StateDefinition}
-    content.vb: Public Property States As IReadOnlyList(Of StateDefinition)
+      description: All states the device can report.
+    content.vb: >-
+      <JsonPropertyName("states")>
+
+      Public Property States As IReadOnlyList(Of StateDefinition)
   overload: OverKizApi.Models.Definition.States*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: states
 - uid: OverKizApi.Models.Definition.WidgetName
   commentId: P:OverKizApi.Models.Definition.WidgetName
   id: WidgetName
@@ -125,19 +151,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: WidgetName
     path: ../OverKizApi/Models/Models.cs
-    startLine: 270
+    startLine: 606
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: UI widget name used by the Overkiz app to render the device.
   example: []
   syntax:
-    content: public string? WidgetName { get; init; }
+    content: >-
+      [JsonPropertyName("widgetName")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? WidgetName { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property WidgetName As String
+      description: UI widget name used by the Overkiz app to render the device.
+    content.vb: >-
+      <JsonPropertyName("widgetName")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property WidgetName As String
   overload: OverKizApi.Models.Definition.WidgetName*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: widgetName
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Definition.UiClass
   commentId: P:OverKizApi.Models.Definition.UiClass
   id: UiClass
@@ -156,19 +206,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UiClass
     path: ../OverKizApi/Models/Models.cs
-    startLine: 272
+    startLine: 614
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: UI class name used by the Overkiz app to categorise the device.
   example: []
   syntax:
-    content: public string? UiClass { get; init; }
+    content: >-
+      [JsonPropertyName("uiClass")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? UiClass { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property UiClass As String
+      description: UI class name used by the Overkiz app to categorise the device.
+    content.vb: >-
+      <JsonPropertyName("uiClass")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property UiClass As String
   overload: OverKizApi.Models.Definition.UiClass*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: uiClass
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Definition.QualifiedName
   commentId: P:OverKizApi.Models.Definition.QualifiedName
   id: QualifiedName
@@ -187,42 +261,61 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: QualifiedName
     path: ../OverKizApi/Models/Models.cs
-    startLine: 274
+    startLine: 622
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Qualified name of the device controllable type (e.g. <code>"io:RollerShutterGenericIOComponent"</code>).
   example: []
   syntax:
-    content: public string? QualifiedName { get; init; }
+    content: >-
+      [JsonPropertyName("qualifiedName")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? QualifiedName { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property QualifiedName As String
+      description: Qualified name of the device controllable type (e.g. <code>"io:RollerShutterGenericIOComponent"</code>).
+    content.vb: >-
+      <JsonPropertyName("qualifiedName")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property QualifiedName As String
   overload: OverKizApi.Models.Definition.QualifiedName*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: qualifiedName
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

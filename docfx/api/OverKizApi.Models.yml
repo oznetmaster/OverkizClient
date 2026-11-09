@@ -10,6 +10,7 @@ items:
   - OverKizApi.Models.Connectivity
   - OverKizApi.Models.DataType
   - OverKizApi.Models.Definition
+  - OverKizApi.Models.DeveloperMode
   - OverKizApi.Models.Device
   - OverKizApi.Models.EventObject
   - OverKizApi.Models.EventState
@@ -31,6 +32,7 @@ items:
   - OverKizApi.Models.State
   - OverKizApi.Models.StateDefinition
   - OverKizApi.Models.States
+  - OverKizApi.Models.SupportedAlias
   - OverKizApi.Models.Zone
   - OverKizApi.Models.ZoneItem
   langs:
@@ -214,6 +216,12 @@ references:
   name: LocalToken
   nameWithType: LocalToken
   fullName: OverKizApi.Models.LocalToken
+- uid: OverKizApi.Models.DeveloperMode
+  commentId: T:OverKizApi.Models.DeveloperMode
+  href: OverKizApi.Models.DeveloperMode.html
+  name: DeveloperMode
+  nameWithType: DeveloperMode
+  fullName: OverKizApi.Models.DeveloperMode
 - uid: OverKizApi.Models.OptionParameter
   commentId: T:OverKizApi.Models.OptionParameter
   href: OverKizApi.Models.OptionParameter.html
@@ -226,25 +234,26 @@ references:
   name: OptionObject
   nameWithType: OptionObject
   fullName: OverKizApi.Models.OptionObject
+- uid: OverKizApi.Models.SupportedAlias
+  commentId: T:OverKizApi.Models.SupportedAlias
+  href: OverKizApi.Models.SupportedAlias.html
+  name: SupportedAlias
+  nameWithType: SupportedAlias
+  fullName: OverKizApi.Models.SupportedAlias
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html

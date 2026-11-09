@@ -22,7 +22,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: EventState
     path: ../OverKizApi/Models/Models.cs
-    startLine: 591
+    startLine: 1396
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -61,19 +61,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Name
     path: ../OverKizApi/Models/Models.cs
-    startLine: 594
+    startLine: 1400
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Qualified state name (e.g. <code>"core:ClosureState"</code>).
   example: []
   syntax:
-    content: public string? Name { get; init; }
+    content: >-
+      [JsonPropertyName("name")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Name { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Name As String
+      description: Qualified state name (e.g. <code>"core:ClosureState"</code>).
+    content.vb: >-
+      <JsonPropertyName("name")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Name As String
   overload: OverKizApi.Models.EventState.Name*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: name
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.EventState.Type
   commentId: P:OverKizApi.Models.EventState.Type
   id: Type
@@ -92,19 +116,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Type
     path: ../OverKizApi/Models/Models.cs
-    startLine: 596
+    startLine: 1408
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Discriminator identifying the CLR type of <xref href="OverKizApi.Models.EventState.Value" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public DataType Type { get; init; }
+    content: >-
+      [JsonPropertyName("type")]
+
+      public DataType Type { get; init; }
     parameters: []
     return:
       type: OverKizApi.Models.DataType
-    content.vb: Public Property Type As DataType
+      description: Discriminator identifying the CLR type of <xref href="OverKizApi.Models.EventState.Value" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <JsonPropertyName("type")>
+
+      Public Property Type As DataType
   overload: OverKizApi.Models.EventState.Type*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: type
 - uid: OverKizApi.Models.EventState.Value
   commentId: P:OverKizApi.Models.EventState.Value
   id: Value
@@ -123,19 +160,47 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Value
     path: ../OverKizApi/Models/Models.cs
-    startLine: 598
+    startLine: 1415
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
-  summary: Raw value as deserialised from the event JSON payload.
+  summary: Vendor-defined value represented by CLR primitives, lists or dictionaries.
   example: []
   syntax:
-    content: public object? Value { get; init; }
+    content: >-
+      [JsonPropertyName("value")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      [JsonConverter(typeof(DeviceValueConverter))]
+
+      public object? Value { get; init; }
     parameters: []
     return:
       type: System.Object
-    content.vb: Public Property Value As Object
+      description: Vendor-defined value represented by CLR primitives, lists or dictionaries.
+    content.vb: >-
+      <JsonPropertyName("value")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      <JsonConverter(GetType(DeviceValueConverter))>
+
+      Public Property Value As Object
   overload: OverKizApi.Models.EventState.Value*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: value
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models.EventObject
   commentId: T:OverKizApi.Models.EventObject
@@ -152,26 +217,21 @@ references:
   fullName: OverKizApi.Models.State
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

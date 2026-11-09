@@ -80,18 +80,21 @@ public sealed partial class States
 
 	private State? WithValue (string name)
 		{
-		if (name is null) throw new ArgumentNullException (nameof (name));
+		if (name is null)
+			throw new ArgumentNullException (nameof (name));
 		var state = this[name];
 		return state?.Value is null ? null : state;
 		}
 
 	private State? FirstWithValue (IEnumerable<string> names)
 		{
-		if (names is null) throw new ArgumentNullException (nameof (names));
+		if (names is null)
+			throw new ArgumentNullException (nameof (names));
 		foreach (var name in names)
 			{
 			var state = WithValue (name);
-			if (state is not null) return state;
+			if (state is not null)
+				return state;
 			}
 		return null;
 		}

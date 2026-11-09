@@ -7,7 +7,19 @@ items:
   children:
   - OverKizApi.Models.States.#ctor(System.Collections.Generic.IEnumerable{OverKizApi.Models.State})
   - OverKizApi.Models.States.Contains(System.String)
+  - OverKizApi.Models.States.FirstValueAsBool(System.Collections.Generic.IEnumerable{System.String})
+  - OverKizApi.Models.States.FirstValueAsDict(System.Collections.Generic.IEnumerable{System.String})
+  - OverKizApi.Models.States.FirstValueAsFloat(System.Collections.Generic.IEnumerable{System.String})
+  - OverKizApi.Models.States.FirstValueAsInt(System.Collections.Generic.IEnumerable{System.String})
+  - OverKizApi.Models.States.FirstValueAsList(System.Collections.Generic.IEnumerable{System.String})
+  - OverKizApi.Models.States.FirstValueAsStr(System.Collections.Generic.IEnumerable{System.String})
   - OverKizApi.Models.States.GetEnumerator
+  - OverKizApi.Models.States.GetValueAsBool(System.String)
+  - OverKizApi.Models.States.GetValueAsDict(System.String)
+  - OverKizApi.Models.States.GetValueAsFloat(System.String)
+  - OverKizApi.Models.States.GetValueAsInt(System.String)
+  - OverKizApi.Models.States.GetValueAsList(System.String)
+  - OverKizApi.Models.States.GetValueAsStr(System.String)
   - OverKizApi.Models.States.Item(System.String)
   langs:
   - csharp
@@ -18,12 +30,12 @@ items:
   type: Class
   source:
     remote:
-      path: OverKizApi/Models/Models.cs
+      path: OverKizApi/Models/StateAccessors.cs
       branch: master
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: States
-    path: ../OverKizApi/Models/Models.cs
-    startLine: 165
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 28
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -72,7 +84,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: .ctor
     path: ../OverKizApi/Models/Models.cs
-    startLine: 165
+    startLine: 351
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -111,7 +123,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: this[]
     path: ../OverKizApi/Models/Models.cs
-    startLine: 172
+    startLine: 359
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -125,6 +137,7 @@ items:
       description: Qualified state name (e.g. <code>"core:ClosureState"</code>).
     return:
       type: OverKizApi.Models.State
+      description: Returns the <xref href="OverKizApi.Models.State" data-throw-if-not-resolved="false"></xref> with the given qualified <code class="paramref">name</code>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not found.
     content.vb: Public ReadOnly Default Property this[](name As String) As State
   overload: OverKizApi.Models.States.Item*
   nameWithType.vb: States.this[](String)
@@ -148,7 +161,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Contains
     path: ../OverKizApi/Models/Models.cs
-    startLine: 176
+    startLine: 364
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -162,6 +175,7 @@ items:
       description: Qualified state name to look up.
     return:
       type: System.Boolean
+      description: True if the named state exists; otherwise false.
     content.vb: Public Function Contains(name As String) As Boolean
   overload: OverKizApi.Models.States.Contains*
   nameWithType.vb: States.Contains(String)
@@ -185,21 +199,477 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GetEnumerator
     path: ../OverKizApi/Models/Models.cs
-    startLine: 179
+    startLine: 368
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
-  summary: Returns an enumerator that iterates through the collection.
+  summary: Enumerates the states in collection order.
   example: []
   syntax:
     content: public IEnumerator<State> GetEnumerator()
     return:
       type: System.Collections.Generic.IEnumerator{OverKizApi.Models.State}
-      description: An enumerator that can be used to iterate through the collection.
+      description: An enumerator over the stored states.
     content.vb: Public Function GetEnumerator() As IEnumerator(Of State)
   overload: OverKizApi.Models.States.GetEnumerator*
   implements:
   - System.Collections.Generic.IEnumerable{OverKizApi.Models.State}.GetEnumerator
+- uid: OverKizApi.Models.States.GetValueAsInt(System.String)
+  commentId: M:OverKizApi.Models.States.GetValueAsInt(System.String)
+  id: GetValueAsInt(System.String)
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: GetValueAsInt(string)
+  nameWithType: States.GetValueAsInt(string)
+  fullName: OverKizApi.Models.States.GetValueAsInt(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetValueAsInt
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 33
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns a named integer value, or null if missing or null. A wrong type throws InvalidCastException.
+  example: []
+  syntax:
+    content: public int? GetValueAsInt(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The qualified state name to look up.
+    return:
+      type: System.Nullable{System.Int32}
+      description: The named integer value; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function GetValueAsInt(name As String) As Integer?
+  overload: OverKizApi.Models.States.GetValueAsInt*
+  nameWithType.vb: States.GetValueAsInt(String)
+  fullName.vb: OverKizApi.Models.States.GetValueAsInt(String)
+  name.vb: GetValueAsInt(String)
+- uid: OverKizApi.Models.States.GetValueAsFloat(System.String)
+  commentId: M:OverKizApi.Models.States.GetValueAsFloat(System.String)
+  id: GetValueAsFloat(System.String)
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: GetValueAsFloat(string)
+  nameWithType: States.GetValueAsFloat(string)
+  fullName: OverKizApi.Models.States.GetValueAsFloat(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetValueAsFloat
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 37
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns a named floating-point value, promoting integers; null if missing or null. A wrong type throws InvalidCastException.
+  example: []
+  syntax:
+    content: public double? GetValueAsFloat(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The qualified state name to look up.
+    return:
+      type: System.Nullable{System.Double}
+      description: The named floating-point value; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function GetValueAsFloat(name As String) As Double?
+  overload: OverKizApi.Models.States.GetValueAsFloat*
+  nameWithType.vb: States.GetValueAsFloat(String)
+  fullName.vb: OverKizApi.Models.States.GetValueAsFloat(String)
+  name.vb: GetValueAsFloat(String)
+- uid: OverKizApi.Models.States.GetValueAsBool(System.String)
+  commentId: M:OverKizApi.Models.States.GetValueAsBool(System.String)
+  id: GetValueAsBool(System.String)
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: GetValueAsBool(string)
+  nameWithType: States.GetValueAsBool(string)
+  fullName: OverKizApi.Models.States.GetValueAsBool(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetValueAsBool
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 41
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns a named boolean value, or null if missing or null. A wrong type throws InvalidCastException.
+  example: []
+  syntax:
+    content: public bool? GetValueAsBool(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The qualified state name to look up.
+    return:
+      type: System.Nullable{System.Boolean}
+      description: The named Boolean value; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function GetValueAsBool(name As String) As Boolean?
+  overload: OverKizApi.Models.States.GetValueAsBool*
+  nameWithType.vb: States.GetValueAsBool(String)
+  fullName.vb: OverKizApi.Models.States.GetValueAsBool(String)
+  name.vb: GetValueAsBool(String)
+- uid: OverKizApi.Models.States.GetValueAsStr(System.String)
+  commentId: M:OverKizApi.Models.States.GetValueAsStr(System.String)
+  id: GetValueAsStr(System.String)
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: GetValueAsStr(string)
+  nameWithType: States.GetValueAsStr(string)
+  fullName: OverKizApi.Models.States.GetValueAsStr(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetValueAsStr
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 45
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns a named string value, or null if missing or null. A wrong type throws InvalidCastException.
+  example: []
+  syntax:
+    content: public string? GetValueAsStr(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The qualified state name to look up.
+    return:
+      type: System.String
+      description: The named string value; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function GetValueAsStr(name As String) As String
+  overload: OverKizApi.Models.States.GetValueAsStr*
+  nameWithType.vb: States.GetValueAsStr(String)
+  fullName.vb: OverKizApi.Models.States.GetValueAsStr(String)
+  name.vb: GetValueAsStr(String)
+- uid: OverKizApi.Models.States.GetValueAsDict(System.String)
+  commentId: M:OverKizApi.Models.States.GetValueAsDict(System.String)
+  id: GetValueAsDict(System.String)
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: GetValueAsDict(string)
+  nameWithType: States.GetValueAsDict(string)
+  fullName: OverKizApi.Models.States.GetValueAsDict(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetValueAsDict
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 49
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns a named CLR dictionary, or null if missing or null. A wrong type throws InvalidCastException.
+  example: []
+  syntax:
+    content: public IReadOnlyDictionary<string, object?>? GetValueAsDict(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The qualified state name to look up.
+    return:
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}
+      description: The named dictionary value; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function GetValueAsDict(name As String) As IReadOnlyDictionary(Of String, Object)
+  overload: OverKizApi.Models.States.GetValueAsDict*
+  nameWithType.vb: States.GetValueAsDict(String)
+  fullName.vb: OverKizApi.Models.States.GetValueAsDict(String)
+  name.vb: GetValueAsDict(String)
+- uid: OverKizApi.Models.States.GetValueAsList(System.String)
+  commentId: M:OverKizApi.Models.States.GetValueAsList(System.String)
+  id: GetValueAsList(System.String)
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: GetValueAsList(string)
+  nameWithType: States.GetValueAsList(string)
+  fullName: OverKizApi.Models.States.GetValueAsList(string)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetValueAsList
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 53
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns a named CLR list, or null if missing or null. A wrong type throws InvalidCastException.
+  example: []
+  syntax:
+    content: public IReadOnlyList<object?>? GetValueAsList(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The qualified state name to look up.
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.Object}
+      description: The named list value; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function GetValueAsList(name As String) As IReadOnlyList(Of Object)
+  overload: OverKizApi.Models.States.GetValueAsList*
+  nameWithType.vb: States.GetValueAsList(String)
+  fullName.vb: OverKizApi.Models.States.GetValueAsList(String)
+  name.vb: GetValueAsList(String)
+- uid: OverKizApi.Models.States.FirstValueAsInt(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OverKizApi.Models.States.FirstValueAsInt(System.Collections.Generic.IEnumerable{System.String})
+  id: FirstValueAsInt(System.Collections.Generic.IEnumerable{System.String})
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: FirstValueAsInt(IEnumerable<string>)
+  nameWithType: States.FirstValueAsInt(IEnumerable<string>)
+  fullName: OverKizApi.Models.States.FirstValueAsInt(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FirstValueAsInt
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 58
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns the first non-null value in name order as an integer. A wrong type throws; later names are not tried.
+  example: []
+  syntax:
+    content: public int? FirstValueAsInt(IEnumerable<string> names)
+    parameters:
+    - id: names
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The qualified state names to try, in priority order.
+    return:
+      type: System.Nullable{System.Int32}
+      description: The first non-null integer value in name order; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function FirstValueAsInt(names As IEnumerable(Of String)) As Integer?
+  overload: OverKizApi.Models.States.FirstValueAsInt*
+  nameWithType.vb: States.FirstValueAsInt(IEnumerable(Of String))
+  fullName.vb: OverKizApi.Models.States.FirstValueAsInt(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: FirstValueAsInt(IEnumerable(Of String))
+- uid: OverKizApi.Models.States.FirstValueAsFloat(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OverKizApi.Models.States.FirstValueAsFloat(System.Collections.Generic.IEnumerable{System.String})
+  id: FirstValueAsFloat(System.Collections.Generic.IEnumerable{System.String})
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: FirstValueAsFloat(IEnumerable<string>)
+  nameWithType: States.FirstValueAsFloat(IEnumerable<string>)
+  fullName: OverKizApi.Models.States.FirstValueAsFloat(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FirstValueAsFloat
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 62
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns the first non-null value in name order as a float, promoting integers. A wrong type throws.
+  example: []
+  syntax:
+    content: public double? FirstValueAsFloat(IEnumerable<string> names)
+    parameters:
+    - id: names
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The qualified state names to try, in priority order.
+    return:
+      type: System.Nullable{System.Double}
+      description: The first non-null floating-point value in name order; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function FirstValueAsFloat(names As IEnumerable(Of String)) As Double?
+  overload: OverKizApi.Models.States.FirstValueAsFloat*
+  nameWithType.vb: States.FirstValueAsFloat(IEnumerable(Of String))
+  fullName.vb: OverKizApi.Models.States.FirstValueAsFloat(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: FirstValueAsFloat(IEnumerable(Of String))
+- uid: OverKizApi.Models.States.FirstValueAsBool(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OverKizApi.Models.States.FirstValueAsBool(System.Collections.Generic.IEnumerable{System.String})
+  id: FirstValueAsBool(System.Collections.Generic.IEnumerable{System.String})
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: FirstValueAsBool(IEnumerable<string>)
+  nameWithType: States.FirstValueAsBool(IEnumerable<string>)
+  fullName: OverKizApi.Models.States.FirstValueAsBool(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FirstValueAsBool
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 66
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns the first non-null value in name order as a boolean. A wrong type throws.
+  example: []
+  syntax:
+    content: public bool? FirstValueAsBool(IEnumerable<string> names)
+    parameters:
+    - id: names
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The qualified state names to try, in priority order.
+    return:
+      type: System.Nullable{System.Boolean}
+      description: The first non-null Boolean value in name order; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function FirstValueAsBool(names As IEnumerable(Of String)) As Boolean?
+  overload: OverKizApi.Models.States.FirstValueAsBool*
+  nameWithType.vb: States.FirstValueAsBool(IEnumerable(Of String))
+  fullName.vb: OverKizApi.Models.States.FirstValueAsBool(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: FirstValueAsBool(IEnumerable(Of String))
+- uid: OverKizApi.Models.States.FirstValueAsStr(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OverKizApi.Models.States.FirstValueAsStr(System.Collections.Generic.IEnumerable{System.String})
+  id: FirstValueAsStr(System.Collections.Generic.IEnumerable{System.String})
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: FirstValueAsStr(IEnumerable<string>)
+  nameWithType: States.FirstValueAsStr(IEnumerable<string>)
+  fullName: OverKizApi.Models.States.FirstValueAsStr(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FirstValueAsStr
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 70
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns the first non-null value in name order as a string. A wrong type throws.
+  example: []
+  syntax:
+    content: public string? FirstValueAsStr(IEnumerable<string> names)
+    parameters:
+    - id: names
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The qualified state names to try, in priority order.
+    return:
+      type: System.String
+      description: The first non-null string value in name order; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function FirstValueAsStr(names As IEnumerable(Of String)) As String
+  overload: OverKizApi.Models.States.FirstValueAsStr*
+  nameWithType.vb: States.FirstValueAsStr(IEnumerable(Of String))
+  fullName.vb: OverKizApi.Models.States.FirstValueAsStr(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: FirstValueAsStr(IEnumerable(Of String))
+- uid: OverKizApi.Models.States.FirstValueAsDict(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OverKizApi.Models.States.FirstValueAsDict(System.Collections.Generic.IEnumerable{System.String})
+  id: FirstValueAsDict(System.Collections.Generic.IEnumerable{System.String})
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: FirstValueAsDict(IEnumerable<string>)
+  nameWithType: States.FirstValueAsDict(IEnumerable<string>)
+  fullName: OverKizApi.Models.States.FirstValueAsDict(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FirstValueAsDict
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 74
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns the first non-null value in name order as a CLR dictionary. A wrong type throws.
+  example: []
+  syntax:
+    content: public IReadOnlyDictionary<string, object?>? FirstValueAsDict(IEnumerable<string> names)
+    parameters:
+    - id: names
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The qualified state names to try, in priority order.
+    return:
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}
+      description: The first non-null dictionary value in name order; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function FirstValueAsDict(names As IEnumerable(Of String)) As IReadOnlyDictionary(Of String, Object)
+  overload: OverKizApi.Models.States.FirstValueAsDict*
+  nameWithType.vb: States.FirstValueAsDict(IEnumerable(Of String))
+  fullName.vb: OverKizApi.Models.States.FirstValueAsDict(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: FirstValueAsDict(IEnumerable(Of String))
+- uid: OverKizApi.Models.States.FirstValueAsList(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OverKizApi.Models.States.FirstValueAsList(System.Collections.Generic.IEnumerable{System.String})
+  id: FirstValueAsList(System.Collections.Generic.IEnumerable{System.String})
+  parent: OverKizApi.Models.States
+  langs:
+  - csharp
+  - vb
+  name: FirstValueAsList(IEnumerable<string>)
+  nameWithType: States.FirstValueAsList(IEnumerable<string>)
+  fullName: OverKizApi.Models.States.FirstValueAsList(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: FirstValueAsList
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 78
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns the first non-null value in name order as a CLR list. A wrong type throws.
+  example: []
+  syntax:
+    content: public IReadOnlyList<object?>? FirstValueAsList(IEnumerable<string> names)
+    parameters:
+    - id: names
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The qualified state names to try, in priority order.
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.Object}
+      description: The first non-null list value in name order; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no non-null state value is found. An incompatible value type throws an InvalidCastException.
+    content.vb: Public Function FirstValueAsList(names As IEnumerable(Of String)) As IReadOnlyList(Of Object)
+  overload: OverKizApi.Models.States.FirstValueAsList*
+  nameWithType.vb: States.FirstValueAsList(IEnumerable(Of String))
+  fullName.vb: OverKizApi.Models.States.FirstValueAsList(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: FirstValueAsList(IEnumerable(Of String))
 references:
 - uid: OverKizApi.Models.State
   commentId: T:OverKizApi.Models.State
@@ -238,26 +708,21 @@ references:
   - name: )
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -736,3 +1201,351 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: OverKizApi.Models.States.GetValueAsInt*
+  commentId: Overload:OverKizApi.Models.States.GetValueAsInt
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_GetValueAsInt_System_String_
+  name: GetValueAsInt
+  nameWithType: States.GetValueAsInt
+  fullName: OverKizApi.Models.States.GetValueAsInt
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OverKizApi.Models.States.GetValueAsFloat*
+  commentId: Overload:OverKizApi.Models.States.GetValueAsFloat
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_GetValueAsFloat_System_String_
+  name: GetValueAsFloat
+  nameWithType: States.GetValueAsFloat
+  fullName: OverKizApi.Models.States.GetValueAsFloat
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: OverKizApi.Models.States.GetValueAsBool*
+  commentId: Overload:OverKizApi.Models.States.GetValueAsBool
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_GetValueAsBool_System_String_
+  name: GetValueAsBool
+  nameWithType: States.GetValueAsBool
+  fullName: OverKizApi.Models.States.GetValueAsBool
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: OverKizApi.Models.States.GetValueAsStr*
+  commentId: Overload:OverKizApi.Models.States.GetValueAsStr
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_GetValueAsStr_System_String_
+  name: GetValueAsStr
+  nameWithType: States.GetValueAsStr
+  fullName: OverKizApi.Models.States.GetValueAsStr
+- uid: OverKizApi.Models.States.GetValueAsDict*
+  commentId: Overload:OverKizApi.Models.States.GetValueAsDict
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_GetValueAsDict_System_String_
+  name: GetValueAsDict
+  nameWithType: States.GetValueAsDict
+  fullName: OverKizApi.Models.States.GetValueAsDict
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, object>
+  nameWithType: IReadOnlyDictionary<string, object>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, object>
+  nameWithType.vb: IReadOnlyDictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, Object)
+  name.vb: IReadOnlyDictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: OverKizApi.Models.States.GetValueAsList*
+  commentId: Overload:OverKizApi.Models.States.GetValueAsList
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_GetValueAsList_System_String_
+  name: GetValueAsList
+  nameWithType: States.GetValueAsList
+  fullName: OverKizApi.Models.States.GetValueAsList
+- uid: System.Collections.Generic.IReadOnlyList{System.Object}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<object>
+  nameWithType: IReadOnlyList<object>
+  fullName: System.Collections.Generic.IReadOnlyList<object>
+  nameWithType.vb: IReadOnlyList(Of Object)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Object)
+  name.vb: IReadOnlyList(Of Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OverKizApi.Models.States.FirstValueAsInt*
+  commentId: Overload:OverKizApi.Models.States.FirstValueAsInt
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_FirstValueAsInt_System_Collections_Generic_IEnumerable_System_String__
+  name: FirstValueAsInt
+  nameWithType: States.FirstValueAsInt
+  fullName: OverKizApi.Models.States.FirstValueAsInt
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OverKizApi.Models.States.FirstValueAsFloat*
+  commentId: Overload:OverKizApi.Models.States.FirstValueAsFloat
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_FirstValueAsFloat_System_Collections_Generic_IEnumerable_System_String__
+  name: FirstValueAsFloat
+  nameWithType: States.FirstValueAsFloat
+  fullName: OverKizApi.Models.States.FirstValueAsFloat
+- uid: OverKizApi.Models.States.FirstValueAsBool*
+  commentId: Overload:OverKizApi.Models.States.FirstValueAsBool
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_FirstValueAsBool_System_Collections_Generic_IEnumerable_System_String__
+  name: FirstValueAsBool
+  nameWithType: States.FirstValueAsBool
+  fullName: OverKizApi.Models.States.FirstValueAsBool
+- uid: OverKizApi.Models.States.FirstValueAsStr*
+  commentId: Overload:OverKizApi.Models.States.FirstValueAsStr
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_FirstValueAsStr_System_Collections_Generic_IEnumerable_System_String__
+  name: FirstValueAsStr
+  nameWithType: States.FirstValueAsStr
+  fullName: OverKizApi.Models.States.FirstValueAsStr
+- uid: OverKizApi.Models.States.FirstValueAsDict*
+  commentId: Overload:OverKizApi.Models.States.FirstValueAsDict
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_FirstValueAsDict_System_Collections_Generic_IEnumerable_System_String__
+  name: FirstValueAsDict
+  nameWithType: States.FirstValueAsDict
+  fullName: OverKizApi.Models.States.FirstValueAsDict
+- uid: OverKizApi.Models.States.FirstValueAsList*
+  commentId: Overload:OverKizApi.Models.States.FirstValueAsList
+  href: OverKizApi.Models.States.html#OverKizApi_Models_States_FirstValueAsList_System_Collections_Generic_IEnumerable_System_String__
+  name: FirstValueAsList
+  nameWithType: States.FirstValueAsList
+  fullName: OverKizApi.Models.States.FirstValueAsList

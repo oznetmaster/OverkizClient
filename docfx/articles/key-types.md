@@ -8,9 +8,10 @@ The generated API reference includes the most useful entry points for consumers 
 
 ## Common Supporting Types
 
-- `OverkizServer` — enumeration of supported cloud server endpoints
+- `Server` — enumeration used to select a descriptor from `OverkizConst.SupportedServers`
+- `OverkizServer` — server descriptor containing endpoints and authentication/API metadata
 - `Device` — represents a discovered smart-home device
-- `DeviceState` — represents the current state of a device
+- `State` — represents a named typed device state
 - `Command` — represents an executable device command
 
 ## Full Reference

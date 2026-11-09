@@ -6,8 +6,8 @@ namespace OverKizApi.Tests;
 [TestFixture]
 public sealed class EventRecoveryTests
 	{
-	private const string TokenUrl = "https://accounts.somfy.com/oauth/oauth/v2/token/jwt";
-	private const string Token = """{"access_token":"fresh","refresh_token":"refresh","expires_in":3600}""";
+	private const string TOKEN_URL = "https://accounts.somfy.com/oauth/oauth/v2/token/jwt";
+	private const string TOKEN = """{"access_token":"fresh","refresh_token":"refresh","expires_in":3600}""";
 
 	[Test]
 	public async Task AutomaticFetch_RegistersOnceAndReusesListener ()
@@ -35,7 +35,7 @@ public sealed class EventRecoveryTests
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope]);
 		await ExpiredLogin (api);
-		api.Expect ("POST", TokenUrl, Token);
+		api.Expect ("POST", TOKEN_URL, TOKEN);
 		api.Expect ("POST", "events/register", """{"id":"new"}""");
 		api.Expect ("POST", "events/new/fetch", "[]", inspect: (request, _) => Assert.That (request.Headers.Authorization!.Parameter, Is.EqualTo ("fresh")));
 		Assert.That (await (automatic ? api.Client.FetchEvents (true) : api.Client.FetchEvents ()), Is.Empty);
@@ -47,7 +47,7 @@ public sealed class EventRecoveryTests
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope]);
 		await ExpiredLogin (api);
-		api.Expect ("POST", TokenUrl, Token);
+		api.Expect ("POST", TOKEN_URL, TOKEN);
 		api.Expect ("POST", "events/register", """{"id":"new"}""");
 		await api.Client.RegisterEventListener ();
 		Assert.That (api.Client.EventListenerId, Is.EqualTo ("new"));
@@ -60,10 +60,15 @@ public sealed class EventRecoveryTests
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope]);
 		await ExpiredLogin (api);
-		api.Expect ("POST", TokenUrl, Token);
+		// Disposal stops authentication too: cleanup uses existing credentials and
+		// never rotates refresh tokens. Explicit unregister can still refresh.
+		if (!dispose)
+			api.Expect ("POST", TOKEN_URL, TOKEN);
 		api.Expect ("POST", "events/old/unregister", "");
-		if (dispose) await api.Client.DisposeAsync ();
-		else await api.Client.UnregisterEventListener ();
+		if (dispose)
+			await api.Client.DisposeAsync ();
+		else
+			await api.Client.UnregisterEventListener ();
 		Assert.That (api.Client.EventListenerId, Is.Null);
 		api.Complete ();
 		}
@@ -75,7 +80,10 @@ public sealed class EventRecoveryTests
 		{
 		using var api = new ScriptedApi ();
 		await RegisterOld (api);
-		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new { error }), HttpStatusCode.BadRequest);
+		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new
+			{
+			error
+			}), HttpStatusCode.BadRequest);
 		api.Expect ("POST", "events/register", """{"id":"new"}""");
 		api.Expect ("POST", "events/new/fetch", "[]");
 		Assert.That (await api.Client.FetchEvents (true), Is.Empty);
@@ -112,7 +120,10 @@ public sealed class EventRecoveryTests
 		const string error = "\"No registered event listener.\"";
 		using var api = new ScriptedApi ();
 		await RegisterOld (api);
-		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new { error }), HttpStatusCode.BadRequest);
+		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new
+			{
+			error
+			}), HttpStatusCode.BadRequest);
 		await Assert.ThatAsync (() => api.Client.FetchEvents (false),
 			Throws.TypeOf<NoRegisteredEventListenerException> ().With.Message.EqualTo (error));
 		Assert.That (api.Client.EventListenerId, Is.Null);
@@ -126,9 +137,15 @@ public sealed class EventRecoveryTests
 		const string error = "\"No registered event listener.\"";
 		using var api = new ScriptedApi ();
 		await RegisterOld (api);
-		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new { error }), HttpStatusCode.BadRequest);
+		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new
+			{
+			error
+			}), HttpStatusCode.BadRequest);
 		api.Expect ("POST", "events/register", """{"id":"new"}""");
-		api.Expect ("POST", "events/new/fetch", JsonSerializer.Serialize (new { error }), HttpStatusCode.BadRequest);
+		api.Expect ("POST", "events/new/fetch", JsonSerializer.Serialize (new
+			{
+			error
+			}), HttpStatusCode.BadRequest);
 		await Assert.ThatAsync (() => api.Client.FetchEvents (true),
 			Throws.TypeOf<NoRegisteredEventListenerException> ().With.Message.EqualTo (error));
 		Assert.That (api.Client.EventListenerId, Is.Null);
@@ -142,7 +159,10 @@ public sealed class EventRecoveryTests
 		const string error = "No registered event listener for another resource.";
 		using var api = new ScriptedApi ();
 		await RegisterOld (api);
-		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new { error }), HttpStatusCode.BadRequest);
+		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new
+			{
+			error
+			}), HttpStatusCode.BadRequest);
 		await Assert.ThatAsync (() => api.Client.FetchEvents (true),
 			Throws.TypeOf<OverkizException> ().With.Message.EqualTo (error));
 		Assert.That (api.Client.EventListenerId, Is.EqualTo ("old"));
@@ -159,13 +179,15 @@ public sealed class EventRecoveryTests
 		Exception failure = timeout ? new TaskCanceledException ("simulated timeout") : new HttpRequestException ("simulated disconnect");
 		api.Expect ("POST", "events/old/fetch", inspect: (_, _) => throw failure);
 		var caught = await Assert.CatchAsync (() => api.Client.FetchEvents (true));
-		if (timeout) Assert.That (caught, Is.InstanceOf<OperationCanceledException> ());
-		else Assert.That (caught, Is.SameAs (failure));
+		if (timeout)
+			Assert.That (caught, Is.InstanceOf<OperationCanceledException> ());
+		else
+			Assert.That (caught, Is.SameAs (failure));
 		Assert.That (api.Client.EventListenerId, Is.EqualTo ("old"));
 		api.Complete ();
 		}
 
-	[TestCase ((HttpStatusCode) 429, typeof (TooManyRequestsException))]
+	[TestCase ((HttpStatusCode)429, typeof (TooManyRequestsException))]
 	[TestCase (HttpStatusCode.ServiceUnavailable, typeof (ServiceUnavailableException))]
 	public async Task ServiceFailures_AreNotRetried (HttpStatusCode status, Type error)
 		{
@@ -195,7 +217,7 @@ public sealed class EventRecoveryTests
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope]);
 		await ExpiredLogin (api);
-		api.Expect ("POST", TokenUrl, Token);
+		api.Expect ("POST", TOKEN_URL, TOKEN);
 		api.Expect ("POST", "events/register", "offline", HttpStatusCode.ServiceUnavailable);
 		await Assert.ThatAsync (() => api.Client.FetchEvents (true), Throws.TypeOf<ServiceUnavailableException> ());
 		Assert.That (api.Client.EventListenerId, Is.Null);
@@ -210,7 +232,8 @@ public sealed class EventRecoveryTests
 	public async Task AuthenticationRejection_ReauthenticatesWithoutDuplicateRegistration (bool hadListener)
 		{
 		using var api = new ScriptedApi (token: null);
-		if (hadListener) await RegisterOld (api);
+		if (hadListener)
+			await RegisterOld (api);
 		api.Expect ("POST", hadListener ? "events/old/fetch" : "events/register", """{"error":"Not authenticated"}""", HttpStatusCode.Unauthorized);
 		api.Expect ("POST", "login", """{"success":true}""");
 		api.Expect ("POST", "events/register", """{"id":"new"}""");
@@ -309,8 +332,12 @@ public sealed class EventRecoveryTests
 		{
 		using var api = new ScriptedApi (token: null);
 		await RegisterOld (api);
-		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new { error = firstError }), HttpStatusCode.Unauthorized);
-		if (firstError == "Not authenticated") api.Expect ("POST", "login", "{\"success\":true}");
+		api.Expect ("POST", "events/old/fetch", JsonSerializer.Serialize (new
+			{
+			error = firstError
+			}), HttpStatusCode.Unauthorized);
+		if (firstError == "Not authenticated")
+			api.Expect ("POST", "login", "{\"success\":true}");
 		api.Expect ("POST", "events/register", "{\"id\":\"new\"}");
 		api.Expect ("POST", "events/new/fetch", "{\"error\":\"Not authenticated\"}", HttpStatusCode.Unauthorized);
 		await Assert.ThatAsync (() => api.Client.FetchEvents (true), Throws.TypeOf<NotAuthenticatedException> ());
@@ -323,7 +350,7 @@ public sealed class EventRecoveryTests
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope]);
 		await ExpiredLogin (api);
-		api.Expect ("POST", TokenUrl, "{\"message\":\"error.invalid.grant\"}", HttpStatusCode.BadRequest);
+		api.Expect ("POST", TOKEN_URL, "{\"message\":\"error.invalid.grant\"}", HttpStatusCode.BadRequest);
 		await Assert.ThatAsync (() => api.Client.FetchEvents (true), Throws.TypeOf<SomfyBadCredentialsException> ());
 		api.Complete ();
 		}
@@ -340,7 +367,7 @@ public sealed class EventRecoveryTests
 
 	private static async Task ExpiredLogin (ScriptedApi api)
 		{
-		api.Expect ("POST", TokenUrl, Token.Replace ("3600", "0"));
+		api.Expect ("POST", TOKEN_URL, TOKEN.Replace ("3600", "0"));
 		api.Expect ("POST", "events/register", """{"id":"old"}""");
 		await api.Client.Login ();
 		}

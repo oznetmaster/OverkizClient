@@ -21,7 +21,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Connectivity
     path: ../OverKizApi/Models/Models.cs
-    startLine: 396
+    startLine: 842
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -57,19 +57,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Status
     path: ../OverKizApi/Models/Models.cs
-    startLine: 399
+    startLine: 846
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Connectivity status string as returned by the API (e.g. <code>"ok"</code>).
   example: []
   syntax:
-    content: public string? Status { get; init; }
+    content: >-
+      [JsonPropertyName("status")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Status { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Status As String
+      description: Connectivity status string as returned by the API (e.g. <code>"ok"</code>).
+    content.vb: >-
+      <JsonPropertyName("status")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Status As String
   overload: OverKizApi.Models.Connectivity.Status*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: status
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Connectivity.ProtocolVersion
   commentId: P:OverKizApi.Models.Connectivity.ProtocolVersion
   id: ProtocolVersion
@@ -88,19 +112,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ProtocolVersion
     path: ../OverKizApi/Models/Models.cs
-    startLine: 401
+    startLine: 854
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Protocol version reported by the gateway firmware, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if unavailable.
   example: []
   syntax:
-    content: public string? ProtocolVersion { get; init; }
+    content: >-
+      [JsonPropertyName("protocolVersion")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? ProtocolVersion { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property ProtocolVersion As String
+      description: Protocol version reported by the gateway firmware, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if unavailable.
+    content.vb: >-
+      <JsonPropertyName("protocolVersion")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property ProtocolVersion As String
   overload: OverKizApi.Models.Connectivity.ProtocolVersion*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: protocolVersion
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models.Gateway
   commentId: T:OverKizApi.Models.Gateway
@@ -110,26 +158,21 @@ references:
   fullName: OverKizApi.Models.Gateway
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

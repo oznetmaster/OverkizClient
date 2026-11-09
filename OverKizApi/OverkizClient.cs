@@ -11,6 +11,7 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 
+using OverKizApi.Concurrency;
 using OverKizApi.Enums;
 using OverKizApi.Exceptions;
 using OverKizApi.Models;
@@ -21,8 +22,10 @@ namespace OverKizApi;
 /// C# client for the Overkiz API, providing similar capabilities to the Python python-overkiz-api library.
 /// Supports cloud (standard, Somfy OAuth, CozyTouch JWT, Nexity SSO) and local API modes.
 /// </summary>
-/// <remarks>Finish outstanding operations before signing in again, switching gateways or disposing the client.</remarks>
-public sealed class OverkizClient : IAsyncDisposable
+/// <remarks>Independent reads may overlap. Authentication, gateway and listener changes are coordinated with reads.
+/// Disposal cancels pending work and prevents late publication. Callers must coordinate their own mutations
+/// of returned models and dedicate any supplied HttpClient to this client.</remarks>
+public sealed partial class OverkizClient : IAsyncDisposable
 	{
 	// ── Configuration ──────────────────────────────────────────────────────
 
@@ -66,7 +69,8 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// </value>
 	public Setup? Setup
 		{
-		get; private set;
+		get => _operations.Observe (() => _setup);
+		private set => _setup = value;
 		}
 
 	/// <summary>
@@ -77,7 +81,10 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// All devices from the most recently retrieved setup.
 	/// Populated by <see cref="GetSetup"/>; empty until that method is called.
 	/// </value>
-	public List<Device> Devices { get; private set; } = [];
+	public List<Device> Devices
+		{
+		get => _operations.Observe (() => _devices); private set => _devices = value;
+		}
 
 	/// <summary>
 	/// All gateways from the most recently retrieved setup.
@@ -87,7 +94,10 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// All gateways from the most recently retrieved setup.
 	/// Populated by <see cref="GetSetup"/>; empty until that method is called.
 	/// </value>
-	public List<Gateway> Gateways { get; private set; } = [];
+	public List<Gateway> Gateways
+		{
+		get => _operations.Observe (() => _gateways); private set => _gateways = value;
+		}
 
 	/// <summary>
 	/// The event listener ID returned by the last successful <see cref="RegisterEventListener"/> call,
@@ -99,21 +109,34 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// </value>
 	public string? EventListenerId
 		{
-		get; private set;
+		get => _operations.Observe (() => _eventListenerId);
+		private set => _operations.Commit (() => _eventListenerId = value);
 		}
 
 	/// <summary>The currently selected Rexel gateway ID, or <see langword="null"/> if none has been selected.</summary>
 	/// <value>The currently selected Rexel gateway ID, or <see langword="null"/> if none has been selected.</value>
-	public string? SelectedGatewayId { get; private set; }
+	public string? SelectedGatewayId
+		{
+		get => _operations.Observe (() => _selectedGatewayId);
+		private set => _selectedGatewayId = value;
+		}
 
 	// ── Private fields ─────────────────────────────────────────────────────
 	private readonly HttpClient _http;
 	private readonly bool _ownsHttpClient;
 	private string? _accessToken;
+	private Setup? _setup;
+	private List<Device> _devices = [];
+	private List<Gateway> _gateways = [];
+	private string? _eventListenerId, _selectedGatewayId;
 	private string? _refreshToken;
 	private DateTime? _expiresAt;
-	private readonly SemaphoreSlim _sessionGate = new (1, 1);
-	private int _disposed;
+	private long _tokenGeneration;
+	private readonly AsyncClientGate _operations = new (typeof (OverkizClient));
+#pragma warning disable IDE0330 // Monitor semantics must match processor Mono.
+	private readonly object _disposeSync = new ();
+#pragma warning restore IDE0330
+	private Task? _disposeTask;
 
 	// ── Local-mode label-change detection ──────────────────────────────────
 	// On local connections the gateway never emits DeviceUpdatedEvent for renames.
@@ -153,6 +176,10 @@ public sealed class OverkizClient : IAsyncDisposable
 		_ownsHttpClient = httpClient is null;
 		_http = httpClient ?? new HttpClient ();
 		_http.BaseAddress = new Uri (server.Endpoint);
+		// Configure the dedicated transport before admitting any operations. Request
+		// authorization and gateway selection are subsequently set on each message.
+		_http.DefaultRequestHeaders.Authorization = null;
+		_ = _http.DefaultRequestHeaders.Remove (OverkizConst.REXEL_GATEWAY_HEADER);
 
 		ApiType = server.Endpoint.Contains (OverkizConst.LOCAL_API_PATH, StringComparison.Ordinal)
 			? APIType.Local
@@ -167,24 +194,52 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// If the <see cref="HttpClient"/> was created internally it is also disposed.
 	/// </summary>
 	/// <returns>A task that completes when listener cleanup and resource disposal finish.</returns>
-	public ValueTask DisposeAsync () => new(DisposeAsyncCore ());
-
-	private async Task DisposeAsyncCore ()
+	public ValueTask DisposeAsync ()
 		{
-		if (Interlocked.Exchange (ref _disposed, 1) != 0)
-			return;
-		if (EventListenerId is not null)
+		TaskCompletionSource<bool>? completion = null;
+		Task task;
+		lock (_disposeSync)
 			{
-			try
+			if (_disposeTask is null)
 				{
-				await UnregisterEventListener ();
+				completion = new (TaskCreationOptions.RunContinuationsAsynchronously);
+				_disposeTask = completion.Task;
 				}
-			catch { /* best-effort */ }
+			task = _disposeTask;
 			}
+		if (completion is not null)
+			_ = DisposeAsyncCore (completion);
+		return new ValueTask (task);
+		}
 
-		if (_ownsHttpClient)
-			_http.Dispose ();
-		_sessionGate.Dispose ();
+	private async Task DisposeAsyncCore (TaskCompletionSource<bool> completion)
+		{
+		try
+			{
+			string? listener = null;
+			await _operations.Stop (() =>
+				{
+					listener = EventListenerId;
+					ClearSessionState ();
+				}).ConfigureAwait (false);
+			if (listener is not null)
+				{
+				try
+					{
+					using var request = new HttpRequestMessage (HttpMethod.Post, $"events/{listener}/unregister");
+					ApplyRequestHeaders (request);
+					using HttpResponseMessage response = await _http.SendAsync (request).ConfigureAwait (false);
+					}
+				catch { /* Best-effort listener cleanup after admitted work drains. */ }
+				}
+			if (_ownsHttpClient)
+				_http.Dispose ();
+			_ = completion.TrySetResult (true);
+			}
+		catch (Exception error)
+			{
+			_ = completion.TrySetException (error);
+			}
 		}
 
 	// ── Authentication ─────────────────────────────────────────────────────
@@ -195,7 +250,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="registerEventListener">Register an event listener after login (default true).</param>
 	/// <returns>A task containing true if login succeeds; false if the server rejects the login.</returns>
 	public Task<bool> Login (bool registerEventListener = true)
-		=> WithSessionLock (() => LoginCore (registerEventListener));
+		=> RunWrite (() => LoginCore (registerEventListener), refresh: false);
 
 	private async Task<bool> LoginCore (bool registerEventListener)
 		{
@@ -203,61 +258,61 @@ public sealed class OverkizClient : IAsyncDisposable
 		if (ApiType == APIType.Local)
 			{
 			if (registerEventListener)
-				await RegisterEventListenerCore ();
+				await RegisterEventListenerCore ().ConfigureAwait (false);
 			else
-				_ = await GetAsync<List<Gateway>> ("setup/gateways", refreshToken: false);   // verify token is valid
+				_ = await GetAsync<List<Gateway>> ("setup/gateways", refreshToken: false).ConfigureAwait (false);   // verify token is valid
 			return true;
 			}
 
 		// Rexel uses externally-managed bearer tokens and gateway selection.
-		if (Server == OverkizConst.SupportedServers [Enums.Server.Rexel])
+		if (Server == OverkizConst.SupportedServers[Enums.Server.Rexel])
 			{
 			if (string.IsNullOrWhiteSpace (_accessToken))
 				throw new InvalidOperationException ("Rexel requires an externally managed bearer token. Supply it via the constructor token parameter.");
 
-			IReadOnlyList<GatewayCandidate> gateways = await DiscoverRexelGatewaysCore (refreshToken: false);
+			IReadOnlyList<GatewayCandidate> gateways = await DiscoverRexelGatewaysCore (refreshToken: false).ConfigureAwait (false);
 			if (gateways.Count == 1)
-				SelectRexelGateway (gateways [0].GatewayId);
+				SelectRexelGatewayCore (gateways[0].GatewayId);
 
 			if (registerEventListener)
-				await RegisterEventListenerCore ();
+				await RegisterEventListenerCore ().ConfigureAwait (false);
 			else
-				_ = await GetAsync<List<Gateway>> ("setup/gateways", refreshToken: false);
+				_ = await GetAsync<List<Gateway>> ("setup/gateways", refreshToken: false).ConfigureAwait (false);
 
 			return true;
 			}
 
 		// Somfy TaHoma (Europe) uses OAuth
-		if (Server == OverkizConst.SupportedServers [Enums.Server.SomfyEurope])
+		if (Server == OverkizConst.SupportedServers[Enums.Server.SomfyEurope])
 			{
-			_ = await SomfyTahomaGetAccessTokenCore ();
+			_ = await SomfyTahomaGetAccessTokenCore ().ConfigureAwait (false);
 			InvalidateSessionState ();
 			if (registerEventListener)
-				await RegisterEventListenerCore ();
+				await RegisterEventListenerCore ().ConfigureAwait (false);
 			return true;
 			}
 
 		// CozyTouch servers use a JWT
-		if (Server == OverkizConst.SupportedServers [Enums.Server.AtlanticCozytouch] ||
-			Server == OverkizConst.SupportedServers [Enums.Server.ThermorCozytouch] ||
-			Server == OverkizConst.SupportedServers [Enums.Server.SauterCozytouch])
+		if (Server == OverkizConst.SupportedServers[Enums.Server.AtlanticCozytouch] ||
+			Server == OverkizConst.SupportedServers[Enums.Server.ThermorCozytouch] ||
+			Server == OverkizConst.SupportedServers[Enums.Server.SauterCozytouch])
 			{
-			var jwt = await CozytouchLogin ();
-			LoginResponse? response = await PostAsync<LoginResponse> ("login", new LoginRequest { Jwt = jwt }, refreshToken: false);
+			var jwt = await CozytouchLoginCore ().ConfigureAwait (false);
+			LoginResponse? response = await PostAsync<LoginResponse> ("login", new LoginRequest { Jwt = jwt }, refreshToken: false).ConfigureAwait (false);
 			var success = response?.Success is true;
 			if (success)
 				{
 				InvalidateSessionState ();
 				if (registerEventListener)
-					await RegisterEventListenerCore ();
+					await RegisterEventListenerCore ().ConfigureAwait (false);
 				}
 			return success;
 			}
 
 		// Nexity uses SSO token
-		if (Server == OverkizConst.SupportedServers [Enums.Server.Nexity])
+		if (Server == OverkizConst.SupportedServers[Enums.Server.Nexity])
 			{
-			var ssoToken = await NexityLogin ();
+			var ssoToken = await NexityLoginCore ().ConfigureAwait (false);
 			var userId = Username.Replace ("@", "_-_");
 			var payload = new LoginRequest
 				{
@@ -265,16 +320,20 @@ public sealed class OverkizClient : IAsyncDisposable
 				UserPassword = Password,
 				SsoToken = ssoToken,
 				};
-			LoginResponse? response = await PostAsync<LoginResponse> ("login", payload, refreshToken: false);
+			LoginResponse? response = await PostAsync<LoginResponse> ("login", payload, refreshToken: false).ConfigureAwait (false);
 			var success = response?.Success is true;
 			if (success)
 				{
 				InvalidateSessionState ();
 				if (registerEventListener)
-					await RegisterEventListenerCore ();
+					await RegisterEventListenerCore ().ConfigureAwait (false);
 				}
 			return success;
 			}
+
+		if (Server == OverkizConst.SupportedServers[Enums.Server.Brandt] ||
+			Server == OverkizConst.SupportedServers[Enums.Server.SauterSmartControl])
+			return await BrandtLoginCore (registerEventListener).ConfigureAwait (false);
 
 		// Standard username + password
 			{
@@ -283,13 +342,13 @@ public sealed class OverkizClient : IAsyncDisposable
 				UserId = Username,
 				UserPassword = Password,
 				};
-			LoginResponse? response = await PostAsync<LoginResponse> ("login", payload, refreshToken: false);
+			LoginResponse? response = await PostAsync<LoginResponse> ("login", payload, refreshToken: false).ConfigureAwait (false);
 			var success = response?.Success is true;
 			if (success)
 				{
 				InvalidateSessionState ();
 				if (registerEventListener)
-					await RegisterEventListenerCore ();
+					await RegisterEventListenerCore ().ConfigureAwait (false);
 				}
 			return success;
 			}
@@ -300,7 +359,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <exception cref="SomfyBadCredentialsException">Thrown when the supplied credentials are rejected by the Somfy OAuth server.</exception>
 	/// <exception cref="SomfyServiceException">Thrown when the Somfy token endpoint returns an unexpected response.</exception>
 	public Task<string> SomfyTahomaGetAccessToken ()
-		=> WithSessionLock (SomfyTahomaGetAccessTokenCore);
+		=> RunWrite (SomfyTahomaGetAccessTokenCore, refresh: false);
 
 	private async Task<string> SomfyTahomaGetAccessTokenCore ()
 		{
@@ -313,9 +372,9 @@ public sealed class OverkizClient : IAsyncDisposable
 			]);
 
 		using HttpResponseMessage resp = await _http.PostAsync (
-			new Uri (OverkizConst.SOMFY_API + "/oauth/oauth/v2/token/jwt"), form);
+			new Uri (OverkizConst.SOMFY_API + "/oauth/oauth/v2/token/jwt"), form, _operations.StopToken).ConfigureAwait (false);
 
-		SomfyTokenResponse token = await resp.Content.ReadFromJsonAsync<SomfyTokenResponse> (_jsonOptions)
+		SomfyTokenResponse token = await resp.Content.ReadFromJsonAsync<SomfyTokenResponse> (_jsonOptions).ConfigureAwait (false)
 			?? throw new SomfyServiceException ("Empty response from Somfy token endpoint.");
 
 		ApplySomfyTokenResponse (token);
@@ -332,7 +391,11 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <exception cref="SomfyBadCredentialsException">Thrown when the refresh token has been revoked.</exception>
 	/// <exception cref="SomfyServiceException">Thrown when the Somfy token endpoint returns an unexpected response.</exception>
 	/// <returns>A task that completes when token refresh finishes, or immediately if refresh is not applicable.</returns>
-	public Task RefreshToken () => WithSessionLock (RefreshTokenCore);
+	public Task RefreshToken ()
+		{
+		long observed = _operations.Observe (() => _tokenGeneration);
+		return RunWrite (() => observed == _tokenGeneration ? RefreshTokenCore () : Task.CompletedTask, refresh: false);
+		}
 
 	private async Task RefreshTokenCore ()
 		{
@@ -350,9 +413,9 @@ public sealed class OverkizClient : IAsyncDisposable
 			]);
 
 		using HttpResponseMessage resp = await _http.PostAsync (
-			new Uri (OverkizConst.SOMFY_API + "/oauth/oauth/v2/token/jwt"), form);
+			new Uri (OverkizConst.SOMFY_API + "/oauth/oauth/v2/token/jwt"), form, _operations.StopToken).ConfigureAwait (false);
 
-		SomfyTokenResponse token = await resp.Content.ReadFromJsonAsync<SomfyTokenResponse> (_jsonOptions)
+		SomfyTokenResponse token = await resp.Content.ReadFromJsonAsync<SomfyTokenResponse> (_jsonOptions).ConfigureAwait (false)
 			?? throw new SomfyServiceException ("Empty response from Somfy refresh endpoint.");
 
 		ApplySomfyTokenResponse (token);
@@ -367,9 +430,13 @@ public sealed class OverkizClient : IAsyncDisposable
 		if (token.ExpiresIn is null)
 			throw new SomfyServiceException ("No Somfy token expiry provided.");
 
-		_accessToken = token.AccessToken;
-		_refreshToken = token.RefreshToken;
-		_expiresAt = DateTime.Now.AddSeconds (token.ExpiresIn.Value - 5);
+		_operations.Commit (() =>
+			{
+				_accessToken = token.AccessToken;
+				_refreshToken = token.RefreshToken;
+				_expiresAt = DateTime.Now.AddSeconds (token.ExpiresIn.Value - 5);
+				_tokenGeneration++;
+			});
 		}
 
 	/// <summary>
@@ -379,7 +446,9 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <returns>The JWT string to pass to the Overkiz <c>login</c> endpoint.</returns>
 	/// <exception cref="CozyTouchBadCredentialsException">Thrown when the Atlantic OAuth server rejects the credentials.</exception>
 	/// <exception cref="CozyTouchServiceException">Thrown when the Atlantic token or JWT endpoint returns an unexpected response.</exception>
-	public async Task<string> CozytouchLogin ()
+	public Task<string> CozytouchLogin () => RunWrite (CozytouchLoginCore, refresh: false);
+
+	private async Task<string> CozytouchLoginCore ()
 		{
 		// Step 1: get OAuth2 token from Atlantic API
 		var form = new FormUrlEncodedContent ([
@@ -394,9 +463,9 @@ public sealed class OverkizClient : IAsyncDisposable
 			Content = form,
 			Headers = { Authorization = new AuthenticationHeaderValue ("Basic", OverkizConst.COZYTOUCH_CLIENT_ID) },
 			};
-		using HttpResponseMessage tokenResp = await _http.SendAsync (tokenRequest);
+		using HttpResponseMessage tokenResp = await _http.SendAsync (tokenRequest, _operations.StopToken).ConfigureAwait (false);
 
-		CozyTouchTokenResponse token = await tokenResp.Content.ReadFromJsonAsync<CozyTouchTokenResponse> (_jsonOptions)
+		CozyTouchTokenResponse token = await tokenResp.Content.ReadFromJsonAsync<CozyTouchTokenResponse> (_jsonOptions).ConfigureAwait (false)
 			?? throw new CozyTouchServiceException ("Empty response from CozyTouch token endpoint.");
 
 		if (token.Error == "invalid_grant")
@@ -408,9 +477,9 @@ public sealed class OverkizClient : IAsyncDisposable
 		// Step 2: exchange for JWT
 		using var req = new HttpRequestMessage (HttpMethod.Get, OverkizConst.COZYTOUCH_ATLANTIC_API + "/magellan/accounts/jwt");
 		req.Headers.Authorization = new AuthenticationHeaderValue ("Bearer", token.AccessToken);
-		using HttpResponseMessage jwtResp = await _http.SendAsync (req);
+		using HttpResponseMessage jwtResp = await _http.SendAsync (req, _operations.StopToken).ConfigureAwait (false);
 		if (!jwtResp.IsSuccessStatusCode)
-			throw new CozyTouchServiceException ($"CozyTouch JWT exchange failed with HTTP {(int) jwtResp.StatusCode}.");
+			throw new CozyTouchServiceException ($"CozyTouch JWT exchange failed with HTTP {(int)jwtResp.StatusCode}.");
 
 		string? jwt;
 		try
@@ -418,12 +487,12 @@ public sealed class OverkizClient : IAsyncDisposable
 			if (string.Equals (jwtResp.Content.Headers.ContentType?.MediaType, "text/plain", StringComparison.OrdinalIgnoreCase))
 				{
 				// Legacy text responses must still be a compact JWT, not an error page or arbitrary text.
-				jwt = (await jwtResp.Content.ReadAsStringAsync ()).Trim ();
+				jwt = (await jwtResp.Content.ReadAsStringAsync ().ConfigureAwait (false)).Trim ();
 				if (!System.Text.RegularExpressions.Regex.IsMatch (jwt, @"\A[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\z"))
 					throw new CozyTouchServiceException ("Invalid plain-text JWT response from CozyTouch.");
 				}
 			else
-				jwt = await jwtResp.Content.ReadFromJsonAsync<string> (_jsonOptions);
+				jwt = await jwtResp.Content.ReadFromJsonAsync<string> (_jsonOptions).ConfigureAwait (false);
 			}
 		catch (JsonException)
 			{
@@ -444,7 +513,9 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// </remarks>
 	/// <returns>The Nexity SSO token string.</returns>
 	/// <exception cref="NotSupportedException">Always thrown by the default stub implementation.</exception>
-	public Task<string> NexityLogin () =>
+	public Task<string> NexityLogin () => RunWrite (NexityLoginCore, refresh: false);
+
+	private static Task<string> NexityLoginCore () =>
 		// Nexity uses AWS Cognito (SRP) — a full implementation requires AWSSDK.CognitoIdentityProvider.
 		// This stub throws to indicate the dependency is not bundled.
 		throw new NotSupportedException (
@@ -458,18 +529,18 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <remarks>The assigned listener ID is stored in <see cref="EventListenerId"/> after this call completes.</remarks>
 	/// <exception cref="OverkizException">Thrown when the server does not return a valid listener ID.</exception>
 	/// <returns>A task that completes when the listener has been registered.</returns>
-	public Task RegisterEventListener () => WithSessionLock (async () =>
+	public Task RegisterEventListener () => RunWrite (async () =>
 		{
-		await RefreshTokenIfExpiredCore (replaceListener: false);
-		await RegisterEventListenerCore ();
-		});
+			await RefreshTokenIfExpiredCore (replaceListener: false).ConfigureAwait (false);
+			await RegisterEventListenerCore ().ConfigureAwait (false);
+		}, refresh: false);
 
 	private async Task RegisterEventListenerCore ()
 		{
 		// The server can replace the listener even if its response is lost.
 		EventListenerId = null;
-		EventListenerResponse? response = await PostAsync<EventListenerResponse> ("events/register", new EmptyRequest (), refreshToken: false);
-		EventListenerId = GetRequiredResponseString (response?.Id, "No event listener ID returned.");
+		EventListenerResponse? response = await PostAsync<EventListenerResponse> ("events/register", new EmptyRequest (), refreshToken: false).ConfigureAwait (false);
+		_operations.Commit (() => EventListenerId = GetRequiredResponseString (response?.Id, "No event listener ID returned."));
 		}
 
 	/// <summary>
@@ -489,50 +560,55 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// Reauthentication requires cloud credentials; rejected local or externally managed tokens are not retried.
 	/// </remarks>
 	/// <exception cref="NoRegisteredEventListenerException">No listener is registered and automatic registration is disabled, or the server rejects recovery.</exception>
-	public async Task<IReadOnlyList<EventObject>> FetchEvents (bool autoRegister)
+	public Task<IReadOnlyList<EventObject>> FetchEvents (bool autoRegister) => RunWrite (() => FetchEventsCore (autoRegister), refresh: false);
+
+	private async Task<IReadOnlyList<EventObject>> FetchEventsCore (bool autoRegister)
 		{
-		var response = await WithSessionLock (() => FetchEventResponseCore (autoRegister));
+		var response = await FetchEventResponseCore (autoRegister).ConfigureAwait (false);
 		List<EventObject> events = JsonSerializer.Deserialize<List<EventObject>> (response, _jsonOptions) ?? [];
 
 		// Local-only: synthesize DeviceUpdatedEvent for renames not signalled by the gateway.
 		if (ApiType == APIType.Local && DateTime.UtcNow - _lastLabelCheck >= _labelPollInterval)
 			{
-			_lastLabelCheck = DateTime.UtcNow;
+			_operations.Commit (() => _lastLabelCheck = DateTime.UtcNow);
 			try
 				{
-				IReadOnlyList<Device> devices = await GetDevices ();
-				bool snapshotWasEmpty = _labelSnapshot.Count == 0;
-
-				foreach (Device d in devices)
+				IReadOnlyList<Device> devices = await GetDevicesCore ().ConfigureAwait (false);
+				_operations.Commit (() =>
 					{
-					if (d.DeviceUrl == null || d.Label == null)
-						continue;
+						bool snapshotWasEmpty = _labelSnapshot.Count == 0;
 
-					var newLabel = d.Label.Trim ();
-
-					if (_labelSnapshot.TryGetValue (d.DeviceUrl, out string? oldLabel))
-						{
-						if (!string.Equals (oldLabel, newLabel, StringComparison.Ordinal))
+						foreach (Device d in devices)
 							{
-							_labelSnapshot[d.DeviceUrl] = newLabel;
-							// Only emit the event once we had a prior snapshot to compare against.
-							if (!snapshotWasEmpty)
+							if (d.DeviceUrl == null || d.Label == null)
+								continue;
+
+							var newLabel = d.Label.Trim ();
+
+							if (_labelSnapshot.TryGetValue (d.DeviceUrl, out string? oldLabel))
 								{
-								events.Add (new EventObject
+								if (!string.Equals (oldLabel, newLabel, StringComparison.Ordinal))
 									{
-									Name      = "DeviceUpdatedEvent",
-									DeviceUrl = d.DeviceUrl,
-									Label     = newLabel,
-									Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds (),
-									});
+									_labelSnapshot[d.DeviceUrl] = newLabel;
+									// Only emit the event once we had a prior snapshot to compare against.
+									if (!snapshotWasEmpty)
+										{
+										events.Add (new EventObject
+											{
+											Name = "DeviceUpdatedEvent",
+											DeviceUrl = d.DeviceUrl,
+											Label = newLabel,
+											Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds (),
+											});
+										}
+									}
+								}
+							else
+								{
+								_labelSnapshot[d.DeviceUrl] = newLabel;
 								}
 							}
-						}
-					else
-						{
-						_labelSnapshot[d.DeviceUrl] = newLabel;
-						}
-					}
+					});
 				}
 			catch
 				{
@@ -548,16 +624,16 @@ public sealed class OverkizClient : IAsyncDisposable
 		if (EventListenerId is null && !autoRegister)
 			throw new NoRegisteredEventListenerException ("No event listener registered. Call RegisterEventListener first.");
 
-		await RefreshTokenIfExpiredCore (replaceListener: true);
+		await RefreshTokenIfExpiredCore (replaceListener: true).ConfigureAwait (false);
 		for (var attempt = 0; ; attempt++)
 			{
 			var fetching = false;
 			try
 				{
 				if (EventListenerId is null)
-					await RegisterEventListenerCore ();
+					await RegisterEventListenerCore ().ConfigureAwait (false);
 				fetching = true;
-				return await PostRawAsync ($"events/{EventListenerId}/fetch", refreshToken: false);
+				return await PostRawAsync ($"events/{EventListenerId}/fetch", refreshToken: false).ConfigureAwait (false);
 				}
 			catch (BaseOverkizException error) when ((fetching && IsListenerRejection (error)) || error is NotAuthenticatedException)
 				{
@@ -569,7 +645,7 @@ public sealed class OverkizClient : IAsyncDisposable
 					if (ApiType == APIType.Local || Server == OverkizConst.SupportedServers[Enums.Server.Rexel]
 						|| string.IsNullOrWhiteSpace (Username) || string.IsNullOrWhiteSpace (Password))
 						throw;
-					if (!await LoginCore (registerEventListener: false))
+					if (!await LoginCore (registerEventListener: false).ConfigureAwait (false))
 						throw;
 					}
 				}
@@ -584,21 +660,21 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// Safe to call when no listener is registered (no-op).
 	/// </summary>
 	/// <returns>A task that completes when listener cleanup finishes.</returns>
-	public Task UnregisterEventListener () => WithSessionLock (async () =>
+	public Task UnregisterEventListener () => RunWrite (async () =>
 		{
-		var listenerId = EventListenerId;
-		if (listenerId is null)
-			return;
-		try
-			{
-			await RefreshTokenIfExpiredCore (replaceListener: false);
-			_ = await PostRawAsync ($"events/{listenerId}/unregister", refreshToken: false);
-			}
-		finally
-			{
-			EventListenerId = null;
-			}
-		});
+			var listenerId = EventListenerId;
+			if (listenerId is null)
+				return;
+			try
+				{
+				await RefreshTokenIfExpiredCore (replaceListener: false).ConfigureAwait (false);
+				_ = await PostRawAsync ($"events/{listenerId}/unregister", refreshToken: false).ConfigureAwait (false);
+				}
+			finally
+				{
+				EventListenerId = null;
+				}
+		}, refresh: false);
 
 	// ── Setup ──────────────────────────────────────────────────────────────
 
@@ -611,28 +687,35 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="refresh">When <see langword="true"/> the cached result is discarded and a new API call is made.</param>
 	/// <returns>The <see cref="Models.Setup"/> for the authenticated account.</returns>
 	/// <exception cref="OverkizException">Thrown when the response cannot be deserialised.</exception>
-	public async Task<Setup> GetSetup (bool refresh = false)
+	public Task<Setup> GetSetup (bool refresh = false) => RunWrite (() => GetSetupCore (refresh), refresh: true);
+
+	private async Task<Setup> GetSetupCore (bool refresh)
 		{
 		if (Setup is not null && !refresh)
 			return Setup;
 
-		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ("setup");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		var raw = await GetRawAsync ("setup").ConfigureAwait (false);
 		Setup setup = JsonSerializer.Deserialize<Setup> (raw, _jsonOptions)
 			?? throw new OverkizException ("Failed to deserialize Setup.");
 
-		Setup = setup;
-		Gateways = [.. setup.Gateways];
-		Devices = [.. setup.Devices];
+		_operations.Commit (() =>
+			{
+				Setup = setup;
+				Gateways = [.. setup.Gateways];
+				Devices = [.. setup.Devices];
+			});
 		return setup;
 		}
 
 	/// <summary>Returns all gateways registered in the setup.</summary>
 	/// <returns>A read-only list of <see cref="Gateway"/> objects.</returns>
-	public async Task<IReadOnlyList<Gateway>> GetGateways ()
+	public Task<IReadOnlyList<Gateway>> GetGateways () => RunRead (GetGatewaysCore);
+
+	private async Task<IReadOnlyList<Gateway>> GetGatewaysCore ()
 		{
-		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ("setup/gateways");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		var raw = await GetRawAsync ("setup/gateways").ConfigureAwait (false);
 		return JsonSerializer.Deserialize<List<Gateway>> (raw, _jsonOptions) ?? [];
 		}
 
@@ -640,7 +723,7 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <returns>A read-only list of gateway candidates.</returns>
 	/// <exception cref="UnsupportedOperationException">Thrown when the current server is not Rexel.</exception>
 	/// <exception cref="InvalidOperationException">Thrown when no bearer token is available.</exception>
-	public Task<IReadOnlyList<GatewayCandidate>> DiscoverRexelGateways () => DiscoverRexelGatewaysCore (refreshToken: true);
+	public Task<IReadOnlyList<GatewayCandidate>> DiscoverRexelGateways () => RunRead (() => DiscoverRexelGatewaysCore (refreshToken: true));
 
 	private async Task<IReadOnlyList<GatewayCandidate>> DiscoverRexelGatewaysCore (bool refreshToken)
 		{
@@ -649,13 +732,13 @@ public sealed class OverkizClient : IAsyncDisposable
 		if (string.IsNullOrWhiteSpace (_accessToken))
 			throw new InvalidOperationException ("Rexel gateway discovery requires a bearer token.");
 
-		var homesJson = await GetAbsoluteRawAsync ($"{OverkizConst.REXEL_ENDUSER_API}/homes", includeGatewayHeader: false, refreshToken: refreshToken);
+		var homesJson = await GetAbsoluteRawAsync ($"{OverkizConst.REXEL_ENDUSER_API}/homes", includeGatewayHeader: false, refreshToken: refreshToken).ConfigureAwait (false);
 		List<RexelHomeDirectoryEntry> homes = JsonSerializer.Deserialize<List<RexelHomeDirectoryEntry>> (homesJson, _jsonOptions) ?? [];
 		var candidates = new List<GatewayCandidate> ();
 
 		foreach (RexelHomeDirectoryEntry home in homes)
 			{
-			string gatewaysJson = await GetAbsoluteRawAsync ($"{OverkizConst.REXEL_ENDUSER_API}/overkizgateways?homeId={Uri.EscapeDataString (home.Id)}", includeGatewayHeader: false, refreshToken: refreshToken);
+			string gatewaysJson = await GetAbsoluteRawAsync ($"{OverkizConst.REXEL_ENDUSER_API}/overkizgateways?homeId={Uri.EscapeDataString (home.Id)}", includeGatewayHeader: false, refreshToken: refreshToken).ConfigureAwait (false);
 			List<RexelGatewayDirectoryEntry> gateways = JsonSerializer.Deserialize<List<RexelGatewayDirectoryEntry>> (gatewaysJson, _jsonOptions) ?? [];
 
 			foreach (RexelGatewayDirectoryEntry gateway in gateways)
@@ -678,6 +761,13 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <exception cref="UnsupportedOperationException">Thrown when the current server is not Rexel.</exception>
 	public void SelectRexelGateway (string gatewayId)
 		{
+		using AsyncClientGate.Operation operation = _operations.EnterAsync (exclusive: true).ConfigureAwait (false).GetAwaiter ().GetResult ();
+		SelectRexelGatewayCore (gatewayId);
+		_operations.CheckRunning ();
+		}
+
+	private void SelectRexelGatewayCore (string gatewayId)
+		{
 		if (Server != OverkizConst.SupportedServers[Enums.Server.Rexel])
 			throw new UnsupportedOperationException ("Gateway selection is only available for the Rexel server.");
 
@@ -685,16 +775,21 @@ public sealed class OverkizClient : IAsyncDisposable
 			throw new ArgumentException ("Gateway ID is required.", nameof (gatewayId));
 		if (SelectedGatewayId == gatewayId)
 			return;
-		SelectedGatewayId = gatewayId;
-		InvalidateSessionState ();
+		_operations.Commit (() =>
+			{
+				SelectedGatewayId = gatewayId;
+				ClearSessionState ();
+			});
 		}
 
 	/// <summary>Returns all devices registered across all gateways in the setup.</summary>
 	/// <returns>A read-only list of <see cref="Device"/> objects.</returns>
-	public async Task<IReadOnlyList<Device>> GetDevices ()
+	public Task<IReadOnlyList<Device>> GetDevices () => RunRead (GetDevicesCore);
+
+	private async Task<IReadOnlyList<Device>> GetDevicesCore ()
 		{
-		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ("setup/devices");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		var raw = await GetRawAsync ("setup/devices").ConfigureAwait (false);
 		return JsonSerializer.Deserialize<List<Device>> (raw, _jsonOptions) ?? [];
 		}
 
@@ -702,11 +797,13 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="deviceUrl">The device URL (e.g. <c>io://1234-5678-9012/12345678</c>).</param>
 	/// <returns>The matching <see cref="Device"/>.</returns>
 	/// <exception cref="OverkizException">Thrown when the response cannot be deserialised.</exception>
-	public async Task<Device> GetDevice (string deviceUrl)
+	public Task<Device> GetDevice (string deviceUrl) => RunRead (() => GetDeviceCore (deviceUrl));
+
+	private async Task<Device> GetDeviceCore (string deviceUrl)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		var encoded = Uri.EscapeDataString (deviceUrl);
-		var raw = await GetRawAsync ($"setup/devices/{encoded}");
+		var raw = await GetRawAsync ($"setup/devices/{encoded}").ConfigureAwait (false);
 		return JsonSerializer.Deserialize<Device> (raw, _jsonOptions)
 			?? throw new OverkizException ($"Failed to deserialize Device for {deviceUrl}.");
 		}
@@ -714,11 +811,13 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <summary>Returns the current live states for a device.</summary>
 	/// <param name="deviceUrl">The device URL to query.</param>
 	/// <returns>A read-only list of <see cref="State"/> objects.</returns>
-	public async Task<IReadOnlyList<State>> GetDeviceStates (string deviceUrl)
+	public Task<IReadOnlyList<State>> GetDeviceStates (string deviceUrl) => RunRead (() => GetDeviceStatesCore (deviceUrl));
+
+	private async Task<IReadOnlyList<State>> GetDeviceStatesCore (string deviceUrl)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		var encoded = Uri.EscapeDataString (deviceUrl);
-		DeviceStatesPayload? response = await GetAsync<DeviceStatesPayload> ($"setup/devices/{encoded}/states");
+		DeviceStatesPayload? response = await GetAsync<DeviceStatesPayload> ($"setup/devices/{encoded}/states").ConfigureAwait (false);
 		return response?.States ?? [];
 		}
 
@@ -727,10 +826,12 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// Updated states will be pushed through the event listener.
 	/// </summary>
 	/// <returns>A task that completes when the refresh request has been accepted; device state updates arrive separately.</returns>
-	public async Task RefreshAllDeviceStates ()
+	public Task RefreshAllDeviceStates () => RunWrite (RefreshAllDeviceStatesCore, refresh: true);
+
+	private async Task RefreshAllDeviceStatesCore ()
 		{
-		await RefreshTokenIfExpired ();
-		_ = await PostRawAsync ("setup/devices/states/refresh");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		_ = await PostRawAsync ("setup/devices/states/refresh").ConfigureAwait (false);
 		}
 
 	// ── Execution ──────────────────────────────────────────────────────────
@@ -741,42 +842,51 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="label">Optional human-readable label recorded in the execution history.</param>
 	/// <returns>The execution ID (<c>execId</c>) assigned by the server.</returns>
 	/// <exception cref="OverkizException">Thrown when the server does not return an execution ID.</exception>
-	public async Task<string> ExecuteDeviceAction (string deviceUrl, IEnumerable<Command> commands, string label = "Execute")
+	public Task<string> ExecuteDeviceAction (string deviceUrl, IEnumerable<Command> commands, string label = "Execute")
+		=> RunWrite (() => ExecuteDeviceActionCore (deviceUrl, commands, label), refresh: true);
+
+	private async Task<string> ExecuteDeviceActionCore (string deviceUrl, IEnumerable<Command> commands, string label)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		var payload = new DeviceActionRequest
 			{
 			Label = label,
 			Actions = [new Models.Action { DeviceUrl = deviceUrl, Commands = commands.ToList () }],
 			};
-		ExecutionResponse? response = await PostAsync<ExecutionResponse> ("exec/apply", payload);
+		ExecutionResponse? response = await PostAsync<ExecutionResponse> ("exec/apply", payload).ConfigureAwait (false);
 		return GetRequiredResponseString (response?.ExecId, "No execId returned.");
 		}
 
 	/// <summary>Cancels a running or queued execution.</summary>
 	/// <param name="execId">The execution ID returned by <see cref="ExecuteDeviceAction"/> or <see cref="ExecuteScenario"/>.</param>
 	/// <returns>A task that completes when the cancellation request finishes.</returns>
-	public async Task CancelExecution (string execId)
+	public Task CancelExecution (string execId) => RunWrite (() => CancelExecutionCore (execId), refresh: true);
+
+	private async Task CancelExecutionCore (string execId)
 		{
-		await RefreshTokenIfExpired ();
-		await DeleteAsync ($"exec/current/setup/{execId}");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		await DeleteAsync ($"exec/current/setup/{execId}").ConfigureAwait (false);
 		}
 
 	/// <summary>Returns all executions that are currently active (in-progress or queued) on the gateway.</summary>
 	/// <returns>A read-only list of <see cref="Execution"/> objects; empty if nothing is running.</returns>
-	public async Task<IReadOnlyList<Execution>> GetCurrentExecutions ()
+	public Task<IReadOnlyList<Execution>> GetCurrentExecutions () => RunRead (GetCurrentExecutionsCore);
+
+	private async Task<IReadOnlyList<Execution>> GetCurrentExecutionsCore ()
 		{
-		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ("exec/current");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		var raw = await GetRawAsync ("exec/current").ConfigureAwait (false);
 		return JsonSerializer.Deserialize<List<Execution>> (raw, _jsonOptions) ?? [];
 		}
 
 	/// <summary>Returns the execution history log stored on the gateway.</summary>
 	/// <returns>A read-only list of <see cref="HistoryExecution"/> records, most-recent first.</returns>
-	public async Task<IReadOnlyList<HistoryExecution>> GetExecutionHistory ()
+	public Task<IReadOnlyList<HistoryExecution>> GetExecutionHistory () => RunRead (GetExecutionHistoryCore);
+
+	private async Task<IReadOnlyList<HistoryExecution>> GetExecutionHistoryCore ()
 		{
-		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ("history/executions");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		var raw = await GetRawAsync ("history/executions").ConfigureAwait (false);
 		return JsonSerializer.Deserialize<List<HistoryExecution>> (raw, _jsonOptions) ?? [];
 		}
 
@@ -784,10 +894,12 @@ public sealed class OverkizClient : IAsyncDisposable
 
 	/// <summary>Returns all named scenarios (action groups) stored in the setup.</summary>
 	/// <returns>A read-only list of <see cref="Scenario"/> objects.</returns>
-	public async Task<IReadOnlyList<Scenario>> GetScenarios ()
+	public Task<IReadOnlyList<Scenario>> GetScenarios () => RunRead (GetScenariosCore);
+
+	private async Task<IReadOnlyList<Scenario>> GetScenariosCore ()
 		{
-		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ("actionGroups");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		var raw = await GetRawAsync ("actionGroups").ConfigureAwait (false);
 		return JsonSerializer.Deserialize<List<Scenario>> (raw, _jsonOptions) ?? [];
 		}
 
@@ -795,10 +907,12 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="oid">The OID of the scenario to execute (see <see cref="Scenario.Oid"/>).</param>
 	/// <returns>The execution ID assigned by the server.</returns>
 	/// <exception cref="OverkizException">Thrown when the server does not return an execution ID.</exception>
-	public async Task<string> ExecuteScenario (string oid)
+	public Task<string> ExecuteScenario (string oid) => RunWrite (() => ExecuteScenarioCore (oid), refresh: true);
+
+	private async Task<string> ExecuteScenarioCore (string oid)
 		{
-		await RefreshTokenIfExpired ();
-		ExecutionResponse? response = await PostAsync<ExecutionResponse> ($"exec/{oid}", new EmptyRequest ());
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		ExecutionResponse? response = await PostAsync<ExecutionResponse> ($"exec/{oid}", new EmptyRequest ()).ConfigureAwait (false);
 		return GetRequiredResponseString (response?.ExecId, "No execId returned.");
 		}
 
@@ -807,10 +921,12 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="timestamp">Unix epoch millisecond timestamp at which to trigger the scenario.</param>
 	/// <returns>The trigger ID assigned by the server.</returns>
 	/// <exception cref="OverkizException">Thrown when the server does not return a trigger ID.</exception>
-	public async Task<string> ExecuteScheduledScenario (string oid, long timestamp)
+	public Task<string> ExecuteScheduledScenario (string oid, long timestamp) => RunWrite (() => ExecuteScheduledScenarioCore (oid, timestamp), refresh: true);
+
+	private async Task<string> ExecuteScheduledScenarioCore (string oid, long timestamp)
 		{
-		await RefreshTokenIfExpired ();
-		ScheduledExecutionResponse? response = await PostAsync<ScheduledExecutionResponse> ($"exec/schedule/{oid}/{timestamp}", new EmptyRequest ());
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		ScheduledExecutionResponse? response = await PostAsync<ScheduledExecutionResponse> ($"exec/schedule/{oid}/{timestamp}", new EmptyRequest ()).ConfigureAwait (false);
 		return GetRequiredResponseString (response?.TriggerId, "No triggerId returned.");
 		}
 
@@ -819,10 +935,12 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <summary>Returns the root of the place hierarchy (house → floors → rooms).</summary>
 	/// <returns>The root <see cref="Place"/> containing all sub-places.</returns>
 	/// <exception cref="OverkizException">Thrown when the response cannot be deserialised.</exception>
-	public async Task<Place> GetPlaces ()
+	public Task<Place> GetPlaces () => RunRead (GetPlacesCore);
+
+	private async Task<Place> GetPlacesCore ()
 		{
-		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ("setup/places");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		var raw = await GetRawAsync ("setup/places").ConfigureAwait (false);
 		return JsonSerializer.Deserialize<Place> (raw, _jsonOptions)
 			?? throw new OverkizException ("Failed to deserialize Place.");
 		}
@@ -836,11 +954,13 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="gatewayId">Serial number of the gateway to generate a token for. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/> rather than the header-scoping <see cref="GatewayCandidate.GatewayId"/>.</param>
 	/// <returns>The raw token string to pass to <see cref="ActivateLocalToken"/>.</returns>
 	/// <exception cref="OverkizException">Thrown when the server does not return a token.</exception>
-	public async Task<string> GenerateLocalToken (string gatewayId)
+	public Task<string> GenerateLocalToken (string gatewayId) => RunWrite (() => GenerateLocalTokenCore (gatewayId), refresh: true);
+
+	private async Task<string> GenerateLocalTokenCore (string gatewayId)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
-		LocalTokenGenerationResponse? response = await GetAsync<LocalTokenGenerationResponse> ($"config/{encodedGatewayId}/local/tokens/generate");
+		LocalTokenGenerationResponse? response = await GetAsync<LocalTokenGenerationResponse> ($"config/{encodedGatewayId}/local/tokens/generate").ConfigureAwait (false);
 		return GetRequiredResponseString (response?.Token, "No token returned.");
 		}
 
@@ -853,9 +973,12 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="scope">Access scope to grant (default <c>"devmode"</c>).</param>
 	/// <returns>The request ID of the activation request.</returns>
 	/// <exception cref="OverkizException">Thrown when the server does not return a request ID.</exception>
-	public async Task<string> ActivateLocalToken (string gatewayId, string token, string label, string scope = "devmode")
+	public Task<string> ActivateLocalToken (string gatewayId, string token, string label, string scope = "devmode")
+		=> RunWrite (() => ActivateLocalTokenCore (gatewayId, token, label, scope), refresh: true);
+
+	private async Task<string> ActivateLocalTokenCore (string gatewayId, string token, string label, string scope)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
 		LocalTokenActivationResponse? response = await PostAsync<LocalTokenActivationResponse> (
 			$"config/{encodedGatewayId}/local/tokens",
@@ -864,7 +987,7 @@ public sealed class OverkizClient : IAsyncDisposable
 				Label = label,
 				Token = token,
 				Scope = scope
-				});
+				}).ConfigureAwait (false);
 		return GetRequiredResponseString (response?.RequestId, "No requestId returned.");
 		}
 
@@ -872,12 +995,14 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="gatewayId">Serial number of the gateway to query. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
 	/// <param name="scope">Token scope to filter by (default <c>"devmode"</c>).</param>
 	/// <returns>A read-only list of <see cref="LocalToken"/> descriptors.</returns>
-	public async Task<IReadOnlyList<LocalToken>> GetLocalTokens (string gatewayId, string scope = "devmode")
+	public Task<IReadOnlyList<LocalToken>> GetLocalTokens (string gatewayId, string scope = "devmode") => RunRead (() => GetLocalTokensCore (gatewayId, scope));
+
+	private async Task<IReadOnlyList<LocalToken>> GetLocalTokensCore (string gatewayId, string scope)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
 		string encodedScope = Uri.EscapeDataString (scope);
-		var raw = await GetRawAsync ($"config/{encodedGatewayId}/local/tokens/{encodedScope}");
+		var raw = await GetRawAsync ($"config/{encodedGatewayId}/local/tokens/{encodedScope}").ConfigureAwait (false);
 		return JsonSerializer.Deserialize<List<LocalToken>> (raw, _jsonOptions) ?? [];
 		}
 
@@ -885,12 +1010,14 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="gatewayId">Serial number of the gateway the token belongs to. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
 	/// <param name="uuid">UUID of the token to delete (see <see cref="LocalToken.Uuid"/>).</param>
 	/// <returns><see langword="true"/> on success.</returns>
-	public async Task<bool> DeleteLocalToken (string gatewayId, string uuid)
+	public Task<bool> DeleteLocalToken (string gatewayId, string uuid) => RunWrite (() => DeleteLocalTokenCore (gatewayId, uuid), refresh: true);
+
+	private async Task<bool> DeleteLocalTokenCore (string gatewayId, string uuid)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
 		string encodedUuid = Uri.EscapeDataString (uuid);
-		await DeleteAsync ($"config/{encodedGatewayId}/local/tokens/{encodedUuid}");
+		await DeleteAsync ($"config/{encodedGatewayId}/local/tokens/{encodedUuid}").ConfigureAwait (false);
 		return true;
 		}
 
@@ -900,11 +1027,13 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// </summary>
 	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
 	/// <returns>A task that completes when the pairing request succeeds.</returns>
-	public async Task OpenLocalPairing (string gatewayId)
+	public Task OpenLocalPairing (string gatewayId) => RunWrite (() => OpenLocalPairingCore (gatewayId), refresh: true);
+
+	private async Task OpenLocalPairingCore (string gatewayId)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
-		_ = await PostRawAsync ($"config/{encodedGatewayId}/local/openPairing");
+		_ = await PostRawAsync ($"config/{encodedGatewayId}/local/openPairing").ConfigureAwait (false);
 		}
 
 	/// <summary>
@@ -913,21 +1042,25 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// </summary>
 	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
 	/// <returns>A task that completes when the activation request finishes.</returns>
-	public async Task ActivateDeveloperMode (string gatewayId)
+	public Task ActivateDeveloperMode (string gatewayId) => RunWrite (() => ActivateDeveloperModeCore (gatewayId), refresh: true);
+
+	private async Task ActivateDeveloperModeCore (string gatewayId)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
-		_ = await PostRawAsync ($"setup/gateways/{encodedGatewayId}/developerMode");
+		_ = await PostRawAsync ($"setup/gateways/{encodedGatewayId}/developerMode").ConfigureAwait (false);
 		}
 
 	/// <summary>Returns the current developer-mode status for a gateway.</summary>
 	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
 	/// <returns>A <see cref="DeveloperMode"/> object describing whether developer mode is active.</returns>
-	public async Task<DeveloperMode> GetDeveloperMode (string gatewayId)
+	public Task<DeveloperMode> GetDeveloperMode (string gatewayId) => RunRead (() => GetDeveloperModeCore (gatewayId));
+
+	private async Task<DeveloperMode> GetDeveloperModeCore (string gatewayId)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
-		string raw = await GetRawAsync ($"setup/gateways/{encodedGatewayId}/developerMode");
+		string raw = await GetRawAsync ($"setup/gateways/{encodedGatewayId}/developerMode").ConfigureAwait (false);
 		return JsonSerializer.Deserialize<DeveloperMode> (raw, _jsonOptions)
 			?? throw new OverkizException ($"Failed to deserialize developer mode status for gateway {gatewayId}.");
 		}
@@ -938,31 +1071,37 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// </summary>
 	/// <param name="gatewayId">Serial number of the gateway. For Rexel cloud endpoints, use <see cref="GatewayCandidate.ExternalId"/>.</param>
 	/// <returns>A task that completes when the deactivation request finishes.</returns>
-	public async Task DeactivateDeveloperMode (string gatewayId)
+	public Task DeactivateDeveloperMode (string gatewayId) => RunWrite (() => DeactivateDeveloperModeCore (gatewayId), refresh: true);
+
+	private async Task DeactivateDeveloperModeCore (string gatewayId)
 		{
-		await RefreshTokenIfExpired ();
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
 		string encodedGatewayId = Uri.EscapeDataString (gatewayId);
-		await DeleteAsync ($"setup/gateways/{encodedGatewayId}/developerMode");
+		await DeleteAsync ($"setup/gateways/{encodedGatewayId}/developerMode").ConfigureAwait (false);
 		}
 
 	// ── Setup options ──────────────────────────────────────────────────────
 
 	/// <summary>Returns all option subscriptions active on the authenticated setup.</summary>
 	/// <returns>A read-only list of <see cref="OptionObject"/> objects.</returns>
-	public async Task<IReadOnlyList<OptionObject>> GetSetupOptions ()
+	public Task<IReadOnlyList<OptionObject>> GetSetupOptions () => RunRead (GetSetupOptionsCore);
+
+	private async Task<IReadOnlyList<OptionObject>> GetSetupOptionsCore ()
 		{
-		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ("setup/options");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		var raw = await GetRawAsync ("setup/options").ConfigureAwait (false);
 		return JsonSerializer.Deserialize<List<OptionObject>> (raw, _jsonOptions) ?? [];
 		}
 
 	/// <summary>Returns a specific option subscription by option ID.</summary>
 	/// <param name="option">Option ID to look up (e.g. <c>"ADVANCED_SCENARIOS"</c>).</param>
 	/// <returns>The <see cref="OptionObject"/>, or <see langword="null"/> if the option is not subscribed.</returns>
-	public async Task<OptionObject?> GetSetupOption (string option)
+	public Task<OptionObject?> GetSetupOption (string option) => RunRead (() => GetSetupOptionCore (option));
+
+	private async Task<OptionObject?> GetSetupOptionCore (string option)
 		{
-		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ($"setup/options/{option}");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		var raw = await GetRawAsync ($"setup/options/{option}").ConfigureAwait (false);
 		return string.IsNullOrWhiteSpace (raw) ? null : JsonSerializer.Deserialize<OptionObject> (raw, _jsonOptions);
 		}
 
@@ -970,48 +1109,53 @@ public sealed class OverkizClient : IAsyncDisposable
 	/// <param name="option">Option ID (e.g. <c>"ADVANCED_SCENARIOS"</c>).</param>
 	/// <param name="parameter">Parameter name to retrieve.</param>
 	/// <returns>The <see cref="OptionParameter"/>, or <see langword="null"/> if not found.</returns>
-	public async Task<OptionParameter?> GetSetupOptionParameter (string option, string parameter)
+	public Task<OptionParameter?> GetSetupOptionParameter (string option, string parameter) => RunRead (() => GetSetupOptionParameterCore (option, parameter));
+
+	private async Task<OptionParameter?> GetSetupOptionParameterCore (string option, string parameter)
 		{
-		await RefreshTokenIfExpired ();
-		var raw = await GetRawAsync ($"setup/options/{option}/{parameter}");
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		var raw = await GetRawAsync ($"setup/options/{option}/{parameter}").ConfigureAwait (false);
 		return string.IsNullOrWhiteSpace (raw) ? null : JsonSerializer.Deserialize<OptionParameter> (raw, _jsonOptions);
 		}
 
 	// ── HTTP helpers ───────────────────────────────────────────────────────
 
-	private void ApplyRequestHeaders (bool includeGatewayHeader = true)
+	private void ApplyRequestHeaders (HttpRequestMessage request, bool includeGatewayHeader = true)
 		{
-		_http.DefaultRequestHeaders.Authorization = _accessToken is not null
+		request.Headers.Authorization = _accessToken is not null
 			? new AuthenticationHeaderValue ("Bearer", _accessToken)
 			: null;
 
-		_ = _http.DefaultRequestHeaders.Remove (OverkizConst.REXEL_GATEWAY_HEADER);
 		if (includeGatewayHeader && Server.RequiresGatewaySelection)
 			{
 			if (string.IsNullOrWhiteSpace (SelectedGatewayId))
 				throw new NoGatewaySelectedException ("Multiple Rexel gateways available; call DiscoverRexelGateways and SelectRexelGateway before making requests.");
 
-			_http.DefaultRequestHeaders.Add (OverkizConst.REXEL_GATEWAY_HEADER, SelectedGatewayId);
+			request.Headers.Add (OverkizConst.REXEL_GATEWAY_HEADER, SelectedGatewayId);
 			}
 		}
 
 	private async Task<string> GetRawAsync (string path, bool refreshToken = true)
 		{
-		if (refreshToken) await RefreshTokenIfExpired ();
-		ApplyRequestHeaders ();
-		using HttpResponseMessage resp = await _http.GetAsync (path);
-		var body = await resp.Content.ReadAsStringAsync ();
-		await ThrowIfOverkizError (resp, body);
+		if (refreshToken)
+			await RefreshTokenIfExpired ().ConfigureAwait (false);
+		using var request = new HttpRequestMessage (HttpMethod.Get, path);
+		ApplyRequestHeaders (request);
+		using HttpResponseMessage resp = await _http.SendAsync (request, _operations.StopToken).ConfigureAwait (false);
+		var body = await resp.Content.ReadAsStringAsync ().ConfigureAwait (false);
+		await ThrowIfOverkizError (resp, body).ConfigureAwait (false);
 		return body;
 		}
 
 	private async Task<string> GetAbsoluteRawAsync (string absoluteUri, bool includeGatewayHeader, bool refreshToken = true)
 		{
-		if (refreshToken) await RefreshTokenIfExpired ();
-		ApplyRequestHeaders (includeGatewayHeader);
-		using HttpResponseMessage resp = await _http.GetAsync (new Uri (absoluteUri));
-		var body = await resp.Content.ReadAsStringAsync ();
-		await ThrowIfOverkizError (resp, body);
+		if (refreshToken)
+			await RefreshTokenIfExpired ().ConfigureAwait (false);
+		using var request = new HttpRequestMessage (HttpMethod.Get, new Uri (absoluteUri));
+		ApplyRequestHeaders (request, includeGatewayHeader);
+		using HttpResponseMessage resp = await _http.SendAsync (request, _operations.StopToken).ConfigureAwait (false);
+		var body = await resp.Content.ReadAsStringAsync ().ConfigureAwait (false);
+		await ThrowIfOverkizError (resp, body).ConfigureAwait (false);
 		return body;
 		}
 
@@ -1020,67 +1164,59 @@ public sealed class OverkizClient : IAsyncDisposable
 
 	private async Task<T?> GetAsync<T> (string path, bool refreshToken = true) where T : class
 		{
-		var raw = await GetRawAsync (path, refreshToken);
+		var raw = await GetRawAsync (path, refreshToken).ConfigureAwait (false);
 		return string.IsNullOrWhiteSpace (raw) ? null : JsonSerializer.Deserialize<T> (raw, _jsonOptions);
 		}
 
 	private async Task<string> PostRawAsync (string path, object? payload = null, bool refreshToken = true)
 		{
-		if (refreshToken) await RefreshTokenIfExpired ();
-		ApplyRequestHeaders ();
-		HttpContent content = payload is null
+		if (refreshToken)
+			await RefreshTokenIfExpired ().ConfigureAwait (false);
+		using var request = new HttpRequestMessage (HttpMethod.Post, path);
+		ApplyRequestHeaders (request);
+		request.Content = payload is null
 			? new ByteArrayContent ([])
 			: (HttpContent)JsonContent.Create (payload, options: _jsonOptions);
-		using HttpResponseMessage resp = await _http.PostAsync (path, content);
-		var body = await resp.Content.ReadAsStringAsync ();
-		await ThrowIfOverkizError (resp, body);
+		using HttpResponseMessage resp = await _http.SendAsync (request, _operations.StopToken).ConfigureAwait (false);
+		var body = await resp.Content.ReadAsStringAsync ().ConfigureAwait (false);
+		await ThrowIfOverkizError (resp, body).ConfigureAwait (false);
 		return body;
 		}
 
 	private async Task<T?> PostAsync<T> (string path, object? payload = null, bool refreshToken = true) where T : class
 		{
-		var raw = await PostRawAsync (path, payload, refreshToken);
+		var raw = await PostRawAsync (path, payload, refreshToken).ConfigureAwait (false);
 		return string.IsNullOrWhiteSpace (raw) ? null : JsonSerializer.Deserialize<T> (raw, _jsonOptions);
 		}
 
 	private async Task DeleteAsync (string path)
 		{
-		await RefreshTokenIfExpired ();
-		ApplyRequestHeaders ();
-		using HttpResponseMessage resp = await _http.DeleteAsync (path);
-		var body = await resp.Content.ReadAsStringAsync ();
-		await ThrowIfOverkizError (resp, body);
+		await RefreshTokenIfExpired ().ConfigureAwait (false);
+		using var request = new HttpRequestMessage (HttpMethod.Delete, path);
+		ApplyRequestHeaders (request);
+		using HttpResponseMessage resp = await _http.SendAsync (request, _operations.StopToken).ConfigureAwait (false);
+		var body = await resp.Content.ReadAsStringAsync ().ConfigureAwait (false);
+		await ThrowIfOverkizError (resp, body).ConfigureAwait (false);
 		}
 
-	private Task RefreshTokenIfExpired () => WithSessionLock (() => RefreshTokenIfExpiredCore (replaceListener: true));
+	// Public admission establishes a stable session before entering private operation cores.
+	private static Task RefreshTokenIfExpired () => Task.CompletedTask;
 
 	private async Task RefreshTokenIfExpiredCore (bool replaceListener)
 		{
 		if (_expiresAt is not null && _refreshToken is not null && _expiresAt <= DateTime.Now)
 			{
-			await RefreshTokenCore ();
+			await RefreshTokenCore ().ConfigureAwait (false);
 			if (replaceListener && EventListenerId is not null)
-				await RegisterEventListenerCore ();
+				await RegisterEventListenerCore ().ConfigureAwait (false);
 			}
 		}
 
-	private async Task WithSessionLock (Func<Task> operation)
-		{
-		await _sessionGate.WaitAsync ();
-		try { await operation (); }
-		finally { _sessionGate.Release (); }
-		}
+	private void InvalidateSessionState () => _operations.Commit (ClearSessionState);
 
-	private async Task<T> WithSessionLock<T> (Func<Task<T>> operation)
+	private void ClearSessionState ()
 		{
-		await _sessionGate.WaitAsync ();
-		try { return await operation (); }
-		finally { _sessionGate.Release (); }
-		}
-
-	private void InvalidateSessionState ()
-		{
-		EventListenerId = null;
+		_eventListenerId = null;
 		Setup = null;
 		Devices = [];
 		Gateways = [];

@@ -21,7 +21,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Command
     path: ../OverKizApi/Models/Models.cs
-    startLine: 65
+    startLine: 211
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -60,7 +60,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Name
     path: ../OverKizApi/Models/Models.cs
-    startLine: 68
+    startLine: 215
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -74,6 +74,7 @@ items:
     parameters: []
     return:
       type: System.String
+      description: Name of the command (e.g. <code>"open"</code>, <code>"setClosure"</code>).
     content.vb: >-
       <JsonPropertyName("name")>
 
@@ -103,7 +104,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Parameters
     path: ../OverKizApi/Models/Models.cs
-    startLine: 75
+    startLine: 229
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -116,12 +117,24 @@ items:
     content: >-
       [JsonPropertyName("parameters")]
 
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      [JsonConverter(typeof(DeviceValuesConverter))]
+
       public IReadOnlyList<object?>? Parameters { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{System.Object}
+      description: >-
+        Ordered list of parameter values to pass to the command.
+
+        May be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for zero-parameter commands.
     content.vb: >-
       <JsonPropertyName("parameters")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      <JsonConverter(GetType(DeviceValuesConverter))>
 
       Public Property Parameters As IReadOnlyList(Of Object)
   overload: OverKizApi.Models.Command.Parameters*
@@ -131,6 +144,13 @@ items:
     arguments:
     - type: System.String
       value: parameters
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models.Definition.Commands
   commentId: P:OverKizApi.Models.Definition.Commands
@@ -140,26 +160,21 @@ references:
   fullName: OverKizApi.Models.Definition.Commands
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

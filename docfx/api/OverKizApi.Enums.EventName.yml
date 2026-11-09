@@ -19,6 +19,7 @@ items:
   - OverKizApi.Enums.EventName.GatewaySynchronizationFinished
   - OverKizApi.Enums.EventName.GatewaySynchronizationStarted
   - OverKizApi.Enums.EventName.GatewayUpdated
+  - OverKizApi.Enums.EventName.OgcpTokensRefreshCompleted
   - OverKizApi.Enums.EventName.RefreshAllDevicesStates
   - OverKizApi.Enums.EventName.ScenarioExecutionRegistered
   - OverKizApi.Enums.EventName.ScenarioExecutionStateChanged
@@ -37,7 +38,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: EventName
     path: ../OverKizApi/Enums/General.cs
-    startLine: 21
+    startLine: 23
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -67,7 +68,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Unknown
     path: ../OverKizApi/Enums/General.cs
-    startLine: 24
+    startLine: 26
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -95,7 +96,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceAvailabilityChanged
     path: ../OverKizApi/Enums/General.cs
-    startLine: 26
+    startLine: 28
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -123,7 +124,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceCreated
     path: ../OverKizApi/Enums/General.cs
-    startLine: 28
+    startLine: 30
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -151,7 +152,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceDeleted
     path: ../OverKizApi/Enums/General.cs
-    startLine: 30
+    startLine: 32
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -179,7 +180,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceGatewayUpdated
     path: ../OverKizApi/Enums/General.cs
-    startLine: 32
+    startLine: 34
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -207,7 +208,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceStateChanged
     path: ../OverKizApi/Enums/General.cs
-    startLine: 34
+    startLine: 36
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -235,7 +236,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceUpdated
     path: ../OverKizApi/Enums/General.cs
-    startLine: 36
+    startLine: 38
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -263,7 +264,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExecutionRegistered
     path: ../OverKizApi/Enums/General.cs
-    startLine: 38
+    startLine: 40
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -291,7 +292,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExecutionStateChanged
     path: ../OverKizApi/Enums/General.cs
-    startLine: 40
+    startLine: 42
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -319,7 +320,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewayAliveChanged
     path: ../OverKizApi/Enums/General.cs
-    startLine: 42
+    startLine: 44
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -347,7 +348,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewayDowngradeChanged
     path: ../OverKizApi/Enums/General.cs
-    startLine: 44
+    startLine: 46
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -375,7 +376,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewaySynchronizationFinished
     path: ../OverKizApi/Enums/General.cs
-    startLine: 46
+    startLine: 48
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -403,7 +404,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewaySynchronizationEnded
     path: ../OverKizApi/Enums/General.cs
-    startLine: 48
+    startLine: 50
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -431,7 +432,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewaySynchronizationStarted
     path: ../OverKizApi/Enums/General.cs
-    startLine: 50
+    startLine: 52
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -459,7 +460,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewayUpdated
     path: ../OverKizApi/Enums/General.cs
-    startLine: 52
+    startLine: 54
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -487,7 +488,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: RefreshAllDevicesStates
     path: ../OverKizApi/Enums/General.cs
-    startLine: 54
+    startLine: 56
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -515,7 +516,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ScenarioExecutionRegistered
     path: ../OverKizApi/Enums/General.cs
-    startLine: 56
+    startLine: 58
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -543,7 +544,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ScenarioExecutionStateChanged
     path: ../OverKizApi/Enums/General.cs
-    startLine: 58
+    startLine: 60
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -553,29 +554,52 @@ items:
     content: ScenarioExecutionStateChanged = 17
     return:
       type: OverKizApi.Enums.EventName
+- uid: OverKizApi.Enums.EventName.OgcpTokensRefreshCompleted
+  commentId: F:OverKizApi.Enums.EventName.OgcpTokensRefreshCompleted
+  id: OgcpTokensRefreshCompleted
+  parent: OverKizApi.Enums.EventName
+  langs:
+  - csharp
+  - vb
+  name: OgcpTokensRefreshCompleted
+  nameWithType: EventName.OgcpTokensRefreshCompleted
+  fullName: OverKizApi.Enums.EventName.OgcpTokensRefreshCompleted
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/General.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: OgcpTokensRefreshCompleted
+    path: ../OverKizApi/Enums/General.cs
+    startLine: 62
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The gateway completed refreshing its OGCP tokens; the wire name is OGCPTokensRefreshCompletedEvent.
+  example: []
+  syntax:
+    content: OgcpTokensRefreshCompleted = 18
+    return:
+      type: OverKizApi.Enums.EventName
 references:
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Enums.EventName
   commentId: T:OverKizApi.Enums.EventName
   parent: OverKizApi.Enums

@@ -499,7 +499,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LocalEndpoint
     path: ../OverKizApi/Const.cs
-    startLine: 89
+    startLine: 91
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -510,8 +510,10 @@ items:
     parameters:
     - id: gatewayIp
       type: System.String
+      description: The IP address or hostname of the local gateway.
     return:
       type: System.String
+      description: The HTTPS URL of the local gateway API.
     content.vb: Public Shared Function LocalEndpoint(gatewayIp As String) As String
   overload: OverKizApi.OverkizConst.LocalEndpoint*
   nameWithType.vb: OverkizConst.LocalEndpoint(String)
@@ -535,7 +537,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LocalServer
     path: ../OverKizApi/Const.cs
-    startLine: 95
+    startLine: 99
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -546,8 +548,10 @@ items:
     parameters:
     - id: gatewayIp
       type: System.String
+      description: The IP address or hostname of the local gateway.
     return:
       type: OverKizApi.Models.OverkizServer
+      description: A server descriptor pointing to the local gateway.
     content.vb: Public Shared Function LocalServer(gatewayIp As String) As OverkizServer
   overload: OverKizApi.OverkizConst.LocalServer*
   nameWithType.vb: OverkizConst.LocalServer(String)
@@ -571,7 +575,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CreateLocalHttpClientHandler
     path: ../OverKizApi/Const.cs
-    startLine: 104
+    startLine: 113
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -586,6 +590,7 @@ items:
     content: public static HttpClientHandler CreateLocalHttpClientHandler()
     return:
       type: System.Net.Http.HttpClientHandler
+      description: A caller-owned handler that accepts the local gateway certificate.
     content.vb: Public Shared Function CreateLocalHttpClientHandler() As HttpClientHandler
   overload: OverKizApi.OverkizConst.CreateLocalHttpClientHandler*
 - uid: OverKizApi.OverkizConst.ServersWithLocalApi
@@ -606,7 +611,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ServersWithLocalApi
     path: ../OverKizApi/Const.cs
-    startLine: 113
+    startLine: 124
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -640,7 +645,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SupportedServers
     path: ../OverKizApi/Const.cs
-    startLine: 120
+    startLine: 131
   assemblies:
   - OverKizApi
   namespace: OverKizApi
@@ -657,7 +662,6 @@ items:
 references:
 - uid: OverKizApi
   commentId: N:OverKizApi
-  href: OverKizApi.html
   name: OverKizApi
   nameWithType: OverKizApi
   fullName: OverKizApi
@@ -941,26 +945,21 @@ references:
   fullName: OverKizApi.OverkizConst.LocalServer
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Net.Http.HttpClientHandler
   commentId: T:System.Net.Http.HttpClientHandler
   parent: System.Net.Http
@@ -1062,26 +1061,21 @@ references:
   - name: )
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: System.Collections.Generic.IReadOnlyList`1
   commentId: T:System.Collections.Generic.IReadOnlyList`1
   isExternal: true

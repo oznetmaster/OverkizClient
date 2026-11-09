@@ -22,7 +22,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: StateDefinition
     path: ../OverKizApi/Models/Models.cs
-    startLine: 249
+    startLine: 562
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -58,19 +58,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: QualifiedName
     path: ../OverKizApi/Models/Models.cs
-    startLine: 252
+    startLine: 566
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Qualified name of the state (e.g. <code>"core:ClosureState"</code>).
   example: []
   syntax:
-    content: public string? QualifiedName { get; init; }
+    content: >-
+      [JsonPropertyName("qualifiedName")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? QualifiedName { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property QualifiedName As String
+      description: Qualified name of the state (e.g. <code>"core:ClosureState"</code>).
+    content.vb: >-
+      <JsonPropertyName("qualifiedName")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property QualifiedName As String
   overload: OverKizApi.Models.StateDefinition.QualifiedName*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: qualifiedName
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.StateDefinition.Type
   commentId: P:OverKizApi.Models.StateDefinition.Type
   id: Type
@@ -89,19 +113,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Type
     path: ../OverKizApi/Models/Models.cs
-    startLine: 254
+    startLine: 574
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Data type name as returned by the API (e.g. <code>"Integer"</code>).
   example: []
   syntax:
-    content: public string? Type { get; init; }
+    content: >-
+      [JsonPropertyName("type")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Type { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Type As String
+      description: Data type name as returned by the API (e.g. <code>"Integer"</code>).
+    content.vb: >-
+      <JsonPropertyName("type")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Type As String
   overload: OverKizApi.Models.StateDefinition.Type*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: type
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.StateDefinition.Values
   commentId: P:OverKizApi.Models.StateDefinition.Values
   id: Values
@@ -120,42 +168,61 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Values
     path: ../OverKizApi/Models/Models.cs
-    startLine: 256
+    startLine: 582
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Allowed string values for enum-type states, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for numeric/free-form states.
   example: []
   syntax:
-    content: public IReadOnlyList<string>? Values { get; init; }
+    content: >-
+      [JsonPropertyName("values")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public IReadOnlyList<string>? Values { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{System.String}
-    content.vb: Public Property Values As IReadOnlyList(Of String)
+      description: Allowed string values for enum-type states, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for numeric/free-form states.
+    content.vb: >-
+      <JsonPropertyName("values")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Values As IReadOnlyList(Of String)
   overload: OverKizApi.Models.StateDefinition.Values*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: values
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

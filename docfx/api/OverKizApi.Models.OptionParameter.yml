@@ -21,7 +21,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: OptionParameter
     path: ../OverKizApi/Models/Models.cs
-    startLine: 749
+    startLine: 1906
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -57,19 +57,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Name
     path: ../OverKizApi/Models/Models.cs
-    startLine: 752
+    startLine: 1910
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Parameter name key.
   example: []
   syntax:
-    content: public string? Name { get; init; }
+    content: >-
+      [JsonPropertyName("name")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Name { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Name As String
+      description: Parameter name key.
+    content.vb: >-
+      <JsonPropertyName("name")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Name As String
   overload: OverKizApi.Models.OptionParameter.Name*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: name
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.OptionParameter.Value
   commentId: P:OverKizApi.Models.OptionParameter.Value
   id: Value
@@ -88,19 +112,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Value
     path: ../OverKizApi/Models/Models.cs
-    startLine: 754
+    startLine: 1918
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Parameter value.
   example: []
   syntax:
-    content: public string? Value { get; init; }
+    content: >-
+      [JsonPropertyName("value")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Value { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Value As String
+      description: Parameter value.
+    content.vb: >-
+      <JsonPropertyName("value")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Value As String
   overload: OverKizApi.Models.OptionParameter.Value*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: value
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models.OptionObject
   commentId: T:OverKizApi.Models.OptionObject
@@ -110,26 +158,21 @@ references:
   fullName: OverKizApi.Models.OptionObject
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

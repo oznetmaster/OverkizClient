@@ -22,7 +22,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ZoneItem
     path: ../OverKizApi/Models/Models.cs
-    startLine: 461
+    startLine: 1035
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -58,19 +58,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ItemType
     path: ../OverKizApi/Models/Models.cs
-    startLine: 464
+    startLine: 1039
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Type of item (e.g. <code>"DEVICE"</code>).
   example: []
   syntax:
-    content: public string? ItemType { get; init; }
+    content: >-
+      [JsonPropertyName("itemType")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? ItemType { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property ItemType As String
+      description: Type of item (e.g. <code>"DEVICE"</code>).
+    content.vb: >-
+      <JsonPropertyName("itemType")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property ItemType As String
   overload: OverKizApi.Models.ZoneItem.ItemType*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: itemType
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.ZoneItem.DeviceOid
   commentId: P:OverKizApi.Models.ZoneItem.DeviceOid
   id: DeviceOid
@@ -89,19 +113,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceOid
     path: ../OverKizApi/Models/Models.cs
-    startLine: 466
+    startLine: 1047
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Opaque OID of the referenced device.
   example: []
   syntax:
-    content: public string? DeviceOid { get; init; }
+    content: >-
+      [JsonPropertyName("deviceOid")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? DeviceOid { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property DeviceOid As String
+      description: Opaque OID of the referenced device.
+    content.vb: >-
+      <JsonPropertyName("deviceOid")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property DeviceOid As String
   overload: OverKizApi.Models.ZoneItem.DeviceOid*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deviceOid
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.ZoneItem.DeviceUrl
   commentId: P:OverKizApi.Models.ZoneItem.DeviceUrl
   id: DeviceUrl
@@ -120,7 +168,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceUrl
     path: ../OverKizApi/Models/Models.cs
-    startLine: 468
+    startLine: 1055
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -130,12 +178,17 @@ items:
     content: >-
       [JsonPropertyName("deviceURL")]
 
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
       public string? DeviceUrl { get; init; }
     parameters: []
     return:
       type: System.String
+      description: URL of the referenced device; matches <xref href="OverKizApi.Models.Device.DeviceUrl" data-throw-if-not-resolved="false"></xref>.
     content.vb: >-
       <JsonPropertyName("deviceURL")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
 
       Public Property DeviceUrl As String
   overload: OverKizApi.Models.ZoneItem.DeviceUrl*
@@ -145,6 +198,13 @@ items:
     arguments:
     - type: System.String
       value: deviceURL
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models.Zone
   commentId: T:OverKizApi.Models.Zone
@@ -154,26 +214,21 @@ references:
   fullName: OverKizApi.Models.Zone
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

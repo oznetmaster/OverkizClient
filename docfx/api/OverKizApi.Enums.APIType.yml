@@ -21,7 +21,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: APIType
     path: ../OverKizApi/Enums/APIType.cs
-    startLine: 7
+    startLine: 6
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -48,7 +48,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Cloud
     path: ../OverKizApi/Enums/APIType.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -76,7 +76,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Local
     path: ../OverKizApi/Enums/APIType.cs
-    startLine: 12
+    startLine: 11
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -89,26 +89,21 @@ items:
 references:
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Enums.APIType
   commentId: T:OverKizApi.Enums.APIType
   parent: OverKizApi.Enums

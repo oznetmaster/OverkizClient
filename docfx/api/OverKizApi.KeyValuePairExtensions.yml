@@ -97,7 +97,6 @@ items:
 references:
 - uid: OverKizApi
   commentId: N:OverKizApi
-  href: OverKizApi.html
   name: OverKizApi
   nameWithType: OverKizApi
   fullName: OverKizApi

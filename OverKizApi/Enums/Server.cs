@@ -1,4 +1,4 @@
-﻿// Copyright © 2026 Neil Colvin.
+// Copyright © 2026 Neil Colvin.
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 namespace OverKizApi.Enums;
@@ -11,7 +11,7 @@ public enum Server
 	{
 	/// <summary>Atlantic Cozytouch (France) — uses CozyTouch JWT authentication.</summary>
 	AtlanticCozytouch,
-	/// <summary>Brandt Smart Control — standard username/password login.</summary>
+	/// <summary>Brandt Smart Control — middleware cookie-session/JWT login.</summary>
 	Brandt,
 	/// <summary>Flexom by Bouygues — standard username/password login.</summary>
 	Flexom,
@@ -43,4 +43,6 @@ public enum Server
 	ThermorCozytouch,
 	/// <summary>Ubiwizz by Decelect — standard username/password login.</summary>
 	Ubiwizz,
+	/// <summary>Sauter Smart Control appliances — uses the Brandt middleware cookie session and JWT.</summary>
+	SauterSmartControl,
 	}

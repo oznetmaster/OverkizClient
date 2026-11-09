@@ -6,8 +6,8 @@ namespace OverKizApi.Tests;
 [TestFixture]
 public sealed class ResponseModelTests
 	{
-	private const string SomfyToken = "https://accounts.somfy.com/oauth/oauth/v2/token/jwt";
-	private const string AtlanticToken = "https://apis.groupe-atlantic.com/token";
+	private const string SOMFY_TOKEN = "https://accounts.somfy.com/oauth/oauth/v2/token/jwt";
+	private const string ATLANTIC_TOKEN = "https://apis.groupe-atlantic.com/token";
 
 	private static IEnumerable<TestCaseData> IdentifierResponses ()
 		{
@@ -59,13 +59,13 @@ public sealed class ResponseModelTests
 			}
 		return operation switch
 			{
-			"action" => await client.ExecuteDeviceAction (ScriptedApi.DeviceUrl, [new Command { Name = "stop" }]),
-			"scenario" => await client.ExecuteScenario ("scenario"),
-			"schedule" => await client.ExecuteScheduledScenario ("scenario", 123),
-			"generate" => await client.GenerateLocalToken ("gateway"),
-			"activate" => await client.ActivateLocalToken ("gateway", "token", "label"),
-			_ => throw new ArgumentOutOfRangeException (nameof (operation))
-			};
+				"action" => await client.ExecuteDeviceAction (ScriptedApi.DEVICE_URL, [new Command { Name = "stop" }]),
+				"scenario" => await client.ExecuteScenario ("scenario"),
+				"schedule" => await client.ExecuteScheduledScenario ("scenario", 123),
+				"generate" => await client.GenerateLocalToken ("gateway"),
+				"activate" => await client.ActivateLocalToken ("gateway", "token", "label"),
+				_ => throw new ArgumentOutOfRangeException (nameof (operation))
+				};
 		}
 
 	[TestCase ("{\"success\":true,\"extra\":{\"gateway\":1}}", true)]
@@ -99,7 +99,7 @@ public sealed class ResponseModelTests
 	public async Task SomfyToken_RejectsMissingAndMistypedRequiredFields (string response, Type exception)
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope]);
-		api.Expect ("POST", SomfyToken, response);
+		api.Expect ("POST", SOMFY_TOKEN, response);
 		await Assert.ThatAsync (() => api.Client.SomfyTahomaGetAccessToken (), Throws.TypeOf (exception));
 		api.Complete ();
 		}
@@ -109,7 +109,7 @@ public sealed class ResponseModelTests
 	public async Task SomfyToken_AcceptsOptionalRefreshTokenAndNumericExpiry (string response)
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope]);
-		api.Expect ("POST", SomfyToken, response);
+		api.Expect ("POST", SOMFY_TOKEN, response);
 		Assert.That (await api.Client.SomfyTahomaGetAccessToken (), Is.EqualTo ("token"));
 		api.Expect ("GET", "setup/devices", "[]", inspect: (request, _) =>
 			Assert.That (request.Headers.Authorization!.Parameter, Is.EqualTo ("token")));
@@ -122,9 +122,9 @@ public sealed class ResponseModelTests
 	public async Task RejectedSomfyRefresh_PreservesCurrentAccessToken (string response, Type exception)
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope]);
-		api.Expect ("POST", SomfyToken, "{\"access_token\":\"old-token\",\"refresh_token\":\"refresh\",\"expires_in\":3600}");
+		api.Expect ("POST", SOMFY_TOKEN, "{\"access_token\":\"old-token\",\"refresh_token\":\"refresh\",\"expires_in\":3600}");
 		await api.Client.SomfyTahomaGetAccessToken ();
-		api.Expect ("POST", SomfyToken, response);
+		api.Expect ("POST", SOMFY_TOKEN, response);
 		await Assert.ThatAsync (() => api.Client.RefreshToken (), Throws.TypeOf (exception));
 		api.Expect ("GET", "setup/devices", "[]", inspect: (request, _) =>
 			Assert.That (request.Headers.Authorization!.Parameter, Is.EqualTo ("old-token")));
@@ -140,7 +140,7 @@ public sealed class ResponseModelTests
 	public async Task CozyTouchToken_ValidatesFieldsBeforeJwtExchange (string response, Type exception)
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.AtlanticCozytouch]);
-		api.Expect ("POST", AtlanticToken, response);
+		api.Expect ("POST", ATLANTIC_TOKEN, response);
 		await Assert.ThatAsync (() => api.Client.CozytouchLogin (), Throws.TypeOf (exception));
 		api.Complete ();
 		}
@@ -153,8 +153,8 @@ public sealed class ResponseModelTests
 	public async Task DeviceStateWrappers_UseOptionalFieldsWithDefinedPrecedence (string response, string? expectedName)
 		{
 		using var api = new ScriptedApi ();
-		api.Expect ("GET", "setup/devices/" + Uri.EscapeDataString (ScriptedApi.DeviceUrl) + "/states", response);
-		IReadOnlyList<State> states = await api.Client.GetDeviceStates (ScriptedApi.DeviceUrl);
+		api.Expect ("GET", "setup/devices/" + Uri.EscapeDataString (ScriptedApi.DEVICE_URL) + "/states", response);
+		IReadOnlyList<State> states = await api.Client.GetDeviceStates (ScriptedApi.DEVICE_URL);
 		if (expectedName is null)
 			Assert.That (states, Is.Empty);
 		else

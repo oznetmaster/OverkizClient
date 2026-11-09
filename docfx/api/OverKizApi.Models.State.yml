@@ -9,8 +9,10 @@ items:
   - OverKizApi.Models.State.Type
   - OverKizApi.Models.State.Value
   - OverKizApi.Models.State.ValueAsBool
+  - OverKizApi.Models.State.ValueAsDict
   - OverKizApi.Models.State.ValueAsFloat
   - OverKizApi.Models.State.ValueAsInt
+  - OverKizApi.Models.State.ValueAsList
   - OverKizApi.Models.State.ValueAsStr
   langs:
   - csharp
@@ -21,12 +23,12 @@ items:
   type: Class
   source:
     remote:
-      path: OverKizApi/Models/Models.cs
+      path: OverKizApi/Models/StateAccessors.cs
       branch: master
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: State
-    path: ../OverKizApi/Models/Models.cs
-    startLine: 110
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 9
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -65,7 +67,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Name
     path: ../OverKizApi/Models/Models.cs
-    startLine: 113
+    startLine: 274
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -75,12 +77,17 @@ items:
     content: >-
       [JsonPropertyName("name")]
 
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
       public string? Name { get; init; }
     parameters: []
     return:
       type: System.String
+      description: Qualified state name (e.g. <code>"core:ClosureState"</code>).
     content.vb: >-
       <JsonPropertyName("name")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
 
       Public Property Name As String
   overload: OverKizApi.Models.State.Name*
@@ -90,6 +97,13 @@ items:
     arguments:
     - type: System.String
       value: name
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.State.Type
   commentId: P:OverKizApi.Models.State.Type
   id: Type
@@ -108,7 +122,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Type
     path: ../OverKizApi/Models/Models.cs
-    startLine: 117
+    startLine: 283
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -122,6 +136,7 @@ items:
     parameters: []
     return:
       type: OverKizApi.Models.DataType
+      description: Discriminator that identifies the CLR type of <xref href="OverKizApi.Models.State.Value" data-throw-if-not-resolved="false"></xref>.
     content.vb: >-
       <JsonPropertyName("type")>
 
@@ -151,22 +166,31 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Value
     path: ../OverKizApi/Models/Models.cs
-    startLine: 121
+    startLine: 291
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
-  summary: Raw value as deserialised from the JSON response. Use the typed accessors where possible.
+  summary: Vendor-defined value represented by CLR primitives, lists or dictionaries. Use the typed accessors where possible.
   example: []
   syntax:
     content: >-
       [JsonPropertyName("value")]
 
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      [JsonConverter(typeof(DeviceValueConverter))]
+
       public object? Value { get; init; }
     parameters: []
     return:
       type: System.Object
+      description: Vendor-defined value represented by CLR primitives, lists or dictionaries. Use the typed accessors where possible.
     content.vb: >-
       <JsonPropertyName("value")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      <JsonConverter(GetType(DeviceValueConverter))>
 
       Public Property Value As Object
   overload: OverKizApi.Models.State.Value*
@@ -176,6 +200,13 @@ items:
     arguments:
     - type: System.String
       value: value
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.State.ValueAsInt
   commentId: P:OverKizApi.Models.State.ValueAsInt
   id: ValueAsInt
@@ -194,23 +225,34 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ValueAsInt
     path: ../OverKizApi/Models/Models.cs
-    startLine: 128
+    startLine: 304
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Returns the value as <xref href="System.Int32" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public int? ValueAsInt { get; }
+    content: >-
+      [JsonIgnore]
+
+      public int? ValueAsInt { get; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
-    content.vb: Public ReadOnly Property ValueAsInt As Integer?
+      description: Returns the value as <xref href="System.Int32" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property ValueAsInt As Integer?
   overload: OverKizApi.Models.State.ValueAsInt*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
     description: Thrown when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is not <xref href="OverKizApi.Models.DataType.Integer" data-throw-if-not-resolved="false"></xref>.
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.State.ValueAsFloat
   commentId: P:OverKizApi.Models.State.ValueAsFloat
   id: ValueAsFloat
@@ -229,7 +271,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ValueAsFloat
     path: ../OverKizApi/Models/Models.cs
-    startLine: 137
+    startLine: 318
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -239,16 +281,30 @@ items:
     Integer states are promoted to <xref href="System.Double" data-throw-if-not-resolved="false"></xref> automatically.
   example: []
   syntax:
-    content: public double? ValueAsFloat { get; }
+    content: >-
+      [JsonIgnore]
+
+      public double? ValueAsFloat { get; }
     parameters: []
     return:
       type: System.Nullable{System.Double}
-    content.vb: Public ReadOnly Property ValueAsFloat As Double?
+      description: >-
+        Returns the value as <xref href="System.Double" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
+
+        Integer states are promoted to <xref href="System.Double" data-throw-if-not-resolved="false"></xref> automatically.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property ValueAsFloat As Double?
   overload: OverKizApi.Models.State.ValueAsFloat*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
     description: Thrown when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is neither <xref href="OverKizApi.Models.DataType.Float" data-throw-if-not-resolved="false"></xref> nor <xref href="OverKizApi.Models.DataType.Integer" data-throw-if-not-resolved="false"></xref>.
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.State.ValueAsBool
   commentId: P:OverKizApi.Models.State.ValueAsBool
   id: ValueAsBool
@@ -267,23 +323,34 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ValueAsBool
     path: ../OverKizApi/Models/Models.cs
-    startLine: 146
+    startLine: 329
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Returns the value as <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public bool? ValueAsBool { get; }
+    content: >-
+      [JsonIgnore]
+
+      public bool? ValueAsBool { get; }
     parameters: []
     return:
       type: System.Nullable{System.Boolean}
-    content.vb: Public ReadOnly Property ValueAsBool As Boolean?
+      description: Returns the value as <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property ValueAsBool As Boolean?
   overload: OverKizApi.Models.State.ValueAsBool*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
     description: Thrown when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is not <xref href="OverKizApi.Models.DataType.Boolean" data-throw-if-not-resolved="false"></xref>.
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.State.ValueAsStr
   commentId: P:OverKizApi.Models.State.ValueAsStr
   id: ValueAsStr
@@ -302,23 +369,126 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ValueAsStr
     path: ../OverKizApi/Models/Models.cs
-    startLine: 154
+    startLine: 339
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Returns the value as <xref href="System.String" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public string? ValueAsStr { get; }
+    content: >-
+      [JsonIgnore]
+
+      public string? ValueAsStr { get; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public ReadOnly Property ValueAsStr As String
+      description: Returns the value as <xref href="System.String" data-throw-if-not-resolved="false"></xref>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is <xref href="OverKizApi.Models.DataType.None" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property ValueAsStr As String
   overload: OverKizApi.Models.State.ValueAsStr*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
     description: Thrown when <xref href="OverKizApi.Models.State.Type" data-throw-if-not-resolved="false"></xref> is not <xref href="OverKizApi.Models.DataType.String" data-throw-if-not-resolved="false"></xref>.
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: OverKizApi.Models.State.ValueAsDict
+  commentId: P:OverKizApi.Models.State.ValueAsDict
+  id: ValueAsDict
+  parent: OverKizApi.Models.State
+  langs:
+  - csharp
+  - vb
+  name: ValueAsDict
+  nameWithType: State.ValueAsDict
+  fullName: OverKizApi.Models.State.ValueAsDict
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ValueAsDict
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 14
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns an object state as CLR dictionary values, or null when no value is present.
+  example: []
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public IReadOnlyDictionary<string, object?>? ValueAsDict { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}
+      description: Returns an object state as CLR dictionary values, or null when no value is present.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property ValueAsDict As IReadOnlyDictionary(Of String, Object)
+  overload: OverKizApi.Models.State.ValueAsDict*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: The state is not an object.
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: OverKizApi.Models.State.ValueAsList
+  commentId: P:OverKizApi.Models.State.ValueAsList
+  id: ValueAsList
+  parent: OverKizApi.Models.State
+  langs:
+  - csharp
+  - vb
+  name: ValueAsList
+  nameWithType: State.ValueAsList
+  fullName: OverKizApi.Models.State.ValueAsList
+  type: Property
+  source:
+    remote:
+      path: OverKizApi/Models/StateAccessors.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ValueAsList
+    path: ../OverKizApi/Models/StateAccessors.cs
+    startLine: 22
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns an array state as CLR list values, or null when no value is present.
+  example: []
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public IReadOnlyList<object?>? ValueAsList { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.Object}
+      description: Returns an array state as CLR list values, or null when no value is present.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property ValueAsList As IReadOnlyList(Of Object)
+  overload: OverKizApi.Models.State.ValueAsList*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: The state is not an array.
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 references:
 - uid: OverKizApi.Models.State.Type
   commentId: P:OverKizApi.Models.State.Type
@@ -328,26 +498,21 @@ references:
   fullName: OverKizApi.Models.State.Type
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -793,3 +958,196 @@ references:
   name: ValueAsStr
   nameWithType: State.ValueAsStr
   fullName: OverKizApi.Models.State.ValueAsStr
+- uid: OverKizApi.Models.State.ValueAsDict*
+  commentId: Overload:OverKizApi.Models.State.ValueAsDict
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_ValueAsDict
+  name: ValueAsDict
+  nameWithType: State.ValueAsDict
+  fullName: OverKizApi.Models.State.ValueAsDict
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, object>
+  nameWithType: IReadOnlyDictionary<string, object>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, object>
+  nameWithType.vb: IReadOnlyDictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, Object)
+  name.vb: IReadOnlyDictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OverKizApi.Models.State.ValueAsList*
+  commentId: Overload:OverKizApi.Models.State.ValueAsList
+  href: OverKizApi.Models.State.html#OverKizApi_Models_State_ValueAsList
+  name: ValueAsList
+  nameWithType: State.ValueAsList
+  fullName: OverKizApi.Models.State.ValueAsList
+- uid: System.Collections.Generic.IReadOnlyList{System.Object}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<object>
+  nameWithType: IReadOnlyList<object>
+  fullName: System.Collections.Generic.IReadOnlyList<object>
+  nameWithType.vb: IReadOnlyList(Of Object)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Object)
+  name.vb: IReadOnlyList(Of Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

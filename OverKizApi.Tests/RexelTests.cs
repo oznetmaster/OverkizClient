@@ -6,23 +6,24 @@ namespace OverKizApi.Tests;
 [TestFixture]
 public sealed class RexelTests
 	{
-	private const string Directory = "https://econnect-api.rexelservices.fr/api/enduser/";
+	private static readonly string[] _selectedGatewayHeader = ["selected-gateway"];
+	private const string DIRECTORY = "https://econnect-api.rexelservices.fr/api/enduser/";
 
 	[Test]
 	public async Task Discovery_CombinesHomesAndKeepsExternalIdSeparateFromGatewayHeader ()
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.Rexel]);
 		api.Client.SelectRexelGateway ("old-gateway");
-		api.Expect ("GET", Directory + "homes", "[{\"id\":\"home/one\",\"label\":\"Home One\"},{\"id\":\"home-two\"}]", inspect: CheckDirectoryHeaders);
-		api.Expect ("GET", Directory + "overkizgateways?homeId=home%2Fone", "[{\"gatewayId\":\"selected-gateway\",\"externalId\":\"external-serial\"}]", inspect: CheckDirectoryHeaders);
-		api.Expect ("GET", Directory + "overkizgateways?homeId=home-two", "[]", inspect: CheckDirectoryHeaders);
+		api.Expect ("GET", DIRECTORY + "homes", "[{\"id\":\"home/one\",\"label\":\"Home One\"},{\"id\":\"home-two\"}]", inspect: CheckDirectoryHeaders);
+		api.Expect ("GET", DIRECTORY + "overkizgateways?homeId=home%2Fone", "[{\"gatewayId\":\"selected-gateway\",\"externalId\":\"external-serial\"}]", inspect: CheckDirectoryHeaders);
+		api.Expect ("GET", DIRECTORY + "overkizgateways?homeId=home-two", "[]", inspect: CheckDirectoryHeaders);
 		GatewayCandidate candidate = (await api.Client.DiscoverRexelGateways ()).Single ();
 		Assert.That (candidate.HomeId, Is.EqualTo ("home/one"));
 		Assert.That (candidate.Label, Is.EqualTo ("Home One"));
 		Assert.That (candidate.ExternalId, Is.EqualTo ("external-serial"));
 		api.Client.SelectRexelGateway (candidate.GatewayId);
 		api.Expect ("GET", "setup/gateways", "[]", inspect: (request, _) =>
-			 Assert.That (request.Headers.GetValues ("gatewayId"), Is.EqualTo (new[] { "selected-gateway" })));
+			 Assert.That (request.Headers.GetValues ("gatewayId"), Is.EqualTo (_selectedGatewayHeader)));
 		await api.Client.GetGateways ();
 		api.Expect ("GET", "config/external-serial/local/tokens/generate", "{\"token\":\"local-token\"}");
 		Assert.That (await api.Client.GenerateLocalToken (candidate.ExternalId!), Is.EqualTo ("local-token"));
@@ -33,8 +34,8 @@ public sealed class RexelTests
 	public async Task SingleGatewayLogin_AutomaticallySelectsGateway ()
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.Rexel]);
-		api.Expect ("GET", Directory + "homes", "[{\"id\":\"home\"}]");
-		api.Expect ("GET", Directory + "overkizgateways?homeId=home", "[{\"gatewayId\":\"gateway\"}]");
+		api.Expect ("GET", DIRECTORY + "homes", "[{\"id\":\"home\"}]");
+		api.Expect ("GET", DIRECTORY + "overkizgateways?homeId=home", "[{\"gatewayId\":\"gateway\"}]");
 		api.Expect ("POST", "events/register", "{\"id\":\"listener\"}", inspect: (request, _) =>
 			 Assert.That (request.Headers.GetValues ("gatewayId").Single (), Is.EqualTo ("gateway")));
 		Assert.That (await api.Client.Login (), Is.True);
@@ -46,8 +47,8 @@ public sealed class RexelTests
 	public async Task MultipleGateways_RequireExplicitSelection ()
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.Rexel]);
-		api.Expect ("GET", Directory + "homes", "[{\"id\":\"home\"}]");
-		api.Expect ("GET", Directory + "overkizgateways?homeId=home", "[{\"gatewayId\":\"one\"},{\"gatewayId\":\"two\"}]");
+		api.Expect ("GET", DIRECTORY + "homes", "[{\"id\":\"home\"}]");
+		api.Expect ("GET", DIRECTORY + "overkizgateways?homeId=home", "[{\"gatewayId\":\"one\"},{\"gatewayId\":\"two\"}]");
 		await Assert.ThatAsync (() => api.Client.Login (false), Throws.TypeOf<NoGatewaySelectedException> ());
 		Assert.That (api.Client.SelectedGatewayId, Is.Null);
 		api.Complete ();

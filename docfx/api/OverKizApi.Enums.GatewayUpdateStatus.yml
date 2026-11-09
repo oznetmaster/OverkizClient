@@ -26,15 +26,21 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewayUpdateStatus
     path: ../OverKizApi/Enums/Gateway.cs
-    startLine: 49
+    startLine: 179
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Tracks the firmware/software update lifecycle of a gateway.
   example: []
   syntax:
-    content: public enum GatewayUpdateStatus
-    content.vb: Public Enum GatewayUpdateStatus
+    content: >-
+      [JsonConverter(typeof(TolerantEnumConverterFactory))]
+
+      public enum GatewayUpdateStatus
+    content.vb: >-
+      <JsonConverter(GetType(TolerantEnumConverterFactory))>
+
+      Public Enum GatewayUpdateStatus
 - uid: OverKizApi.Enums.GatewayUpdateStatus.NotUpdate
   commentId: F:OverKizApi.Enums.GatewayUpdateStatus.NotUpdate
   id: NotUpdate
@@ -53,7 +59,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: NotUpdate
     path: ../OverKizApi/Enums/Gateway.cs
-    startLine: 52
+    startLine: 183
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -81,7 +87,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Pending
     path: ../OverKizApi/Enums/Gateway.cs
-    startLine: 54
+    startLine: 185
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -109,7 +115,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ReadyToUpdate
     path: ../OverKizApi/Enums/Gateway.cs
-    startLine: 56
+    startLine: 187
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -137,7 +143,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: InProgress
     path: ../OverKizApi/Enums/Gateway.cs
-    startLine: 58
+    startLine: 189
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -165,7 +171,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Updated
     path: ../OverKizApi/Enums/Gateway.cs
-    startLine: 60
+    startLine: 191
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -193,7 +199,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Failed
     path: ../OverKizApi/Enums/Gateway.cs
-    startLine: 62
+    startLine: 193
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -221,7 +227,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Unknown
     path: ../OverKizApi/Enums/Gateway.cs
-    startLine: 64
+    startLine: 195
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -234,26 +240,21 @@ items:
 references:
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Enums.GatewayUpdateStatus
   commentId: T:OverKizApi.Enums.GatewayUpdateStatus
   parent: OverKizApi.Enums

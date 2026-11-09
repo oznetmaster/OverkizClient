@@ -65,19 +65,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Name
     path: ../OverKizApi/Models/Models.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Human-readable display name of the server / brand (e.g. "Somfy (Europe)").
   example: []
   syntax:
-    content: public required string Name { get; init; }
+    content: >-
+      [JsonPropertyName("name")]
+
+      public required string Name { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Name As String
+      description: Human-readable display name of the server / brand (e.g. "Somfy (Europe)").
+    content.vb: >-
+      <JsonPropertyName("name")>
+
+      Public Property Name As String
   overload: OverKizApi.Models.OverkizServer.Name*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: name
 - uid: OverKizApi.Models.OverkizServer.Endpoint
   commentId: P:OverKizApi.Models.OverkizServer.Endpoint
   id: Endpoint
@@ -96,19 +109,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Endpoint
     path: ../OverKizApi/Models/Models.cs
-    startLine: 21
+    startLine: 27
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Base URL of the Overkiz <code>enduserAPI</code> for this server.
   example: []
   syntax:
-    content: public required string Endpoint { get; init; }
+    content: >-
+      [JsonPropertyName("endpoint")]
+
+      public required string Endpoint { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Endpoint As String
+      description: Base URL of the Overkiz <code>enduserAPI</code> for this server.
+    content.vb: >-
+      <JsonPropertyName("endpoint")>
+
+      Public Property Endpoint As String
   overload: OverKizApi.Models.OverkizServer.Endpoint*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: endpoint
 - uid: OverKizApi.Models.OverkizServer.Manufacturer
   commentId: P:OverKizApi.Models.OverkizServer.Manufacturer
   id: Manufacturer
@@ -127,19 +153,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Manufacturer
     path: ../OverKizApi/Models/Models.cs
-    startLine: 23
+    startLine: 34
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Name of the hardware manufacturer or reseller associated with this server.
   example: []
   syntax:
-    content: public required string Manufacturer { get; init; }
+    content: >-
+      [JsonPropertyName("manufacturer")]
+
+      public required string Manufacturer { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Manufacturer As String
+      description: Name of the hardware manufacturer or reseller associated with this server.
+    content.vb: >-
+      <JsonPropertyName("manufacturer")>
+
+      Public Property Manufacturer As String
   overload: OverKizApi.Models.OverkizServer.Manufacturer*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: manufacturer
 - uid: OverKizApi.Models.OverkizServer.ConfigurationUrl
   commentId: P:OverKizApi.Models.OverkizServer.ConfigurationUrl
   id: ConfigurationUrl
@@ -158,19 +197,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ConfigurationUrl
     path: ../OverKizApi/Models/Models.cs
-    startLine: 25
+    startLine: 41
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Optional URL of the end-user configuration portal for this server.
   example: []
   syntax:
-    content: public string? ConfigurationUrl { get; init; }
+    content: >-
+      [JsonPropertyName("configurationUrl")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? ConfigurationUrl { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property ConfigurationUrl As String
+      description: Optional URL of the end-user configuration portal for this server.
+    content.vb: >-
+      <JsonPropertyName("configurationUrl")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property ConfigurationUrl As String
   overload: OverKizApi.Models.OverkizServer.ConfigurationUrl*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: configurationUrl
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.OverkizServer.RequiresGatewaySelection
   commentId: P:OverKizApi.Models.OverkizServer.RequiresGatewaySelection
   id: RequiresGatewaySelection
@@ -189,19 +252,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: RequiresGatewaySelection
     path: ../OverKizApi/Models/Models.cs
-    startLine: 27
+    startLine: 49
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether requests to this server must be scoped to a selected gateway via a custom header.
   example: []
   syntax:
-    content: public bool RequiresGatewaySelection { get; init; }
+    content: >-
+      [JsonPropertyName("requiresGatewaySelection")]
+
+      public bool RequiresGatewaySelection { get; init; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Property RequiresGatewaySelection As Boolean
+      description: Whether requests to this server must be scoped to a selected gateway via a custom header.
+    content.vb: >-
+      <JsonPropertyName("requiresGatewaySelection")>
+
+      Public Property RequiresGatewaySelection As Boolean
   overload: OverKizApi.Models.OverkizServer.RequiresGatewaySelection*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: requiresGatewaySelection
 references:
 - uid: OverKizApi.OverkizConst.SupportedServers
   commentId: F:OverKizApi.OverkizConst.SupportedServers
@@ -217,26 +293,21 @@ references:
   fullName: OverKizApi.OverkizClient
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

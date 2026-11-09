@@ -31,7 +31,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Scenario
     path: ../OverKizApi/Models/Models.cs
-    startLine: 559
+    startLine: 1298
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -70,19 +70,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Oid
     path: ../OverKizApi/Models/Models.cs
-    startLine: 562
+    startLine: 1302
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unique OID of this scenario.
   example: []
   syntax:
-    content: public string? Oid { get; init; }
+    content: >-
+      [JsonPropertyName("oid")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Oid { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Oid As String
+      description: Unique OID of this scenario.
+    content.vb: >-
+      <JsonPropertyName("oid")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Oid As String
   overload: OverKizApi.Models.Scenario.Oid*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: oid
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Scenario.Id
   commentId: P:OverKizApi.Models.Scenario.Id
   id: Id
@@ -101,19 +125,30 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Id
     path: ../OverKizApi/Models/Models.cs
-    startLine: 564
+    startLine: 1310
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Alias for <xref href="OverKizApi.Models.Scenario.Oid" data-throw-if-not-resolved="false"></xref>; provided for convenience.
   example: []
   syntax:
-    content: public string? Id { get; }
+    content: >-
+      [JsonIgnore]
+
+      public string? Id { get; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public ReadOnly Property Id As String
+      description: Alias for <xref href="OverKizApi.Models.Scenario.Oid" data-throw-if-not-resolved="false"></xref>; provided for convenience.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Id As String
   overload: OverKizApi.Models.Scenario.Id*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.Scenario.CreationTime
   commentId: P:OverKizApi.Models.Scenario.CreationTime
   id: CreationTime
@@ -132,19 +167,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CreationTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 566
+    startLine: 1314
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp when the scenario was created.
   example: []
   syntax:
-    content: public long CreationTime { get; init; }
+    content: >-
+      [JsonPropertyName("creationTime")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public long CreationTime { get; init; }
     parameters: []
     return:
       type: System.Int64
-    content.vb: Public Property CreationTime As Long
+      description: Unix epoch millisecond timestamp when the scenario was created.
+    content.vb: >-
+      <JsonPropertyName("creationTime")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property CreationTime As Long
   overload: OverKizApi.Models.Scenario.CreationTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: creationTime
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 - uid: OverKizApi.Models.Scenario.LastUpdateTime
   commentId: P:OverKizApi.Models.Scenario.LastUpdateTime
   id: LastUpdateTime
@@ -163,19 +220,52 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LastUpdateTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 568
+    startLine: 1322
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp of the most recent update, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if never updated.
   example: []
   syntax:
-    content: public long? LastUpdateTime { get; init; }
+    content: >-
+      [JsonPropertyName("lastUpdateTime")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public long? LastUpdateTime { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Int64}
-    content.vb: Public Property LastUpdateTime As Long?
+      description: Unix epoch millisecond timestamp of the most recent update, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if never updated.
+    content.vb: >-
+      <JsonPropertyName("lastUpdateTime")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property LastUpdateTime As Long?
   overload: OverKizApi.Models.Scenario.LastUpdateTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: lastUpdateTime
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Scenario.Label
   commentId: P:OverKizApi.Models.Scenario.Label
   id: Label
@@ -194,19 +284,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Label
     path: ../OverKizApi/Models/Models.cs
-    startLine: 570
+    startLine: 1331
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: User-visible label for the scenario.
   example: []
   syntax:
-    content: public string? Label { get; init; }
+    content: >-
+      [JsonPropertyName("label")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Label { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Label As String
+      description: User-visible label for the scenario.
+    content.vb: >-
+      <JsonPropertyName("label")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Label As String
   overload: OverKizApi.Models.Scenario.Label*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: label
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Scenario.Metadata
   commentId: P:OverKizApi.Models.Scenario.Metadata
   id: Metadata
@@ -225,19 +339,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Metadata
     path: ../OverKizApi/Models/Models.cs
-    startLine: 572
+    startLine: 1339
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Arbitrary metadata string attached to this scenario.
   example: []
   syntax:
-    content: public string? Metadata { get; init; }
+    content: >-
+      [JsonPropertyName("metadata")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Metadata { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Metadata As String
+      description: Arbitrary metadata string attached to this scenario.
+    content.vb: >-
+      <JsonPropertyName("metadata")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Metadata As String
   overload: OverKizApi.Models.Scenario.Metadata*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: metadata
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Scenario.Shortcut
   commentId: P:OverKizApi.Models.Scenario.Shortcut
   id: Shortcut
@@ -256,19 +394,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Shortcut
     path: ../OverKizApi/Models/Models.cs
-    startLine: 574
+    startLine: 1347
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether this scenario appears as a shortcut in the Overkiz app.
   example: []
   syntax:
-    content: public bool? Shortcut { get; init; }
+    content: >-
+      [JsonPropertyName("shortcut")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public bool? Shortcut { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Boolean}
-    content.vb: Public Property Shortcut As Boolean?
+      description: Whether this scenario appears as a shortcut in the Overkiz app.
+    content.vb: >-
+      <JsonPropertyName("shortcut")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Shortcut As Boolean?
   overload: OverKizApi.Models.Scenario.Shortcut*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: shortcut
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Scenario.NotificationTypeMask
   commentId: P:OverKizApi.Models.Scenario.NotificationTypeMask
   id: NotificationTypeMask
@@ -287,19 +449,52 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: NotificationTypeMask
     path: ../OverKizApi/Models/Models.cs
-    startLine: 576
+    startLine: 1355
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Bitmask controlling which notification types fire when this scenario runs.
   example: []
   syntax:
-    content: public int? NotificationTypeMask { get; init; }
+    content: >-
+      [JsonPropertyName("notificationTypeMask")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public int? NotificationTypeMask { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
-    content.vb: Public Property NotificationTypeMask As Integer?
+      description: Bitmask controlling which notification types fire when this scenario runs.
+    content.vb: >-
+      <JsonPropertyName("notificationTypeMask")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property NotificationTypeMask As Integer?
   overload: OverKizApi.Models.Scenario.NotificationTypeMask*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: notificationTypeMask
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Scenario.NotificationCondition
   commentId: P:OverKizApi.Models.Scenario.NotificationCondition
   id: NotificationCondition
@@ -318,19 +513,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: NotificationCondition
     path: ../OverKizApi/Models/Models.cs
-    startLine: 578
+    startLine: 1364
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Condition expression evaluated before sending a notification.
   example: []
   syntax:
-    content: public string? NotificationCondition { get; init; }
+    content: >-
+      [JsonPropertyName("notificationCondition")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? NotificationCondition { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property NotificationCondition As String
+      description: Condition expression evaluated before sending a notification.
+    content.vb: >-
+      <JsonPropertyName("notificationCondition")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property NotificationCondition As String
   overload: OverKizApi.Models.Scenario.NotificationCondition*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: notificationCondition
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Scenario.NotificationText
   commentId: P:OverKizApi.Models.Scenario.NotificationText
   id: NotificationText
@@ -349,19 +568,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: NotificationText
     path: ../OverKizApi/Models/Models.cs
-    startLine: 580
+    startLine: 1372
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Body text of the push notification sent when this scenario executes.
   example: []
   syntax:
-    content: public string? NotificationText { get; init; }
+    content: >-
+      [JsonPropertyName("notificationText")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? NotificationText { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property NotificationText As String
+      description: Body text of the push notification sent when this scenario executes.
+    content.vb: >-
+      <JsonPropertyName("notificationText")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property NotificationText As String
   overload: OverKizApi.Models.Scenario.NotificationText*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: notificationText
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Scenario.NotificationTitle
   commentId: P:OverKizApi.Models.Scenario.NotificationTitle
   id: NotificationTitle
@@ -380,19 +623,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: NotificationTitle
     path: ../OverKizApi/Models/Models.cs
-    startLine: 582
+    startLine: 1380
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Title of the push notification sent when this scenario executes.
   example: []
   syntax:
-    content: public string? NotificationTitle { get; init; }
+    content: >-
+      [JsonPropertyName("notificationTitle")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? NotificationTitle { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property NotificationTitle As String
+      description: Title of the push notification sent when this scenario executes.
+    content.vb: >-
+      <JsonPropertyName("notificationTitle")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property NotificationTitle As String
   overload: OverKizApi.Models.Scenario.NotificationTitle*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: notificationTitle
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Scenario.Actions
   commentId: P:OverKizApi.Models.Scenario.Actions
   id: Actions
@@ -411,42 +678,50 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Actions
     path: ../OverKizApi/Models/Models.cs
-    startLine: 584
+    startLine: 1388
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: The actions (device command sets) that make up this scenario.
   example: []
   syntax:
-    content: public IReadOnlyList<Action> Actions { get; init; }
+    content: >-
+      [JsonPropertyName("actions")]
+
+      public IReadOnlyList<Action> Actions { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Action}
-    content.vb: Public Property Actions As IReadOnlyList(Of Action)
+      description: The actions (device command sets) that make up this scenario.
+    content.vb: >-
+      <JsonPropertyName("actions")>
+
+      Public Property Actions As IReadOnlyList(Of Action)
   overload: OverKizApi.Models.Scenario.Actions*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: actions
 references:
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

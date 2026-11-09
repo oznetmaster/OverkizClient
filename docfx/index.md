@@ -4,6 +4,8 @@ Welcome to the published API documentation for **OverkizClient**.
 
 ## Start Here
 
+Version 2.2.0 adds Sauter Smart Control, updates Brandt middleware authentication and hardens concurrent calls and disposal. See [Smart Control authentication](guides/smart-control.md) and [getting started](articles/getting-started.md) for the current API and lifetime contract.
+
 - [Getting Started](articles/getting-started.md)
 - [Overview](articles/overview.md)
 - [Key Types](articles/key-types.md)

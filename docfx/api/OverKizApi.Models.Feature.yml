@@ -21,7 +21,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Feature
     path: ../OverKizApi/Models/Models.cs
-    startLine: 452
+    startLine: 1014
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -57,19 +57,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Name
     path: ../OverKizApi/Models/Models.cs
-    startLine: 455
+    startLine: 1018
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Internal feature identifier name.
   example: []
   syntax:
-    content: public string? Name { get; init; }
+    content: >-
+      [JsonPropertyName("name")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Name { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Name As String
+      description: Internal feature identifier name.
+    content.vb: >-
+      <JsonPropertyName("name")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Name As String
   overload: OverKizApi.Models.Feature.Name*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: name
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Feature.Source
   commentId: P:OverKizApi.Models.Feature.Source
   id: Source
@@ -88,42 +112,61 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Source
     path: ../OverKizApi/Models/Models.cs
-    startLine: 457
+    startLine: 1026
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Source that activated this feature (e.g. reseller or app bundle identifier).
   example: []
   syntax:
-    content: public string? Source { get; init; }
+    content: >-
+      [JsonPropertyName("source")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Source { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Source As String
+      description: Source that activated this feature (e.g. reseller or app bundle identifier).
+    content.vb: >-
+      <JsonPropertyName("source")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Source As String
   overload: OverKizApi.Models.Feature.Source*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: source
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

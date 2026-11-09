@@ -10,7 +10,9 @@ namespace OverKizApi.Exceptions;
 public class OverkizException : Exception
 	{
 	/// <summary>Initialises a new instance with no message.</summary>
-	public OverkizException () { }
+	public OverkizException ()
+		{
+		}
 	/// <summary>Initialises a new instance with the specified error <paramref name="message"/>.</summary>
 	/// <param name="message">Human-readable description of the error.</param>
 	public OverkizException (string message) : base (message) { }
@@ -27,7 +29,9 @@ public class OverkizException : Exception
 public class BaseOverkizException : OverkizException
 	{
 	/// <summary>Initialises a new instance with no message.</summary>
-	public BaseOverkizException () { }
+	public BaseOverkizException ()
+		{
+		}
 	/// <summary>Initialises a new instance with the specified error <paramref name="message"/>.</summary>
 	/// <param name="message">The <c>error</c> string from the API response body.</param>
 	public BaseOverkizException (string message) : base (message) { }
@@ -44,7 +48,9 @@ public class BaseOverkizException : OverkizException
 public class BadCredentialsException : BaseOverkizException
 	{
 	/// <summary>Initialises a new instance with no message.</summary>
-	public BadCredentialsException () { }
+	public BadCredentialsException ()
+		{
+		}
 	/// <summary>Initialises a new instance with the specified error <paramref name="message"/>.</summary>
 	/// <param name="message">The API error message.</param>
 	public BadCredentialsException (string message) : base (message) { }
@@ -56,7 +62,7 @@ public class BadCredentialsException : BaseOverkizException
 /// </summary>
 /// <remarks>Initialises a new instance with the specified error <paramref name="message"/>.</remarks>
 /// <param name="message">The API error message, which typically includes the unknown command name.</param>
-public class InvalidCommandException (string message) : BaseOverkizException(message)
+public class InvalidCommandException (string message) : BaseOverkizException (message)
 	{
 	}
 
@@ -66,7 +72,7 @@ public class InvalidCommandException (string message) : BaseOverkizException(mes
 /// </summary>
 /// <remarks>Initialises a new instance with the specified error <paramref name="message"/>.</remarks>
 /// <param name="message">The API error message.</param>
-public class DuplicateActionOnDeviceException (string message) : BaseOverkizException(message)
+public class DuplicateActionOnDeviceException (string message) : BaseOverkizException (message)
 	{
 	}
 
@@ -76,14 +82,14 @@ public class DuplicateActionOnDeviceException (string message) : BaseOverkizExce
 /// </summary>
 /// <remarks>Initialises a new instance with the specified error <paramref name="message"/>.</remarks>
 /// <param name="message">The API error message.</param>
-public class ActionGroupSetupNotFoundException (string message) : BaseOverkizException(message)
+public class ActionGroupSetupNotFoundException (string message) : BaseOverkizException (message)
 	{
 	}
 
 /// <summary>Raised when the requested resource (device, scenario, token, etc.) does not exist.</summary>
 /// <remarks>Initialises a new instance with the specified error <paramref name="message"/>.</remarks>
 /// <param name="message">The API error message.</param>
-public class NoSuchResourceException (string message) : BaseOverkizException(message)
+public class NoSuchResourceException (string message) : BaseOverkizException (message)
 	{
 	}
 
@@ -92,7 +98,7 @@ public class NoSuchResourceException (string message) : BaseOverkizException(mes
 /// </summary>
 /// <remarks>Initialises a new instance with the specified error <paramref name="message"/>.</remarks>
 /// <param name="message">The API error message.</param>
-public class ResourceAccessDeniedException (string message) : BaseOverkizException(message)
+public class ResourceAccessDeniedException (string message) : BaseOverkizException (message)
 	{
 	}
 
@@ -103,7 +109,7 @@ public class ResourceAccessDeniedException (string message) : BaseOverkizExcepti
 /// </summary>
 /// <remarks>Initialises a new instance with the specified error <paramref name="message"/>.</remarks>
 /// <param name="message">The API error message.</param>
-public class NotAuthenticatedException (string message) : ResourceAccessDeniedException(message)
+public class NotAuthenticatedException (string message) : ResourceAccessDeniedException (message)
 	{
 	}
 
@@ -293,7 +299,9 @@ public class ApplicationNotAllowedException (string message) : ResourceAccessDen
 public class NexityBadCredentialsException : BadCredentialsException
 	{
 	/// <summary>Initialises a new instance with no message.</summary>
-	public NexityBadCredentialsException () { }
+	public NexityBadCredentialsException ()
+		{
+		}
 	/// <summary>Initialises a new instance with the specified error <paramref name="message"/>.</summary>
 	/// <param name="message">The Cognito error message.</param>
 	public NexityBadCredentialsException (string message) : base (message) { }

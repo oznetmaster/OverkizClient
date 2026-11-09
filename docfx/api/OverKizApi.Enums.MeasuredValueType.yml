@@ -56,7 +56,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: MeasuredValueType
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -86,7 +86,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Unknown
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 13
+    startLine: 12
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -114,7 +114,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: AbsoluteValue
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 15
+    startLine: 14
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -142,7 +142,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: AngleInDegrees
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 17
+    startLine: 16
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -170,7 +170,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: AngularSpeedInDegreesPerSecond
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 19
+    startLine: 18
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -198,7 +198,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ElectricalEnergyInKWh
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 21
+    startLine: 20
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -226,7 +226,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ElectricalEnergyInWh
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 23
+    startLine: 22
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -254,7 +254,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ElectricalPowerInKW
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 25
+    startLine: 24
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -282,7 +282,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ElectricalPowerInW
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 27
+    startLine: 26
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -310,7 +310,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ElectricCurrentInAmpere
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 29
+    startLine: 28
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -338,7 +338,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ElectricCurrentInMilliAmpere
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 31
+    startLine: 30
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -366,7 +366,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: EnergyInCal
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 33
+    startLine: 32
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -394,7 +394,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: EnergyInKCal
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 35
+    startLine: 34
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -422,7 +422,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: FlowInLitrePerSecond
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 37
+    startLine: 36
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -450,7 +450,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: FlowInMeterCubePerHour
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 39
+    startLine: 38
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -478,7 +478,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: FlowInMeterCubePerSecond
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 41
+    startLine: 40
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -506,7 +506,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: FossilEnergyInWh
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 43
+    startLine: 42
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -534,7 +534,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GradientInPercentagePerSecond
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 45
+    startLine: 44
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -562,7 +562,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LengthInMeter
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 47
+    startLine: 46
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -590,7 +590,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LinearSpeedInMeterPerSecond
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 49
+    startLine: 48
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -618,7 +618,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LuminanceInLux
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 51
+    startLine: 50
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -646,7 +646,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PartsPerBillion
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 53
+    startLine: 52
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -674,7 +674,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PartsPerMillion
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 55
+    startLine: 54
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -702,7 +702,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PartsPerQuadrillion
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 57
+    startLine: 56
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -730,7 +730,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PartsPerTrillion
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 59
+    startLine: 58
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -758,7 +758,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PowerPerSquareMeter
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 61
+    startLine: 60
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -786,7 +786,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PressureInHpa
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 63
+    startLine: 62
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -814,7 +814,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PressureInMilliBar
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 65
+    startLine: 64
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -842,7 +842,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: RelativeValueInPercentage
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 67
+    startLine: 66
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -870,7 +870,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TemperatureInCelcius
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 69
+    startLine: 68
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -898,7 +898,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TemperatureInKelvin
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 71
+    startLine: 70
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -926,7 +926,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TimeInSecond
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 73
+    startLine: 72
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -954,7 +954,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: VectorCoordinate
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 75
+    startLine: 74
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -982,7 +982,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: VoltageInMilliVolt
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 77
+    startLine: 76
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -1010,7 +1010,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: VoltageInVolt
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 79
+    startLine: 78
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -1038,7 +1038,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: VolumeInCubicMeter
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 81
+    startLine: 80
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -1066,7 +1066,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: VolumeInGallon
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 83
+    startLine: 82
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -1094,7 +1094,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: VolumeInLiter
     path: ../OverKizApi/Enums/MeasuredValueType.cs
-    startLine: 85
+    startLine: 84
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -1107,26 +1107,21 @@ items:
 references:
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Enums.MeasuredValueType
   commentId: T:OverKizApi.Enums.MeasuredValueType
   parent: OverKizApi.Enums

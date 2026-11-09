@@ -8,7 +8,8 @@ OverkizClient provides a strongly typed .NET wrapper over the Overkiz cloud and 
 - Local connection via bearer token
 - Device discovery and state polling
 - Command execution (individual and grouped)
-- Real-time event streaming
+- Typed event batches with caller-controlled polling and optional listener recovery
+- Safe overlapping reads with coordinated authentication, session transitions and disposal
 
 ## Connection Modes
 

@@ -15,6 +15,7 @@ items:
   - OverKizApi.Enums.Server.Nexity
   - OverKizApi.Enums.Server.Rexel
   - OverKizApi.Enums.Server.SauterCozytouch
+  - OverKizApi.Enums.Server.SauterSmartControl
   - OverKizApi.Enums.Server.SimuLivein2
   - OverKizApi.Enums.Server.SomfyAmerica
   - OverKizApi.Enums.Server.SomfyDeveloperMode
@@ -36,7 +37,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Server
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -66,7 +67,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: AtlanticCozytouch
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 13
+    startLine: 12
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -94,11 +95,11 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Brandt
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 15
+    startLine: 14
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
-  summary: Brandt Smart Control — standard username/password login.
+  summary: Brandt Smart Control — middleware cookie-session/JWT login.
   example: []
   syntax:
     content: Brandt = 1
@@ -122,7 +123,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Flexom
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 17
+    startLine: 16
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -150,7 +151,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HexaomHexaconnect
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 19
+    startLine: 18
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -178,7 +179,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HiKumoAsia
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 21
+    startLine: 20
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -206,7 +207,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HiKumoEurope
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 23
+    startLine: 22
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -234,7 +235,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HiKumoOceania
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 25
+    startLine: 24
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -262,7 +263,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Nexity
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 27
+    startLine: 26
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -290,11 +291,11 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Rexel
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 29
+    startLine: 28
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
-  summary: Rexel Energeasy Connect — standard username/password login.
+  summary: Rexel Energeasy Connect — externally managed bearer token with gateway selection.
   example: []
   syntax:
     content: Rexel = 8
@@ -318,7 +319,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SauterCozytouch
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 31
+    startLine: 30
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -346,7 +347,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SimuLivein2
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 33
+    startLine: 32
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -374,7 +375,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SomfyDeveloperMode
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 35
+    startLine: 34
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -402,7 +403,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SomfyEurope
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 37
+    startLine: 36
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -430,7 +431,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SomfyAmerica
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 39
+    startLine: 38
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -458,7 +459,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SomfyOceania
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 41
+    startLine: 40
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -486,7 +487,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ThermorCozytouch
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 43
+    startLine: 42
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -514,7 +515,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Ubiwizz
     path: ../OverKizApi/Enums/Server.cs
-    startLine: 45
+    startLine: 44
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -522,6 +523,34 @@ items:
   example: []
   syntax:
     content: Ubiwizz = 16
+    return:
+      type: OverKizApi.Enums.Server
+- uid: OverKizApi.Enums.Server.SauterSmartControl
+  commentId: F:OverKizApi.Enums.Server.SauterSmartControl
+  id: SauterSmartControl
+  parent: OverKizApi.Enums.Server
+  langs:
+  - csharp
+  - vb
+  name: SauterSmartControl
+  nameWithType: Server.SauterSmartControl
+  fullName: OverKizApi.Enums.Server.SauterSmartControl
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Server.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SauterSmartControl
+    path: ../OverKizApi/Enums/Server.cs
+    startLine: 46
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Sauter Smart Control appliances — uses the Brandt middleware cookie session and JWT.
+  example: []
+  syntax:
+    content: SauterSmartControl = 17
     return:
       type: OverKizApi.Enums.Server
 references:
@@ -533,26 +562,21 @@ references:
   fullName: OverKizApi.OverkizConst.SupportedServers
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Enums.Server
   commentId: T:OverKizApi.Enums.Server
   parent: OverKizApi.Enums

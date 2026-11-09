@@ -78,6 +78,12 @@ items:
     - id: value
       type: '{TValue}'
       description: Non-null value when the method returns true.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullWhenAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)
+        arguments:
+        - type: System.Boolean
+          value: true
     typeParameters:
     - id: TKey
       description: Dictionary key type.
@@ -187,7 +193,6 @@ items:
 references:
 - uid: OverKizApi
   commentId: N:OverKizApi
-  href: OverKizApi.html
   name: OverKizApi
   nameWithType: OverKizApi
   fullName: OverKizApi

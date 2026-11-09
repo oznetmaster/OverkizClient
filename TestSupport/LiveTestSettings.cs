@@ -12,7 +12,10 @@ namespace OverKizApi.TestSupport;
 internal sealed class LiveTestSettings
 	{
 	[JsonPropertyName ("enabled")]
-	public bool Enabled { get; set; }
+	public bool Enabled
+		{
+		get; set;
+		}
 
 	[JsonPropertyName ("gatewayHost")]
 	public string GatewayHost { get; set; } = string.Empty;

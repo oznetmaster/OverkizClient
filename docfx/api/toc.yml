@@ -2,182 +2,288 @@
 items:
 - uid: OverKizApi
   name: OverKizApi
+  type: Namespace
   items:
   - uid: OverKizApi.DictionaryExtensions
     name: DictionaryExtensions
+    type: Class
   - uid: OverKizApi.HttpClientExtensions
     name: HttpClientExtensions
+    type: Class
   - uid: OverKizApi.KeyValuePairExtensions
     name: KeyValuePairExtensions
+    type: Class
   - uid: OverKizApi.OverkizClient
     name: OverkizClient
+    type: Class
   - uid: OverKizApi.OverkizConst
     name: OverkizConst
+    type: Class
 - uid: OverKizApi.Enums
   name: OverKizApi.Enums
+  type: Namespace
   items:
   - uid: OverKizApi.Enums.APIType
     name: APIType
+    type: Enum
   - uid: OverKizApi.Enums.EventName
     name: EventName
+    type: Enum
   - uid: OverKizApi.Enums.ExecutionState
     name: ExecutionState
+    type: Enum
   - uid: OverKizApi.Enums.ExecutionSubType
     name: ExecutionSubType
+    type: Enum
   - uid: OverKizApi.Enums.ExecutionType
     name: ExecutionType
+    type: Enum
   - uid: OverKizApi.Enums.FailureType
     name: FailureType
+    type: Enum
   - uid: OverKizApi.Enums.GatewayConnectivityState
     name: GatewayConnectivityState
+    type: Enum
   - uid: OverKizApi.Enums.GatewayMode
     name: GatewayMode
+    type: Enum
   - uid: OverKizApi.Enums.GatewaySubType
     name: GatewaySubType
+    type: Enum
+  - uid: OverKizApi.Enums.GatewayType
+    name: GatewayType
+    type: Enum
   - uid: OverKizApi.Enums.GatewayUpdateStatus
     name: GatewayUpdateStatus
+    type: Enum
   - uid: OverKizApi.Enums.MeasuredValueType
     name: MeasuredValueType
+    type: Enum
   - uid: OverKizApi.Enums.ProductType
     name: ProductType
+    type: Enum
   - uid: OverKizApi.Enums.Protocol
     name: Protocol
+    type: Enum
   - uid: OverKizApi.Enums.Server
     name: Server
+    type: Enum
   - uid: OverKizApi.Enums.UIClass
     name: UIClass
+    type: Enum
   - uid: OverKizApi.Enums.UIWidget
     name: UIWidget
+    type: Enum
 - uid: OverKizApi.Exceptions
   name: OverKizApi.Exceptions
+  type: Namespace
   items:
   - uid: OverKizApi.Exceptions.AccessDeniedToGatewayException
     name: AccessDeniedToGatewayException
+    type: Class
   - uid: OverKizApi.Exceptions.ActionGroupSetupNotFoundException
     name: ActionGroupSetupNotFoundException
+    type: Class
   - uid: OverKizApi.Exceptions.ApplicationNotAllowedException
     name: ApplicationNotAllowedException
+    type: Class
   - uid: OverKizApi.Exceptions.BadCredentialsException
     name: BadCredentialsException
+    type: Class
   - uid: OverKizApi.Exceptions.BaseOverkizException
     name: BaseOverkizException
+    type: Class
+  - uid: OverKizApi.Exceptions.BrandtBadCredentialsException
+    name: BrandtBadCredentialsException
+    type: Class
+  - uid: OverKizApi.Exceptions.BrandtServiceException
+    name: BrandtServiceException
+    type: Class
   - uid: OverKizApi.Exceptions.CozyTouchBadCredentialsException
     name: CozyTouchBadCredentialsException
+    type: Class
   - uid: OverKizApi.Exceptions.CozyTouchServiceException
     name: CozyTouchServiceException
+    type: Class
   - uid: OverKizApi.Exceptions.DuplicateActionOnDeviceException
     name: DuplicateActionOnDeviceException
+    type: Class
   - uid: OverKizApi.Exceptions.ExecutionQueueFullException
     name: ExecutionQueueFullException
+    type: Class
   - uid: OverKizApi.Exceptions.InvalidCommandException
     name: InvalidCommandException
+    type: Class
   - uid: OverKizApi.Exceptions.InvalidEventListenerIdException
     name: InvalidEventListenerIdException
+    type: Class
   - uid: OverKizApi.Exceptions.InvalidTokenException
     name: InvalidTokenException
+    type: Class
   - uid: OverKizApi.Exceptions.MaintenanceException
     name: MaintenanceException
+    type: Class
   - uid: OverKizApi.Exceptions.MissingAPIKeyException
     name: MissingAPIKeyException
+    type: Class
   - uid: OverKizApi.Exceptions.MissingAuthorizationTokenException
     name: MissingAuthorizationTokenException
+    type: Class
   - uid: OverKizApi.Exceptions.NexityBadCredentialsException
     name: NexityBadCredentialsException
+    type: Class
   - uid: OverKizApi.Exceptions.NexityServiceException
     name: NexityServiceException
+    type: Class
   - uid: OverKizApi.Exceptions.NoGatewaySelectedException
     name: NoGatewaySelectedException
+    type: Class
   - uid: OverKizApi.Exceptions.NoRegisteredEventListenerException
     name: NoRegisteredEventListenerException
+    type: Class
   - uid: OverKizApi.Exceptions.NoSuchResourceException
     name: NoSuchResourceException
+    type: Class
   - uid: OverKizApi.Exceptions.NotAuthenticatedException
     name: NotAuthenticatedException
+    type: Class
   - uid: OverKizApi.Exceptions.NotSuchTokenException
     name: NotSuchTokenException
+    type: Class
   - uid: OverKizApi.Exceptions.OverkizException
     name: OverkizException
+    type: Class
   - uid: OverKizApi.Exceptions.ResourceAccessDeniedException
     name: ResourceAccessDeniedException
+    type: Class
   - uid: OverKizApi.Exceptions.ServiceUnavailableException
     name: ServiceUnavailableException
+    type: Class
   - uid: OverKizApi.Exceptions.SessionAndBearerInSameRequestException
     name: SessionAndBearerInSameRequestException
+    type: Class
   - uid: OverKizApi.Exceptions.SomfyBadCredentialsException
     name: SomfyBadCredentialsException
+    type: Class
   - uid: OverKizApi.Exceptions.SomfyServiceException
     name: SomfyServiceException
+    type: Class
   - uid: OverKizApi.Exceptions.TooManyAttemptsBannedException
     name: TooManyAttemptsBannedException
+    type: Class
   - uid: OverKizApi.Exceptions.TooManyConcurrentRequestsException
     name: TooManyConcurrentRequestsException
+    type: Class
   - uid: OverKizApi.Exceptions.TooManyExecutionsException
     name: TooManyExecutionsException
+    type: Class
   - uid: OverKizApi.Exceptions.TooManyRequestsException
     name: TooManyRequestsException
+    type: Class
   - uid: OverKizApi.Exceptions.UnknownObjectException
     name: UnknownObjectException
+    type: Class
   - uid: OverKizApi.Exceptions.UnknownUserException
     name: UnknownUserException
+    type: Class
+  - uid: OverKizApi.Exceptions.UnsupportedOperationException
+    name: UnsupportedOperationException
+    type: Class
 - uid: OverKizApi.Models
   name: OverKizApi.Models
+  type: Namespace
   items:
   - uid: OverKizApi.Models.Action
     name: Action
+    type: Class
   - uid: OverKizApi.Models.Command
     name: Command
+    type: Class
   - uid: OverKizApi.Models.CommandDefinition
     name: CommandDefinition
+    type: Class
   - uid: OverKizApi.Models.Connectivity
     name: Connectivity
+    type: Class
   - uid: OverKizApi.Models.DataType
     name: DataType
+    type: Enum
   - uid: OverKizApi.Models.Definition
     name: Definition
+    type: Class
+  - uid: OverKizApi.Models.DeveloperMode
+    name: DeveloperMode
+    type: Class
   - uid: OverKizApi.Models.Device
     name: Device
+    type: Class
   - uid: OverKizApi.Models.EventObject
     name: EventObject
+    type: Class
   - uid: OverKizApi.Models.EventState
     name: EventState
+    type: Class
   - uid: OverKizApi.Models.Execution
     name: Execution
+    type: Class
   - uid: OverKizApi.Models.Feature
     name: Feature
+    type: Class
   - uid: OverKizApi.Models.Gateway
     name: Gateway
+    type: Class
   - uid: OverKizApi.Models.GatewayCandidate
     name: GatewayCandidate
+    type: Class
   - uid: OverKizApi.Models.HistoryExecution
     name: HistoryExecution
+    type: Class
   - uid: OverKizApi.Models.HistoryExecutionCommand
     name: HistoryExecutionCommand
+    type: Class
   - uid: OverKizApi.Models.LocalToken
     name: LocalToken
+    type: Class
   - uid: OverKizApi.Models.Location
     name: Location
+    type: Class
   - uid: OverKizApi.Models.OptionObject
     name: OptionObject
+    type: Class
   - uid: OverKizApi.Models.OptionParameter
     name: OptionParameter
+    type: Class
   - uid: OverKizApi.Models.OverkizServer
     name: OverkizServer
+    type: Class
   - uid: OverKizApi.Models.Partner
     name: Partner
+    type: Class
   - uid: OverKizApi.Models.Place
     name: Place
+    type: Class
   - uid: OverKizApi.Models.Scenario
     name: Scenario
+    type: Class
   - uid: OverKizApi.Models.Setup
     name: Setup
+    type: Class
   - uid: OverKizApi.Models.State
     name: State
+    type: Class
   - uid: OverKizApi.Models.StateDefinition
     name: StateDefinition
+    type: Class
   - uid: OverKizApi.Models.States
     name: States
+    type: Class
+  - uid: OverKizApi.Models.SupportedAlias
+    name: SupportedAlias
+    type: Class
   - uid: OverKizApi.Models.Zone
     name: Zone
+    type: Class
   - uid: OverKizApi.Models.ZoneItem
     name: ZoneItem
+    type: Class
 memberLayout: SamePage

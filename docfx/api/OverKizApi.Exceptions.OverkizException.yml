@@ -22,7 +22,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: OverkizException
     path: ../OverKizApi/Exceptions/OverkizExceptions.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Exceptions
@@ -79,7 +79,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: .ctor
     path: ../OverKizApi/Exceptions/OverkizExceptions.cs
-    startLine: 13
+    startLine: 12
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Exceptions
@@ -110,7 +110,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: .ctor
     path: ../OverKizApi/Exceptions/OverkizExceptions.cs
-    startLine: 16
+    startLine: 17
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Exceptions
@@ -145,7 +145,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: .ctor
     path: ../OverKizApi/Exceptions/OverkizExceptions.cs
-    startLine: 20
+    startLine: 21
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Exceptions
@@ -168,26 +168,21 @@ items:
 references:
 - uid: OverKizApi.Exceptions
   commentId: N:OverKizApi.Exceptions
-  href: OverKizApi.html
   name: OverKizApi.Exceptions
   nameWithType: OverKizApi.Exceptions
   fullName: OverKizApi.Exceptions
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Exceptions
     name: Exceptions
-    href: OverKizApi.Exceptions.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Exceptions
     name: Exceptions
-    href: OverKizApi.Exceptions.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

@@ -1,6 +1,11 @@
 # Remove the line below if you want to inherit .editorconfig settings from higher directories
 root = true
 
+[OverKizApi/*.cs]
+# Library awaits must not capture a caller's UI context: the legacy synchronous
+# gateway-selection API can wait for outstanding async operations.
+dotnet_diagnostic.CA2007.severity = warning
+
 # C# files
 [*.cs]
 

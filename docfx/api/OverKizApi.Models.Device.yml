@@ -14,6 +14,8 @@ items:
   - OverKizApi.Models.Device.DeviceUrl
   - OverKizApi.Models.Device.Enabled
   - OverKizApi.Models.Device.GatewayId
+  - OverKizApi.Models.Device.GetMostFeaturedAliases
+  - OverKizApi.Models.Device.GetSupportedAliases
   - OverKizApi.Models.Device.Id
   - OverKizApi.Models.Device.IsSubDevice
   - OverKizApi.Models.Device.Label
@@ -33,12 +35,12 @@ items:
   type: Class
   source:
     remote:
-      path: OverKizApi/Models/Models.cs
+      path: OverKizApi/Models/SupportedAlias.cs
       branch: master
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Device
-    path: ../OverKizApi/Models/Models.cs
-    startLine: 281
+    path: ../OverKizApi/Models/SupportedAlias.cs
+    startLine: 30
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -77,7 +79,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceUrl
     path: ../OverKizApi/Models/Models.cs
-    startLine: 289
+    startLine: 646
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -90,12 +92,20 @@ items:
     content: >-
       [JsonPropertyName("deviceURL")]
 
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
       public string? DeviceUrl { get; init; }
     parameters: []
     return:
       type: System.String
+      description: >-
+        Unique device URL in the format <code>protocol://gatewayId/deviceAddress[#subsystemId]</code>
+
+        (e.g. <code>io://1234-5678-9012/12345678</code>).
     content.vb: >-
       <JsonPropertyName("deviceURL")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
 
       Public Property DeviceUrl As String
   overload: OverKizApi.Models.Device.DeviceUrl*
@@ -105,6 +115,13 @@ items:
     arguments:
     - type: System.String
       value: deviceURL
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Device.Id
   commentId: P:OverKizApi.Models.Device.Id
   id: Id
@@ -123,19 +140,30 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Id
     path: ../OverKizApi/Models/Models.cs
-    startLine: 292
+    startLine: 654
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Alias for <xref href="OverKizApi.Models.Device.DeviceUrl" data-throw-if-not-resolved="false"></xref>; provided for convenience.
   example: []
   syntax:
-    content: public string? Id { get; }
+    content: >-
+      [JsonIgnore]
+
+      public string? Id { get; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public ReadOnly Property Id As String
+      description: Alias for <xref href="OverKizApi.Models.Device.DeviceUrl" data-throw-if-not-resolved="false"></xref>; provided for convenience.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Id As String
   overload: OverKizApi.Models.Device.Id*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.Device.Attributes
   commentId: P:OverKizApi.Models.Device.Attributes
   id: Attributes
@@ -154,19 +182,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Attributes
     path: ../OverKizApi/Models/Models.cs
-    startLine: 294
+    startLine: 658
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Device attributes (manufacturer-specific, immutable metadata states).
   example: []
   syntax:
-    content: public States Attributes { get; init; }
+    content: >-
+      [JsonPropertyName("attributes")]
+
+      public States Attributes { get; init; }
     parameters: []
     return:
       type: OverKizApi.Models.States
-    content.vb: Public Property Attributes As States
+      description: Device attributes (manufacturer-specific, immutable metadata states).
+    content.vb: >-
+      <JsonPropertyName("attributes")>
+
+      Public Property Attributes As States
   overload: OverKizApi.Models.Device.Attributes*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: attributes
 - uid: OverKizApi.Models.Device.Available
   commentId: P:OverKizApi.Models.Device.Available
   id: Available
@@ -185,19 +226,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Available
     path: ../OverKizApi/Models/Models.cs
-    startLine: 296
+    startLine: 662
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether the device is currently reachable by the gateway.
   example: []
   syntax:
-    content: public bool Available { get; init; }
+    content: >-
+      [JsonPropertyName("available")]
+
+      public bool Available { get; init; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Property Available As Boolean
+      description: Whether the device is currently reachable by the gateway.
+    content.vb: >-
+      <JsonPropertyName("available")>
+
+      Public Property Available As Boolean
   overload: OverKizApi.Models.Device.Available*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: available
 - uid: OverKizApi.Models.Device.Definition
   commentId: P:OverKizApi.Models.Device.Definition
   id: Definition
@@ -216,19 +270,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Definition
     path: ../OverKizApi/Models/Models.cs
-    startLine: 298
+    startLine: 669
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Full capability definition (commands and states) for this device.
   example: []
   syntax:
-    content: public Definition? Definition { get; init; }
+    content: >-
+      [JsonPropertyName("definition")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public Definition? Definition { get; init; }
     parameters: []
     return:
       type: OverKizApi.Models.Definition
-    content.vb: Public Property Definition As Definition
+      description: Full capability definition (commands and states) for this device.
+    content.vb: >-
+      <JsonPropertyName("definition")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Definition As Definition
   overload: OverKizApi.Models.Device.Definition*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: definition
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Device.Enabled
   commentId: P:OverKizApi.Models.Device.Enabled
   id: Enabled
@@ -247,19 +325,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Enabled
     path: ../OverKizApi/Models/Models.cs
-    startLine: 300
+    startLine: 677
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether the device is enabled in the user's setup.
   example: []
   syntax:
-    content: public bool Enabled { get; init; }
+    content: >-
+      [JsonPropertyName("enabled")]
+
+      public bool Enabled { get; init; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Property Enabled As Boolean
+      description: Whether the device is enabled in the user's setup.
+    content.vb: >-
+      <JsonPropertyName("enabled")>
+
+      Public Property Enabled As Boolean
   overload: OverKizApi.Models.Device.Enabled*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: enabled
 - uid: OverKizApi.Models.Device.Label
   commentId: P:OverKizApi.Models.Device.Label
   id: Label
@@ -278,19 +369,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Label
     path: ../OverKizApi/Models/Models.cs
-    startLine: 302
+    startLine: 684
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: User-visible label for the device.
   example: []
   syntax:
-    content: public string? Label { get; init; }
+    content: >-
+      [JsonPropertyName("label")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Label { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Label As String
+      description: User-visible label for the device.
+    content.vb: >-
+      <JsonPropertyName("label")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Label As String
   overload: OverKizApi.Models.Device.Label*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: label
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Device.ControllableName
   commentId: P:OverKizApi.Models.Device.ControllableName
   id: ControllableName
@@ -309,19 +424,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ControllableName
     path: ../OverKizApi/Models/Models.cs
-    startLine: 304
+    startLine: 692
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Controllable type name (e.g. <code>"io:RollerShutterGenericIOComponent"</code>).
   example: []
   syntax:
-    content: public string? ControllableName { get; init; }
+    content: >-
+      [JsonPropertyName("controllableName")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? ControllableName { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property ControllableName As String
+      description: Controllable type name (e.g. <code>"io:RollerShutterGenericIOComponent"</code>).
+    content.vb: >-
+      <JsonPropertyName("controllableName")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property ControllableName As String
   overload: OverKizApi.Models.Device.ControllableName*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: controllableName
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Device.States
   commentId: P:OverKizApi.Models.Device.States
   id: States
@@ -340,19 +479,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: States
     path: ../OverKizApi/Models/Models.cs
-    startLine: 306
+    startLine: 700
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Current live states reported by the device.
   example: []
   syntax:
-    content: public States States { get; init; }
+    content: >-
+      [JsonPropertyName("states")]
+
+      public States States { get; init; }
     parameters: []
     return:
       type: OverKizApi.Models.States
-    content.vb: Public Property States As States
+      description: Current live states reported by the device.
+    content.vb: >-
+      <JsonPropertyName("states")>
+
+      Public Property States As States
   overload: OverKizApi.Models.Device.States*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: states
 - uid: OverKizApi.Models.Device.DataProperties
   commentId: P:OverKizApi.Models.Device.DataProperties
   id: DataProperties
@@ -371,19 +523,47 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DataProperties
     path: ../OverKizApi/Models/Models.cs
-    startLine: 308
+    startLine: 704
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Manufacturer-defined data properties (opaque).
   example: []
   syntax:
-    content: public IReadOnlyList<object?>? DataProperties { get; init; }
+    content: >-
+      [JsonPropertyName("dataProperties")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      [JsonConverter(typeof(DeviceValuesConverter))]
+
+      public IReadOnlyList<object?>? DataProperties { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{System.Object}
-    content.vb: Public Property DataProperties As IReadOnlyList(Of Object)
+      description: Manufacturer-defined data properties (opaque).
+    content.vb: >-
+      <JsonPropertyName("dataProperties")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      <JsonConverter(GetType(DeviceValuesConverter))>
+
+      Public Property DataProperties As IReadOnlyList(Of Object)
   overload: OverKizApi.Models.Device.DataProperties*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: dataProperties
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Device.Type
   commentId: P:OverKizApi.Models.Device.Type
   id: Type
@@ -402,19 +582,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Type
     path: ../OverKizApi/Models/Models.cs
-    startLine: 310
+    startLine: 713
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether the device is an actuator, a sensor, or unknown.
   example: []
   syntax:
-    content: public ProductType Type { get; init; }
+    content: >-
+      [JsonPropertyName("type")]
+
+      public ProductType Type { get; init; }
     parameters: []
     return:
       type: OverKizApi.Enums.ProductType
-    content.vb: Public Property Type As ProductType
+      description: Whether the device is an actuator, a sensor, or unknown.
+    content.vb: >-
+      <JsonPropertyName("type")>
+
+      Public Property Type As ProductType
   overload: OverKizApi.Models.Device.Type*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: type
 - uid: OverKizApi.Models.Device.PlaceOid
   commentId: P:OverKizApi.Models.Device.PlaceOid
   id: PlaceOid
@@ -433,19 +626,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PlaceOid
     path: ../OverKizApi/Models/Models.cs
-    startLine: 312
+    startLine: 720
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: OID of the place (room/floor) the device is assigned to.
   example: []
   syntax:
-    content: public string? PlaceOid { get; init; }
+    content: >-
+      [JsonPropertyName("placeOid")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? PlaceOid { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property PlaceOid As String
+      description: OID of the place (room/floor) the device is assigned to.
+    content.vb: >-
+      <JsonPropertyName("placeOid")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property PlaceOid As String
   overload: OverKizApi.Models.Device.PlaceOid*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: placeOid
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Device.Protocol
   commentId: P:OverKizApi.Models.Device.Protocol
   id: Protocol
@@ -464,19 +681,30 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Protocol
     path: ../OverKizApi/Models/Models.cs
-    startLine: 316
+    startLine: 730
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Communication protocol parsed from the device URL prefix (e.g. <xref href="OverKizApi.Enums.Protocol.Io" data-throw-if-not-resolved="false"></xref>).
   example: []
   syntax:
-    content: public Protocol? Protocol { get; }
+    content: >-
+      [JsonIgnore]
+
+      public Protocol? Protocol { get; }
     parameters: []
     return:
       type: System.Nullable{OverKizApi.Enums.Protocol}
-    content.vb: Public ReadOnly Property Protocol As Protocol?
+      description: Communication protocol parsed from the device URL prefix (e.g. <xref href="OverKizApi.Enums.Protocol.Io" data-throw-if-not-resolved="false"></xref>).
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Protocol As Protocol?
   overload: OverKizApi.Models.Device.Protocol*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.Device.GatewayId
   commentId: P:OverKizApi.Models.Device.GatewayId
   id: GatewayId
@@ -495,19 +723,30 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewayId
     path: ../OverKizApi/Models/Models.cs
-    startLine: 320
+    startLine: 736
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Gateway serial number parsed from the device URL.
   example: []
   syntax:
-    content: public string? GatewayId { get; }
+    content: >-
+      [JsonIgnore]
+
+      public string? GatewayId { get; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public ReadOnly Property GatewayId As String
+      description: Gateway serial number parsed from the device URL.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property GatewayId As String
   overload: OverKizApi.Models.Device.GatewayId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.Device.DeviceAddress
   commentId: P:OverKizApi.Models.Device.DeviceAddress
   id: DeviceAddress
@@ -526,19 +765,30 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceAddress
     path: ../OverKizApi/Models/Models.cs
-    startLine: 324
+    startLine: 742
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Device address portion parsed from the device URL.
   example: []
   syntax:
-    content: public string? DeviceAddress { get; }
+    content: >-
+      [JsonIgnore]
+
+      public string? DeviceAddress { get; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public ReadOnly Property DeviceAddress As String
+      description: Device address portion parsed from the device URL.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property DeviceAddress As String
   overload: OverKizApi.Models.Device.DeviceAddress*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.Device.SubsystemId
   commentId: P:OverKizApi.Models.Device.SubsystemId
   id: SubsystemId
@@ -557,19 +807,30 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SubsystemId
     path: ../OverKizApi/Models/Models.cs
-    startLine: 328
+    startLine: 748
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Sub-system index parsed from the device URL fragment, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for top-level devices.
   example: []
   syntax:
-    content: public int? SubsystemId { get; }
+    content: >-
+      [JsonIgnore]
+
+      public int? SubsystemId { get; }
     parameters: []
     return:
       type: System.Nullable{System.Int32}
-    content.vb: Public ReadOnly Property SubsystemId As Integer?
+      description: Sub-system index parsed from the device URL fragment, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for top-level devices.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property SubsystemId As Integer?
   overload: OverKizApi.Models.Device.SubsystemId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.Device.IsSubDevice
   commentId: P:OverKizApi.Models.Device.IsSubDevice
   id: IsSubDevice
@@ -588,19 +849,30 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: IsSubDevice
     path: ../OverKizApi/Models/Models.cs
-    startLine: 332
+    startLine: 754
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this device is a sub-device (has a <xref href="OverKizApi.Models.Device.SubsystemId" data-throw-if-not-resolved="false"></xref>).
   example: []
   syntax:
-    content: public bool IsSubDevice { get; }
+    content: >-
+      [JsonIgnore]
+
+      public bool IsSubDevice { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public ReadOnly Property IsSubDevice As Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this device is a sub-device (has a <xref href="OverKizApi.Models.Device.SubsystemId" data-throw-if-not-resolved="false"></xref>).
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property IsSubDevice As Boolean
   overload: OverKizApi.Models.Device.IsSubDevice*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.Device.UiClass
   commentId: P:OverKizApi.Models.Device.UiClass
   id: UiClass
@@ -619,19 +891,30 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UiClass
     path: ../OverKizApi/Models/Models.cs
-    startLine: 335
+    startLine: 759
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: UI class parsed from <xref href="OverKizApi.Models.Definition.UiClass" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public UIClass? UiClass { get; }
+    content: >-
+      [JsonIgnore]
+
+      public UIClass? UiClass { get; }
     parameters: []
     return:
       type: System.Nullable{OverKizApi.Enums.UIClass}
-    content.vb: Public ReadOnly Property UiClass As UIClass?
+      description: UI class parsed from <xref href="OverKizApi.Models.Definition.UiClass" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property UiClass As UIClass?
   overload: OverKizApi.Models.Device.UiClass*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: OverKizApi.Models.Device.Widget
   commentId: P:OverKizApi.Models.Device.Widget
   id: Widget
@@ -650,19 +933,98 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Widget
     path: ../OverKizApi/Models/Models.cs
-    startLine: 337
+    startLine: 763
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: UI widget parsed from <xref href="OverKizApi.Models.Definition.WidgetName" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public UIWidget? Widget { get; }
+    content: >-
+      [JsonIgnore]
+
+      public UIWidget? Widget { get; }
     parameters: []
     return:
       type: System.Nullable{OverKizApi.Enums.UIWidget}
-    content.vb: Public ReadOnly Property Widget As UIWidget?
+      description: UI widget parsed from <xref href="OverKizApi.Models.Definition.WidgetName" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Widget As UIWidget?
   overload: OverKizApi.Models.Device.Widget*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: OverKizApi.Models.Device.GetSupportedAliases
+  commentId: M:OverKizApi.Models.Device.GetSupportedAliases
+  id: GetSupportedAliases
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: GetSupportedAliases()
+  nameWithType: Device.GetSupportedAliases()
+  fullName: OverKizApi.Models.Device.GetSupportedAliases()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/SupportedAlias.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetSupportedAliases
+    path: ../OverKizApi/Models/SupportedAlias.cs
+    startLine: 39
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns all valid advertised alias slots in source order, including repeated types.
+  remarks: >-
+    Missing or non-list attributes return an empty list. Malformed entries are skipped.
+
+    IDs may be nonempty strings or integer values; types and features are strings.
+
+    Missing features are treated as an empty list. Unknown alias types are preserved.
+  example: []
+  syntax:
+    content: public IReadOnlyList<SupportedAlias> GetSupportedAliases()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.SupportedAlias}
+      description: The valid advertised alias slots in source order, or an empty list if none are available.
+    content.vb: Public Function GetSupportedAliases() As IReadOnlyList(Of SupportedAlias)
+  overload: OverKizApi.Models.Device.GetSupportedAliases*
+- uid: OverKizApi.Models.Device.GetMostFeaturedAliases
+  commentId: M:OverKizApi.Models.Device.GetMostFeaturedAliases
+  id: GetMostFeaturedAliases
+  parent: OverKizApi.Models.Device
+  langs:
+  - csharp
+  - vb
+  name: GetMostFeaturedAliases()
+  nameWithType: Device.GetMostFeaturedAliases()
+  fullName: OverKizApi.Models.Device.GetMostFeaturedAliases()
+  type: Method
+  source:
+    remote:
+      path: OverKizApi/Models/SupportedAlias.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: GetMostFeaturedAliases
+    path: ../OverKizApi/Models/SupportedAlias.cs
+    startLine: 70
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Models
+  summary: Returns one alias per type, selecting the slot with the most features; source order breaks ties.
+  example: []
+  syntax:
+    content: public IReadOnlyDictionary<string, SupportedAlias> GetMostFeaturedAliases()
+    return:
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,OverKizApi.Models.SupportedAlias}
+      description: The selected alias for each advertised type, keyed by the exact type name.
+    content.vb: Public Function GetMostFeaturedAliases() As IReadOnlyDictionary(Of String, SupportedAlias)
+  overload: OverKizApi.Models.Device.GetMostFeaturedAliases*
 references:
 - uid: OverKizApi.Models.Device.DeviceUrl
   commentId: P:OverKizApi.Models.Device.DeviceUrl
@@ -672,26 +1034,21 @@ references:
   fullName: OverKizApi.Models.Device.DeviceUrl
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -1116,26 +1473,21 @@ references:
   fullName: OverKizApi.Enums.ProductType
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Models.Device.PlaceOid*
   commentId: Overload:OverKizApi.Models.Device.PlaceOid
   href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_PlaceOid
@@ -1313,3 +1665,127 @@ references:
     name: UIWidget
     href: OverKizApi.Enums.UIWidget.html
   - name: '?'
+- uid: OverKizApi.Models.Device.GetSupportedAliases*
+  commentId: Overload:OverKizApi.Models.Device.GetSupportedAliases
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_GetSupportedAliases
+  name: GetSupportedAliases
+  nameWithType: Device.GetSupportedAliases
+  fullName: OverKizApi.Models.Device.GetSupportedAliases
+- uid: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.SupportedAlias}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OverKizApi.Models.SupportedAlias}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<SupportedAlias>
+  nameWithType: IReadOnlyList<SupportedAlias>
+  fullName: System.Collections.Generic.IReadOnlyList<OverKizApi.Models.SupportedAlias>
+  nameWithType.vb: IReadOnlyList(Of SupportedAlias)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.SupportedAlias)
+  name.vb: IReadOnlyList(Of SupportedAlias)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OverKizApi.Models.SupportedAlias
+    name: SupportedAlias
+    href: OverKizApi.Models.SupportedAlias.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OverKizApi.Models.SupportedAlias
+    name: SupportedAlias
+    href: OverKizApi.Models.SupportedAlias.html
+  - name: )
+- uid: OverKizApi.Models.Device.GetMostFeaturedAliases*
+  commentId: Overload:OverKizApi.Models.Device.GetMostFeaturedAliases
+  href: OverKizApi.Models.Device.html#OverKizApi_Models_Device_GetMostFeaturedAliases
+  name: GetMostFeaturedAliases
+  nameWithType: Device.GetMostFeaturedAliases
+  fullName: OverKizApi.Models.Device.GetMostFeaturedAliases
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,OverKizApi.Models.SupportedAlias}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,OverKizApi.Models.SupportedAlias}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, SupportedAlias>
+  nameWithType: IReadOnlyDictionary<string, SupportedAlias>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, OverKizApi.Models.SupportedAlias>
+  nameWithType.vb: IReadOnlyDictionary(Of String, SupportedAlias)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, OverKizApi.Models.SupportedAlias)
+  name.vb: IReadOnlyDictionary(Of String, SupportedAlias)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: OverKizApi.Models.SupportedAlias
+    name: SupportedAlias
+    href: OverKizApi.Models.SupportedAlias.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: OverKizApi.Models.SupportedAlias
+    name: SupportedAlias
+    href: OverKizApi.Models.SupportedAlias.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )

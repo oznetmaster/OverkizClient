@@ -5,8 +5,12 @@ items:
   id: Protocol
   parent: OverKizApi.Enums
   children:
+  - OverKizApi.Enums.Protocol.Ariston
   - OverKizApi.Enums.Protocol.August
+  - OverKizApi.Enums.Protocol.Aurora
   - OverKizApi.Enums.Protocol.Camera
+  - OverKizApi.Enums.Protocol.Dedietrichstc
+  - OverKizApi.Enums.Protocol.Deltadore
   - OverKizApi.Enums.Protocol.Eliot
   - OverKizApi.Enums.Protocol.Enocean
   - OverKizApi.Enums.Protocol.HlrrWifi
@@ -15,9 +19,11 @@ items:
   - OverKizApi.Enums.Protocol.Internal
   - OverKizApi.Enums.Protocol.Io
   - OverKizApi.Enums.Protocol.Jsw
+  - OverKizApi.Enums.Protocol.Knx
   - OverKizApi.Enums.Protocol.Modbus
   - OverKizApi.Enums.Protocol.Modbuslink
   - OverKizApi.Enums.Protocol.Myfox
+  - OverKizApi.Enums.Protocol.Nest
   - OverKizApi.Enums.Protocol.Netatmo
   - OverKizApi.Enums.Protocol.Ogcp
   - OverKizApi.Enums.Protocol.Ogp
@@ -30,10 +36,13 @@ items:
   - OverKizApi.Enums.Protocol.Rtn
   - OverKizApi.Enums.Protocol.Rts
   - OverKizApi.Enums.Protocol.SomfyThermostat
+  - OverKizApi.Enums.Protocol.Sonos
   - OverKizApi.Enums.Protocol.Unknown
   - OverKizApi.Enums.Protocol.UpnpControl
+  - OverKizApi.Enums.Protocol.Urmet
   - OverKizApi.Enums.Protocol.Verisure
   - OverKizApi.Enums.Protocol.Wiser
+  - OverKizApi.Enums.Protocol.Yokis
   - OverKizApi.Enums.Protocol.Zigbee
   - OverKizApi.Enums.Protocol.Zwave
   langs:
@@ -50,7 +59,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Protocol
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -80,7 +89,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Unknown
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 13
+    startLine: 12
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -88,6 +97,34 @@ items:
   example: []
   syntax:
     content: Unknown = 0
+    return:
+      type: OverKizApi.Enums.Protocol
+- uid: OverKizApi.Enums.Protocol.Ariston
+  commentId: F:OverKizApi.Enums.Protocol.Ariston
+  id: Ariston
+  parent: OverKizApi.Enums.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Ariston
+  nameWithType: Protocol.Ariston
+  fullName: OverKizApi.Enums.Protocol.Ariston
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Protocol.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Ariston
+    path: ../OverKizApi/Enums/Protocol.cs
+    startLine: 14
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Ariston cloud/webservices integration.
+  example: []
+  syntax:
+    content: Ariston = 1
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.August
@@ -108,14 +145,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: August
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: August smart lock protocol.
   example: []
   syntax:
-    content: August = 1
+    content: August = 2
+    return:
+      type: OverKizApi.Enums.Protocol
+- uid: OverKizApi.Enums.Protocol.Aurora
+  commentId: F:OverKizApi.Enums.Protocol.Aurora
+  id: Aurora
+  parent: OverKizApi.Enums.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Aurora
+  nameWithType: Protocol.Aurora
+  fullName: OverKizApi.Enums.Protocol.Aurora
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Protocol.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Aurora
+    path: ../OverKizApi/Enums/Protocol.cs
+    startLine: 18
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Aurora protocol.
+  example: []
+  syntax:
+    content: Aurora = 3
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Camera
@@ -136,14 +201,70 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Camera
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 17
+    startLine: 20
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: IP camera protocol.
   example: []
   syntax:
-    content: Camera = 2
+    content: Camera = 4
+    return:
+      type: OverKizApi.Enums.Protocol
+- uid: OverKizApi.Enums.Protocol.Dedietrichstc
+  commentId: F:OverKizApi.Enums.Protocol.Dedietrichstc
+  id: Dedietrichstc
+  parent: OverKizApi.Enums.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Dedietrichstc
+  nameWithType: Protocol.Dedietrichstc
+  fullName: OverKizApi.Enums.Protocol.Dedietrichstc
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Protocol.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Dedietrichstc
+    path: ../OverKizApi/Enums/Protocol.cs
+    startLine: 22
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: De Dietrich SmartTC webservices integration.
+  example: []
+  syntax:
+    content: Dedietrichstc = 5
+    return:
+      type: OverKizApi.Enums.Protocol
+- uid: OverKizApi.Enums.Protocol.Deltadore
+  commentId: F:OverKizApi.Enums.Protocol.Deltadore
+  id: Deltadore
+  parent: OverKizApi.Enums.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Deltadore
+  nameWithType: Protocol.Deltadore
+  fullName: OverKizApi.Enums.Protocol.Deltadore
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Protocol.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Deltadore
+    path: ../OverKizApi/Enums/Protocol.cs
+    startLine: 24
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Deltadore webservices integration.
+  example: []
+  syntax:
+    content: Deltadore = 6
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Eliot
@@ -164,14 +285,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Eliot
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 19
+    startLine: 26
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Eliot IoT protocol (Somfy cloud-to-cloud).
   example: []
   syntax:
-    content: Eliot = 3
+    content: Eliot = 7
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Enocean
@@ -192,14 +313,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Enocean
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 21
+    startLine: 28
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: EnOcean self-powered wireless protocol.
   example: []
   syntax:
-    content: Enocean = 4
+    content: Enocean = 8
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.HlrrWifi
@@ -220,14 +341,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HlrrWifi
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 23
+    startLine: 30
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Hitachi Hi-Lumo Wi-Fi protocol.
   example: []
   syntax:
-    content: HlrrWifi = 5
+    content: HlrrWifi = 9
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Homekit
@@ -248,14 +369,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Homekit
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 25
+    startLine: 32
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Apple HomeKit integration.
   example: []
   syntax:
-    content: Homekit = 6
+    content: Homekit = 10
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Hue
@@ -276,14 +397,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Hue
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 27
+    startLine: 34
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Philips Hue integration.
   example: []
   syntax:
-    content: Hue = 7
+    content: Hue = 11
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Internal
@@ -304,14 +425,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Internal
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 29
+    startLine: 36
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Internal virtual device (not a real physical protocol).
   example: []
   syntax:
-    content: Internal = 8
+    content: Internal = 12
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Io
@@ -332,14 +453,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Io
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 31
+    startLine: 38
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Somfy io-homecontrol® 868 MHz bidirectional protocol.
   example: []
   syntax:
-    content: Io = 9
+    content: Io = 13
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Jsw
@@ -360,14 +481,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Jsw
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 33
+    startLine: 40
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: JSW protocol.
   example: []
   syntax:
-    content: Jsw = 10
+    content: Jsw = 14
+    return:
+      type: OverKizApi.Enums.Protocol
+- uid: OverKizApi.Enums.Protocol.Knx
+  commentId: F:OverKizApi.Enums.Protocol.Knx
+  id: Knx
+  parent: OverKizApi.Enums.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Knx
+  nameWithType: Protocol.Knx
+  fullName: OverKizApi.Enums.Protocol.Knx
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Protocol.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Knx
+    path: ../OverKizApi/Enums/Protocol.cs
+    startLine: 42
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: KNX building-automation protocol.
+  example: []
+  syntax:
+    content: Knx = 15
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Modbus
@@ -388,14 +537,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Modbus
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 35
+    startLine: 44
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Modbus wired serial protocol.
   example: []
   syntax:
-    content: Modbus = 11
+    content: Modbus = 16
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Modbuslink
@@ -416,14 +565,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Modbuslink
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 37
+    startLine: 46
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Modbus Link variant.
   example: []
   syntax:
-    content: Modbuslink = 12
+    content: Modbuslink = 17
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Myfox
@@ -444,14 +593,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Myfox
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 39
+    startLine: 48
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: MyFox security protocol.
   example: []
   syntax:
-    content: Myfox = 13
+    content: Myfox = 18
+    return:
+      type: OverKizApi.Enums.Protocol
+- uid: OverKizApi.Enums.Protocol.Nest
+  commentId: F:OverKizApi.Enums.Protocol.Nest
+  id: Nest
+  parent: OverKizApi.Enums.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Nest
+  nameWithType: Protocol.Nest
+  fullName: OverKizApi.Enums.Protocol.Nest
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Protocol.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Nest
+    path: ../OverKizApi/Enums/Protocol.cs
+    startLine: 50
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Nest cloud/webservices integration.
+  example: []
+  syntax:
+    content: Nest = 19
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Netatmo
@@ -472,14 +649,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Netatmo
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 41
+    startLine: 52
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Netatmo cloud-to-cloud integration.
   example: []
   syntax:
-    content: Netatmo = 14
+    content: Netatmo = 20
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Ogcp
@@ -500,14 +677,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Ogcp
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 43
+    startLine: 54
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Open Gateway Communication Protocol.
   example: []
   syntax:
-    content: Ogcp = 15
+    content: Ogcp = 21
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Ogp
@@ -528,14 +705,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Ogp
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 45
+    startLine: 56
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Open Gateway Protocol.
   example: []
   syntax:
-    content: Ogp = 16
+    content: Ogp = 22
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Opendoors
@@ -556,14 +733,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Opendoors
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 47
+    startLine: 58
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: OpenDoors access-control protocol.
   example: []
   syntax:
-    content: Opendoors = 17
+    content: Opendoors = 23
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Ovp
@@ -584,14 +761,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Ovp
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 49
+    startLine: 60
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Overkiz Virtual Protocol (cloud-side virtual devices).
   example: []
   syntax:
-    content: Ovp = 18
+    content: Ovp = 24
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Profalux868
@@ -612,14 +789,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Profalux868
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 51
+    startLine: 62
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Profalux 868 MHz protocol.
   example: []
   syntax:
-    content: Profalux868 = 19
+    content: Profalux868 = 25
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Ramses
@@ -640,14 +817,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Ramses
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 53
+    startLine: 64
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: RAMSES II bi-directional heating protocol (Honeywell/Evohome).
   example: []
   syntax:
-    content: Ramses = 20
+    content: Ramses = 26
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Rtd
@@ -668,14 +845,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Rtd
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 55
+    startLine: 66
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: RTD protocol.
   example: []
   syntax:
-    content: Rtd = 21
+    content: Rtd = 27
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Rtds
@@ -696,14 +873,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Rtds
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 57
+    startLine: 68
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: RTDS protocol.
   example: []
   syntax:
-    content: Rtds = 22
+    content: Rtds = 28
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Rtn
@@ -724,14 +901,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Rtn
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 59
+    startLine: 70
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: RTN protocol.
   example: []
   syntax:
-    content: Rtn = 23
+    content: Rtn = 29
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Rts
@@ -752,14 +929,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Rts
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 61
+    startLine: 72
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Somfy RTS (Radio Technology Somfy) unidirectional 433 MHz protocol.
   example: []
   syntax:
-    content: Rts = 24
+    content: Rts = 30
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.SomfyThermostat
@@ -780,14 +957,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SomfyThermostat
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 63
+    startLine: 74
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Somfy Thermostat protocol.
   example: []
   syntax:
-    content: SomfyThermostat = 25
+    content: SomfyThermostat = 31
+    return:
+      type: OverKizApi.Enums.Protocol
+- uid: OverKizApi.Enums.Protocol.Sonos
+  commentId: F:OverKizApi.Enums.Protocol.Sonos
+  id: Sonos
+  parent: OverKizApi.Enums.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Sonos
+  nameWithType: Protocol.Sonos
+  fullName: OverKizApi.Enums.Protocol.Sonos
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Protocol.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Sonos
+    path: ../OverKizApi/Enums/Protocol.cs
+    startLine: 76
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Sonos cloud protocol.
+  example: []
+  syntax:
+    content: Sonos = 32
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.UpnpControl
@@ -808,14 +1013,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UpnpControl
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 65
+    startLine: 78
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: UPnP control protocol.
   example: []
   syntax:
-    content: UpnpControl = 26
+    content: UpnpControl = 33
+    return:
+      type: OverKizApi.Enums.Protocol
+- uid: OverKizApi.Enums.Protocol.Urmet
+  commentId: F:OverKizApi.Enums.Protocol.Urmet
+  id: Urmet
+  parent: OverKizApi.Enums.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Urmet
+  nameWithType: Protocol.Urmet
+  fullName: OverKizApi.Enums.Protocol.Urmet
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Protocol.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Urmet
+    path: ../OverKizApi/Enums/Protocol.cs
+    startLine: 80
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Urmet webservices integration.
+  example: []
+  syntax:
+    content: Urmet = 34
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Verisure
@@ -836,14 +1069,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Verisure
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 67
+    startLine: 82
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Verisure security system integration.
   example: []
   syntax:
-    content: Verisure = 27
+    content: Verisure = 35
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Wiser
@@ -864,14 +1097,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Wiser
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 69
+    startLine: 84
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Schneider Wiser heating/energy protocol.
   example: []
   syntax:
-    content: Wiser = 28
+    content: Wiser = 36
+    return:
+      type: OverKizApi.Enums.Protocol
+- uid: OverKizApi.Enums.Protocol.Yokis
+  commentId: F:OverKizApi.Enums.Protocol.Yokis
+  id: Yokis
+  parent: OverKizApi.Enums.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Yokis
+  nameWithType: Protocol.Yokis
+  fullName: OverKizApi.Enums.Protocol.Yokis
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Protocol.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Yokis
+    path: ../OverKizApi/Enums/Protocol.cs
+    startLine: 86
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Yokis protocol.
+  example: []
+  syntax:
+    content: Yokis = 37
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Zigbee
@@ -892,14 +1153,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Zigbee
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 71
+    startLine: 88
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Zigbee IEEE 802.15.4 mesh protocol.
   example: []
   syntax:
-    content: Zigbee = 29
+    content: Zigbee = 38
     return:
       type: OverKizApi.Enums.Protocol
 - uid: OverKizApi.Enums.Protocol.Zwave
@@ -920,39 +1181,34 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Zwave
     path: ../OverKizApi/Enums/Protocol.cs
-    startLine: 73
+    startLine: 90
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Z-Wave mesh wireless protocol.
   example: []
   syntax:
-    content: Zwave = 30
+    content: Zwave = 39
     return:
       type: OverKizApi.Enums.Protocol
 references:
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Enums.Protocol
   commentId: T:OverKizApi.Enums.Protocol
   parent: OverKizApi.Enums

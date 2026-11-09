@@ -30,7 +30,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Setup
     path: ../OverKizApi/Models/Models.cs
-    startLine: 516
+    startLine: 1190
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -69,19 +69,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Id
     path: ../OverKizApi/Models/Models.cs
-    startLine: 519
+    startLine: 1194
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unique identifier of the setup.
   example: []
   syntax:
-    content: public string? Id { get; init; }
+    content: >-
+      [JsonPropertyName("id")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Id { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Id As String
+      description: Unique identifier of the setup.
+    content.vb: >-
+      <JsonPropertyName("id")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Id As String
   overload: OverKizApi.Models.Setup.Id*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: id
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Setup.CreationTime
   commentId: P:OverKizApi.Models.Setup.CreationTime
   id: CreationTime
@@ -100,19 +124,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CreationTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 521
+    startLine: 1202
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp when the setup was created.
   example: []
   syntax:
-    content: public long CreationTime { get; init; }
+    content: >-
+      [JsonPropertyName("creationTime")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public long CreationTime { get; init; }
     parameters: []
     return:
       type: System.Int64
-    content.vb: Public Property CreationTime As Long
+      description: Unix epoch millisecond timestamp when the setup was created.
+    content.vb: >-
+      <JsonPropertyName("creationTime")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property CreationTime As Long
   overload: OverKizApi.Models.Setup.CreationTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: creationTime
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 - uid: OverKizApi.Models.Setup.LastUpdateTime
   commentId: P:OverKizApi.Models.Setup.LastUpdateTime
   id: LastUpdateTime
@@ -131,19 +177,52 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LastUpdateTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 523
+    startLine: 1210
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp of the most recent change, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if unchanged.
   example: []
   syntax:
-    content: public long? LastUpdateTime { get; init; }
+    content: >-
+      [JsonPropertyName("lastUpdateTime")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public long? LastUpdateTime { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Int64}
-    content.vb: Public Property LastUpdateTime As Long?
+      description: Unix epoch millisecond timestamp of the most recent change, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if unchanged.
+    content.vb: >-
+      <JsonPropertyName("lastUpdateTime")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property LastUpdateTime As Long?
   overload: OverKizApi.Models.Setup.LastUpdateTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: lastUpdateTime
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Setup.Location
   commentId: P:OverKizApi.Models.Setup.Location
   id: Location
@@ -162,19 +241,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Location
     path: ../OverKizApi/Models/Models.cs
-    startLine: 525
+    startLine: 1219
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Geographical location and twilight settings for the home.
   example: []
   syntax:
-    content: public Location? Location { get; init; }
+    content: >-
+      [JsonPropertyName("location")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public Location? Location { get; init; }
     parameters: []
     return:
       type: OverKizApi.Models.Location
-    content.vb: Public Property Location As Location
+      description: Geographical location and twilight settings for the home.
+    content.vb: >-
+      <JsonPropertyName("location")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Location As Location
   overload: OverKizApi.Models.Setup.Location*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: location
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Setup.Gateways
   commentId: P:OverKizApi.Models.Setup.Gateways
   id: Gateways
@@ -193,19 +296,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Gateways
     path: ../OverKizApi/Models/Models.cs
-    startLine: 527
+    startLine: 1227
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: All gateways (hubs) registered in this setup.
   example: []
   syntax:
-    content: public IReadOnlyList<Gateway> Gateways { get; init; }
+    content: >-
+      [JsonPropertyName("gateways")]
+
+      public IReadOnlyList<Gateway> Gateways { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Gateway}
-    content.vb: Public Property Gateways As IReadOnlyList(Of Gateway)
+      description: All gateways (hubs) registered in this setup.
+    content.vb: >-
+      <JsonPropertyName("gateways")>
+
+      Public Property Gateways As IReadOnlyList(Of Gateway)
   overload: OverKizApi.Models.Setup.Gateways*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: gateways
 - uid: OverKizApi.Models.Setup.Devices
   commentId: P:OverKizApi.Models.Setup.Devices
   id: Devices
@@ -224,19 +340,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Devices
     path: ../OverKizApi/Models/Models.cs
-    startLine: 529
+    startLine: 1231
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: All devices registered across all gateways in this setup.
   example: []
   syntax:
-    content: public IReadOnlyList<Device> Devices { get; init; }
+    content: >-
+      [JsonPropertyName("devices")]
+
+      public IReadOnlyList<Device> Devices { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Device}
-    content.vb: Public Property Devices As IReadOnlyList(Of Device)
+      description: All devices registered across all gateways in this setup.
+    content.vb: >-
+      <JsonPropertyName("devices")>
+
+      Public Property Devices As IReadOnlyList(Of Device)
   overload: OverKizApi.Models.Setup.Devices*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: devices
 - uid: OverKizApi.Models.Setup.Zones
   commentId: P:OverKizApi.Models.Setup.Zones
   id: Zones
@@ -255,19 +384,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Zones
     path: ../OverKizApi/Models/Models.cs
-    startLine: 531
+    startLine: 1235
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Logical zones grouping devices, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the server does not return zones.
   example: []
   syntax:
-    content: public IReadOnlyList<Zone>? Zones { get; init; }
+    content: >-
+      [JsonPropertyName("zones")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public IReadOnlyList<Zone>? Zones { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Zone}
-    content.vb: Public Property Zones As IReadOnlyList(Of Zone)
+      description: Logical zones grouping devices, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the server does not return zones.
+    content.vb: >-
+      <JsonPropertyName("zones")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Zones As IReadOnlyList(Of Zone)
   overload: OverKizApi.Models.Setup.Zones*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: zones
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Setup.ResellerDelegationType
   commentId: P:OverKizApi.Models.Setup.ResellerDelegationType
   id: ResellerDelegationType
@@ -286,19 +439,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ResellerDelegationType
     path: ../OverKizApi/Models/Models.cs
-    startLine: 533
+    startLine: 1243
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Reseller delegation type string, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not applicable.
   example: []
   syntax:
-    content: public string? ResellerDelegationType { get; init; }
+    content: >-
+      [JsonPropertyName("resellerDelegationType")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? ResellerDelegationType { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property ResellerDelegationType As String
+      description: Reseller delegation type string, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not applicable.
+    content.vb: >-
+      <JsonPropertyName("resellerDelegationType")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property ResellerDelegationType As String
   overload: OverKizApi.Models.Setup.ResellerDelegationType*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: resellerDelegationType
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Setup.Oid
   commentId: P:OverKizApi.Models.Setup.Oid
   id: Oid
@@ -317,19 +494,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Oid
     path: ../OverKizApi/Models/Models.cs
-    startLine: 535
+    startLine: 1251
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Opaque OID of the setup.
   example: []
   syntax:
-    content: public string? Oid { get; init; }
+    content: >-
+      [JsonPropertyName("oid")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Oid { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Oid As String
+      description: Opaque OID of the setup.
+    content.vb: >-
+      <JsonPropertyName("oid")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Oid As String
   overload: OverKizApi.Models.Setup.Oid*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: oid
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Setup.RootPlace
   commentId: P:OverKizApi.Models.Setup.RootPlace
   id: RootPlace
@@ -348,19 +549,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: RootPlace
     path: ../OverKizApi/Models/Models.cs
-    startLine: 537
+    startLine: 1259
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Root of the place hierarchy (house → floors → rooms).
   example: []
   syntax:
-    content: public Place? RootPlace { get; init; }
+    content: >-
+      [JsonPropertyName("rootPlace")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public Place? RootPlace { get; init; }
     parameters: []
     return:
       type: OverKizApi.Models.Place
-    content.vb: Public Property RootPlace As Place
+      description: Root of the place hierarchy (house → floors → rooms).
+    content.vb: >-
+      <JsonPropertyName("rootPlace")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property RootPlace As Place
   overload: OverKizApi.Models.Setup.RootPlace*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: rootPlace
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Setup.Features
   commentId: P:OverKizApi.Models.Setup.Features
   id: Features
@@ -379,42 +604,61 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Features
     path: ../OverKizApi/Models/Models.cs
-    startLine: 539
+    startLine: 1267
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Feature flags / subscriptions active on this setup.
   example: []
   syntax:
-    content: public IReadOnlyList<Feature>? Features { get; init; }
+    content: >-
+      [JsonPropertyName("features")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public IReadOnlyList<Feature>? Features { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Feature}
-    content.vb: Public Property Features As IReadOnlyList(Of Feature)
+      description: Feature flags / subscriptions active on this setup.
+    content.vb: >-
+      <JsonPropertyName("features")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Features As IReadOnlyList(Of Feature)
   overload: OverKizApi.Models.Setup.Features*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: features
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

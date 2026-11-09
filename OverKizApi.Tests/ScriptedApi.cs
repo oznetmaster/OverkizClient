@@ -6,10 +6,11 @@ namespace OverKizApi.Tests;
 // Every request is intercepted. An unexpected request fails instead of reaching a network.
 internal sealed class ScriptedApi : IDisposable
 	{
-	internal const string DeviceUrl = "io://test-gateway/shutter#2";
-	internal const string EncodedDeviceUrl = "io%3A%2F%2Ftest-gateway%2Fshutter%232";
-	internal const string CloudEndpoint = "https://overkiz.example.invalid/api/";
+	internal const string DEVICE_URL = "io://test-gateway/shutter#2";
+	internal const string ENCODED_DEVICE_URL = "io%3A%2F%2Ftest-gateway%2Fshutter%232";
+	internal const string CLOUD_ENDPOINT = "https://overkiz.example.invalid/api/";
 	private readonly Handler _handler = new ();
+	private static readonly char[] _formSeparator = ['='];
 	internal HttpClient Http
 		{
 		get;
@@ -25,12 +26,12 @@ internal sealed class ScriptedApi : IDisposable
 		{
 		Http = new HttpClient (_handler);
 		Client = new OverkizClient ("tester@example.invalid", "synthetic-password",
-			 server ?? new OverkizServer { Name = "Test cloud", Endpoint = CloudEndpoint, Manufacturer = "Test" }, token, Http);
+			 server ?? new OverkizServer { Name = "Test cloud", Endpoint = CLOUD_ENDPOINT, Manufacturer = "Test" }, token, Http);
 		}
 
 	internal void Expect (string method, string path, string response = "{}", HttpStatusCode status = HttpStatusCode.OK,
-		 System.Action<HttpRequestMessage, string>? inspect = null, string mediaType = "application/json")
-		 => _handler.Enqueue (method, new Uri (Http.BaseAddress!, path).AbsoluteUri, response, status, inspect, mediaType);
+		 System.Action<HttpRequestMessage, string>? inspect = null, string mediaType = "application/json", string? cookie = null)
+		 => _handler.Enqueue (method, new Uri (Http.BaseAddress!, path).AbsoluteUri, response, status, inspect, mediaType, cookie);
 
 	internal void Complete ()
 		{
@@ -46,13 +47,14 @@ internal sealed class ScriptedApi : IDisposable
 		}
 
 	internal static Dictionary<string, string> Form (string text) => text.Split ('&')
-		 .Select (pair => pair.Split (new[] { '=' }, 2))
+		 .Select (pair => pair.Split (_formSeparator, 2))
 		 .ToDictionary (pair => Decode (pair[0]), pair => Decode (pair[1]));
 	private static string Decode (string text) => Uri.UnescapeDataString (text.Replace ("+", " "));
 
 	private sealed class Handler : HttpMessageHandler
 		{
 		private readonly Queue<Func<HttpRequestMessage, string, HttpResponseMessage>> _steps = new ();
+		private readonly CookieContainer _cookies = new ();
 		internal int Pending => _steps.Count;
 		internal List<string> Failures { get; } = new ();
 		internal int RequestCount
@@ -65,14 +67,17 @@ internal sealed class ScriptedApi : IDisposable
 			}
 
 		internal void Enqueue (string method, string uri, string response, HttpStatusCode status,
-			 System.Action<HttpRequestMessage, string>? inspect, string mediaType)
+			 System.Action<HttpRequestMessage, string>? inspect, string mediaType, string? cookie)
 			{
 			_steps.Enqueue ((request, body) =>
 			{
 				Assert.That (request.Method.Method, Is.EqualTo (method));
 				Assert.That (request.RequestUri!.AbsoluteUri, Is.EqualTo (uri));
 				inspect?.Invoke (request, body);
-				return new HttpResponseMessage (status) { Content = new StringContent (response, Encoding.UTF8, mediaType) };
+				var result = new HttpResponseMessage (status) { Content = new StringContent (response, Encoding.UTF8, mediaType) };
+				if (cookie is not null)
+					result.Headers.Add ("Set-Cookie", cookie);
+				return result;
 			});
 			}
 
@@ -84,8 +89,20 @@ internal sealed class ScriptedApi : IDisposable
 				{
 				if (_steps.Count == 0)
 					throw new AssertionException ($"Unexpected HTTP request: {request.Method} {request.RequestUri}");
+#if NETFRAMEWORK
 				string body = request.Content is null ? string.Empty : await request.Content.ReadAsStringAsync ().ConfigureAwait (false);
-				return _steps.Dequeue () (request, body);
+#else
+				string body = request.Content is null ? string.Empty : await request.Content.ReadAsStringAsync (cancellationToken).ConfigureAwait (false);
+#endif
+				// Simulate the cookie-enabled HttpClientHandler required by cloud sessions.
+				string cookie = _cookies.GetCookieHeader (request.RequestUri!);
+				if (!string.IsNullOrEmpty (cookie))
+					request.Headers.Add ("Cookie", cookie);
+				var result = _steps.Dequeue () (request, body);
+				if (result.Headers.TryGetValues ("Set-Cookie", out var values))
+					foreach (string value in values)
+						_cookies.SetCookies (request.RequestUri!, value);
+				return result;
 				}
 			catch (AssertionException exception)
 				{

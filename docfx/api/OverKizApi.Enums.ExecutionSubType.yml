@@ -23,15 +23,21 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExecutionSubType
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 41
+    startLine: 44
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Further classifies the origin of an execution.
   example: []
   syntax:
-    content: public enum ExecutionSubType
-    content.vb: Public Enum ExecutionSubType
+    content: >-
+      [JsonConverter(typeof(TolerantEnumConverterFactory))]
+
+      public enum ExecutionSubType
+    content.vb: >-
+      <JsonConverter(GetType(TolerantEnumConverterFactory))>
+
+      Public Enum ExecutionSubType
 - uid: OverKizApi.Enums.ExecutionSubType.Internal
   commentId: F:OverKizApi.Enums.ExecutionSubType.Internal
   id: Internal
@@ -50,7 +56,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Internal
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 44
+    startLine: 48
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -78,7 +84,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: External
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 46
+    startLine: 50
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -106,7 +112,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Scenario
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 48
+    startLine: 52
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -134,7 +140,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Unknown
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 50
+    startLine: 54
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -147,26 +153,21 @@ items:
 references:
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Enums.ExecutionSubType
   commentId: T:OverKizApi.Enums.ExecutionSubType
   parent: OverKizApi.Enums

@@ -28,15 +28,37 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DataType
     path: ../OverKizApi/Models/Models.cs
-    startLine: 82
+    startLine: 241
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Discriminates the CLR type of a <xref href="OverKizApi.Models.State" data-throw-if-not-resolved="false"></xref> value as reported by the Overkiz API.
   example: []
   syntax:
-    content: public enum DataType
-    content.vb: Public Enum DataType
+    content: >-
+      [SuppressMessage("Naming", "CA1720:Identifier contains type name", Justification = "Member names mirror the Overkiz protocol's own type discriminator values and must be preserved for clarity.")]
+
+      [JsonConverter(typeof(TolerantEnumConverterFactory))]
+
+      public enum DataType
+    content.vb: >-
+      <SuppressMessage("Naming", "CA1720:Identifier contains type name", Justification:="Member names mirror the Overkiz protocol's own type discriminator values and must be preserved for clarity.")>
+
+      <JsonConverter(GetType(TolerantEnumConverterFactory))>
+
+      Public Enum DataType
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Naming
+    - type: System.String
+      value: CA1720:Identifier contains type name
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: Member names mirror the Overkiz protocol's own type discriminator values and must be preserved for clarity.
 - uid: OverKizApi.Models.DataType.None
   commentId: F:OverKizApi.Models.DataType.None
   id: None
@@ -55,7 +77,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: None
     path: ../OverKizApi/Models/Models.cs
-    startLine: 87
+    startLine: 247
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -83,7 +105,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Integer
     path: ../OverKizApi/Models/Models.cs
-    startLine: 89
+    startLine: 249
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -111,7 +133,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Float
     path: ../OverKizApi/Models/Models.cs
-    startLine: 91
+    startLine: 251
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -139,7 +161,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: String
     path: ../OverKizApi/Models/Models.cs
-    startLine: 93
+    startLine: 253
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -167,7 +189,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Blob
     path: ../OverKizApi/Models/Models.cs
-    startLine: 95
+    startLine: 255
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -195,7 +217,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Boolean
     path: ../OverKizApi/Models/Models.cs
-    startLine: 97
+    startLine: 257
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -223,7 +245,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: JsonArray
     path: ../OverKizApi/Models/Models.cs
-    startLine: 99
+    startLine: 259
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -251,7 +273,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: JsonObject
     path: ../OverKizApi/Models/Models.cs
-    startLine: 101
+    startLine: 261
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -279,7 +301,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Date
     path: ../OverKizApi/Models/Models.cs
-    startLine: 103
+    startLine: 263
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -299,26 +321,21 @@ references:
   fullName: OverKizApi.Models.State
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: OverKizApi.Models.DataType
   commentId: T:OverKizApi.Models.DataType
   parent: OverKizApi.Models

@@ -9,6 +9,8 @@ items:
   - OverKizApi.Exceptions.ApplicationNotAllowedException
   - OverKizApi.Exceptions.BadCredentialsException
   - OverKizApi.Exceptions.BaseOverkizException
+  - OverKizApi.Exceptions.BrandtBadCredentialsException
+  - OverKizApi.Exceptions.BrandtServiceException
   - OverKizApi.Exceptions.CozyTouchBadCredentialsException
   - OverKizApi.Exceptions.CozyTouchServiceException
   - OverKizApi.Exceptions.DuplicateActionOnDeviceException
@@ -38,6 +40,7 @@ items:
   - OverKizApi.Exceptions.TooManyRequestsException
   - OverKizApi.Exceptions.UnknownObjectException
   - OverKizApi.Exceptions.UnknownUserException
+  - OverKizApi.Exceptions.UnsupportedOperationException
   langs:
   - csharp
   - vb
@@ -48,6 +51,18 @@ items:
   assemblies:
   - OverKizApi
 references:
+- uid: OverKizApi.Exceptions.BrandtBadCredentialsException
+  commentId: T:OverKizApi.Exceptions.BrandtBadCredentialsException
+  href: OverKizApi.Exceptions.BrandtBadCredentialsException.html
+  name: BrandtBadCredentialsException
+  nameWithType: BrandtBadCredentialsException
+  fullName: OverKizApi.Exceptions.BrandtBadCredentialsException
+- uid: OverKizApi.Exceptions.BrandtServiceException
+  commentId: T:OverKizApi.Exceptions.BrandtServiceException
+  href: OverKizApi.Exceptions.BrandtServiceException.html
+  name: BrandtServiceException
+  nameWithType: BrandtServiceException
+  fullName: OverKizApi.Exceptions.BrandtServiceException
 - uid: OverKizApi.Exceptions.OverkizException
   commentId: T:OverKizApi.Exceptions.OverkizException
   parent: OverKizApi.Exceptions
@@ -191,6 +206,12 @@ references:
   name: NoGatewaySelectedException
   nameWithType: NoGatewaySelectedException
   fullName: OverKizApi.Exceptions.NoGatewaySelectedException
+- uid: OverKizApi.Exceptions.UnsupportedOperationException
+  commentId: T:OverKizApi.Exceptions.UnsupportedOperationException
+  href: OverKizApi.Exceptions.UnsupportedOperationException.html
+  name: UnsupportedOperationException
+  nameWithType: UnsupportedOperationException
+  fullName: OverKizApi.Exceptions.UnsupportedOperationException
 - uid: OverKizApi.Exceptions.NotSuchTokenException
   commentId: T:OverKizApi.Exceptions.NotSuchTokenException
   href: OverKizApi.Exceptions.NotSuchTokenException.html
@@ -259,23 +280,18 @@ references:
   fullName: OverKizApi.Exceptions.SomfyServiceException
 - uid: OverKizApi.Exceptions
   commentId: N:OverKizApi.Exceptions
-  href: OverKizApi.html
   name: OverKizApi.Exceptions
   nameWithType: OverKizApi.Exceptions
   fullName: OverKizApi.Exceptions
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Exceptions
     name: Exceptions
-    href: OverKizApi.Exceptions.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Exceptions
     name: Exceptions
-    href: OverKizApi.Exceptions.html

@@ -19,7 +19,7 @@ internal sealed class TolerantEnumConverterFactory : JsonConverterFactory
 	public override JsonConverter? CreateConverter (Type typeToConvert, JsonSerializerOptions options)
 		{
 		Type converterType = typeof (TolerantEnumConverter<>).MakeGenericType (typeToConvert);
-		return (JsonConverter?) Activator.CreateInstance (converterType);
+		return (JsonConverter?)Activator.CreateInstance (converterType);
 		}
 	}
 
@@ -38,7 +38,7 @@ internal sealed class TolerantEnumConverter<T> : JsonConverter<T> where T : stru
 			}
 
 		if (reader.TokenType == JsonTokenType.Number && reader.TryGetInt32 (out int numericValue))
-			return (T) Enum.ToObject (typeof (T), numericValue);
+			return (T)Enum.ToObject (typeof (T), numericValue);
 
 		throw new JsonException ($"Unsupported token {reader.TokenType} for {typeof (T).Name}.");
 		}

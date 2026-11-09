@@ -84,7 +84,7 @@ public static class KeyValuePairExtensions
 		out TKey key,
 		out TValue value)
 		{
-		key   = pair.Key;
+		key = pair.Key;
 		value = pair.Value;
 		}
 	}

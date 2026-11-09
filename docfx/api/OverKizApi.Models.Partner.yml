@@ -23,7 +23,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Partner
     path: ../OverKizApi/Models/Models.cs
-    startLine: 405
+    startLine: 863
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -59,19 +59,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ActivationTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 408
+    startLine: 867
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: ISO 8601 timestamp when the partner integration was activated.
   example: []
   syntax:
-    content: public string? ActivationTime { get; init; }
+    content: >-
+      [JsonPropertyName("activationTime")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? ActivationTime { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property ActivationTime As String
+      description: ISO 8601 timestamp when the partner integration was activated.
+    content.vb: >-
+      <JsonPropertyName("activationTime")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property ActivationTime As String
   overload: OverKizApi.Models.Partner.ActivationTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: activationTime
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Partner.Name
   commentId: P:OverKizApi.Models.Partner.Name
   id: Name
@@ -90,19 +114,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Name
     path: ../OverKizApi/Models/Models.cs
-    startLine: 410
+    startLine: 875
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Display name of the partner (e.g. <code>"Amazon Alexa"</code>).
   example: []
   syntax:
-    content: public string? Name { get; init; }
+    content: >-
+      [JsonPropertyName("name")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Name { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Name As String
+      description: Display name of the partner (e.g. <code>"Amazon Alexa"</code>).
+    content.vb: >-
+      <JsonPropertyName("name")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Name As String
   overload: OverKizApi.Models.Partner.Name*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: name
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Partner.Id
   commentId: P:OverKizApi.Models.Partner.Id
   id: Id
@@ -121,19 +169,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Id
     path: ../OverKizApi/Models/Models.cs
-    startLine: 412
+    startLine: 883
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unique identifier of the partner integration.
   example: []
   syntax:
-    content: public string? Id { get; init; }
+    content: >-
+      [JsonPropertyName("id")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Id { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Id As String
+      description: Unique identifier of the partner integration.
+    content.vb: >-
+      <JsonPropertyName("id")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Id As String
   overload: OverKizApi.Models.Partner.Id*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: id
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Partner.Status
   commentId: P:OverKizApi.Models.Partner.Status
   id: Status
@@ -152,42 +224,61 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Status
     path: ../OverKizApi/Models/Models.cs
-    startLine: 414
+    startLine: 891
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Current integration status (e.g. <code>"enabled"</code>).
   example: []
   syntax:
-    content: public string? Status { get; init; }
+    content: >-
+      [JsonPropertyName("status")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Status { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Status As String
+      description: Current integration status (e.g. <code>"enabled"</code>).
+    content.vb: >-
+      <JsonPropertyName("status")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Status As String
   overload: OverKizApi.Models.Partner.Status*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: status
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

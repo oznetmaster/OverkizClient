@@ -26,7 +26,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HistoryExecutionCommand
     path: ../OverKizApi/Models/Models.cs
-    startLine: 675
+    startLine: 1664
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -62,7 +62,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceUrl
     path: ../OverKizApi/Models/Models.cs
-    startLine: 678
+    startLine: 1668
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -72,12 +72,17 @@ items:
     content: >-
       [JsonPropertyName("deviceURL")]
 
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
       public string? DeviceUrl { get; init; }
     parameters: []
     return:
       type: System.String
+      description: URL of the device this command was addressed to.
     content.vb: >-
       <JsonPropertyName("deviceURL")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
 
       Public Property DeviceUrl As String
   overload: OverKizApi.Models.HistoryExecutionCommand.DeviceUrl*
@@ -87,6 +92,13 @@ items:
     arguments:
     - type: System.String
       value: deviceURL
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.HistoryExecutionCommand.Command
   commentId: P:OverKizApi.Models.HistoryExecutionCommand.Command
   id: Command
@@ -105,19 +117,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Command
     path: ../OverKizApi/Models/Models.cs
-    startLine: 681
+    startLine: 1676
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Name of the command that was executed.
   example: []
   syntax:
-    content: public string? Command { get; init; }
+    content: >-
+      [JsonPropertyName("command")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Command { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Command As String
+      description: Name of the command that was executed.
+    content.vb: >-
+      <JsonPropertyName("command")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Command As String
   overload: OverKizApi.Models.HistoryExecutionCommand.Command*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: command
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.HistoryExecutionCommand.Rank
   commentId: P:OverKizApi.Models.HistoryExecutionCommand.Rank
   id: Rank
@@ -136,19 +172,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Rank
     path: ../OverKizApi/Models/Models.cs
-    startLine: 683
+    startLine: 1684
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Zero-based rank of this command within the execution action group.
   example: []
   syntax:
-    content: public int Rank { get; init; }
+    content: >-
+      [JsonPropertyName("rank")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public int Rank { get; init; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property Rank As Integer
+      description: Zero-based rank of this command within the execution action group.
+    content.vb: >-
+      <JsonPropertyName("rank")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property Rank As Integer
   overload: OverKizApi.Models.HistoryExecutionCommand.Rank*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: rank
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 - uid: OverKizApi.Models.HistoryExecutionCommand.Dynamic
   commentId: P:OverKizApi.Models.HistoryExecutionCommand.Dynamic
   id: Dynamic
@@ -167,19 +225,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Dynamic
     path: ../OverKizApi/Models/Models.cs
-    startLine: 685
+    startLine: 1692
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Whether this command was dynamically injected (not from a stored scenario).
   example: []
   syntax:
-    content: public bool Dynamic { get; init; }
+    content: >-
+      [JsonPropertyName("dynamic")]
+
+      public bool Dynamic { get; init; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Property Dynamic As Boolean
+      description: Whether this command was dynamically injected (not from a stored scenario).
+    content.vb: >-
+      <JsonPropertyName("dynamic")>
+
+      Public Property Dynamic As Boolean
   overload: OverKizApi.Models.HistoryExecutionCommand.Dynamic*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: dynamic
 - uid: OverKizApi.Models.HistoryExecutionCommand.State
   commentId: P:OverKizApi.Models.HistoryExecutionCommand.State
   id: State
@@ -198,19 +269,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: State
     path: ../OverKizApi/Models/Models.cs
-    startLine: 687
+    startLine: 1699
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Terminal state reached by this specific command.
   example: []
   syntax:
-    content: public ExecutionState State { get; init; }
+    content: >-
+      [JsonPropertyName("state")]
+
+      public ExecutionState State { get; init; }
     parameters: []
     return:
       type: OverKizApi.Enums.ExecutionState
-    content.vb: Public Property State As ExecutionState
+      description: Terminal state reached by this specific command.
+    content.vb: >-
+      <JsonPropertyName("state")>
+
+      Public Property State As ExecutionState
   overload: OverKizApi.Models.HistoryExecutionCommand.State*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: state
 - uid: OverKizApi.Models.HistoryExecutionCommand.FailureType
   commentId: P:OverKizApi.Models.HistoryExecutionCommand.FailureType
   id: FailureType
@@ -229,19 +313,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: FailureType
     path: ../OverKizApi/Models/Models.cs
-    startLine: 689
+    startLine: 1706
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Failure type string for this command (see <xref href="OverKizApi.Models.HistoryExecutionCommand.FailureType" data-throw-if-not-resolved="false"></xref>).
   example: []
   syntax:
-    content: public string? FailureType { get; init; }
+    content: >-
+      [JsonPropertyName("failureType")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? FailureType { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property FailureType As String
+      description: Failure type string for this command (see <xref href="OverKizApi.Models.HistoryExecutionCommand.FailureType" data-throw-if-not-resolved="false"></xref>).
+    content.vb: >-
+      <JsonPropertyName("failureType")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property FailureType As String
   overload: OverKizApi.Models.HistoryExecutionCommand.FailureType*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: failureType
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.HistoryExecutionCommand.Parameters
   commentId: P:OverKizApi.Models.HistoryExecutionCommand.Parameters
   id: Parameters
@@ -260,19 +368,47 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Parameters
     path: ../OverKizApi/Models/Models.cs
-    startLine: 691
+    startLine: 1714
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Parameter values that were passed to the command.
   example: []
   syntax:
-    content: public IReadOnlyList<object?>? Parameters { get; init; }
+    content: >-
+      [JsonPropertyName("parameters")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      [JsonConverter(typeof(DeviceValuesConverter))]
+
+      public IReadOnlyList<object?>? Parameters { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{System.Object}
-    content.vb: Public Property Parameters As IReadOnlyList(Of Object)
+      description: Parameter values that were passed to the command.
+    content.vb: >-
+      <JsonPropertyName("parameters")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      <JsonConverter(GetType(DeviceValuesConverter))>
+
+      Public Property Parameters As IReadOnlyList(Of Object)
   overload: OverKizApi.Models.HistoryExecutionCommand.Parameters*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: parameters
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models.HistoryExecution
   commentId: T:OverKizApi.Models.HistoryExecution
@@ -282,26 +418,21 @@ references:
   fullName: OverKizApi.Models.HistoryExecution
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -587,26 +718,21 @@ references:
   fullName: OverKizApi.Enums.ExecutionState
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Models.HistoryExecutionCommand.FailureType
   commentId: P:OverKizApi.Models.HistoryExecutionCommand.FailureType
   href: OverKizApi.Models.HistoryExecutionCommand.html#OverKizApi_Models_HistoryExecutionCommand_FailureType

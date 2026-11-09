@@ -21,7 +21,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CommandDefinition
     path: ../OverKizApi/Models/Models.cs
-    startLine: 240
+    startLine: 541
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -57,19 +57,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CommandName
     path: ../OverKizApi/Models/Models.cs
-    startLine: 243
+    startLine: 545
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Name of the command (e.g. <code>"setClosure"</code>).
   example: []
   syntax:
-    content: public string? CommandName { get; init; }
+    content: >-
+      [JsonPropertyName("commandName")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? CommandName { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property CommandName As String
+      description: Name of the command (e.g. <code>"setClosure"</code>).
+    content.vb: >-
+      <JsonPropertyName("commandName")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property CommandName As String
   overload: OverKizApi.Models.CommandDefinition.CommandName*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: commandName
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.CommandDefinition.NParams
   commentId: P:OverKizApi.Models.CommandDefinition.NParams
   id: NParams
@@ -88,42 +112,59 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: NParams
     path: ../OverKizApi/Models/Models.cs
-    startLine: 245
+    startLine: 553
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Number of parameters the command accepts.
   example: []
   syntax:
-    content: public int NParams { get; init; }
+    content: >-
+      [JsonPropertyName("nParams")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public int NParams { get; init; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property NParams As Integer
+      description: Number of parameters the command accepts.
+    content.vb: >-
+      <JsonPropertyName("nParams")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property NParams As Integer
   overload: OverKizApi.Models.CommandDefinition.NParams*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: nParams
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 references:
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

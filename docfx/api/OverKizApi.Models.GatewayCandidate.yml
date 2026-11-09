@@ -23,7 +23,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewayCandidate
     path: ../OverKizApi/Models/Models.cs
-    startLine: 31
+    startLine: 57
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -59,19 +59,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewayId
     path: ../OverKizApi/Models/Models.cs
-    startLine: 34
+    startLine: 61
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Rexel gateway identifier required in the <code>gatewayId</code> header.
   example: []
   syntax:
-    content: public required string GatewayId { get; init; }
+    content: >-
+      [JsonPropertyName("gatewayId")]
+
+      public required string GatewayId { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property GatewayId As String
+      description: Rexel gateway identifier required in the <code>gatewayId</code> header.
+    content.vb: >-
+      <JsonPropertyName("gatewayId")>
+
+      Public Property GatewayId As String
   overload: OverKizApi.Models.GatewayCandidate.GatewayId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: gatewayId
 - uid: OverKizApi.Models.GatewayCandidate.HomeId
   commentId: P:OverKizApi.Models.GatewayCandidate.HomeId
   id: HomeId
@@ -90,19 +103,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HomeId
     path: ../OverKizApi/Models/Models.cs
-    startLine: 36
+    startLine: 68
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Rexel home identifier that owns the gateway.
   example: []
   syntax:
-    content: public required string HomeId { get; init; }
+    content: >-
+      [JsonPropertyName("homeId")]
+
+      public required string HomeId { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property HomeId As String
+      description: Rexel home identifier that owns the gateway.
+    content.vb: >-
+      <JsonPropertyName("homeId")>
+
+      Public Property HomeId As String
   overload: OverKizApi.Models.GatewayCandidate.HomeId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: homeId
 - uid: OverKizApi.Models.GatewayCandidate.Label
   commentId: P:OverKizApi.Models.GatewayCandidate.Label
   id: Label
@@ -121,19 +147,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Label
     path: ../OverKizApi/Models/Models.cs
-    startLine: 38
+    startLine: 75
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Optional human-readable home label.
   example: []
   syntax:
-    content: public string? Label { get; init; }
+    content: >-
+      [JsonPropertyName("label")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Label { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Label As String
+      description: Optional human-readable home label.
+    content.vb: >-
+      <JsonPropertyName("label")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Label As String
   overload: OverKizApi.Models.GatewayCandidate.Label*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: label
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.GatewayCandidate.ExternalId
   commentId: P:OverKizApi.Models.GatewayCandidate.ExternalId
   id: ExternalId
@@ -152,42 +202,61 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExternalId
     path: ../OverKizApi/Models/Models.cs
-    startLine: 40
+    startLine: 83
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
-  summary: Optional external identifier associated with the gateway.
+  summary: Optional external identifier associated with the gateway; this is the Overkiz serial used in URL paths for Rexel cloud endpoints.
   example: []
   syntax:
-    content: public string? ExternalId { get; init; }
+    content: >-
+      [JsonPropertyName("externalId")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? ExternalId { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property ExternalId As String
+      description: Optional external identifier associated with the gateway; this is the Overkiz serial used in URL paths for Rexel cloud endpoints.
+    content.vb: >-
+      <JsonPropertyName("externalId")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property ExternalId As String
   overload: OverKizApi.Models.GatewayCandidate.ExternalId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: externalId
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

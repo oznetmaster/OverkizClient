@@ -9,6 +9,7 @@ items:
   - OverKizApi.Enums.FailureType.CommandNotFound
   - OverKizApi.Enums.FailureType.CommandSyntaxError
   - OverKizApi.Enums.FailureType.DisabledCommand
+  - OverKizApi.Enums.FailureType.Internal
   - OverKizApi.Enums.FailureType.MethodNotAllowed
   - OverKizApi.Enums.FailureType.MissingCommandName
   - OverKizApi.Enums.FailureType.MissingSsmToken
@@ -30,15 +31,21 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: FailureType
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 54
+    startLine: 58
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Failure reason codes reported on a failed execution.
   example: []
   syntax:
-    content: public enum FailureType
-    content.vb: Public Enum FailureType
+    content: >-
+      [JsonConverter(typeof(TolerantEnumConverterFactory))]
+
+      public enum FailureType
+    content.vb: >-
+      <JsonConverter(GetType(TolerantEnumConverterFactory))>
+
+      Public Enum FailureType
 - uid: OverKizApi.Enums.FailureType.NoFailure
   commentId: F:OverKizApi.Enums.FailureType.NoFailure
   id: NoFailure
@@ -57,7 +64,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: NoFailure
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 57
+    startLine: 62
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -85,7 +92,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UnknownObject
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 59
+    startLine: 64
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -113,7 +120,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CommandSyntaxError
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 61
+    startLine: 66
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -141,7 +148,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: MethodNotAllowed
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 63
+    startLine: 68
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -169,7 +176,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CommandNotAllowed
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 65
+    startLine: 70
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -197,7 +204,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: MissingCommandName
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 67
+    startLine: 72
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -225,7 +232,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CommandNotFound
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 69
+    startLine: 74
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -253,7 +260,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UnsupportedOperation
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 71
+    startLine: 76
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -281,7 +288,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DisabledCommand
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 73
+    startLine: 78
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -309,7 +316,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: MissingSsmToken
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 75
+    startLine: 80
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -337,7 +344,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Unknown
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 77
+    startLine: 82
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -347,29 +354,52 @@ items:
     content: Unknown = 10
     return:
       type: OverKizApi.Enums.FailureType
+- uid: OverKizApi.Enums.FailureType.Internal
+  commentId: F:OverKizApi.Enums.FailureType.Internal
+  id: Internal
+  parent: OverKizApi.Enums.FailureType
+  langs:
+  - csharp
+  - vb
+  name: Internal
+  nameWithType: FailureType.Internal
+  fullName: OverKizApi.Enums.FailureType.Internal
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/Execution.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Internal
+    path: ../OverKizApi/Enums/Execution.cs
+    startLine: 84
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: The execution failed with the Overkiz internal error code 60001.
+  example: []
+  syntax:
+    content: Internal = 60001
+    return:
+      type: OverKizApi.Enums.FailureType
 references:
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Enums.FailureType
   commentId: T:OverKizApi.Enums.FailureType
   parent: OverKizApi.Enums

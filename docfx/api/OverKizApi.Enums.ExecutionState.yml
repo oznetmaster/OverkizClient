@@ -26,15 +26,21 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExecutionState
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 7
+    startLine: 8
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Lifecycle states of an execution as reported by the Overkiz API.
   example: []
   syntax:
-    content: public enum ExecutionState
-    content.vb: Public Enum ExecutionState
+    content: >-
+      [JsonConverter(typeof(TolerantEnumConverterFactory))]
+
+      public enum ExecutionState
+    content.vb: >-
+      <JsonConverter(GetType(TolerantEnumConverterFactory))>
+
+      Public Enum ExecutionState
 - uid: OverKizApi.Enums.ExecutionState.NotStarted
   commentId: F:OverKizApi.Enums.ExecutionState.NotStarted
   id: NotStarted
@@ -53,7 +59,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: NotStarted
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 10
+    startLine: 12
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -81,7 +87,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: InProgress
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 12
+    startLine: 14
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -109,7 +115,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Completed
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 14
+    startLine: 16
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -137,7 +143,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Failed
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 16
+    startLine: 18
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -165,7 +171,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Cancelled
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 18
+    startLine: 20
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -193,7 +199,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Queued
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 20
+    startLine: 22
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -221,7 +227,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Unknown
     path: ../OverKizApi/Enums/Execution.cs
-    startLine: 22
+    startLine: 24
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -234,26 +240,21 @@ items:
 references:
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Enums.ExecutionState
   commentId: T:OverKizApi.Enums.ExecutionState
   parent: OverKizApi.Enums

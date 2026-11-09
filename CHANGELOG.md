@@ -4,6 +4,18 @@ Notable changes to OverkizClient are recorded here. Earlier release history is a
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
+## [2.2.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.2.0) — 2026-11-09
+
+- Add `Server.SauterSmartControl`, distinct from Sauter Cozytouch, with the Sauter Smart Control middleware partner realm.
+- Authenticate both Brandt and Sauter Smart Control through the middleware cookie session, typed JWT exchange and JWT-only Overkiz cloud login. Honor the existing optional listener registration and invalidate cached setup state after successful login.
+- Distinguish middleware credential rejection from service/JWT failures with `BrandtBadCredentialsException` and `BrandtServiceException`. Service errors do not include credential-bearing response bodies.
+- Add the OGCP token-refresh completion event and dynamic audio-player/electrical-sensor widgets. Existing enum numeric values are preserved; new members are appended.
+- Retain new upstream oven attributes and energy, luminance, battery and commissioning states through the existing string-named typed models; no restrictive state/attribute enum is introduced.
+- Support overlapping calls on one client: independent reads may overlap; authentication, listener operations, gateway changes, cache replacement and commands are sequenced. Overlapping refreshes share the completed rotation, request headers are isolated, and disposal prevents late responses from restoring session state.
+- Use the .NET Framework 4.7.2 `System.Net.Http` reference instead of the older 4.3.4 NuGet compatibility dependency, fixing a conflicting HttpClient reference in independent package consumers. Library runtime bytes are unchanged by this packaging correction.
+
+Target frameworks are unchanged and no new runtime dependencies are added. See the [release notes](release-notes/v2.2.0.md).
+
 ## [2.1.3](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.1.3) — 2026-11-02
 
 - Recognize execution failure code `60001` as `FailureType.Internal` instead of an unnamed numeric enum value.

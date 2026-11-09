@@ -6,6 +6,7 @@ namespace OverKizApi.Tests;
 [TestFixture]
 public sealed class ModelTests
 	{
+	private static readonly string[] _orderedStateNames = ["first", "second"];
 	[TestCase ("io://gateway/device", Protocol.Io, "gateway", "device", null)]
 	[TestCase ("RTS://gateway/device#3", Protocol.Rts, "gateway", "device", 3)]
 	[TestCase ("hlrrwifi://gateway/device#0", Protocol.HlrrWifi, "gateway", "device", 0)]
@@ -99,7 +100,7 @@ public sealed class ModelTests
 		api.Expect ("POST", "events/listener/fetch", """[{"name":"ExecutionStateChangedEvent","failureType":"INTERNAL","failureTypeCode":60001}]""");
 		EventObject change = (await api.Client.FetchEvents ()).Single ();
 		Assert.That (change.FailureTypeCode.ToString (), Is.EqualTo ("Internal"));
-		Assert.That ((int) change.FailureTypeCode!.Value, Is.EqualTo (60001));
+		Assert.That ((int)change.FailureTypeCode!.Value, Is.EqualTo (60001));
 		Assert.That (change.FailureType, Is.EqualTo ("INTERNAL"));
 		EventObject roundTrip = JsonSerializer.Deserialize<EventObject> (JsonSerializer.Serialize (change))!;
 		Assert.That (roundTrip.FailureTypeCode, Is.EqualTo (FailureType.Internal));
@@ -185,7 +186,7 @@ public sealed class ModelTests
 	public void StatesCollection_RoundTripsAndKeepsLookupAndOrder ()
 		{
 		States states = JsonSerializer.Deserialize<States> ("""[{"name":"first","type":3,"value":"open"},{"name":"second","type":1,"value":42}]""")!;
-		Assert.That (states.Select (s => s.Name), Is.EqualTo (new[] { "first", "second" }));
+		Assert.That (states.Select (s => s.Name), Is.EqualTo (_orderedStateNames));
 		Assert.That (states.Contains ("first"), Is.True);
 		Assert.That (states["first"]!.ValueAsStr, Is.EqualTo ("open"));
 		Assert.That (states["missing"], Is.Null);

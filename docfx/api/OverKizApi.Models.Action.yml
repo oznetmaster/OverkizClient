@@ -21,7 +21,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Action
     path: ../OverKizApi/Models/Models.cs
-    startLine: 546
+    startLine: 1279
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -60,7 +60,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DeviceUrl
     path: ../OverKizApi/Models/Models.cs
-    startLine: 549
+    startLine: 1283
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -74,6 +74,7 @@ items:
     parameters: []
     return:
       type: System.String
+      description: URL of the device these commands are addressed to.
     content.vb: >-
       <JsonPropertyName("deviceURL")>
 
@@ -103,19 +104,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Commands
     path: ../OverKizApi/Models/Models.cs
-    startLine: 552
+    startLine: 1290
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Ordered list of commands.
   example: []
   syntax:
-    content: public IReadOnlyList<Command> Commands { get; init; }
+    content: >-
+      [JsonPropertyName("commands")]
+
+      public IReadOnlyList<Command> Commands { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Command}
-    content.vb: Public Property Commands As IReadOnlyList(Of Command)
+      description: Ordered list of commands.
+    content.vb: >-
+      <JsonPropertyName("commands")>
+
+      Public Property Commands As IReadOnlyList(Of Command)
   overload: OverKizApi.Models.Action.Commands*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: commands
 references:
 - uid: OverKizApi.Models.Action
   commentId: T:OverKizApi.Models.Action
@@ -125,26 +139,21 @@ references:
   fullName: OverKizApi.Models.Action
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

@@ -8,6 +8,7 @@ items:
   - OverKizApi.Enums.UIWidget.AdjustableSlatsRollerShutter
   - OverKizApi.Enums.UIWidget.AirPlaySocket
   - OverKizApi.Enums.UIWidget.Alarm
+  - OverKizApi.Enums.UIWidget.AlarmRemoteController
   - OverKizApi.Enums.UIWidget.AtmosphericPressureSensor
   - OverKizApi.Enums.UIWidget.Awning
   - OverKizApi.Enums.UIWidget.Camera
@@ -17,11 +18,18 @@ items:
   - OverKizApi.Enums.UIWidget.ConfigurableGate
   - OverKizApi.Enums.UIWidget.ContactSensor
   - OverKizApi.Enums.UIWidget.Curtain
+  - OverKizApi.Enums.UIWidget.CyclicSlidingGateOpener
   - OverKizApi.Enums.UIWidget.DimmerExteriorHeating
   - OverKizApi.Enums.UIWidget.DimmerLight
   - OverKizApi.Enums.UIWidget.Door
   - OverKizApi.Enums.UIWidget.DoorLock
+  - OverKizApi.Enums.UIWidget.DynamicAudioPlayer
+  - OverKizApi.Enums.UIWidget.DynamicElectricalSensor
+  - OverKizApi.Enums.UIWidget.DynamicRemoteController
+  - OverKizApi.Enums.UIWidget.DynamicScene
+  - OverKizApi.Enums.UIWidget.DynamicSceneLauncherController
   - OverKizApi.Enums.UIWidget.ElectricitySensor
+  - OverKizApi.Enums.UIWidget.EmptyRemoteController
   - OverKizApi.Enums.UIWidget.ExteriorBlind
   - OverKizApi.Enums.UIWidget.ExteriorScreen
   - OverKizApi.Enums.UIWidget.ExteriorVenetianBlind
@@ -47,12 +55,21 @@ items:
   - OverKizApi.Enums.UIWidget.PoolPump
   - OverKizApi.Enums.UIWidget.ProtocolGateway
   - OverKizApi.Enums.UIWidget.Pump
+  - OverKizApi.Enums.UIWidget.PushButton
+  - OverKizApi.Enums.UIWidget.RainAlarmSensor
   - OverKizApi.Enums.UIWidget.RainSensor
+  - OverKizApi.Enums.UIWidget.RemoteControllerOneWay
   - OverKizApi.Enums.UIWidget.RollerShutter
+  - OverKizApi.Enums.UIWidget.ScenarioTrigger
+  - OverKizApi.Enums.UIWidget.Scene
   - OverKizApi.Enums.UIWidget.Screen
   - OverKizApi.Enums.UIWidget.Siren
   - OverKizApi.Enums.UIWidget.SirenSensor
   - OverKizApi.Enums.UIWidget.SmokeSensor
+  - OverKizApi.Enums.UIWidget.SolenoidValve
+  - OverKizApi.Enums.UIWidget.StartStopTimer
+  - OverKizApi.Enums.UIWidget.StartTimer
+  - OverKizApi.Enums.UIWidget.StatefulOnOffSwitch
   - OverKizApi.Enums.UIWidget.StatelessAlarm
   - OverKizApi.Enums.UIWidget.StatelessExteriorHeating
   - OverKizApi.Enums.UIWidget.SwimmingPool
@@ -62,6 +79,8 @@ items:
   - OverKizApi.Enums.UIWidget.TiltOnlyVenetianBlind
   - OverKizApi.Enums.UIWidget.TimedOnOff
   - OverKizApi.Enums.UIWidget.TimedOnOffLight
+  - OverKizApi.Enums.UIWidget.TimedSolenoidValve
+  - OverKizApi.Enums.UIWidget.TwoButtonsController
   - OverKizApi.Enums.UIWidget.UniversalSensor
   - OverKizApi.Enums.UIWidget.Unknown
   - OverKizApi.Enums.UIWidget.Untyped
@@ -69,10 +88,14 @@ items:
   - OverKizApi.Enums.UIWidget.UpDownScreen
   - OverKizApi.Enums.UIWidget.UpDownVenetianBlind
   - OverKizApi.Enums.UIWidget.UpDownWindow
+  - OverKizApi.Enums.UIWidget.UrmetCallForwarding
+  - OverKizApi.Enums.UIWidget.UrmetStack
   - OverKizApi.Enums.UIWidget.ValveHeatingTemperatureInterface
+  - OverKizApi.Enums.UIWidget.VentilationExtractor
   - OverKizApi.Enums.UIWidget.VentilationInlet
   - OverKizApi.Enums.UIWidget.VentilationOutlet
   - OverKizApi.Enums.UIWidget.VentilationTransfer
+  - OverKizApi.Enums.UIWidget.WallHeatingTemperatureInterface
   - OverKizApi.Enums.UIWidget.WaterDetectionSensor
   - OverKizApi.Enums.UIWidget.WeatherForecastSensor
   - OverKizApi.Enums.UIWidget.Wifi
@@ -80,6 +103,7 @@ items:
   - OverKizApi.Enums.UIWidget.WindSpeedSensor
   - OverKizApi.Enums.UIWidget.WindowLock
   - OverKizApi.Enums.UIWidget.WindowWithTiltSensor
+  - OverKizApi.Enums.UIWidget.YokisTransceiver
   - OverKizApi.Enums.UIWidget.ZWaveTransceiver
   - OverKizApi.Enums.UIWidget.ZigbeeNetwork
   - OverKizApi.Enums.UIWidget.ZigbeeStack
@@ -97,7 +121,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UIWidget
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 251
+    startLine: 256
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -131,7 +155,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Unknown
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 254
+    startLine: 259
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -159,7 +183,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: AdjustableSlatsRollerShutter
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 256
+    startLine: 261
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -187,7 +211,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Alarm
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 258
+    startLine: 263
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
@@ -195,6 +219,34 @@ items:
   example: []
   syntax:
     content: Alarm = 2
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.AlarmRemoteController
+  commentId: F:OverKizApi.Enums.UIWidget.AlarmRemoteController
+  id: AlarmRemoteController
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: AlarmRemoteController
+  nameWithType: UIWidget.AlarmRemoteController
+  fullName: OverKizApi.Enums.UIWidget.AlarmRemoteController
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: AlarmRemoteController
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 265
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for an alarm-specific remote controller.
+  example: []
+  syntax:
+    content: AlarmRemoteController = 3
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.AirPlaySocket
@@ -215,14 +267,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: AirPlaySocket
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 260
+    startLine: 267
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an AirPlay-enabled smart socket.
   example: []
   syntax:
-    content: AirPlaySocket = 3
+    content: AirPlaySocket = 4
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.AtmosphericPressureSensor
@@ -243,14 +295,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: AtmosphericPressureSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 262
+    startLine: 269
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a barometric pressure sensor.
   example: []
   syntax:
-    content: AtmosphericPressureSensor = 4
+    content: AtmosphericPressureSensor = 5
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Awning
@@ -271,14 +323,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Awning
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 264
+    startLine: 271
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a retractable fabric awning.
   example: []
   syntax:
-    content: Awning = 5
+    content: Awning = 6
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Camera
@@ -299,14 +351,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Camera
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 266
+    startLine: 273
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a security or surveillance camera.
   example: []
   syntax:
-    content: Camera = 6
+    content: Camera = 7
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.CarbonDioxideSensor
@@ -327,14 +379,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CarbonDioxideSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 268
+    startLine: 275
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a CO₂ concentration sensor.
   example: []
   syntax:
-    content: CarbonDioxideSensor = 7
+    content: CarbonDioxideSensor = 8
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.CarbonMonoxideSensor
@@ -355,14 +407,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CarbonMonoxideSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 270
+    startLine: 277
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a CO concentration sensor.
   example: []
   syntax:
-    content: CarbonMonoxideSensor = 8
+    content: CarbonMonoxideSensor = 9
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.CircuitBreaker
@@ -383,14 +435,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: CircuitBreaker
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 272
+    startLine: 279
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a smart circuit breaker.
   example: []
   syntax:
-    content: CircuitBreaker = 9
+    content: CircuitBreaker = 10
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ConfigurableGate
@@ -411,14 +463,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ConfigurableGate
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 274
+    startLine: 281
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a configurable entry gate.
   example: []
   syntax:
-    content: ConfigurableGate = 10
+    content: ConfigurableGate = 11
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ContactSensor
@@ -439,14 +491,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ContactSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 276
+    startLine: 283
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a magnetic contact / door-window open sensor.
   example: []
   syntax:
-    content: ContactSensor = 11
+    content: ContactSensor = 12
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.CyclicSlidingGateOpener
+  commentId: F:OverKizApi.Enums.UIWidget.CyclicSlidingGateOpener
+  id: CyclicSlidingGateOpener
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: CyclicSlidingGateOpener
+  nameWithType: UIWidget.CyclicSlidingGateOpener
+  fullName: OverKizApi.Enums.UIWidget.CyclicSlidingGateOpener
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: CyclicSlidingGateOpener
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 285
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a cyclic sliding gate opener.
+  example: []
+  syntax:
+    content: CyclicSlidingGateOpener = 13
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Curtain
@@ -467,14 +547,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Curtain
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 278
+    startLine: 287
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a fabric curtain that draws to the side(s).
   example: []
   syntax:
-    content: Curtain = 12
+    content: Curtain = 14
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.DimmerExteriorHeating
@@ -495,14 +575,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DimmerExteriorHeating
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 280
+    startLine: 289
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an exterior heater with variable (dimmer) control.
   example: []
   syntax:
-    content: DimmerExteriorHeating = 13
+    content: DimmerExteriorHeating = 15
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.DimmerLight
@@ -523,14 +603,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DimmerLight
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 282
+    startLine: 291
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a dimmable light.
   example: []
   syntax:
-    content: DimmerLight = 14
+    content: DimmerLight = 16
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Door
@@ -551,14 +631,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Door
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 284
+    startLine: 293
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a motorised or smart door.
   example: []
   syntax:
-    content: Door = 15
+    content: Door = 17
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.DoorLock
@@ -579,14 +659,98 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: DoorLock
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 286
+    startLine: 295
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an electronic door lock.
   example: []
   syntax:
-    content: DoorLock = 16
+    content: DoorLock = 18
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.DynamicRemoteController
+  commentId: F:OverKizApi.Enums.UIWidget.DynamicRemoteController
+  id: DynamicRemoteController
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: DynamicRemoteController
+  nameWithType: UIWidget.DynamicRemoteController
+  fullName: OverKizApi.Enums.UIWidget.DynamicRemoteController
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DynamicRemoteController
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 297
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a dynamic remote controller.
+  example: []
+  syntax:
+    content: DynamicRemoteController = 19
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.DynamicScene
+  commentId: F:OverKizApi.Enums.UIWidget.DynamicScene
+  id: DynamicScene
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: DynamicScene
+  nameWithType: UIWidget.DynamicScene
+  fullName: OverKizApi.Enums.UIWidget.DynamicScene
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DynamicScene
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 299
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a dynamic scene object.
+  example: []
+  syntax:
+    content: DynamicScene = 20
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.DynamicSceneLauncherController
+  commentId: F:OverKizApi.Enums.UIWidget.DynamicSceneLauncherController
+  id: DynamicSceneLauncherController
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: DynamicSceneLauncherController
+  nameWithType: UIWidget.DynamicSceneLauncherController
+  fullName: OverKizApi.Enums.UIWidget.DynamicSceneLauncherController
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DynamicSceneLauncherController
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 301
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a dynamic scene-launcher controller.
+  example: []
+  syntax:
+    content: DynamicSceneLauncherController = 21
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ElectricitySensor
@@ -607,14 +771,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ElectricitySensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 288
+    startLine: 303
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a real-time electricity consumption sensor.
   example: []
   syntax:
-    content: ElectricitySensor = 17
+    content: ElectricitySensor = 22
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.EmptyRemoteController
+  commentId: F:OverKizApi.Enums.UIWidget.EmptyRemoteController
+  id: EmptyRemoteController
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: EmptyRemoteController
+  nameWithType: UIWidget.EmptyRemoteController
+  fullName: OverKizApi.Enums.UIWidget.EmptyRemoteController
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: EmptyRemoteController
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 305
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for an unconfigured or placeholder remote controller.
+  example: []
+  syntax:
+    content: EmptyRemoteController = 23
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ExteriorBlind
@@ -635,14 +827,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExteriorBlind
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 290
+    startLine: 307
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an exterior fabric or slat blind.
   example: []
   syntax:
-    content: ExteriorBlind = 18
+    content: ExteriorBlind = 24
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ExteriorScreen
@@ -663,14 +855,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExteriorScreen
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 292
+    startLine: 309
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an exterior roller screen.
   example: []
   syntax:
-    content: ExteriorScreen = 19
+    content: ExteriorScreen = 25
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ExteriorVenetianBlind
@@ -691,14 +883,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExteriorVenetianBlind
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 294
+    startLine: 311
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an exterior Venetian blind.
   example: []
   syntax:
-    content: ExteriorVenetianBlind = 20
+    content: ExteriorVenetianBlind = 26
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Fan
@@ -719,14 +911,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Fan
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 296
+    startLine: 313
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a ceiling or desk fan.
   example: []
   syntax:
-    content: Fan = 21
+    content: Fan = 27
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.FanController
@@ -747,14 +939,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: FanController
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 298
+    startLine: 315
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a fan controller hub.
   example: []
   syntax:
-    content: FanController = 22
+    content: FanController = 28
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.GarageDoor
@@ -775,14 +967,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GarageDoor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 300
+    startLine: 317
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a motorised garage door.
   example: []
   syntax:
-    content: GarageDoor = 23
+    content: GarageDoor = 29
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Gate
@@ -803,14 +995,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Gate
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 302
+    startLine: 319
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a motorised entry gate.
   example: []
   syntax:
-    content: Gate = 24
+    content: Gate = 30
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Generic
@@ -831,14 +1023,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Generic
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 304
+    startLine: 321
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a generic device with no specific template.
   example: []
   syntax:
-    content: Generic = 25
+    content: Generic = 31
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.HeatingSystem
@@ -859,14 +1051,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HeatingSystem
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 306
+    startLine: 323
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a heating system controller.
   example: []
   syntax:
-    content: HeatingSystem = 26
+    content: HeatingSystem = 32
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.HitachiAirToAirHeatPump
@@ -887,14 +1079,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HitachiAirToAirHeatPump
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 308
+    startLine: 325
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a Hitachi air-to-air heat pump.
   example: []
   syntax:
-    content: HitachiAirToAirHeatPump = 27
+    content: HitachiAirToAirHeatPump = 33
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.HorizontalAwning
@@ -915,14 +1107,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HorizontalAwning
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 310
+    startLine: 327
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a horizontal retractable awning.
   example: []
   syntax:
-    content: HorizontalAwning = 28
+    content: HorizontalAwning = 34
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.HumiditySensor
@@ -943,14 +1135,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: HumiditySensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 312
+    startLine: 329
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a relative humidity sensor.
   example: []
   syntax:
-    content: HumiditySensor = 29
+    content: HumiditySensor = 35
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Light
@@ -971,14 +1163,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Light
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 314
+    startLine: 331
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an on/off light fixture.
   example: []
   syntax:
-    content: Light = 30
+    content: Light = 36
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.LightSensor
@@ -999,14 +1191,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LightSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 316
+    startLine: 333
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an ambient light level sensor.
   example: []
   syntax:
-    content: LightSensor = 31
+    content: LightSensor = 37
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Lock
@@ -1027,14 +1219,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Lock
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 318
+    startLine: 335
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a generic lock.
   example: []
   syntax:
-    content: Lock = 32
+    content: Lock = 38
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.MotionSensor
@@ -1055,14 +1247,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: MotionSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 320
+    startLine: 337
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a motion / PIR sensor.
   example: []
   syntax:
-    content: MotionSensor = 33
+    content: MotionSensor = 39
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.NoiseSensor
@@ -1083,14 +1275,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: NoiseSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 322
+    startLine: 339
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an acoustic noise level sensor.
   example: []
   syntax:
-    content: NoiseSensor = 34
+    content: NoiseSensor = 40
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.OccupancySensor
@@ -1111,14 +1303,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: OccupancySensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 324
+    startLine: 341
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an occupancy / presence sensor.
   example: []
   syntax:
-    content: OccupancySensor = 35
+    content: OccupancySensor = 41
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.OnOff
@@ -1139,14 +1331,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: OnOff
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 326
+    startLine: 343
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a simple on/off relay or smart plug.
   example: []
   syntax:
-    content: OnOff = 36
+    content: OnOff = 42
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.OnOffLight
@@ -1167,14 +1359,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: OnOffLight
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 328
+    startLine: 345
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a non-dimmable on/off light.
   example: []
   syntax:
-    content: OnOffLight = 37
+    content: OnOffLight = 43
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Pergola
@@ -1195,14 +1387,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Pergola
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 330
+    startLine: 347
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a fixed-louvre pergola.
   example: []
   syntax:
-    content: Pergola = 38
+    content: Pergola = 44
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Pool
@@ -1223,14 +1415,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Pool
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 332
+    startLine: 349
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a swimming pool controller.
   example: []
   syntax:
-    content: Pool = 39
+    content: Pool = 45
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.PoolPump
@@ -1251,14 +1443,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: PoolPump
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 334
+    startLine: 351
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a pool circulation pump.
   example: []
   syntax:
-    content: PoolPump = 40
+    content: PoolPump = 46
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ProtocolGateway
@@ -1279,14 +1471,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ProtocolGateway
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 336
+    startLine: 353
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a protocol gateway/bridge device.
   example: []
   syntax:
-    content: ProtocolGateway = 41
+    content: ProtocolGateway = 47
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Pump
@@ -1307,14 +1499,70 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Pump
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 338
+    startLine: 355
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a generic pump actuator.
   example: []
   syntax:
-    content: Pump = 42
+    content: Pump = 48
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.PushButton
+  commentId: F:OverKizApi.Enums.UIWidget.PushButton
+  id: PushButton
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: PushButton
+  nameWithType: UIWidget.PushButton
+  fullName: OverKizApi.Enums.UIWidget.PushButton
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: PushButton
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 357
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a push-button controller.
+  example: []
+  syntax:
+    content: PushButton = 49
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.RainAlarmSensor
+  commentId: F:OverKizApi.Enums.UIWidget.RainAlarmSensor
+  id: RainAlarmSensor
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: RainAlarmSensor
+  nameWithType: UIWidget.RainAlarmSensor
+  fullName: OverKizApi.Enums.UIWidget.RainAlarmSensor
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: RainAlarmSensor
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 359
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a rain sensor that also exposes an alarm state.
+  example: []
+  syntax:
+    content: RainAlarmSensor = 50
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.RainSensor
@@ -1335,14 +1583,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: RainSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 340
+    startLine: 361
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a rain / precipitation sensor.
   example: []
   syntax:
-    content: RainSensor = 43
+    content: RainSensor = 51
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.RemoteControllerOneWay
+  commentId: F:OverKizApi.Enums.UIWidget.RemoteControllerOneWay
+  id: RemoteControllerOneWay
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: RemoteControllerOneWay
+  nameWithType: UIWidget.RemoteControllerOneWay
+  fullName: OverKizApi.Enums.UIWidget.RemoteControllerOneWay
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: RemoteControllerOneWay
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 363
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a one-way remote controller.
+  example: []
+  syntax:
+    content: RemoteControllerOneWay = 52
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.RollerShutter
@@ -1363,14 +1639,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: RollerShutter
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 342
+    startLine: 365
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a roller shutter.
   example: []
   syntax:
-    content: RollerShutter = 44
+    content: RollerShutter = 53
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Screen
@@ -1391,14 +1667,70 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Screen
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 344
+    startLine: 367
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an interior roller screen.
   example: []
   syntax:
-    content: Screen = 45
+    content: Screen = 54
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.ScenarioTrigger
+  commentId: F:OverKizApi.Enums.UIWidget.ScenarioTrigger
+  id: ScenarioTrigger
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: ScenarioTrigger
+  nameWithType: UIWidget.ScenarioTrigger
+  fullName: OverKizApi.Enums.UIWidget.ScenarioTrigger
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: ScenarioTrigger
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 369
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a scenario trigger control.
+  example: []
+  syntax:
+    content: ScenarioTrigger = 55
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.Scene
+  commentId: F:OverKizApi.Enums.UIWidget.Scene
+  id: Scene
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: Scene
+  nameWithType: UIWidget.Scene
+  fullName: OverKizApi.Enums.UIWidget.Scene
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: Scene
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 371
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a scene object.
+  example: []
+  syntax:
+    content: Scene = 56
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Siren
@@ -1419,14 +1751,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Siren
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 346
+    startLine: 373
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an alarm siren.
   example: []
   syntax:
-    content: Siren = 46
+    content: Siren = 57
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.SirenSensor
@@ -1447,14 +1779,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SirenSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 348
+    startLine: 375
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a combined siren and sensor.
   example: []
   syntax:
-    content: SirenSensor = 47
+    content: SirenSensor = 58
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.SmokeSensor
@@ -1475,14 +1807,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SmokeSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 350
+    startLine: 377
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a smoke detector.
   example: []
   syntax:
-    content: SmokeSensor = 48
+    content: SmokeSensor = 59
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.SolenoidValve
+  commentId: F:OverKizApi.Enums.UIWidget.SolenoidValve
+  id: SolenoidValve
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: SolenoidValve
+  nameWithType: UIWidget.SolenoidValve
+  fullName: OverKizApi.Enums.UIWidget.SolenoidValve
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: SolenoidValve
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 379
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a solenoid valve actuator.
+  example: []
+  syntax:
+    content: SolenoidValve = 60
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.StatelessAlarm
@@ -1503,14 +1863,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: StatelessAlarm
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 352
+    startLine: 381
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a stateless alarm panel.
   example: []
   syntax:
-    content: StatelessAlarm = 49
+    content: StatelessAlarm = 61
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.StatelessExteriorHeating
@@ -1531,14 +1891,98 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: StatelessExteriorHeating
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 354
+    startLine: 383
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a stateless exterior heater.
   example: []
   syntax:
-    content: StatelessExteriorHeating = 50
+    content: StatelessExteriorHeating = 62
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.StartStopTimer
+  commentId: F:OverKizApi.Enums.UIWidget.StartStopTimer
+  id: StartStopTimer
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: StartStopTimer
+  nameWithType: UIWidget.StartStopTimer
+  fullName: OverKizApi.Enums.UIWidget.StartStopTimer
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: StartStopTimer
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 385
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a combined start/stop timer control.
+  example: []
+  syntax:
+    content: StartStopTimer = 63
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.StartTimer
+  commentId: F:OverKizApi.Enums.UIWidget.StartTimer
+  id: StartTimer
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: StartTimer
+  nameWithType: UIWidget.StartTimer
+  fullName: OverKizApi.Enums.UIWidget.StartTimer
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: StartTimer
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 387
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a start timer control.
+  example: []
+  syntax:
+    content: StartTimer = 64
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.StatefulOnOffSwitch
+  commentId: F:OverKizApi.Enums.UIWidget.StatefulOnOffSwitch
+  id: StatefulOnOffSwitch
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: StatefulOnOffSwitch
+  nameWithType: UIWidget.StatefulOnOffSwitch
+  fullName: OverKizApi.Enums.UIWidget.StatefulOnOffSwitch
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: StatefulOnOffSwitch
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 389
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a stateful on/off wall switch.
+  example: []
+  syntax:
+    content: StatefulOnOffSwitch = 65
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.SwimmingPool
@@ -1559,14 +2003,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SwimmingPool
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 356
+    startLine: 391
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a full swimming pool management system.
   example: []
   syntax:
-    content: SwimmingPool = 51
+    content: SwimmingPool = 66
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.SwingingShutter
@@ -1587,14 +2031,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: SwingingShutter
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 358
+    startLine: 393
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a hinged or bi-fold swinging shutter.
   example: []
   syntax:
-    content: SwingingShutter = 52
+    content: SwingingShutter = 67
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.TemperatureSensor
@@ -1615,14 +2059,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TemperatureSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 360
+    startLine: 395
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an ambient temperature sensor.
   example: []
   syntax:
-    content: TemperatureSensor = 53
+    content: TemperatureSensor = 68
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ThermostatZonesController
@@ -1643,14 +2087,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ThermostatZonesController
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 362
+    startLine: 397
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a multi-zone thermostat controller.
   example: []
   syntax:
-    content: ThermostatZonesController = 54
+    content: ThermostatZonesController = 69
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.TiltOnlyVenetianBlind
@@ -1671,14 +2115,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TiltOnlyVenetianBlind
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 364
+    startLine: 399
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a Venetian blind that can only tilt (no travel).
   example: []
   syntax:
-    content: TiltOnlyVenetianBlind = 55
+    content: TiltOnlyVenetianBlind = 70
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.TimedOnOff
@@ -1699,14 +2143,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TimedOnOff
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 366
+    startLine: 401
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a timed on/off relay.
   example: []
   syntax:
-    content: TimedOnOff = 56
+    content: TimedOnOff = 71
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.TimedOnOffLight
@@ -1727,14 +2171,70 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: TimedOnOffLight
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 368
+    startLine: 403
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a timed on/off light.
   example: []
   syntax:
-    content: TimedOnOffLight = 57
+    content: TimedOnOffLight = 72
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.TimedSolenoidValve
+  commentId: F:OverKizApi.Enums.UIWidget.TimedSolenoidValve
+  id: TimedSolenoidValve
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: TimedSolenoidValve
+  nameWithType: UIWidget.TimedSolenoidValve
+  fullName: OverKizApi.Enums.UIWidget.TimedSolenoidValve
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TimedSolenoidValve
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 405
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a timed solenoid valve actuator.
+  example: []
+  syntax:
+    content: TimedSolenoidValve = 73
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.TwoButtonsController
+  commentId: F:OverKizApi.Enums.UIWidget.TwoButtonsController
+  id: TwoButtonsController
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: TwoButtonsController
+  nameWithType: UIWidget.TwoButtonsController
+  fullName: OverKizApi.Enums.UIWidget.TwoButtonsController
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: TwoButtonsController
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 407
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a two-buttons controller.
+  example: []
+  syntax:
+    content: TwoButtonsController = 74
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.UniversalSensor
@@ -1755,14 +2255,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UniversalSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 370
+    startLine: 409
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a configurable universal sensor.
   example: []
   syntax:
-    content: UniversalSensor = 58
+    content: UniversalSensor = 75
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Untyped
@@ -1783,14 +2283,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Untyped
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 372
+    startLine: 411
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an unclassified device.
   example: []
   syntax:
-    content: Untyped = 59
+    content: Untyped = 76
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.UpDownRollerShutter
@@ -1811,14 +2311,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UpDownRollerShutter
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 374
+    startLine: 413
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a roller shutter with up/down travel.
   example: []
   syntax:
-    content: UpDownRollerShutter = 60
+    content: UpDownRollerShutter = 77
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.UpDownScreen
@@ -1839,14 +2339,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UpDownScreen
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 376
+    startLine: 415
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an interior screen with up/down travel.
   example: []
   syntax:
-    content: UpDownScreen = 61
+    content: UpDownScreen = 78
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.UpDownVenetianBlind
@@ -1867,14 +2367,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UpDownVenetianBlind
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 378
+    startLine: 417
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a Venetian blind with up/down travel and slat tilt.
   example: []
   syntax:
-    content: UpDownVenetianBlind = 62
+    content: UpDownVenetianBlind = 79
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.UpDownWindow
@@ -1895,14 +2395,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: UpDownWindow
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 380
+    startLine: 419
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a motorised window with up/down travel.
   example: []
   syntax:
-    content: UpDownWindow = 63
+    content: UpDownWindow = 80
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ValveHeatingTemperatureInterface
@@ -1923,14 +2423,42 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ValveHeatingTemperatureInterface
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 382
+    startLine: 421
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a thermostatic valve with temperature interface.
   example: []
   syntax:
-    content: ValveHeatingTemperatureInterface = 64
+    content: ValveHeatingTemperatureInterface = 81
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.VentilationExtractor
+  commentId: F:OverKizApi.Enums.UIWidget.VentilationExtractor
+  id: VentilationExtractor
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: VentilationExtractor
+  nameWithType: UIWidget.VentilationExtractor
+  fullName: OverKizApi.Enums.UIWidget.VentilationExtractor
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: VentilationExtractor
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 423
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a ventilation extractor unit.
+  example: []
+  syntax:
+    content: VentilationExtractor = 82
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.VentilationInlet
@@ -1951,14 +2479,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: VentilationInlet
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 384
+    startLine: 425
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a controlled fresh-air ventilation inlet.
   example: []
   syntax:
-    content: VentilationInlet = 65
+    content: VentilationInlet = 83
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.VentilationOutlet
@@ -1979,14 +2507,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: VentilationOutlet
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 386
+    startLine: 427
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a controlled exhaust-air ventilation outlet.
   example: []
   syntax:
-    content: VentilationOutlet = 66
+    content: VentilationOutlet = 84
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.VentilationTransfer
@@ -2007,14 +2535,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: VentilationTransfer
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 388
+    startLine: 429
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a controlled inter-zone ventilation transfer damper.
   example: []
   syntax:
-    content: VentilationTransfer = 67
+    content: VentilationTransfer = 85
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.WaterDetectionSensor
@@ -2035,14 +2563,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: WaterDetectionSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 390
+    startLine: 431
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a water ingress / flood detection sensor.
   example: []
   syntax:
-    content: WaterDetectionSensor = 68
+    content: WaterDetectionSensor = 86
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.WeatherForecastSensor
@@ -2063,14 +2591,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: WeatherForecastSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 392
+    startLine: 433
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a multi-parameter weather forecast sensor.
   example: []
   syntax:
-    content: WeatherForecastSensor = 69
+    content: WeatherForecastSensor = 87
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.Wifi
@@ -2091,14 +2619,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Wifi
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 394
+    startLine: 435
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a Wi-Fi access point or repeater.
   example: []
   syntax:
-    content: Wifi = 70
+    content: Wifi = 88
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.WindSpeedSensor
@@ -2119,14 +2647,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: WindSpeedSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 396
+    startLine: 437
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an anemometer measuring wind speed only.
   example: []
   syntax:
-    content: WindSpeedSensor = 71
+    content: WindSpeedSensor = 89
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.WindSpeedAndDirectionSensor
@@ -2147,14 +2675,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: WindSpeedAndDirectionSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 398
+    startLine: 439
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for an anemometer measuring wind speed and direction.
   example: []
   syntax:
-    content: WindSpeedAndDirectionSensor = 72
+    content: WindSpeedAndDirectionSensor = 90
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.WindowLock
@@ -2175,14 +2703,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: WindowLock
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 400
+    startLine: 441
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a motorised or smart window lock.
   example: []
   syntax:
-    content: WindowLock = 73
+    content: WindowLock = 91
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.WindowWithTiltSensor
@@ -2203,14 +2731,126 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: WindowWithTiltSensor
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 402
+    startLine: 443
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a window sensor that detects tilt as well as open/closed state.
   example: []
   syntax:
-    content: WindowWithTiltSensor = 74
+    content: WindowWithTiltSensor = 92
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.WallHeatingTemperatureInterface
+  commentId: F:OverKizApi.Enums.UIWidget.WallHeatingTemperatureInterface
+  id: WallHeatingTemperatureInterface
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: WallHeatingTemperatureInterface
+  nameWithType: UIWidget.WallHeatingTemperatureInterface
+  fullName: OverKizApi.Enums.UIWidget.WallHeatingTemperatureInterface
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: WallHeatingTemperatureInterface
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 445
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a wall heating temperature interface.
+  example: []
+  syntax:
+    content: WallHeatingTemperatureInterface = 93
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.UrmetCallForwarding
+  commentId: F:OverKizApi.Enums.UIWidget.UrmetCallForwarding
+  id: UrmetCallForwarding
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: UrmetCallForwarding
+  nameWithType: UIWidget.UrmetCallForwarding
+  fullName: OverKizApi.Enums.UIWidget.UrmetCallForwarding
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: UrmetCallForwarding
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 447
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for Urmet call-forwarding control.
+  example: []
+  syntax:
+    content: UrmetCallForwarding = 94
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.UrmetStack
+  commentId: F:OverKizApi.Enums.UIWidget.UrmetStack
+  id: UrmetStack
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: UrmetStack
+  nameWithType: UIWidget.UrmetStack
+  fullName: OverKizApi.Enums.UIWidget.UrmetStack
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: UrmetStack
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 449
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for an Urmet stack/integration component.
+  example: []
+  syntax:
+    content: UrmetStack = 95
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.YokisTransceiver
+  commentId: F:OverKizApi.Enums.UIWidget.YokisTransceiver
+  id: YokisTransceiver
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: YokisTransceiver
+  nameWithType: UIWidget.YokisTransceiver
+  fullName: OverKizApi.Enums.UIWidget.YokisTransceiver
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: YokisTransceiver
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 451
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Widget for a Yokis transceiver.
+  example: []
+  syntax:
+    content: YokisTransceiver = 96
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ZWaveTransceiver
@@ -2231,14 +2871,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ZWaveTransceiver
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 404
+    startLine: 453
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a Z-Wave transceiver module.
   example: []
   syntax:
-    content: ZWaveTransceiver = 75
+    content: ZWaveTransceiver = 97
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ZigbeeNetwork
@@ -2259,14 +2899,14 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ZigbeeNetwork
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 406
+    startLine: 455
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a Zigbee network coordinator or router.
   example: []
   syntax:
-    content: ZigbeeNetwork = 76
+    content: ZigbeeNetwork = 98
     return:
       type: OverKizApi.Enums.UIWidget
 - uid: OverKizApi.Enums.UIWidget.ZigbeeStack
@@ -2287,14 +2927,70 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ZigbeeStack
     path: ../OverKizApi/Enums/UI.cs
-    startLine: 408
+    startLine: 457
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Enums
   summary: Widget for a Zigbee protocol stack component.
   example: []
   syntax:
-    content: ZigbeeStack = 77
+    content: ZigbeeStack = 99
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.DynamicAudioPlayer
+  commentId: F:OverKizApi.Enums.UIWidget.DynamicAudioPlayer
+  id: DynamicAudioPlayer
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: DynamicAudioPlayer
+  nameWithType: UIWidget.DynamicAudioPlayer
+  fullName: OverKizApi.Enums.UIWidget.DynamicAudioPlayer
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DynamicAudioPlayer
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 459
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Dynamic audio-player widget, including the vendor's Audioplayer spelling.
+  example: []
+  syntax:
+    content: DynamicAudioPlayer = 100
+    return:
+      type: OverKizApi.Enums.UIWidget
+- uid: OverKizApi.Enums.UIWidget.DynamicElectricalSensor
+  commentId: F:OverKizApi.Enums.UIWidget.DynamicElectricalSensor
+  id: DynamicElectricalSensor
+  parent: OverKizApi.Enums.UIWidget
+  langs:
+  - csharp
+  - vb
+  name: DynamicElectricalSensor
+  nameWithType: UIWidget.DynamicElectricalSensor
+  fullName: OverKizApi.Enums.UIWidget.DynamicElectricalSensor
+  type: Field
+  source:
+    remote:
+      path: OverKizApi/Enums/UI.cs
+      branch: master
+      repo: https://github.com/oznetmaster/OverkizClient.git
+    id: DynamicElectricalSensor
+    path: ../OverKizApi/Enums/UI.cs
+    startLine: 461
+  assemblies:
+  - OverKizApi
+  namespace: OverKizApi.Enums
+  summary: Dynamic electrical measurement widget.
+  example: []
+  syntax:
+    content: DynamicElectricalSensor = 101
     return:
       type: OverKizApi.Enums.UIWidget
 references:
@@ -2307,26 +3003,21 @@ references:
   fullName: OverKizApi.Enums.UIClass
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Enums.UIWidget
   commentId: T:OverKizApi.Enums.UIWidget
   parent: OverKizApi.Enums

@@ -25,7 +25,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: LocalToken
     path: ../OverKizApi/Models/Models.cs
-    startLine: 732
+    startLine: 1840
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -66,19 +66,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Label
     path: ../OverKizApi/Models/Models.cs
-    startLine: 735
+    startLine: 1844
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: User-assigned label for this token.
   example: []
   syntax:
-    content: public string? Label { get; init; }
+    content: >-
+      [JsonPropertyName("label")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Label { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Label As String
+      description: User-assigned label for this token.
+    content.vb: >-
+      <JsonPropertyName("label")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Label As String
   overload: OverKizApi.Models.LocalToken.Label*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: label
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.LocalToken.GatewayId
   commentId: P:OverKizApi.Models.LocalToken.GatewayId
   id: GatewayId
@@ -97,19 +121,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewayId
     path: ../OverKizApi/Models/Models.cs
-    startLine: 737
+    startLine: 1852
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Serial number of the gateway this token is bound to.
   example: []
   syntax:
-    content: public string? GatewayId { get; init; }
+    content: >-
+      [JsonPropertyName("gatewayId")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? GatewayId { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property GatewayId As String
+      description: Serial number of the gateway this token is bound to.
+    content.vb: >-
+      <JsonPropertyName("gatewayId")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property GatewayId As String
   overload: OverKizApi.Models.LocalToken.GatewayId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: gatewayId
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.LocalToken.GatewayCreationTime
   commentId: P:OverKizApi.Models.LocalToken.GatewayCreationTime
   id: GatewayCreationTime
@@ -128,19 +176,41 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: GatewayCreationTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 739
+    startLine: 1860
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp recorded when the gateway was created.
   example: []
   syntax:
-    content: public long GatewayCreationTime { get; init; }
+    content: >-
+      [JsonPropertyName("gatewayCreationTime")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      public long GatewayCreationTime { get; init; }
     parameters: []
     return:
       type: System.Int64
-    content.vb: Public Property GatewayCreationTime As Long
+      description: Unix epoch millisecond timestamp recorded when the gateway was created.
+    content.vb: >-
+      <JsonPropertyName("gatewayCreationTime")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      Public Property GatewayCreationTime As Long
   overload: OverKizApi.Models.LocalToken.GatewayCreationTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: gatewayCreationTime
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
 - uid: OverKizApi.Models.LocalToken.Uuid
   commentId: P:OverKizApi.Models.LocalToken.Uuid
   id: Uuid
@@ -159,19 +229,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Uuid
     path: ../OverKizApi/Models/Models.cs
-    startLine: 741
+    startLine: 1868
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: UUID that uniquely identifies this token; required when deleting via <xref href="OverKizApi.OverkizClient.DeleteLocalToken(System.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public string? Uuid { get; init; }
+    content: >-
+      [JsonPropertyName("uuid")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Uuid { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Uuid As String
+      description: UUID that uniquely identifies this token; required when deleting via <xref href="OverKizApi.OverkizClient.DeleteLocalToken(System.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <JsonPropertyName("uuid")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Uuid As String
   overload: OverKizApi.Models.LocalToken.Uuid*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: uuid
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.LocalToken.Scope
   commentId: P:OverKizApi.Models.LocalToken.Scope
   id: Scope
@@ -190,19 +284,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Scope
     path: ../OverKizApi/Models/Models.cs
-    startLine: 743
+    startLine: 1876
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Access scope granted by this token (e.g. <code>"devmode"</code>).
   example: []
   syntax:
-    content: public string? Scope { get; init; }
+    content: >-
+      [JsonPropertyName("scope")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Scope { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Scope As String
+      description: Access scope granted by this token (e.g. <code>"devmode"</code>).
+    content.vb: >-
+      <JsonPropertyName("scope")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Scope As String
   overload: OverKizApi.Models.LocalToken.Scope*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: scope
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.LocalToken.ExpirationTime
   commentId: P:OverKizApi.Models.LocalToken.ExpirationTime
   id: ExpirationTime
@@ -221,19 +339,52 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ExpirationTime
     path: ../OverKizApi/Models/Models.cs
-    startLine: 745
+    startLine: 1884
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unix epoch millisecond timestamp when this token expires, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if it does not expire.
   example: []
   syntax:
-    content: public long? ExpirationTime { get; init; }
+    content: >-
+      [JsonPropertyName("expirationTime")]
+
+      [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public long? ExpirationTime { get; init; }
     parameters: []
     return:
       type: System.Nullable{System.Int64}
-    content.vb: Public Property ExpirationTime As Long?
+      description: Unix epoch millisecond timestamp when this token expires, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if it does not expire.
+    content.vb: >-
+      <JsonPropertyName("expirationTime")>
+
+      <JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property ExpirationTime As Long?
   overload: OverKizApi.Models.LocalToken.ExpirationTime*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: expirationTime
+  - type: System.Text.Json.Serialization.JsonNumberHandlingAttribute
+    ctor: System.Text.Json.Serialization.JsonNumberHandlingAttribute.#ctor(System.Text.Json.Serialization.JsonNumberHandling)
+    arguments:
+    - type: System.Text.Json.Serialization.JsonNumberHandling
+      value: 1
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 references:
 - uid: OverKizApi.OverkizClient.GenerateLocalToken(System.String)
   commentId: M:OverKizApi.OverkizClient.GenerateLocalToken(System.String)
@@ -333,26 +484,21 @@ references:
   - name: )
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System

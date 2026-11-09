@@ -24,7 +24,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Execution
     path: ../OverKizApi/Models/Models.cs
-    startLine: 660
+    startLine: 1623
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
@@ -63,19 +63,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Id
     path: ../OverKizApi/Models/Models.cs
-    startLine: 663
+    startLine: 1627
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Unique execution ID (also called <code>execId</code> in the API).
   example: []
   syntax:
-    content: public string? Id { get; init; }
+    content: >-
+      [JsonPropertyName("id")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Id { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Id As String
+      description: Unique execution ID (also called <code>execId</code> in the API).
+    content.vb: >-
+      <JsonPropertyName("id")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Id As String
   overload: OverKizApi.Models.Execution.Id*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: id
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Execution.Description
   commentId: P:OverKizApi.Models.Execution.Description
   id: Description
@@ -94,19 +118,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Description
     path: ../OverKizApi/Models/Models.cs
-    startLine: 665
+    startLine: 1635
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Human-readable description or label for the execution.
   example: []
   syntax:
-    content: public string? Description { get; init; }
+    content: >-
+      [JsonPropertyName("description")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Description { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Description As String
+      description: Human-readable description or label for the execution.
+    content.vb: >-
+      <JsonPropertyName("description")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Description As String
   overload: OverKizApi.Models.Execution.Description*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: description
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Execution.Owner
   commentId: P:OverKizApi.Models.Execution.Owner
   id: Owner
@@ -125,19 +173,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: Owner
     path: ../OverKizApi/Models/Models.cs
-    startLine: 667
+    startLine: 1643
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Owner key identifying who triggered the execution.
   example: []
   syntax:
-    content: public string? Owner { get; init; }
+    content: >-
+      [JsonPropertyName("owner")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? Owner { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Owner As String
+      description: Owner key identifying who triggered the execution.
+    content.vb: >-
+      <JsonPropertyName("owner")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property Owner As String
   overload: OverKizApi.Models.Execution.Owner*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: owner
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Execution.State
   commentId: P:OverKizApi.Models.Execution.State
   id: State
@@ -156,19 +228,43 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: State
     path: ../OverKizApi/Models/Models.cs
-    startLine: 669
+    startLine: 1651
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
   summary: Current state string of the execution (see <xref href="OverKizApi.Enums.ExecutionState" data-throw-if-not-resolved="false"></xref>).
   example: []
   syntax:
-    content: public string? State { get; init; }
+    content: >-
+      [JsonPropertyName("state")]
+
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string? State { get; init; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property State As String
+      description: Current state string of the execution (see <xref href="OverKizApi.Enums.ExecutionState" data-throw-if-not-resolved="false"></xref>).
+    content.vb: >-
+      <JsonPropertyName("state")>
+
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property State As String
   overload: OverKizApi.Models.Execution.State*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: state
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
 - uid: OverKizApi.Models.Execution.ActionGroup
   commentId: P:OverKizApi.Models.Execution.ActionGroup
   id: ActionGroup
@@ -187,19 +283,32 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ActionGroup
     path: ../OverKizApi/Models/Models.cs
-    startLine: 671
+    startLine: 1659
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Models
-  summary: Raw action group payload as returned by the API.
+  summary: Device actions associated with this execution.
   example: []
   syntax:
-    content: public IReadOnlyList<IDictionary<string, object?>> ActionGroup { get; init; }
+    content: >-
+      [JsonPropertyName("actionGroup")]
+
+      public IReadOnlyList<Action> ActionGroup { get; init; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IDictionary{System.String,System.Object}}
-    content.vb: Public Property ActionGroup As IReadOnlyList(Of IDictionary(Of String, Object))
+      type: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Action}
+      description: Device actions associated with this execution.
+    content.vb: >-
+      <JsonPropertyName("actionGroup")>
+
+      Public Property ActionGroup As IReadOnlyList(Of Action)
   overload: OverKizApi.Models.Execution.ActionGroup*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: actionGroup
 references:
 - uid: OverKizApi.Models.HistoryExecution
   commentId: T:OverKizApi.Models.HistoryExecution
@@ -209,26 +318,21 @@ references:
   fullName: OverKizApi.Models.HistoryExecution
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -486,65 +590,47 @@ references:
   fullName: OverKizApi.Models.Execution.State
 - uid: OverKizApi.Enums
   commentId: N:OverKizApi.Enums
-  href: OverKizApi.html
   name: OverKizApi.Enums
   nameWithType: OverKizApi.Enums
   fullName: OverKizApi.Enums
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Enums
     name: Enums
-    href: OverKizApi.Enums.html
 - uid: OverKizApi.Models.Execution.ActionGroup*
   commentId: Overload:OverKizApi.Models.Execution.ActionGroup
   href: OverKizApi.Models.Execution.html#OverKizApi_Models_Execution_ActionGroup
   name: ActionGroup
   nameWithType: Execution.ActionGroup
   fullName: OverKizApi.Models.Execution.ActionGroup
-- uid: System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IDictionary{System.String,System.Object}}
-  commentId: T:System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IDictionary{System.String,System.Object}}
+- uid: System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Action}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OverKizApi.Models.Action}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.IReadOnlyList`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
-  name: IReadOnlyList<IDictionary<string, object>>
-  nameWithType: IReadOnlyList<IDictionary<string, object>>
-  fullName: System.Collections.Generic.IReadOnlyList<System.Collections.Generic.IDictionary<string, object>>
-  nameWithType.vb: IReadOnlyList(Of IDictionary(Of String, Object))
-  fullName.vb: System.Collections.Generic.IReadOnlyList(Of System.Collections.Generic.IDictionary(Of String, Object))
-  name.vb: IReadOnlyList(Of IDictionary(Of String, Object))
+  name: IReadOnlyList<Action>
+  nameWithType: IReadOnlyList<Action>
+  fullName: System.Collections.Generic.IReadOnlyList<OverKizApi.Models.Action>
+  nameWithType.vb: IReadOnlyList(Of Action)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OverKizApi.Models.Action)
+  name.vb: IReadOnlyList(Of Action)
   spec.csharp:
   - uid: System.Collections.Generic.IReadOnlyList`1
     name: IReadOnlyList
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   - name: <
-  - uid: System.Collections.Generic.IDictionary`2
-    name: IDictionary
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: '>'
+  - uid: OverKizApi.Models.Action
+    name: Action
+    href: OverKizApi.Models.Action.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.IReadOnlyList`1
@@ -554,24 +640,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.Collections.Generic.IDictionary`2
-    name: IDictionary
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+  - uid: OverKizApi.Models.Action
+    name: Action
+    href: OverKizApi.Models.Action.html
   - name: )
 - uid: System.Collections.Generic.IReadOnlyList`1
   commentId: T:System.Collections.Generic.IReadOnlyList`1

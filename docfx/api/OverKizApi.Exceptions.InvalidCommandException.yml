@@ -20,7 +20,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: InvalidCommandException
     path: ../OverKizApi/Exceptions/OverkizExceptions.cs
-    startLine: 59
+    startLine: 64
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Exceptions
@@ -78,7 +78,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: .ctor
     path: ../OverKizApi/Exceptions/OverkizExceptions.cs
-    startLine: 59
+    startLine: 64
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Exceptions
@@ -109,26 +109,21 @@ references:
   fullName: OverKizApi.Models.Definition
 - uid: OverKizApi.Exceptions
   commentId: N:OverKizApi.Exceptions
-  href: OverKizApi.html
   name: OverKizApi.Exceptions
   nameWithType: OverKizApi.Exceptions
   fullName: OverKizApi.Exceptions
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Exceptions
     name: Exceptions
-    href: OverKizApi.Exceptions.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Exceptions
     name: Exceptions
-    href: OverKizApi.Exceptions.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -531,26 +526,21 @@ references:
   - name: )
 - uid: OverKizApi.Models
   commentId: N:OverKizApi.Models
-  href: OverKizApi.html
   name: OverKizApi.Models
   nameWithType: OverKizApi.Models
   fullName: OverKizApi.Models
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Models
     name: Models
-    href: OverKizApi.Models.html
 - uid: System
   commentId: N:System
   isExternal: true

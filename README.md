@@ -19,6 +19,16 @@ A .NET client library for the **Overkiz** cloud and local REST API, enabling con
 
 ---
 
+## Version 2.2.0
+
+Version 2.2.0 adds Sauter Smart Control and updates Brandt Smart Control authentication to the current middleware cookie/JWT protocol. It also coordinates overlapping calls and safe disposal. See the [release notes](release-notes/v2.2.0.md) and [Smart Control authentication guide](docfx/guides/smart-control.md). Existing local, Somfy, Cozytouch and Rexel paths remain separate. Sauter Smart Control appliances are not Sauter Cozytouch heating gateways.
+
+## Concurrent calls and lifetime
+
+One client supports overlapping API calls. Independent reads can run together. Authentication, token refresh, listener/event operations, cached setup replacement, gateway selection and commands are sequenced so a session change cannot race an older read. `SelectRexelGateway` is synchronous and waits for earlier operations to drain; call it away from a latency-sensitive UI thread. Await `DisposeAsync` before releasing application-owned resources. Disposal rejects new operations, cancels active requests and waits for admitted calls before cleaning up. A late response cannot restore cleared state.
+
+Treat returned mutable models and collections as snapshots: callers must coordinate their own mutations. Supply a dedicated cookie-capable `HttpClient` when injecting transport; the application owns its lifetime and must not change its defaults during use.
+
 ## Supported Gateways / Cloud Servers
 
 | Brand / Server | Auth Method |
@@ -30,7 +40,8 @@ A .NET client library for the **Overkiz** cloud and local REST API, enabling con
 | Hitachi Hi Kumo (Asia, Europe, Oceania) | Username / Password |
 | Nexity Eugénie | Not implemented; requires AWS Cognito SRP |
 | Flexom by Bouygues | Username / Password |
-| Brandt Smart Control | Username / Password |
+| Brandt Smart Control | Middleware cookie session → JWT → Overkiz login |
+| Sauter Smart Control | Same middleware, separate Sauter partner/realm |
 | Rexel Energeasy Connect | External Bearer Token + Gateway Selection |
 | SIMU LiveIn2 | Username / Password |
 | Hexaom HexaConnect | Username / Password |
@@ -180,7 +191,7 @@ var events = await client.FetchEvents(autoRegister: true);
 
 `FetchEvents()` and `FetchEvents(autoRegister: false)` retain the explicit-registration contract: a missing listener raises `NoRegisteredEventListenerException`. With `true`, the client registers a missing listener and allows one recovery attempt after an explicit listener or session rejection. Cloud reauthentication requires stored username/password credentials; local and externally managed Rexel tokens remain the caller's responsibility. Token refresh completes before the fetch URL is constructed. Timeouts, transport failures and service errors are not retried because fetching consumes queued events.
 
-Overlapping event operations share registration and token refresh. Finish outstanding operations before signing in again, switching Rexel gateways or disposing the client. Switching gateways clears the cached setup, devices, gateways and listener; register again or use automatic registration for the selected gateway.
+Overlapping event operations share registration and token refresh. Sign-in and Rexel gateway changes wait for admitted operations; disposal cancels them and waits for them to drain. Await client disposal before disposing a supplied transport. Switching gateways clears the cached setup, devices, gateways and listener; register again or use automatic registration for the selected gateway.
 
 ### Typed state and alias helpers
 

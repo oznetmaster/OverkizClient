@@ -59,4 +59,6 @@ public enum EventName
 	ScenarioExecutionRegistered,
 	/// <summary>A scenario execution transitioned to a new state.</summary>
 	ScenarioExecutionStateChanged,
+	/// <summary>The gateway completed refreshing its OGCP tokens; the wire name is OGCPTokensRefreshCompletedEvent.</summary>
+	OgcpTokensRefreshCompleted,
 	}

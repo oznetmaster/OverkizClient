@@ -13,9 +13,10 @@ public sealed class EventConcurrencyTests
 		using var handler = new BlockingHandler (expiredToken);
 		using var http = new HttpClient (handler);
 		var server = expiredToken ? OverkizConst.SupportedServers[Server.SomfyEurope]
-			: new OverkizServer { Name = "Offline", Endpoint = ScriptedApi.CloudEndpoint, Manufacturer = "Offline" };
+			: new OverkizServer { Name = "Offline", Endpoint = ScriptedApi.CLOUD_ENDPOINT, Manufacturer = "Offline" };
 		var client = new OverkizClient ("synthetic@example.invalid", "synthetic", server, "synthetic", http);
-		if (expiredToken) await client.Login ();
+		if (expiredToken)
+			await client.Login ();
 		Task<IReadOnlyList<EventObject>> first = client.FetchEvents (true);
 		Task<IReadOnlyList<EventObject>>? second = null;
 		try
@@ -73,10 +74,14 @@ public sealed class EventConcurrencyTests
 				FetchedIds.Add (path.Contains ("/one/") ? "one" : "two");
 				return Response ("[]");
 				}
-			if (path.EndsWith ("/unregister", StringComparison.Ordinal)) return Response ("{}");
+			if (path.EndsWith ("/unregister", StringComparison.Ordinal))
+				return Response ("{}");
 			throw new InvalidOperationException ("Unexpected offline request: " + path);
 			}
 		private static HttpResponseMessage Response (string content)
-			=> new (HttpStatusCode.OK) { Content = new StringContent (content, Encoding.UTF8, "application/json") };
+			=> new (HttpStatusCode.OK)
+				{
+				Content = new StringContent (content, Encoding.UTF8, "application/json")
+				};
 		}
 	}

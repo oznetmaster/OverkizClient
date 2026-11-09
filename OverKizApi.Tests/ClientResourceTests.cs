@@ -10,7 +10,7 @@ public sealed class ClientResourceTests
 	public async Task OwnedHttpClient_IsDisposedWithClient ()
 		{
 		var client = new OverkizClient ("synthetic-user", "synthetic-password",
-			 new OverkizServer { Name = "Test", Endpoint = ScriptedApi.CloudEndpoint, Manufacturer = "Test" });
+			 new OverkizServer { Name = "Test", Endpoint = ScriptedApi.CLOUD_ENDPOINT, Manufacturer = "Test" });
 		await client.DisposeAsync ();
 		await client.DisposeAsync ();
 		// HttpClient rejects the call before sending; this test cannot contact the placeholder host.

@@ -6,10 +6,10 @@ namespace OverKizApi.Tests;
 [TestFixture]
 public sealed class AuthenticationTests
 	{
-	private const string SomfyToken = "https://accounts.somfy.com/oauth/oauth/v2/token/jwt";
-	private const string AtlanticToken = "https://apis.groupe-atlantic.com/token";
-	private const string AtlanticJwt = "https://apis.groupe-atlantic.com/magellan/accounts/jwt";
-	private const string TokenResponse = """{"access_token":"new-token","refresh_token":"refresh-token","expires_in":3600}""";
+	private const string SOMFY_TOKEN = "https://accounts.somfy.com/oauth/oauth/v2/token/jwt";
+	private const string ATLANTIC_TOKEN = "https://apis.groupe-atlantic.com/token";
+	private const string ATLANTIC_JWT = "https://apis.groupe-atlantic.com/magellan/accounts/jwt";
+	private const string TOKEN_RESPONSE = """{"access_token":"new-token","refresh_token":"refresh-token","expires_in":3600}""";
 
 	[TestCase (true)]
 	[TestCase (false)]
@@ -62,7 +62,7 @@ public sealed class AuthenticationTests
 	public async Task SomfyLogin_ExchangesFormAndUsesTokenOnApiCalls ()
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope], token: null);
-		api.Expect ("POST", SomfyToken, TokenResponse, inspect: (request, body) =>
+		api.Expect ("POST", SOMFY_TOKEN, TOKEN_RESPONSE, inspect: (request, body) =>
 		{
 			var form = ScriptedApi.Form (body);
 			Assert.That (request.Content!.Headers.ContentType!.MediaType, Is.EqualTo ("application/x-www-form-urlencoded"));
@@ -83,7 +83,7 @@ public sealed class AuthenticationTests
 	public async Task SomfyLogin_MapsTokenFailures (string response, Type exception)
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope]);
-		api.Expect ("POST", SomfyToken, response, HttpStatusCode.BadRequest);
+		api.Expect ("POST", SOMFY_TOKEN, response, HttpStatusCode.BadRequest);
 		await Assert.ThatAsync (() => api.Client.SomfyTahomaGetAccessToken (), Throws.TypeOf (exception));
 		api.Complete ();
 		}
@@ -94,9 +94,9 @@ public sealed class AuthenticationTests
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.SomfyEurope]);
 		api.Expect ("POST", "events/register", "{\"id\":\"old-listener\"}");
 		await api.Client.RegisterEventListener ();
-		api.Expect ("POST", SomfyToken, TokenResponse.Replace ("3600", "0"));
+		api.Expect ("POST", SOMFY_TOKEN, TOKEN_RESPONSE.Replace ("3600", "0"));
 		await api.Client.SomfyTahomaGetAccessToken ();
-		api.Expect ("POST", SomfyToken, TokenResponse.Replace ("new-token", "refreshed-token"), inspect: (_, body) =>
+		api.Expect ("POST", SOMFY_TOKEN, TOKEN_RESPONSE.Replace ("new-token", "refreshed-token"), inspect: (_, body) =>
 		{
 			var form = ScriptedApi.Form (body);
 			Assert.That (form["grant_type"], Is.EqualTo ("refresh_token"));
@@ -132,13 +132,13 @@ public sealed class AuthenticationTests
 	public async Task CozytouchLogin_SendsBasicCredentialsThenJwt (Server server)
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[server], token: null);
-		api.Expect ("POST", AtlanticToken, "{\"access_token\":\"atlantic-token\",\"token_type\":\"Bearer\"}", inspect: (request, body) =>
+		api.Expect ("POST", ATLANTIC_TOKEN, "{\"access_token\":\"atlantic-token\",\"token_type\":\"Bearer\"}", inspect: (request, body) =>
 		{
 			Assert.That (request.Headers.Authorization?.Scheme, Is.EqualTo ("Basic"));
 			Assert.That (request.Headers.Authorization?.Parameter, Is.EqualTo (OverkizConst.COZYTOUCH_CLIENT_ID));
 			Assert.That (ScriptedApi.Form (body)["username"], Is.EqualTo ("GA-PRIVATEPERSON/tester@example.invalid"));
 		});
-		api.Expect ("GET", AtlanticJwt, " \"synthetic-jwt\" ", inspect: (request, _) =>
+		api.Expect ("GET", ATLANTIC_JWT, " \"synthetic-jwt\" ", inspect: (request, _) =>
 			 Assert.That (request.Headers.Authorization!.ToString (), Is.EqualTo ("Bearer atlantic-token")));
 		api.Expect ("POST", "login", "{\"success\":true}", inspect: (_, body) =>
 			 Assert.That (ScriptedApi.Json (body).GetProperty ("jwt").GetString (), Is.EqualTo ("synthetic-jwt")));
@@ -152,7 +152,7 @@ public sealed class AuthenticationTests
 	public async Task CozytouchLogin_MapsTokenFailures (string response, Type exception)
 		{
 		using var api = new ScriptedApi (OverkizConst.SupportedServers[Server.AtlanticCozytouch]);
-		api.Expect ("POST", AtlanticToken, response, HttpStatusCode.BadRequest);
+		api.Expect ("POST", ATLANTIC_TOKEN, response, HttpStatusCode.BadRequest);
 		await Assert.ThatAsync (() => api.Client.CozytouchLogin (), Throws.TypeOf (exception));
 		api.Complete ();
 		}

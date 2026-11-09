@@ -14,19 +14,26 @@ internal sealed class DeviceValueConverter : JsonConverter<object>
 		{
 		switch (reader.TokenType)
 			{
-			case JsonTokenType.Null: return null;
-			case JsonTokenType.True: return true;
-			case JsonTokenType.False: return false;
-			case JsonTokenType.String: return reader.GetString ();
+			case JsonTokenType.Null:
+				return null;
+			case JsonTokenType.True:
+				return true;
+			case JsonTokenType.False:
+				return false;
+			case JsonTokenType.String:
+				return reader.GetString ();
 			case JsonTokenType.Number:
-				if (reader.TryGetInt64 (out long integer)) return integer;
-				if (reader.TryGetDecimal (out decimal number)) return number;
+				if (reader.TryGetInt64 (out long integer))
+					return integer;
+				if (reader.TryGetDecimal (out decimal number))
+					return number;
 				return reader.GetDouble ();
 			case JsonTokenType.StartArray:
 				return JsonSerializer.Deserialize<List<object?>> (ref reader, ValueOptions);
 			case JsonTokenType.StartObject:
 				return JsonSerializer.Deserialize<Dictionary<string, object?>> (ref reader, ValueOptions);
-			default: throw new JsonException ("Unsupported device value.");
+			default:
+				throw new JsonException ("Unsupported device value.");
 			}
 		}
 

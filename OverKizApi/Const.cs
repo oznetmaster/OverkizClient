@@ -2,6 +2,7 @@
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
 using System.Net.Http;
+
 using OverKizApi.Enums;
 using OverKizApi.Models;
 
@@ -98,7 +99,11 @@ public static class OverkizConst
 	/// <returns>A server descriptor pointing to the local gateway.</returns>
 	public static OverkizServer LocalServer (string gatewayIp)
 		=> new ()
-			{ Name = $"Local gateway ({gatewayIp})", Endpoint = LocalEndpoint (gatewayIp), Manufacturer = "Local" };
+			{
+			Name = $"Local gateway ({gatewayIp})",
+			Endpoint = LocalEndpoint (gatewayIp),
+			Manufacturer = "Local"
+			};
 
 	/// <summary>
 	/// Creates an <see cref="HttpClientHandler"/> suitable for connecting to a local Overkiz gateway.
@@ -108,7 +113,9 @@ public static class OverkizConst
 	/// <returns>A caller-owned handler that accepts the local gateway certificate.</returns>
 	public static HttpClientHandler CreateLocalHttpClientHandler ()
 		=> new ()
-			{ ServerCertificateCustomValidationCallback = (_, _, _, _) => true };
+			{
+			ServerCertificateCustomValidationCallback = (_, _, _, _) => true
+			};
 
 	/// <summary>
 	/// The subset of <see cref="Server"/> values whose gateways support the local developer-mode API.
@@ -124,12 +131,18 @@ public static class OverkizConst
 	/// </summary>
 	public static readonly IReadOnlyDictionary<Server, OverkizServer> SupportedServers =
 		new Dictionary<Server, OverkizServer>
-		{
+			{
 			[Server.AtlanticCozytouch] = new OverkizServer
 				{
 				Name = "Atlantic Cozytouch",
 				Endpoint = "https://ha110-1.overkiz.com/enduser-mobile-web/enduserAPI/",
 				Manufacturer = "Atlantic",
+				},
+			[Server.SauterSmartControl] = new OverkizServer
+				{
+				Name = "Sauter Smart Control",
+				Endpoint = "https://ha3-1.overkiz.com/enduser-mobile-web/enduserAPI/",
+				Manufacturer = "Sauter",
 				},
 			[Server.Brandt] = new OverkizServer
 				{
@@ -223,5 +236,5 @@ public static class OverkizConst
 				Endpoint = "https://ha129-1.overkiz.com/enduser-mobile-web/enduserAPI/",
 				Manufacturer = "Decelect",
 				},
-		};
+			};
 	}

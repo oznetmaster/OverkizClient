@@ -20,7 +20,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: ResourceAccessDeniedException
     path: ../OverKizApi/Exceptions/OverkizExceptions.cs
-    startLine: 95
+    startLine: 100
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Exceptions
@@ -80,7 +80,7 @@ items:
       repo: https://github.com/oznetmaster/OverkizClient.git
     id: .ctor
     path: ../OverKizApi/Exceptions/OverkizExceptions.cs
-    startLine: 95
+    startLine: 100
   assemblies:
   - OverKizApi
   namespace: OverKizApi.Exceptions
@@ -101,26 +101,21 @@ items:
 references:
 - uid: OverKizApi.Exceptions
   commentId: N:OverKizApi.Exceptions
-  href: OverKizApi.html
   name: OverKizApi.Exceptions
   nameWithType: OverKizApi.Exceptions
   fullName: OverKizApi.Exceptions
   spec.csharp:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Exceptions
     name: Exceptions
-    href: OverKizApi.Exceptions.html
   spec.vb:
   - uid: OverKizApi
     name: OverKizApi
-    href: OverKizApi.html
   - name: .
   - uid: OverKizApi.Exceptions
     name: Exceptions
-    href: OverKizApi.Exceptions.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
