@@ -4,6 +4,10 @@ Notable changes to OverkizClient are recorded here. Earlier release history is a
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
+## Unreleased
+
+- Future binary library releases include separate portable-PDB symbol packages on GitHub and NuGet, verified against the matching Release DLLs for each framework.
+
 ## [2.2.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.2.0) — 2026-11-09
 
 - Add `Server.SauterSmartControl`, distinct from Sauter Cozytouch, with the Sauter Smart Control middleware partner realm.
