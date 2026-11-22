@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "version": "2.2.1",
+  "completedUtc": "2026-11-22T06:28:06.2515731Z",
+  "sourceBaseCommit": "b5d9415cbb77a43679c9acb7181e085a14389fbf",
+  "sourceFileHashEncoding": "UTF-8 without BOM, LF line endings",
+  "validatedSourceFiles": [
+    {
+      "path": "OverKizApi/Models/Responses.cs",
+      "sha256": "A8FF9B3541C6A181D569F8B6C1A9E5D96298A86D8C472041AD5B031CA13B310A"
+    },
+    {
+      "path": "OverKizApi/OverkizClient.cs",
+      "sha256": "72D50EE11CD4C1E133C6D17F03DD26192469C32FA98FCBAEF077A442E452A1B1"
+    },
+    {
+      "path": "OverKizApi.Tests/ErrorHandlingTests.cs",
+      "sha256": "7A18964EE19C4529C03C682A39E8551F8AB68243928BBD602BC2AE50D3548A61"
+    }
+  ],
+  "workstation": [
+    {
+      "skipped": 0,
+      "configuration": "Debug",
+      "passed": 408,
+      "failed": 0,
+      "framework": "net10.0"
+    },
+    {
+      "skipped": 0,
+      "configuration": "Debug",
+      "passed": 408,
+      "failed": 0,
+      "framework": "net472"
+    }
+  ],
+  "processor": {
+    "failed": 0,
+    "temporaryPackageRemoved": true,
+    "configuration": "Debug",
+    "leaseReleased": true,
+    "temporaryHostRemoved": true,
+    "framework": "net472",
+    "scope": "Entire offline client suite in the shared merged test host, with simulated protocol failures",
+    "testReportSha256": "5B82136AED29C807AEFBDB63E3963ED17B08C257F631B9E3212370BFBE7EC302",
+    "runtime": "Crestron processor Mono",
+    "passed": 408,
+    "skipped": 0
+  },
+  "publicationChanges": "Version metadata and release documentation were added after these tests."
+}

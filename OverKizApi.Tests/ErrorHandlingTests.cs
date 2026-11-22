@@ -59,6 +59,20 @@ public sealed class ErrorHandlingTests
 		api.Complete ();
 		}
 
+	[TestCase ("Quota exceeded", "Quota exceeded")]
+	[TestCase (null, "Too many requests.")]
+	public async Task CloudQuotaErrorCode_DoesNotDependOnServerMessage (string? message, string expectedMessage)
+		{
+		using var api = new ScriptedApi ();
+		var payload = new Dictionary<string, string> { ["errorCode"] = "QUOTA_EXCEEDED" };
+		if (message is not null)
+			payload["error"] = message;
+		api.Expect ("GET", "setup/devices", JsonSerializer.Serialize (payload), HttpStatusCode.BadRequest);
+		await Assert.ThatAsync (() => api.Client.GetDevices (),
+			Throws.TypeOf<TooManyRequestsException> ().With.Message.EqualTo (expectedMessage));
+		api.Complete ();
+		}
+
 	[TestCase (503, "Maintenance window", typeof (MaintenanceException))]
 	[TestCase (503, "unavailable", typeof (ServiceUnavailableException))]
 	[TestCase (429, "<html>rate limited</html>", typeof (TooManyRequestsException))]

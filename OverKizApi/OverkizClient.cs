@@ -1256,8 +1256,8 @@ public sealed partial class OverkizClient : IAsyncDisposable
 
 		var message = result.Error ?? string.Empty;
 
-		if (message == "Too many requests, try again later")
-			throw new TooManyRequestsException (message);
+		if (result.ErrorCode == "QUOTA_EXCEEDED" || message == "Too many requests, try again later")
+			throw new TooManyRequestsException (string.IsNullOrWhiteSpace (message) ? "Too many requests." : message);
 		if (message == "Bad credentials.")
 			throw new BadCredentialsException (message);
 		if (message == "Your account has been temporarily locked.")

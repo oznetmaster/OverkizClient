@@ -21,16 +21,16 @@
     <Company>Neil Colvin</Company>
     <Product>OverKizApi</Product>
     <Copyright>Copyright ©2026 Neil Colvin</Copyright>
-    <AssemblyVersion>2.2.0</AssemblyVersion>
-    <FileVersion>2.2.0</FileVersion>
+    <AssemblyVersion>2.2.1</AssemblyVersion>
+    <FileVersion>2.2.1</FileVersion>
 
     <!-- NuGet package metadata -->
     <PackageId>OverkizClient</PackageId>
-    <Version>2.2.0</Version>
+    <Version>2.2.1</Version>
     <Authors>Neil Colvin</Authors>
     <Description>A .NET client library for the Overkiz cloud and local REST API, enabling control and monitoring of Somfy, Atlantic Cozytouch, Hitachi Hi Kumo, and other Overkiz-compatible smart-home gateways and devices. Supports both cloud (OAuth2/cookie) and local (bearer token) connection modes, device discovery, state polling, command execution, and real-time event streaming.</Description>
     <PackageTags>overkiz;somfy;tahoma;smarthome;iot;rest;api;crestron</PackageTags>
-    <PackageReleaseNotes>Add Sauter Smart Control and current Brandt middleware cookie/JWT authentication, typed errors, OGCP event and dynamic widgets. Support overlapping reads with coordinated authentication, listener, gateway, cache and command operations; prevent late publication after disposal. Preserve enum values and typed state/attribute data.</PackageReleaseNotes>
+    <PackageReleaseNotes>Recognize QUOTA_EXCEEDED as TooManyRequestsException even when the cloud response changes or omits its message. Keep the existing message fallback and HTTP 429 handling.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/oznetmaster/OverkizClient</RepositoryUrl>

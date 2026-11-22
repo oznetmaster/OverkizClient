@@ -128,6 +128,12 @@ internal sealed class LocalTokenActivationResponse
 /// <summary>Overkiz error envelope used by the exception mapping layer.</summary>
 internal sealed class ApiErrorResponse
 	{
+	[JsonPropertyName ("errorCode")]
+	public string? ErrorCode
+		{
+		get; init;
+		}
+
 	[JsonPropertyName ("error")]
 	public string? Error
 		{

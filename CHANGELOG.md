@@ -4,9 +4,12 @@ Notable changes to OverkizClient are recorded here. Earlier release history is a
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
-## Unreleased
+## [2.2.1](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.2.1) — 2026-11-22
 
-- Future binary library releases include separate portable-PDB symbol packages on GitHub and NuGet, verified against the matching Release DLLs for each framework.
+- Map the cloud `QUOTA_EXCEEDED` error code to `TooManyRequestsException` even if the server changes or omits its message. Preserve the existing message-based fallback and HTTP 429 handling.
+- Publish separate portable PDB symbol packages on GitHub and NuGet, verified against the matching Release DLLs for each framework.
+
+See the [release notes](release-notes/v2.2.1.md).
 
 ## [2.2.0](https://github.com/oznetmaster/OverkizClient/releases/tag/v2.2.0) — 2026-11-09
 
